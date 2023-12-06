@@ -1,0 +1,48 @@
+.banner-contairner{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .banner-logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .img{
+            width: 100px;
+        }
+        .first{
+            color: #b34d22;
+            margin: 0 5px;
+            font-size: 3rem;
+        }
+        .last{
+            color: #fefbea;
+            font-size: 3rem;
+            margin: 0 5px;
+        }
+    }
+    .banner-page{
+        text-align: center;
+        color: #fefbea;
+        
+        .name{
+            text-transform: uppercase;
+            font-size: 4.4rem;
+            color: #fefbea;
+            margin: 10px 0;
+        }
+        .page{
+            text-decoration: none;
+            margin: 0 10px;
+            color: #fefbea;
+            text-transform: capitalize;
+            font-size: 1.8rem;
+            &:hover{
+                color: #f4b323;
+            }
+        }
+    }
+}
