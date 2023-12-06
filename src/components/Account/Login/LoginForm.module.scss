@@ -116,7 +116,7 @@
                     font-weight: 500;
                 }
             }
-            .login-wrapper-error-mess.show{
+            .login-wrapper-error-mess.show {
                 height: 20px;
             }
             .login-wrapper-btn {
@@ -174,10 +174,11 @@
             }
         }
     }
-    .wrapper.errorEmail{
+    .wrapper.errorEmail,
+    .wrapper.errorPass {
         height: 425px;
     }
-    .wrapper.errorEmail.errorPass{
+    .wrapper.errorEmail.errorPass {
         height: 450px;
     }
 }

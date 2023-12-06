@@ -1,40 +1,51 @@
 import classNames from 'classnames/bind';
 import styles from './LoginForm.module.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
-import axios from 'axios';
+import { loginUser } from '@/service/UserService';
 
 const cx = classNames.bind(styles);
 
 const LoginForm = () => {
-    // useEffect(()=>{
-    //     axios.get("http://localhost:8000/api/auth/profile").then(data =>{
-    //         console.log("check data:", data)
-    //     })
-    // },[]);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorHeightEmail, setErrorHeightEmail] = useState(false);
     const [errorHeightPassword, setErrorHeightPassword] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
     const [errorPassword, setErrorPassword] = useState(false);
-    const [messErrorEmail, setMessErrorEmail] = useState("");
-    const [messErrorPassword, setMessErrorPassword] = useState("");
+    const [messErrorEmail, setMessErrorEmail] = useState('');
+    const [messErrorPassword, setMessErrorPassword] = useState('');
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         if (!email) {
             setErrorEmail(true);
-            setMessErrorEmail("Please enter your email")
+            setMessErrorEmail('Please enter your email');
             setErrorHeightEmail(true);
+        }else{
+            setErrorEmail(false);
+            setErrorHeightEmail(false);
+            setMessErrorEmail("");
         }
         if (!password) {
             setErrorPassword(true);
-            setMessErrorPassword("Please enter your password")
+            setMessErrorPassword('Please enter your password');
             setErrorHeightPassword(true);
+        }else{
+            setErrorPassword(false);
+            setErrorHeightPassword(false);
+            setMessErrorPassword("");
         }
-        
+        if (email && password) {
+            let res = await loginUser(email, password);
+
+            if (res && res.expires_in === 3600) {
+                console.log('Đăng nhập thành công');
+            } else {
+                console.log('Đăng nhập thất bại');
+            }
+        }
     };
 
     return (
