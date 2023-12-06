@@ -77,7 +77,7 @@
                         font-size: 2rem;
                         line-height: 2rem;
                     }
-                    .login-icon-pass{
+                    .login-icon-pass {
                         color: var(--brown-color);
                         width: 30px;
                         height: 30px;
@@ -103,6 +103,21 @@
                         }
                     }
                 }
+            }
+            .login-wrapper-input.error {
+                background-color: rgb(255, 120, 120);
+            }
+            .login-wrapper-error-mess {
+                width: 80%;
+                margin-top: 5px;
+                .login-error-mess {
+                    color: rgb(243, 54, 54);
+                    font-size: 1.6rem;
+                    font-weight: 500;
+                }
+            }
+            .login-wrapper-error-mess.show{
+                height: 20px;
             }
             .login-wrapper-btn {
                 width: 100%;
@@ -158,5 +173,11 @@
                 }
             }
         }
+    }
+    .wrapper.errorEmail{
+        height: 425px;
+    }
+    .wrapper.errorEmail.errorPass{
+        height: 450px;
     }
 }
