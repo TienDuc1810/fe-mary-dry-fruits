@@ -1,6 +1,8 @@
+import SlideIndex from "@/components/Layout/Slide/SlideIndex";
+
 const HomePage = () => {
     return ( 
-        <h1>HomePage</h1>
+        <SlideIndex/>
      );
 }
 
