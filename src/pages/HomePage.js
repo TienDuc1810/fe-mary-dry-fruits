@@ -1,6 +1,10 @@
+import Store from "./product/Store";
+
 const HomePage = () => {
     return ( 
-        <h1>HomePage</h1>
+        <div>
+            <Store></Store>
+        </div>
      );
 }
 
