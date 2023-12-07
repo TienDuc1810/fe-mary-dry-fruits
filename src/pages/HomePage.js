@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Store from "./product/Store";
 
 const HomePage = () => {
@@ -5,6 +6,13 @@ const HomePage = () => {
         <div>
             <Store></Store>
         </div>
+=======
+import SlideIndex from "@/components/Layout/Slide/SlideIndex";
+
+const HomePage = () => {
+    return ( 
+        <SlideIndex/>
+>>>>>>> 36a4511f7fef34d3dcab645cd10abf7888465b84
      );
 }
 
