@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './LoginForm.module.scss';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -17,37 +18,48 @@ const LoginForm = () => {
     const [errorPassword, setErrorPassword] = useState(false);
     const [messErrorEmail, setMessErrorEmail] = useState('');
     const [messErrorPassword, setMessErrorPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         if (!email) {
             setErrorEmail(true);
             setMessErrorEmail('Please enter your email');
             setErrorHeightEmail(true);
-        }else{
+        } else {
             setErrorEmail(false);
             setErrorHeightEmail(false);
-            setMessErrorEmail("");
+            setMessErrorEmail('');
         }
         if (!password) {
             setErrorPassword(true);
             setMessErrorPassword('Please enter your password');
             setErrorHeightPassword(true);
-        }else{
+        } else {
             setErrorPassword(false);
             setErrorHeightPassword(false);
-            setMessErrorPassword("");
+            setMessErrorPassword('');
         }
         if (email && password) {
             let res = await loginUser(email, password);
 
             if (res && res.expires_in === 3600) {
                 console.log('Đăng nhập thành công');
+                let token = res.access_token;
+                localStorage.setItem('jwt', token);
+                navigate('/user');
             } else {
                 console.log('Đăng nhập thất bại');
             }
         }
     };
 
+    const handlePressEnter = (e) => {
+        if (e.key === 'Enter') {
+            handleLogin();
+        }
+    };
+
+   
     return (
         <div className={cx('container')}>
             <div className={cx('wrapper', { errorEmail: errorHeightEmail }, { errorPass: errorHeightPassword })}>
@@ -97,6 +109,7 @@ const LoginForm = () => {
                                 type="password"
                                 placeholder="Password"
                                 className={cx('login-input')}
+                                onKeyUp={(e) => handlePressEnter(e)}
                             />
                             <span>
                                 <FontAwesomeIcon

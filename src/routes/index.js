@@ -3,6 +3,7 @@ import ContactPage from '@/pages/ContactPage';
 import SiteMapPage from '@/pages/SiteMapPage';
 import LoginPage from '@/pages/account/LoginPage';
 import RegisterPage from '@/pages/account/RegisterPage';
+import UserPage from '@/pages/UserPage';
 
 const routes = [
     {path: '/',component: HomePage },
@@ -11,5 +12,9 @@ const routes = [
     {path: '/account/login',component: LoginPage },
     {path: '/account/register',component: RegisterPage },
 ]
+let privateRoutes = [
+    { path: '/user', component: UserPage },
+];
 
-export default routes;
+
+export { routes, privateRoutes };
