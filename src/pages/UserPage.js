@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '@/service/UserService';
+import { toast,Flip } from 'react-toastify';
 
 function UserPage() {
     const navigate = useNavigate();
@@ -8,16 +9,22 @@ function UserPage() {
     if (!token) {
         navigate('/account/login');
     }
-    
+
     const handleLogout = async () => {
         let res = await logoutUser();
 
-        if (res && res.success === true) {
-            console.log('Đăng xuất thành công');
+        if (res && res.success === true  && token) {
             navigate('/account/login');
             localStorage.removeItem('jwt');
+            toast.success("Đăng xuất thành công", {
+                transition: Flip,
+                autoClose: 2000,
+              });
         } else {
-            console.log('Đăng xuất thất bại');
+            toast.error("Đăng xuất thất bại", {
+                transition: Flip,
+                autoClose: 2000,
+              });
         }
     };
     return (

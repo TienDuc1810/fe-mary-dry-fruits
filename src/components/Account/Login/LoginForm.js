@@ -3,6 +3,9 @@ import styles from './LoginForm.module.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { loginUser } from '@/service/UserService';
@@ -25,7 +28,8 @@ const LoginForm = () => {
             setErrorEmail(true);
             setMessErrorEmail('Please enter your email');
             setErrorHeightEmail(true);
-        } else {
+        } 
+        else {
             setErrorEmail(false);
             setErrorHeightEmail(false);
             setMessErrorEmail('');
@@ -39,16 +43,33 @@ const LoginForm = () => {
             setErrorHeightPassword(false);
             setMessErrorPassword('');
         }
-        if (email && password) {
-            let res = await loginUser(email, password);
 
-            if (res && res.expires_in === 3600) {
-                console.log('Đăng nhập thành công');
-                let token = res.access_token;
-                localStorage.setItem('jwt', token);
-                navigate('/user');
+        if (email && password) {
+            let re = /\S+@\S+\.\S+/;
+            if (!re.test(email)) {
+                setErrorEmail(true);
+                setMessErrorEmail('Please enter a vaild email address');
+                setErrorHeightEmail(true);
             } else {
-                console.log('Đăng nhập thất bại');
+                setErrorEmail(false);
+                setMessErrorEmail('');
+                setErrorHeightEmail(false);
+                let res = await loginUser(email, password);
+
+                if (res && res.expires_in === 3600) {
+                    toast.success('Đăng nhập thành công', {
+                        transition: Flip,
+                        autoClose: 2000,
+                    });
+                    let token = res.access_token;
+                    localStorage.setItem('jwt', token);
+                    navigate('/user');
+                } else {
+                    toast.error('Sai thông tin đăng nhập', {
+                        transition: Flip,
+                        autoClose: 2000,
+                    });
+                }
             }
         }
     };
@@ -59,7 +80,6 @@ const LoginForm = () => {
         }
     };
 
-   
     return (
         <div className={cx('container')}>
             <div className={cx('wrapper', { errorEmail: errorHeightEmail }, { errorPass: errorHeightPassword })}>
