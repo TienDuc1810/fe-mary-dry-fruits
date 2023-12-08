@@ -119,9 +119,9 @@ const Detail = (props) => {
                             Enquiry about product?
                         </Link>
                     </div>
-                    <h3>Related products</h3>
                 </div>
             </div>
+            <h3>Related products</h3>
         </div>
     );
 };
