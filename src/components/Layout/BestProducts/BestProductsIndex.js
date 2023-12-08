@@ -58,19 +58,19 @@ function BestProducts() {
                                     <div className={cx('product-home-star')}>
                                         <ul className={cx('product-home-outner-star')}>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <Star className={cx('no-check')}/>
+                                                <Star className={cx('no-check')} />
                                             </li>
                                         </ul>
                                     </div>
@@ -102,19 +102,19 @@ function BestProducts() {
                                     <div className={cx('product-home-star')}>
                                         <ul className={cx('product-home-outner-star')}>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <Star className={cx('no-check')}/>
+                                                <Star className={cx('no-check')} />
                                             </li>
                                         </ul>
                                     </div>
@@ -146,19 +146,19 @@ function BestProducts() {
                                     <div className={cx('product-home-star')}>
                                         <ul className={cx('product-home-outner-star')}>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <Star className={cx('no-check')}/>
+                                                <Star className={cx('no-check')} />
                                             </li>
                                         </ul>
                                     </div>
@@ -190,19 +190,19 @@ function BestProducts() {
                                     <div className={cx('product-home-star')}>
                                         <ul className={cx('product-home-outner-star')}>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <Star className={cx('no-check')}/>
+                                                <Star className={cx('no-check')} />
                                             </li>
                                         </ul>
                                     </div>
@@ -234,19 +234,19 @@ function BestProducts() {
                                     <div className={cx('product-home-star')}>
                                         <ul className={cx('product-home-outner-star')}>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <Star className={cx('no-check')}/>
+                                                <Star className={cx('no-check')} />
                                             </li>
                                         </ul>
                                     </div>
@@ -278,30 +278,28 @@ function BestProducts() {
                                     <div className={cx('product-home-star')}>
                                         <ul className={cx('product-home-outner-star')}>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <StarCheck className={cx('check')}/>
+                                                <StarCheck className={cx('check')} />
                                             </li>
                                             <li className={cx('product-home-star-image')}>
-                                                <Star className={cx('no-check')}/>
+                                                <Star className={cx('no-check')} />
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
-                           
-                           
                         </ul>
-                        <div className={cx('')}>
-                            <button value={'<'} className={cx('')}></button>
-                            <button value={'>'} className={cx('')}></button>
+                        <div className={cx('product-home-directional')}>
+                            <button className={cx('product-home-back')}></button>
+                            <button className={cx('product-home-next')}></button>
                         </div>
                     </div>
                 </div>
