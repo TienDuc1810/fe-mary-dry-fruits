@@ -1,5 +1,6 @@
 .detail-contairner {
     .detail-content {
+        margin: 0 10px;
         display: flex;
         justify-content: space-between;
         .image {
@@ -8,7 +9,7 @@
             flex-direction: column;
             align-items: center;
             img {
-                width: 200px;
+                width: 300px;
             }
             .image-mul {
                 display: flex;
@@ -16,10 +17,157 @@
                 img {
                     width: 100px;
                 }
+                .image {
+                    &:hover {
+                        border: 2px solid #9f4103;
+                        margin-right: 2px;
+                    }
+                }
             }
         }
         .tab {
             width: 600px;
+            margin-top: 20px;
+            .title {
+                color: #9f4103;
+                font-size: 4.2rem;
+                margin: 10px 0;
+                font-family: 'Spicy Rice', serif;
+                letter-spacing: 1px;
+            }
+            .img-mul {
+                margin: 10px 0;
+
+                img {
+                    width: 30px;
+                }
+            }
+            .dis {
+                letter-spacing: 0.3px;
+                line-height: 30px;
+                margin: 10px 0;
+            }
+            .price {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                margin: 20px 0;
+                h6 {
+                    font-size: 20px;
+                    margin-right: 50px;
+                    color: #9f4103;
+                }
+                span {
+                    font-size: 28px;
+                    color: #9f4103;
+                }
+                .gram {
+                    font-size: 24px;
+                    color: #9f4103;
+                    padding: 8px 14px;
+                    border: 1px solid #9f4103;
+                    line-height: 26px;
+                }
+                button {
+                    color: #9f4103;
+                    border: 1px solid #9f4103;
+                    background-color: white;
+                    padding: 0 10px;
+                }
+                .plus {
+                    display: flex;
+                }
+                p {
+                    color: #9f4103;
+                    padding: 10px;
+                    border: 1px solid #9f4103;
+                }
+            }
+            .add-cart {
+                margin: 10px 0;
+                .add {
+                    padding: 14px 20px;
+                    border-radius: 20px;
+                    background-color: white;
+                    border: 2px solid #9f4103;
+                    margin: 14px 15px 10px 0;
+
+                    &:hover {
+                        background-color: #f4b323;
+                        border: 2px solid #f4b323;
+                    }
+                }
+            }
+            .share {
+                display: flex;
+                align-items: center;
+                padding-top: 10px;
+                h6 {
+                    font-size: 14px;
+                    color: #9f4103;
+                    font-family: 'Spicy Rice', serif;
+                    letter-spacing: 1px;
+                }
+                img {
+                    width: 20px;
+                    margin-left: 4px;
+                }
+            }
+        }
+    }
+    .detail-discription {
+        margin: 10px 10px;
+
+        .discription-btn {
+            .btn {
+                margin-right: 4px;
+                padding: 10px 25px;
+                background-color: #f4b323;
+                border: 2px solid #9f4103;
+                &:hover {
+                    background-color: white;
+                }
+            }
+        }
+        .discription-content {
+            padding: 10px;
+            border: 1px solid gray;
+            p {
+                line-height: 25px;
+                padding: 15px 30px;
+            }
+            h4 {
+                padding: 0 30px 10px 30px;
+            }
+        }
+        .search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            img {
+                width: 40px;
+            }
+            .link {
+                font-size: 24px;
+                color: black;
+                text-decoration: underline;
+                margin-left: 10px;
+                font-weight: 500;
+
+                &:hover {
+                    color: #9f4103;
+                }
+            }
+        }
+        h3 {
+            text-align: center;
+            color: #9f4103;
+            font-size: 26px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-family: 'Spicy Rice', serif;
+            letter-spacing: 1px;
         }
     }
 }
