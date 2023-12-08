@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './SlideIndex.module.scss';
-import slide_image from '@/assets/images';
+import images from '@/assets/images';
 
 const cx = classNames.bind(styles);
 
@@ -16,7 +16,7 @@ const SlideIndex = () => {
                 <input type="radio" className={cx('slider-btn')} name="radio-btn" id="radio5" />
 
                 <div className={cx('slider-image')}>
-                    <img src={slide_image.slider_1} alt="slide_image_1" />
+                    <img src={images.slider_1} alt="slide_image_1" />
                     <div className={cx('slider-title')}>
                         <h2 className={cx('slider-text')}>The choice of chefs</h2>
                         <p className={cx('slider-text-sale')}>15% OFF ON SPICES</p>
