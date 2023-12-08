@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import styles from './Header.module.scss'
+import styles from './HeaderIndex.module.scss'
 import backGround from '../../../Images/banner.webp'
 import Banner from "../Banner/Banner";
 

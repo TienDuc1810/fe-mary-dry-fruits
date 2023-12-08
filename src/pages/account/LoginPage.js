@@ -1,14 +1,14 @@
 import LoginForm from '@/components/Account/Login/LoginForm';
-import Header from '@/components/Layout/Header';
+import Header from '@/components/Layout/Header/HeaderIndex.js';
 
 import Footer from '@/components/Layout/Footer/Footer';
 
 const LoginPage = () => {
     return (
         <div>
-            <Header></Header>
+            <Header/>
             <LoginForm />
-            <Footer></Footer>
+            <Footer/>
         </div>
     );
 };
