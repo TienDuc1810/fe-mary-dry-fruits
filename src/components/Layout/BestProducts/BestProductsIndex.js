@@ -33,6 +33,10 @@ function BestProducts() {
                     <div className={cx('product-home-container')}>
                         <ul className={cx('product-home-wrapper')}>
                             <li className={cx('product-home-main')}>
+                                <div className={cx('product-home-border-line-1')}></div>
+                                <div className={cx('product-home-border-line-2')}></div>
+                                <div className={cx('product-home-border-line-3')}></div>
+                                <div className={cx('product-home-border-line-4')}></div>
                                 <div className={cx('product-home-image')}>
                                     <a href="/">
                                         <img
@@ -73,6 +77,10 @@ function BestProducts() {
                                 </div>
                             </li>
                             <li className={cx('product-home-main')}>
+                                <div className={cx('product-home-border-line-1')}></div>
+                                <div className={cx('product-home-border-line-2')}></div>
+                                <div className={cx('product-home-border-line-3')}></div>
+                                <div className={cx('product-home-border-line-4')}></div>
                                 <div className={cx('product-home-image')}>
                                     <a href="/">
                                         <img
@@ -113,6 +121,10 @@ function BestProducts() {
                                 </div>
                             </li>
                             <li className={cx('product-home-main')}>
+                                <div className={cx('product-home-border-line-1')}></div>
+                                <div className={cx('product-home-border-line-2')}></div>
+                                <div className={cx('product-home-border-line-3')}></div>
+                                <div className={cx('product-home-border-line-4')}></div>
                                 <div className={cx('product-home-image')}>
                                     <a href="/">
                                         <img
@@ -153,6 +165,10 @@ function BestProducts() {
                                 </div>
                             </li>
                             <li className={cx('product-home-main')}>
+                                <div className={cx('product-home-border-line-1')}></div>
+                                <div className={cx('product-home-border-line-2')}></div>
+                                <div className={cx('product-home-border-line-3')}></div>
+                                <div className={cx('product-home-border-line-4')}></div>
                                 <div className={cx('product-home-image')}>
                                     <a href="/">
                                         <img
@@ -193,6 +209,10 @@ function BestProducts() {
                                 </div>
                             </li>
                             <li className={cx('product-home-main')}>
+                                <div className={cx('product-home-border-line-1')}></div>
+                                <div className={cx('product-home-border-line-2')}></div>
+                                <div className={cx('product-home-border-line-3')}></div>
+                                <div className={cx('product-home-border-line-4')}></div>
                                 <div className={cx('product-home-image')}>
                                     <a href="/">
                                         <img
@@ -233,6 +253,10 @@ function BestProducts() {
                                 </div>
                             </li>
                             <li className={cx('product-home-main')}>
+                                <div className={cx('product-home-border-line-1')}></div>
+                                <div className={cx('product-home-border-line-2')}></div>
+                                <div className={cx('product-home-border-line-3')}></div>
+                                <div className={cx('product-home-border-line-4')}></div>
                                 <div className={cx('product-home-image')}>
                                     <a href="/">
                                         <img
@@ -272,6 +296,8 @@ function BestProducts() {
                                     </div>
                                 </div>
                             </li>
+                           
+                           
                         </ul>
                         <div className={cx('')}>
                             <button value={'<'} className={cx('')}></button>
