@@ -10,7 +10,9 @@ const ParallaxBanner = () => {
         <div className={cx('container')}>
             <div className={cx('parallax-banner-container')}>
                 <div className={cx('parallax-banner-image')}></div>
-                <div className={cx('parallax-banner__outner')}>
+            </div>
+            <div className={cx('parallax-banner__outner')}>
+                <div className={cx('parallax-banner__wrapper')}>
                     <div className={cx('parallax-banner__title')}>Healthy Herbs</div>
                     <div className={cx('parallax-banner__detail')}>
                         <span>Get 10% off</span>

@@ -1,27 +1,29 @@
 //CSS ParallaxBanner
 .parallax-banner-container {
     position: relative;
-    width: 100%;
-    height: 700px;
     overflow: hidden;
-
+    
     .parallax-banner-image {
         position: fixed;
-        right: 0;
-        bottom: 0;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 90%;
+        height: 100%;
         background-image: url('@/../../../../../assets/images/banner_sale.jpg');
         background-size: cover;
         background-position: center;
         transform: translateZ(0);
         z-index: -1;
+       
     }
+}
+.parallax-banner__outner {
+    position: relative;
+    top: 0;
+    left: 0;
 
-    .parallax-banner__outner {
-        position: absolute;
-        top: 170px;
-        left: 220px;
+    .parallax-banner__wrapper{
+        margin: 215px;
 
         .parallax-banner__title {
             margin-bottom: 30px;
@@ -30,7 +32,7 @@
             line-height: 2.7rem;
             font-weight: 400;
         }
-
+    
         .parallax-banner__detail {
             font-size: 5rem;
             font-family: var(--font-special);
@@ -41,7 +43,7 @@
             line-height: 6rem;
             letter-spacing: 0.25rem;
         }
-
+    
         .parallax-banner__text {
             max-width: 700px;
             margin-bottom: 30px;
@@ -50,9 +52,11 @@
             line-height: 2.7rem;
             font-weight: 400;
         }
-
+    
         .parallax-banner__btn {
             display: flex;
+            margin-left: -15px;
+            padding-top: 30px;
         }
     }
 }
