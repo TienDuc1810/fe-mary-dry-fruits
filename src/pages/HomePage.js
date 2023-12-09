@@ -1,11 +1,15 @@
-import Store from './product/Store';
+import SlideIndex from '@/components/Layout/Slide/SlideIndex';
+import BestProducts from '@/components/Layout/BestProducts/BestProductsIndex';
 
 const HomePage = () => {
     return (
-        <div>
-            <Store></Store>
-        </div>
+        <>
+            <SlideIndex />
+            <BestProducts />
+        </>
     );
 };
+
+
 
 export default HomePage;
