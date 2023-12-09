@@ -1,11 +1,9 @@
-import SlideIndex from '@/components/Layout/Slide/SlideIndex';
-import BestProducts from '@/components/Layout/BestProducts/BestProductsIndex';
+import Main from "@/components/Layout/Main";
 
 const HomePage = () => {
     return (
         <>
-            <SlideIndex />
-            <BestProducts />
+            <Main/>
         </>
     );
 };

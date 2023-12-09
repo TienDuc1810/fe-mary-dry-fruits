@@ -1,33 +1,24 @@
 import classNames from 'classnames/bind';
 import styles from './BestProducts.module.scss';
-import { useState } from 'react';
 import images from '@/assets/images';
 import { Star, StarCheck, StarHalf } from '@/icons';
+import Button from '@/components/Button/ButtonIndex';
+import TitleIndex from '../Title/TitleIndex';
 
 const cx = classNames.bind(styles);
 
-function BestProducts() {
-    const [activeClass, setActiveClass] = useState(true);
-
+function BestProductsIndex() {
     return (
         <div className={cx('container')}>
             <div className={cx('wrapper')}>
-                <div className={cx('product-home-title')}>
-                    <h2 className={cx('product-home-text-heading')}>BestProducts</h2>
-                    <p className={cx('product-home-text-description')}>
-                        Pellentesque massa placerat duis ultricies lacus sit sed.
-                    </p>
-                    <img src={images.star_image} alt="start" />
-                </div>
-
+                <TitleIndex
+                    heading={'BestProducts'}
+                    description={'Pellentesque massa placerat duis ultricies lacus sit sed.'}
+                />
                 <div className={cx('product-home-show')}>
                     <div className={cx('product-home-wapper-btn')}>
-                        <button className={cx('product-home-btn', { active: activeClass })}>
-                            <div className={cx('product-home-text-btn')}>Dried Seeds</div>
-                        </button>
-                        <button className={cx('product-home-btn')}>
-                            <div className={cx('product-home-text-btn')}>Spicy Masalas</div>
-                        </button>
+                        <Button text={'Dried Seeds'} link={'/'} primary blackText active />
+                        <Button text={'Spicy Masas'} link={'/'} primary blackText />
                     </div>
 
                     <div className={cx('product-home-container')}>
@@ -308,4 +299,4 @@ function BestProducts() {
     );
 }
 
-export default BestProducts;
+export default BestProductsIndex;

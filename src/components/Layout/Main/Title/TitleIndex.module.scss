@@ -1,0 +1,29 @@
+.title-container {
+    max-width: 1300px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title-heading {
+        font-size: 4rem;
+        font-family: 'Spicy Rice', serif;
+        color: var(--primary-color);
+        line-height: 4.4rem;
+        letter-spacing: 0.2rem;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .title-description {
+        font-size: 1.6rem;
+        padding-bottom: 7px;
+        color: #292929;
+        line-height: 2.7rem;
+        letter-spacing: 0.1rem;
+        width: 100%;
+        text-align: center;
+    }
+}

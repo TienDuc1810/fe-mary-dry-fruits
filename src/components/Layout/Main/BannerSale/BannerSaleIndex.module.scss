@@ -1,0 +1,125 @@
+//CSS ParallaxBanner
+.parallax-banner-container {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+
+    .parallax-banner-image {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 90%;
+        background-image: url('@/../../../../../assets/images/banner_sale.jpg');
+        background-size: cover;
+        background-position: center;
+        transform: translateZ(0);
+        z-index: -1;
+    }
+
+    .parallax-banner__outner {
+        position: absolute;
+        top: 170px;
+        left: 220px;
+
+        .parallax-banner__title {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--white-color);
+            line-height: 2.7rem;
+            font-weight: 400;
+        }
+
+        .parallax-banner__detail {
+            font-size: 5rem;
+            font-family: var(--font-special);
+            margin-bottom: 30px;
+            color: var(--second-color);
+            display: flex;
+            flex-direction: column;
+            line-height: 6rem;
+            letter-spacing: 0.25rem;
+        }
+
+        .parallax-banner__text {
+            max-width: 700px;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--white-color);
+            line-height: 2.7rem;
+            font-weight: 400;
+        }
+
+        .parallax-banner__btn {
+            display: flex;
+        }
+    }
+}
+
+//NormalBanner
+.normal-banner-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--black-color);
+        opacity: 0.7;
+    }
+
+    .normal-banner__wrapper {
+        position: absolute;
+        z-index: 5;
+        width: 700px;
+        height: 70%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .normal-banner__title {
+            margin-bottom: 20px;
+            font-size: 4rem;
+            color: var(--white-color);
+            line-height: 4.4rem;
+            font-weight: 400;
+            font-family: var(--font-special);
+            letter-spacing: 0.2rem;
+        }
+
+        .normal-banner__detail {
+            color: var(--second-color);
+            display: flex;
+            flex-direction: column;
+
+            .normal-banner__sale {
+                font-size: 7rem;
+                font-weight: 700;
+                letter-spacing: 0.35rem;
+                line-height: 7.7rem;
+                margin-bottom: 35px;
+            }
+
+            .normal-banner__description {
+                font-size: 3rem;
+                font-weight: 400;
+                letter-spacing: 0.9rem;
+                line-height: 2.7rem;
+                margin-bottom: 30px;
+            }
+        }
+
+        .normal-banner__btn {
+            display: flex;
+        }
+    }
+}
