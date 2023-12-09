@@ -11,6 +11,11 @@ const cx = classNames.bind(styles);
 
 const RegisterForm = () => {
     const navigate = useNavigate();
+
+    const [failEmail, setFailEmail] = useState(false);
+
+    const [failPassword, setFailPassword] = useState(false);
+    const [failPasswordCon, setFailPasswordCon] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -18,11 +23,34 @@ const RegisterForm = () => {
     const handleRegister = async () => {
         const data = { email, password };
         console.log(data);
-        try {
-            const res = await axios.post('http://127.0.0.1:8000/api/register', data);
-            navigate('/account/login');
-        } catch (error) {
-            console.error('Registration error:', error);
+
+        if (email.trim() === '') {
+            setFailEmail(true);
+            return;
+        } else {
+            setFailEmail(false);
+            if (email.length >= 30) {
+                setFailEmail(true);
+                return;
+            } else {
+                setFailEmail(false);
+                if (password.trim() === '' || confirmPassword.trim() === '') {
+                    setFailPassword(true);
+                    setFailPasswordCon(true);
+                    return;
+                } else {
+                    setFailPassword(false);
+                    setFailPasswordCon(false);
+                    try {
+                        const res = await axios.post('http://localhost:8000/api/auth/register', data);
+                        setFailPassword(false);
+                        setFailPasswordCon(false);
+                        navigate('/account/login');
+                    } catch (error) {
+                        console.error('Registration error:', error);
+                    }
+                }
+            }
         }
     };
 
@@ -43,7 +71,7 @@ const RegisterForm = () => {
                             <h2 className={cx('register-text')}>Sign Up</h2>
                         </div>
 
-                        <div className={cx('register-wrapper-input')}>
+                        <div className={cx({ fail: failEmail, true: !failEmail }, 'register-wrapper-input')}>
                             {/* Email Input */}
                             <div className={cx('register-outner-input')}>
                                 <span>
@@ -57,13 +85,12 @@ const RegisterForm = () => {
                                     name="email"
                                     placeholder="Email"
                                     className={cx('register-input')}
-                                    value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                         </div>
                         {/* Password Inputs */}
-                        <div className={cx('register-wrapper-input')}>
+                        <div className={cx({ fail: failPassword, true: !failPassword }, 'register-wrapper-input')}>
                             {/* Password Input */}
                             <div className={cx('register-outner-input')}>
                                 <span>
@@ -90,7 +117,9 @@ const RegisterForm = () => {
                             </div>
                         </div>
                         {/* Confirm Password Input */}
-                        <div className={cx('register-wrapper-input')}>
+                        <div
+                            className={cx({ fail: failPasswordCon, true: !failPasswordCon }, 'register-wrapper-input')}
+                        >
                             <div className={cx('register-outner-input')}>
                                 <span>
                                     <FontAwesomeIcon
