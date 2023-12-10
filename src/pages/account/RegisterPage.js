@@ -2,6 +2,7 @@ import RegisterForm from '@/components/Account/Register/RegisterForm';
 import Footer from '@/components/Layout/Footer/Footer';
 import Header from '@/components/Layout/Header/HeaderIndex';
 
+
 const RegisterPage = () => {
     return (
         <div>

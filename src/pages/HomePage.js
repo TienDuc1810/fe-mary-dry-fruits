@@ -8,6 +8,5 @@ const HomePage = () => {
             <BestProducts />
         </>
     );
-};
-
+}
 export default HomePage;
