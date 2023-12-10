@@ -1,17 +1,63 @@
 import classNames from 'classnames/bind';
 import styles from './RegisterForm.module.scss';
 import { Link } from 'react-router-dom';
-
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import axios from 'axios';
 
 const cx = classNames.bind(styles);
 
 const RegisterForm = () => {
+    const navigate = useNavigate();
+
+    const [failEmail, setFailEmail] = useState(false);
+    const [failPassword, setFailPassword] = useState(false);
+    const [failPasswordCon, setFailPasswordCon] = useState(false);
+    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const handleRegister = async () => {
+        const data = { email, password };
+        console.log(data);
+
+        if (email.trim() === '') {
+            setFailEmail(true);
+            return;
+        } else {
+            setFailEmail(false);
+            if (email.length >= 30) {
+                setFailEmail(true);
+                return;
+            } else {
+                setFailEmail(false);
+                if (password.trim() === '' || confirmPassword.trim() === '') {
+                    setFailPassword(true);
+                    setFailPasswordCon(true);
+                    return;
+                } else {
+                    setFailPassword(false);
+                    setFailPasswordCon(false);
+                    try {
+                        const res = await axios.post('http://localhost:8000/api/auth/register', data);
+                        setFailPassword(false);
+                        setFailPasswordCon(false);
+                        navigate('/account/login');
+                    } catch (error) {
+                        console.error('Registration error:', error);
+                    }
+                }
+            }
+        }
+    };
+
     return (
         <div className={cx('container')}>
             <div className={cx('wrapper')}>
-                <form action="" method="POST">
+                <div>
                     <div className={cx('register-avatar')}>
                         <div className={cx('register-wrapper-icon')}>
                             <FontAwesomeIcon
@@ -24,7 +70,9 @@ const RegisterForm = () => {
                         <div className={cx('register-title')}>
                             <h2 className={cx('register-text')}>Sign Up</h2>
                         </div>
-                        <div className={cx('register-wrapper-input')}>
+
+                        <div className={cx({ fail: failEmail, true: !failEmail }, 'register-wrapper-input')}>
+                            {/* Email Input */}
                             <div className={cx('register-outner-input')}>
                                 <span>
                                     <FontAwesomeIcon
@@ -32,10 +80,18 @@ const RegisterForm = () => {
                                         className={cx('register-icon')}
                                     />
                                 </span>
-                                <input type="text" placeholder="Email" className={cx('register-input')} />
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder="Email"
+                                    className={cx('register-input')}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
                             </div>
                         </div>
-                        <div className={cx('register-wrapper-input')}>
+                        {/* Password Inputs */}
+                        <div className={cx({ fail: failPassword, true: !failPassword }, 'register-wrapper-input')}>
+                            {/* Password Input */}
                             <div className={cx('register-outner-input')}>
                                 <span>
                                     <FontAwesomeIcon
@@ -43,7 +99,15 @@ const RegisterForm = () => {
                                         className={cx('register-icon')}
                                     />
                                 </span>
-                                <input type="password" placeholder="Password" className={cx('register-input')} />
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    className={cx('register-input')}
+                                    name="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                {/* Toggle Password Visibility */}
                                 <span>
                                     <FontAwesomeIcon
                                         icon={icon({ name: 'eye-slash', style: 'regular' })}
@@ -52,7 +116,10 @@ const RegisterForm = () => {
                                 </span>
                             </div>
                         </div>
-                        <div className={cx('register-wrapper-input')}>
+                        {/* Confirm Password Input */}
+                        <div
+                            className={cx({ fail: failPasswordCon, true: !failPasswordCon }, 'register-wrapper-input')}
+                        >
                             <div className={cx('register-outner-input')}>
                                 <span>
                                     <FontAwesomeIcon
@@ -64,7 +131,11 @@ const RegisterForm = () => {
                                     type="password"
                                     placeholder="Confirm Password"
                                     className={cx('register-input')}
+                                    value={confirmPassword}
+                                    name="password_confirmation"
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
                                 />
+                                {/* Toggle Confirm Password Visibility */}
                                 <span>
                                     <FontAwesomeIcon
                                         icon={icon({ name: 'eye-slash', style: 'regular' })}
@@ -73,25 +144,29 @@ const RegisterForm = () => {
                                 </span>
                             </div>
                         </div>
+
+                        {/* Terms and Conditions */}
                         <div className={cx('register-options')}>
                             <span className={cx('register-accept')}>
                                 <input type="checkbox" className={cx('register-accept-checkbox')} />
                                 <p className={cx('register-accept-text')}>I accept the Terms and Conditions</p>
                             </span>
                         </div>
+                        {/* Register Button */}
                         <div className={cx('register-wrapper-btn')}>
-                            <button type="submit" className={cx('register-btn')}>
+                            <button type="submit" className={cx('register-btn')} onClick={handleRegister}>
                                 <span className={cx('register-btn-title')}>Register</span>
                             </button>
                         </div>
+                        {/* Link to Login */}
                         <div className={cx('register-wrapper-back-login')}>
-                            <span className={cx('register-question-text')}>Already have an account ?</span>
+                            <span className={cx('register-question-text')}>Already have an account?</span>
                             <Link to="/account/login" className={cx('register-back-link')}>
                                 Login here
                             </Link>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     );
