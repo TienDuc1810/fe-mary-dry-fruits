@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ContactUs.module.scss';
 import star from '@/Images/icont/star (1).svg';
@@ -6,10 +6,20 @@ import nostar from '@/Images/icont/star (2).svg';
 import phone from '@/Images/icont/phone.svg';
 import email from '@/Images/icont/email.svg';
 import location from '@/Images/icont/location.svg';
+import { data } from 'autoprefixer';
 
 const cx = classNames.bind(styles);
 
 const ContactUs = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleClick = () => {
+        const data = { name, email, phone, message };
+    };
+
     return (
         <div className={cx('contactus-container')}>
             <div className={cx('contactus-title')}>
@@ -73,19 +83,42 @@ const ContactUs = () => {
                 <div className={cx('form')}>
                     <form>
                         <div className={cx('title')}>
-                            <input type="text" placeholder="Name" className={cx('input')} />
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                className={cx('input')}
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
                         </div>
                         <div className={cx('title')}>
-                            <input type="text" placeholder="Email" className={cx('input')} />
+                            <input
+                                type="text"
+                                placeholder="Email"
+                                className={cx('input')}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                         </div>
                         <div className={cx('title')}>
-                            <input type="text" placeholder="Phone" className={cx('input')} />
+                            <input
+                                type="text"
+                                placeholder="Phone"
+                                className={cx('input')}
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                            />
                         </div>
                         <div className={cx('message')}>
-                            <textarea className={cx('input')} placeholder="Message"></textarea>
+                            <textarea
+                                className={cx('input')}
+                                placeholder="Message"
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                            ></textarea>
                         </div>
                         <div className={cx('btn')}>
-                            <button>Send</button>
+                            <button onClick={handleClick}>Send</button>
                         </div>
                     </form>
                 </div>

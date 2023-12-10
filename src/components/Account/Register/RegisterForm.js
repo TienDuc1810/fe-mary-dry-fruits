@@ -13,9 +13,9 @@ const RegisterForm = () => {
     const navigate = useNavigate();
 
     const [failEmail, setFailEmail] = useState(false);
-
     const [failPassword, setFailPassword] = useState(false);
     const [failPasswordCon, setFailPasswordCon] = useState(false);
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');

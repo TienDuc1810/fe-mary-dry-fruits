@@ -1,11 +1,5 @@
-import Store from './product/Store';
-
 const HomePage = () => {
-    return (
-        <div>
-            <Store></Store>
-        </div>
-    );
+    return <div>HomePage</div>;
 };
 
 export default HomePage;
