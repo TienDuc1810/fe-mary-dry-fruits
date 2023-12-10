@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './BestProducts.module.scss';
-import images from '@/assets/images';
+import images from '@/assets';
 import { Star, StarCheck, StarHalf } from '@/icons';
 import Button from '@/components/Button/ButtonIndex';
 import TitleIndex from '../Title/TitleIndex';

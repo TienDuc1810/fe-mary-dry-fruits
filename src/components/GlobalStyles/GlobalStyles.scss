@@ -1,12 +1,13 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,700&family=Spicy+Rice&display=swap');
 
-:root{
+:root {
     --primary-color: #9f4103;
     --white-color: #fff;
     --second-color: #f4b323;
     --text-color: #292929;
     --black-color: #000;
+    --brown-color: #91653d;
     --font-special: 'Spicy Rice', serif;
 }
 * {
@@ -23,10 +24,12 @@ html {
 body {
     font-size: 1.6rem;
 }
-input{
+
+input {
     outline: none;
 }
-a{
+
+a {
     text-decoration: none;
     padding: 0;
 }

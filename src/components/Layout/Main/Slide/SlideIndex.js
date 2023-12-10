@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './SlideIndex.module.scss';
-import images from '@/assets/images';
+import images from '@/assets';
 
 const cx = classNames.bind(styles);
 
@@ -20,8 +20,8 @@ const SlideIndex = () => {
                     <div className={cx('slider-title')}>
                         <h2 className={cx('slider-text')}>The choice of chefs</h2>
                         <p className={cx('slider-text-sale')}>15% OFF ON SPICES</p>
-                        <p className={cx('slider-text-booking')}>USE COUPON : 
-                            <strong>SPI18</strong>
+                        <p className={cx('slider-text-booking')}>
+                            USE COUPON :<strong>SPI18</strong>
                         </p>
                     </div>
                 </div>

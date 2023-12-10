@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './FooterIndex.module.scss';
-import images from '@/assets/images';
+import images from '@/assets';
 import { Link } from 'react-router-dom';
 import { FaceBook, Pinterest, Instagram } from '@/icons';
 import FooterItem from './FooterItem';

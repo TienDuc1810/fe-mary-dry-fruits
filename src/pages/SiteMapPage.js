@@ -1,7 +1,6 @@
 const SiteMapPage = () => {
     return ( 
         <h1>SiteMapPage</h1>
-        
      );
 }
 

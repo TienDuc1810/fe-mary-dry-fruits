@@ -22,12 +22,8 @@ const loginUser = async (email, password) => {
             expires_in: expires_in,
         };
     } catch (error) {
-        if (error.response.status === 401) {
-            console.log('Incorrect email or password');
-        } else {
-            console.log('Authentication error:', error.response);
-        }
-
+        console.log('Authentication error:', error.response);
+        
         return {
             success: false,
             error: error.response ? error.response.data : error.message,

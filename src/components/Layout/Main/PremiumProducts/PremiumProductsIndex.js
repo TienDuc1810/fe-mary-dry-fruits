@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './PremiumProductsIndex.module.scss';
 import TitleIndex from '../Title/TitleIndex';
 import Button from '@/components/Button/ButtonIndex';
-import images from '@/assets/images';
+import images from '@/assets';
 
 const cx = classNames.bind(styles);
 

@@ -69,16 +69,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
--------------------------------------------------------------------------------------------------------------
-
-## `Hướng dẫn sử dụng source code`
-
-B1: Mở terminal và nhập lệnh: git checkout DuyBao (kiểm tra góc trái phần nhánh github có tên nhánh DuyBao chưa)
-B2: Khi đã chuyển nhánh thành công thì mở extensions cài extensions prettierrc, PostCSS Language Support
-B3: Cài xong thì vô file App.js copy đoạn code sau:
-    <h1>
-        Hello
-    </h1>
-B4: nhấn Ctrl + S coi code đã tự format được chưa, có lỗi nào không, nếu không có lỗi nào xuất hiện và code tự format thì bắt đầu code dự án
 
 

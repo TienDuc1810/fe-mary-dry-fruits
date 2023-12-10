@@ -1,6 +1,7 @@
 import LoginForm from '@/components/Account/Login/LoginForm';
 import Banner from '@/components/Layout/Banner/Banner';
 import backGround from '@/Images/banner.webp';
+import Footer from '@/components/Layout/Footer/FooterIndex';
 
 const LoginPage = () => {
     return (
@@ -9,6 +10,7 @@ const LoginPage = () => {
                 login
             </Banner>
             <LoginForm />
+            <Footer/>
         </div>
     );
 };

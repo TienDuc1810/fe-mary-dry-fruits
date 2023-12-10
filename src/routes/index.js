@@ -14,7 +14,8 @@ const routes = [
     {path: '/account/login',component: LoginPage },
     {path: '/account/register',component: RegisterPage },
 ]
-let privateRoutes = [
+
+const privateRoutes = [
     { path: '/user', component: UserPage },
 ];
 

@@ -25,7 +25,6 @@ function App() {
                 theme="light"
                 transition={Flip}
             />
-            {/* Same as */}
             <ToastContainer />
         </GlobalStyles>
     );
