@@ -6,14 +6,13 @@ import nostar from '@/Images/icont/star (2).svg';
 import phone from '@/Images/icont/phone.svg';
 import email from '@/Images/icont/email.svg';
 import location from '@/Images/icont/location.svg';
-import { data } from 'autoprefixer';
 
 const cx = classNames.bind(styles);
 
 const ContactUs = () => {
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
 
     const handleClick = () => {
@@ -96,7 +95,7 @@ const ContactUs = () => {
                                 type="text"
                                 placeholder="Email"
                                 className={cx('input')}
-                                value={email}
+                                value={Email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
@@ -105,7 +104,7 @@ const ContactUs = () => {
                                 type="text"
                                 placeholder="Phone"
                                 className={cx('input')}
-                                value={phone}
+                                value={Phone}
                                 onChange={(e) => setPhone(e.target.value)}
                             />
                         </div>
