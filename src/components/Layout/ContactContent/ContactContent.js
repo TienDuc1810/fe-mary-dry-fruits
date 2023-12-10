@@ -11,11 +11,11 @@ const cx = classNames.bind(styles);
 const ContactContent = () => {
     return (
         <div className={cx('contactus-content')}>
-            <div className={cx('phone')}>
+            <div className={cx('content-phone')}>
                 <div className={cx('image')}>
                     <img src={phone} alt="phone" />
                 </div>
-                <div className={cx('content')}>
+                <div className={cx('content-content')}>
                     <h5>Phone</h5>
                     <p>
                         <b>Toll-Free: </b> 0000 - 123 - 456789{' '}
@@ -25,11 +25,11 @@ const ContactContent = () => {
                     </p>
                 </div>
             </div>
-            <div className={cx('phone')}>
+            <div className={cx('content-phone')}>
                 <div className={cx('image')}>
                     <img src={email} alt="phone" />
                 </div>
-                <div className={cx('content')}>
+                <div className={cx('content-content')}>
                     <h5>Email</h5>
                     <p>
                         <b>email: </b>mail@example.com{' '}
@@ -39,14 +39,14 @@ const ContactContent = () => {
                     </p>
                 </div>
             </div>
-            <div className={cx('phone')}>
+            <div className={cx('content-phone')}>
                 <div className={cx('image')}>
                     <img src={location} alt="phone" />
                 </div>
-                <div className={cx('content')}>
+                <div className={cx('content-content')}>
                     <h5>Address</h5>
                     <p>
-                        <b>No: </b>No: 58 A, East Madison Street,{' '}
+                        <b>No: </b>58 A, East Madison Street,{' '}
                     </p>
                     <p>Baltimore, MD, USA 4508 </p>
                 </div>

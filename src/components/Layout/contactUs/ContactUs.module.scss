@@ -1,21 +1,13 @@
-:root {
-    --font-family: 'Spicy Rice', serif;
-    --color: #b34d22;
-}
-
 .contactus-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-   
-   
+
     .contactus-location {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 20px 40px;
-       
-        
     }
 }

@@ -2,12 +2,6 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ContactUs.module.scss';
 
-import star from '@/Images/icont/star (1).svg';
-import nostar from '@/Images/icont/star (2).svg';
-import phone from '@/Images/icont/phone.svg';
-import email from '@/Images/icont/email.svg';
-import location from '@/Images/icont/location.svg';
-
 import ContactTitle from '../ContactTitle/ContactTitle';
 import ContactContent from '../ContactContent/ContactContent';
 import ContactLocation from '../ContactFormAndLocation/ContactLocation';

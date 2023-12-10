@@ -16,10 +16,17 @@ html {
 body {
     font-size: 1.6rem;
 }
-input{
+input {
     outline: none;
 }
-a{
+a {
     text-decoration: none;
     padding: 0;
+}
+
+:root {
+    --font-family-global: 'Roboto', sans-serif;
+    --font-family: 'Spicy Rice', serif;
+    --color: #b34d22;
+    --color-yellow:#f4b323;
 }

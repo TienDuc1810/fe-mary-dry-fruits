@@ -12,7 +12,7 @@ const ContactTitle = () => {
         <div className={cx('contactus-title')}>
             <h2>Contact Us</h2>
             <p>Tortor at risus viverra adipiscing at in tellus integer.</p>
-            <div className={cx('mul-image')}>
+            <div className={cx('title-mul-image')}>
                 <img src={star} alt="star" />
                 <img src={nostar} alt="star" />
                 <img src={star} alt="star" />

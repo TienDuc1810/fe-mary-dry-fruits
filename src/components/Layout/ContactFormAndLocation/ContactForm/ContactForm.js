@@ -14,44 +14,44 @@ const ContactForm = () => {
         const data = { name, email, phone, message };
     };
     return (
-        <div className={cx('form')}>
+        <div className={cx('contact-form')}>
             <form>
-                <div className={cx('title')}>
+                <div className={cx('form-title')}>
                     <input
                         type="text"
                         placeholder="Name"
-                        className={cx('input')}
+                        className={cx('title-input')}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
-                <div className={cx('title')}>
+                <div className={cx('form-title')}>
                     <input
                         type="text"
                         placeholder="Email"
-                        className={cx('input')}
+                        className={cx('title-input')}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div className={cx('title')}>
+                <div className={cx('form-title')}>
                     <input
                         type="text"
                         placeholder="Phone"
-                        className={cx('input')}
+                        className={cx('title-input')}
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                     />
                 </div>
-                <div className={cx('message')}>
+                <div className={cx('form-message')}>
                     <textarea
-                        className={cx('input')}
+                        className={cx('title-input')}
                         placeholder="Message"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                     ></textarea>
                 </div>
-                <div className={cx('btn')}>
+                <div className={cx('form-btn')}>
                     <button onClick={handleClick}>Send</button>
                 </div>
             </form>

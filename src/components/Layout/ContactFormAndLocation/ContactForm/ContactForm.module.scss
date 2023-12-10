@@ -1,17 +1,18 @@
-.form {
+.contact-form {
     margin: 0 10px;
-    .title {
+    .form-title {
         margin-bottom: 30px;
-        .input {
+        .title-input {
             padding: 10px 20px;
             width: 550px;
             border-radius: 20px;
             border: 1px solid gray;
+            font-family: var(--font-family-global);
         }
     }
-    .message {
+    .form-message {
         margin-bottom: 20px;
-        .input {
+        .title-input {
             padding: 10px 20px;
             max-width: 550px;
             min-width: 550px;
@@ -21,16 +22,17 @@
             border: 1px solid gray;
         }
     }
-    .btn {
+    .form-btn {
         button {
             font-size: 2rem;
             padding: 10px 20px;
             width: 300px;
             background-color: white;
-            border: 2px solid #b34d22;
+            border: 2px solid var(--color);
             border-radius: 20px;
+            font-family: var(--font-family-global);
             &:hover {
-                background-color: #f4b323;
+                background-color: var(--color-yellow);
             }
         }
     }
