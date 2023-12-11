@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    z-index: 1;
 
     .benefit-outner-icon {
         position: absolute;
@@ -38,8 +39,7 @@
         padding: 70px 30px 30px;
         border: 1px solid #e4e4e4;
         border-radius: 15px;
-        width: 100%;
-        height: 100%;
+        width: 95%;
 
         .benefit-title {
             color: var(--primary-color);

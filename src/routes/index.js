@@ -1,6 +1,6 @@
 import HomePage from '@/pages/HomePage';
 import ContactPage from '@/pages/ContactPage';
-import SiteMapPage from '@/pages/SiteMapPage';
+import SiteMapPage from '@/pages/SiteMap/SiteMapPage';
 import ProductPage from '@/pages/ProductPage';
 import LoginPage from '@/pages/account/LoginPage';
 import RegisterPage from '@/pages/account/RegisterPage';
