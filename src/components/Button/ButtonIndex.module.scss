@@ -1,0 +1,40 @@
+.btn-wrapper {
+    width: 100%;
+    display: flex;
+
+    .btn-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 15px;
+        padding: 10px 28px;
+        border-radius: 50px;
+        border: 2px solid transparent;
+        color: var(--white-color);
+        font-size: 1.6rem;
+        line-height: 2.7rem;
+        font-weight: 400;
+        transition: all linear 0.3s;
+    }
+
+    .btn-link.primary {
+        border-color: var(--primary-color);
+    }
+
+    .btn-link.normal {
+        border-color: var(--white-color);
+    }
+
+    .btn-link.blackText {
+        color: var(--text-color);
+    }
+
+    .btn-link.primary:hover,
+    .btn-link.normal:hover,
+    .btn-link.active{
+        background-color: var(--second-color);
+        border-color: var(--second-color);
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+}

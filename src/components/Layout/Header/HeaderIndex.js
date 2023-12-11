@@ -1,7 +1,10 @@
-import classNames from 'classnames';
-import styles from './Header.module.scss';
-import backGround from '../../../Images/banner.webp';
-import Banner from '@/components/Layout/Banner/Banner';
+
+import classNames from "classnames";
+import styles from './HeaderIndex.module.scss'
+import backGround from '../../../Images/banner.webp'
+import Banner from "../Banner/Banner";
+
+
 
 const cx = classNames.bind(styles);
 
