@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 function Header() {
     return (
         <div className={cx('container')}>
-            <Banner pageMain="home" pageEtra="register" backGround={backGround}>
+            <Banner title={""} backGround={backGround}>
                 register
             </Banner>
         </div>
