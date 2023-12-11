@@ -12,13 +12,11 @@ const cx = classNames.bind(styles);
 const ContactUs = () => {
     return (
         <div className={cx('contactus-container')}>
-            <div className={cx('wrapper')}>
-                <ContactTitle></ContactTitle>
-                <ContactContent></ContactContent>
-                <div className={cx('contactus-location')}>
-                    <ContactLocation></ContactLocation>
-                    <ContactForm></ContactForm>
-                </div>
+            <ContactTitle></ContactTitle>
+            <ContactContent></ContactContent>
+            <div className={cx('contactus-location')}>
+                <ContactLocation></ContactLocation>
+                <ContactForm></ContactForm>
             </div>
         </div>
     );
