@@ -1,0 +1,50 @@
+.contactus-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    .content-phone {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+        border: 1px solid var(--color);
+        border-radius: 10px;
+        margin: 10px 20px;
+        &:hover {
+            border: 1px solid var(--color-yellow);
+            .image {
+                img {
+                    background-color: var(--color-yellow);
+                }
+            }
+        }
+
+        .image {
+            margin-bottom: 10px;
+            img {
+                padding: 10px;
+                border-radius: 50%;
+                width: 50px;
+                background-color: var(--color);
+            }
+        }
+        .content-content {
+            h5 {
+                font-size: 2.4rem;
+                margin: 10px 0;
+                color: var(--color);
+                font-family: var(--font-family);
+                letter-spacing: 1.2px;
+            }
+            p {
+                margin: 20px 0;
+                font-size: 2rem;
+                font-family: var(--font-family-global);
+
+                b {
+                    font-family: var(--font-family-global);
+                }
+            }
+        }
+    }
+}

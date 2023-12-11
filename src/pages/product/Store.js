@@ -15,9 +15,7 @@ const Store = () => {
             <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={backGround}>
                 product
             </Banner>
-            <Detail imgMain={imgMail} img1={img1} ing2={1} ing3={1} ing4={1} ing5={1}>
-                Rosehip Berries
-            </Detail>
+            <Detail></Detail>
         </div>
     );
 };

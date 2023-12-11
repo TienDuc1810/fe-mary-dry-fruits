@@ -1,0 +1,121 @@
+.detail-content {
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    .detail-image {
+        width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            width: 300px;
+        }
+        .image-mul {
+            display: flex;
+            justify-content: space-around;
+            img {
+                width: 100px;
+            }
+            .image {
+                &:hover {
+                    border: 2px solid #9f4103;
+                    margin-right: 2px;
+                }
+            }
+        }
+    }
+    .detail-tab {
+        width: 600px;
+        margin-top: 20px;
+        .title {
+            font-family: var(--font-family);
+            color: var(--color);
+            font-size: 4.2rem;
+            margin: 10px 0;
+            letter-spacing: 1px;
+        }
+        .img-mul {
+            margin: 10px 0;
+
+            img {
+                width: 30px;
+            }
+        }
+        .dis {
+            letter-spacing: 0.3px;
+            line-height: 30px;
+            margin: 10px 0;
+            font-family: var(--font-family-global);
+        }
+        .price {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            margin: 20px 0;
+            h6 {
+                font-size: 2rem;
+                margin-right: 50px;
+                color: var(--color);
+                font-family: var(--font-family);
+            }
+            span {
+                font-size: 2.8rem;
+                color: var(--color);
+                font-family: var(--font-family-global);
+            }
+            .gram {
+                font-size: 24px;
+                color: var(--color);
+                padding: 8px 14px;
+                border: 1px solid var(--color);
+                font-family: var(--font-family-global);
+                line-height: 26px;
+            }
+            button {
+                color: var(--color);
+                border: 1px solid var(--color);
+                background-color: white;
+                padding: 0 10px;
+            }
+            .plus {
+                display: flex;
+            }
+            p {
+                color: var(--color);
+                padding: 10px;
+                border: 1px solid var(--color);
+                font-family: var(--font-family-global);
+            }
+        }
+        .add-cart {
+            margin: 10px 0;
+            .add {
+                padding: 14px 20px;
+                border-radius: 20px;
+                background-color: white;
+                border: 2px solid var(--color);
+                margin: 14px 15px 10px 0;
+
+                &:hover {
+                    background-color: var(--color-yellow);
+                    border: 2px solid var(--color-yellow);
+                }
+            }
+        }
+        .share {
+            display: flex;
+            align-items: center;
+            padding-top: 10px;
+            h6 {
+                font-size: 1.4rem;
+                color: var(--color);
+                letter-spacing: 1px;
+                font-family: var(--font-family);
+            }
+            img {
+                width: 20px;
+                margin-left: 4px;
+            }
+        }
+    }
+}

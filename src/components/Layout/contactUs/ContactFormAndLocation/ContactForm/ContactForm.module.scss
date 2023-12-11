@@ -1,0 +1,39 @@
+.contact-form {
+    margin: 0 10px;
+    .form-title {
+        margin-bottom: 30px;
+        .title-input {
+            padding: 10px 20px;
+            width: 550px;
+            border-radius: 20px;
+            border: 1px solid gray;
+            font-family: var(--font-family-global);
+        }
+    }
+    .form-message {
+        margin-bottom: 20px;
+        .title-input {
+            padding: 10px 20px;
+            max-width: 550px;
+            min-width: 550px;
+            min-height: 200px;
+            max-height: 500px;
+            border-radius: 20px;
+            border: 1px solid gray;
+        }
+    }
+    .form-btn {
+        button {
+            font-size: 2rem;
+            padding: 10px 20px;
+            width: 300px;
+            background-color: white;
+            border: 2px solid var(--color);
+            border-radius: 20px;
+            font-family: var(--font-family-global);
+            &:hover {
+                background-color: var(--color-yellow);
+            }
+        }
+    }
+}
