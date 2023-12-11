@@ -39,13 +39,13 @@ const SlideIndex = () => {
                 </div>
 
                 <div className={cx('slider-nav-manual')}>
-                    <label for="radio1" className={cx('slider-manual-btn')}></label>
-                    <label for="radio2" className={cx('slider-manual-btn')}></label>
-                    <label for="radio3" className={cx('slider-manual-btn')}></label>
+                    <label htmlFor="radio1" className={cx('slider-manual-btn')}></label>
+                    <label htmlFor="radio2" className={cx('slider-manual-btn')}></label>
+                    <label htmlFor="radio3" className={cx('slider-manual-btn')}></label>
                 </div>
                 <div className={cx('slider-arrow-manual')}>
-                    <label for="radio4" className={cx('slider-arrow-left')}></label>
-                    <label for="radio5" className={cx('slider-arrow-right')}></label>
+                    <label htmlFor="radio4" className={cx('slider-arrow-left')}></label>
+                    <label htmlFor="radio5" className={cx('slider-arrow-right')}></label>
                 </div>
             </div>
         </div>

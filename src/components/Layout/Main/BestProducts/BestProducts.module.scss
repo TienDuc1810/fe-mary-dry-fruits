@@ -16,7 +16,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-    
+
         .product-home-wapper-btn {
             width: 100%;
             display: flex;
@@ -38,8 +38,7 @@
                 justify-content: center;
                 align-items: center;
                 padding: 10px;
-                margin-bottom: 25px; 
-                max-width: 1600px;
+                margin-bottom: 25px;
                 .product-home-main {
                     display: inline-block;
                     width: 100%;
@@ -216,5 +215,14 @@
     }
     100% {
         width: 100%;
+    }
+}
+
+@media (max-width: 1700px) {
+    .product-home-main {
+        display: none; 
+        &:nth-child(n + 5) {
+            display: none !important; 
+        }
     }
 }

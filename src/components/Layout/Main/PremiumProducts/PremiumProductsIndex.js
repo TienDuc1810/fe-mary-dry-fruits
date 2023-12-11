@@ -19,7 +19,7 @@ const PremiumProductsIndex = () => {
                 <div className={cx('premium-product-wrapper')}>
                     <div className={cx('premium-product-main')}>
                         <div className={cx('premium-product-image')}>
-                            <img src={images.premium_img_1} alt="premium_product" />
+                            <img src={images.premium_img_1} alt="premium_product" className={cx('premium-product-img')} />
                         </div>
                         <div className={cx('premium-product-outner-name')}>
                             <span className={cx('premium-product-name')}>Spicy Masalas</span>
@@ -37,7 +37,7 @@ const PremiumProductsIndex = () => {
 
                     <div className={cx('premium-product-main')}>
                         <div className={cx('premium-product-image')}>
-                            <img src={images.premium_img_1} alt="premium_product" />
+                            <img src={images.premium_img_1} alt="premium_product" className={cx('premium-product-img')} />
                         </div>
                         <div className={cx('premium-product-outner-name')}>
                             <span className={cx('premium-product-name')}>Spicy Masalas</span>
@@ -55,7 +55,7 @@ const PremiumProductsIndex = () => {
 
                     <div className={cx('premium-product-main')}>
                         <div className={cx('premium-product-image')}>
-                            <img src={images.premium_img_1} alt="premium_product" />
+                            <img src={images.premium_img_1} alt="premium_product" className={cx('premium-product-img')} />
                         </div>
                         <div className={cx('premium-product-outner-name')}>
                             <span className={cx('premium-product-name')}>Spicy Masalas</span>
@@ -73,7 +73,7 @@ const PremiumProductsIndex = () => {
 
                     <div className={cx('premium-product-main')}>
                         <div className={cx('premium-product-image')}>
-                            <img src={images.premium_img_1} alt="premium_product" />
+                            <img src={images.premium_img_1} alt="premium_product" className={cx('premium-product-img')} />
                         </div>
                         <div className={cx('premium-product-outner-name')}>
                             <span className={cx('premium-product-name')}>Spicy Masalas</span>
