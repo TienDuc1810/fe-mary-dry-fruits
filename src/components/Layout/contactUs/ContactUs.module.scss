@@ -1,17 +1,14 @@
 .contactus-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
     width: 100%;
-    .wrapper{
+    margin-bottom: 20px;
+
+    .contactus-location {
+        display: flex;
+        justify-content: center;
         width: 80%;
-        margin: 0 auto;
-        .contactus-location {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 20px;
-    }
     }
 }
