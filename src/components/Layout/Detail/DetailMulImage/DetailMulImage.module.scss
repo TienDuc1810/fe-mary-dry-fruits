@@ -2,8 +2,9 @@
     margin: 0 10px;
     display: flex;
     justify-content: space-between;
+    width: 80%;
     .detail-image {
-        width: 600px;
+        max-width: 500px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -18,24 +19,26 @@
             }
             .image {
                 &:hover {
-                    border: 2px solid #9f4103;
+                    border: 2px solid var(--primary-color);
                     margin-right: 2px;
                 }
             }
         }
     }
     .detail-tab {
-        width: 600px;
+        min-width: 500px;
+        margin-left: 10px;
         margin-top: 20px;
         .title {
             font-family: var(--font-family);
-            color: var(--color);
+            color: var(--primary-color);
             font-size: 4.2rem;
             margin: 10px 0;
             letter-spacing: 1px;
         }
         .img-mul {
             margin: 10px 0;
+            width: 50%;
 
             img {
                 width: 30px;
@@ -43,6 +46,7 @@
         }
         .dis {
             letter-spacing: 0.3px;
+            width: 100%;
             line-height: 30px;
             margin: 10px 0;
             font-family: var(--font-family-global);
@@ -51,29 +55,30 @@
             display: flex;
             justify-content: flex-start;
             align-items: flex-end;
-            margin: 20px 0;
+            margin: 10px 0;
             h6 {
-                font-size: 2rem;
+                font-size: 1.6rem;
                 margin-right: 50px;
-                color: var(--color);
-                font-family: var(--font-family);
+                color: var(--primary-color);
+                letter-spacing: 1px;
+                font-family: var(--font-special);
             }
             span {
-                font-size: 2.8rem;
-                color: var(--color);
+                font-size: 2rem;
+                color: var(--primary-color);
                 font-family: var(--font-family-global);
             }
             .gram {
-                font-size: 24px;
-                color: var(--color);
+                font-size: 2rem;
+                color: var(--primary-color);
                 padding: 8px 14px;
-                border: 1px solid var(--color);
+                border: 1px solid var(--primary-color);
                 font-family: var(--font-family-global);
                 line-height: 26px;
             }
             button {
-                color: var(--color);
-                border: 1px solid var(--color);
+                color: var(--primary-color);
+                border: 1px solid var(--primary-color);
                 background-color: white;
                 padding: 0 10px;
             }
@@ -81,9 +86,9 @@
                 display: flex;
             }
             p {
-                color: var(--color);
+                color: var(--primary-color);
                 padding: 10px;
-                border: 1px solid var(--color);
+                border: 1px solid var(--primary-color);
                 font-family: var(--font-family-global);
             }
         }
@@ -93,12 +98,12 @@
                 padding: 14px 20px;
                 border-radius: 20px;
                 background-color: white;
-                border: 2px solid var(--color);
+                border: 2px solid var(--primary-color);
                 margin: 14px 15px 10px 0;
 
                 &:hover {
-                    background-color: var(--color-yellow);
-                    border: 2px solid var(--color-yellow);
+                    background-color: var(--second-color);
+                    border: 2px solid var(--second-color);
                 }
             }
         }
@@ -108,9 +113,9 @@
             padding-top: 10px;
             h6 {
                 font-size: 1.4rem;
-                color: var(--color);
+                color: var(--primary-color);
                 letter-spacing: 1px;
-                font-family: var(--font-family);
+                font-family: var(--font-special);
             }
             img {
                 width: 20px;
