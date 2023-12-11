@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ContactUs.module.scss';
 
-import ContactTitle from '../ContactTitle/ContactTitle';
-import ContactContent from '../ContactContent/ContactContent';
-import ContactLocation from '../ContactFormAndLocation/ContactLocation';
-import ContactForm from '../ContactFormAndLocation/ContactForm/ContactForm';
+import ContactTitle from './ContactTitle/ContactTitle';
+import ContactContent from './ContactContent/ContactContent';
+import ContactLocation from './ContactFormAndLocation/ContactLocation';
+import ContactForm from './ContactFormAndLocation/ContactForm/ContactForm';
 
 const cx = classNames.bind(styles);
 
