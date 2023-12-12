@@ -2,8 +2,8 @@ import HomePage from '@/pages/HomePage';
 import ContactPage from '@/pages/ContactPage';
 import SiteMapPage from '@/pages/SiteMap/SiteMapPage';
 import ProductPage from '@/pages/ProductPage';
-import LoginPage from '@/pages/account/LoginPage';
-import RegisterPage from '@/pages/account/RegisterPage';
+import LoginPage from '@/pages/Account/LoginPage';
+import RegisterPage from '@/pages/Account/RegisterPage';
 import UserPage from '@/pages/UserPage';
 
 const routes = [
