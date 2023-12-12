@@ -1,13 +1,12 @@
-import Main from "@/components/Layout/Main";
-import Footer from "@/components/Layout/Footer/FooterIndex";
-import NavBar from "@/components/Navbar/NavBarIndex";
+import Main from '@/components/Layout/Main';
+import Footer from '@/components/Layout/Footer/FooterIndex';
 
 const HomePage = () => {
     return (
         <>
-            <Main/>
-            <Footer/>
+            <Main />
+            <Footer />
         </>
     );
-}
+};
 export default HomePage;
