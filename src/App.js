@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import GlobalStyles from './components/GlobalStyles';
 import { routes, privateRoutes } from '@/routes';
 import { ToastContainer, Flip } from 'react-toastify';
-import NavBar from './components/Navigation/NavBarIndex';
+import NavBar from './components/Layout/Navigation/NavBarIndex';
 
 function App() {
     const allRoutes = [...routes, ...privateRoutes];

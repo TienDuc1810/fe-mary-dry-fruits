@@ -4,6 +4,7 @@ import SiteMapPage from '@/pages/SiteMap/SiteMapPage';
 import ProductPage from '@/pages/ProductPage';
 import LoginPage from '@/pages/Account/LoginPage';
 import RegisterPage from '@/pages/Account/RegisterPage';
+import ShoppingCartPage from '@/pages/ShoppingCart/ShoppingCartPage';
 import UserPage from '@/pages/UserPage';
 
 const routes = [
@@ -17,6 +18,7 @@ const routes = [
 
 const privateRoutes = [
     { path: '/user', component: UserPage },
+    { path: '/cart', component: ShoppingCartPage },
 ];
 
 

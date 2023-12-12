@@ -59,7 +59,7 @@ function NavBarIndex() {
                             </Link>
                         </li>
                         <li className={cx('nav-item-right')}>
-                            <Link to="/" className={cx('nav-item-link')}>
+                            <Link to="/cart" className={cx('nav-item-link')}>
                                 Giỏ hàng
                             </Link>
                         </li>
