@@ -18,13 +18,13 @@ const DetailDes = () => {
                 <DisContentBtn>Product Description3</DisContentBtn>
             </div>
             <div className={cx('discription-ctn')}>
-                <DisContentContent
+                {/* <DisContentContent
                     dis=" Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam
                     dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
                     commodo pharetras loremos.Donec pretium egestas sapien et mollis."
                 >
                     Busey ipsum dolor sit amet
-                </DisContentContent>
+                </DisContentContent> */}
             </div>
             <h3>Related products</h3>
         </div>

@@ -12,12 +12,9 @@ const DisContentContent = (props) => {
     const { children, dis } = props;
     return (
         <div className={cx('discription-content')}>
-            <p className={cx('content')}>{dis}</p>
             <h4>{children}</h4>
             <p className={cx('content')}>{dis}</p>
-            <h4>{children}</h4>
             <p className={cx('content')}>{dis}</p>
-            <h4>{children}</h4>
         </div>
     );
 };

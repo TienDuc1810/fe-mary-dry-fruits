@@ -5,8 +5,10 @@ import styles from './Detail.module.scss';
 
 import DetailMulImage from './DetailMulImage/DetailMulImage';
 import DetailDes from './DetailDes/DetailDes';
+import ProductItem from '@/pages/product/ProductItem';
 
-import img1 from '@/Images/img1.webp';
+import images from '@/assets';
+
 import imgMail from '@/Images/detailProduct.webp';
 
 const cx = classNames.bind(styles);
@@ -14,10 +16,17 @@ const cx = classNames.bind(styles);
 const Detail = () => {
     return (
         <div className={cx('detail-contairner')}>
-            <DetailMulImage imgMain={imgMail} img1={img1} ing2={1} ing3={1} ing4={1} ing5={1}>
+            <DetailMulImage
+                imgMain={imgMail}
+                img1={images.img1}
+                img2={images.imgMain}
+                img3={images.img1}
+                img4={images.imgMain}
+                img5={images.img1}
+            >
                 Rosehip Berries
             </DetailMulImage>
-            <DetailDes></DetailDes>
+            {/* <DetailDes></DetailDes> */}
         </div>
     );
 };
