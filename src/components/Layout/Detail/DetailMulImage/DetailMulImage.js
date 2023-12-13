@@ -52,6 +52,10 @@ const DetailMulImage = (props) => {
     const handleAccount = () => {
         navigate('/account/login');
     };
+
+    const handleAdd = () => {
+        navigate('/addtocard');
+    };
     return (
         <div className={cx('detail-content')}>
             <div className={cx('detail-image')}>
@@ -128,7 +132,7 @@ const DetailMulImage = (props) => {
                         </div>
                     </div>
                     <div className={cx('add-cart')}>
-                        <input className={cx('add')} type="button" value="Add To Cart" />
+                        <input className={cx('add')} type="button" value="Add To Cart" onClick={handleAdd} />
                     </div>
                 </div>
                 <div className={cx('detail-dis')}>

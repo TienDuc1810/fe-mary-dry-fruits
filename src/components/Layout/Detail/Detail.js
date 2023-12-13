@@ -5,7 +5,7 @@ import styles from './Detail.module.scss';
 
 import DetailMulImage from './DetailMulImage/DetailMulImage';
 import DetailDes from './DetailDes/DetailDes';
-import ProductItem from '@/pages/product/ProductItem';
+// import ProductItem from '@/pages/product/ProductItem';
 
 import images from '@/assets';
 

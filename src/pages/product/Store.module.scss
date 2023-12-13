@@ -1,4 +1,4 @@
-.product-home-main {
+.product-main {
     display: inline-block;
     width: 100%;
     height: 100%;
@@ -8,7 +8,7 @@
     margin: 0 10px;
     position: relative;
 
-    .product-home-border-line-1 {
+    .product-border-line-1 {
         display: block;
         width: 0;
         height: 3px;
@@ -18,7 +18,7 @@
         left: 0;
         transition: all 0.6s ease-out;
     }
-    .product-home-border-line-2 {
+    .product-border-line-2 {
         display: block;
         width: 0;
         height: 3px;
@@ -28,7 +28,7 @@
         right: 0;
         transition: all 0.6s ease-out;
     }
-    .product-home-border-line-3 {
+    .product-border-line-3 {
         display: block;
         width: 3px;
         height: 0;
@@ -38,7 +38,7 @@
         left: 0;
         transition: all 0.6s ease-out;
     }
-    .product-home-border-line-4 {
+    .product-border-line-4 {
         display: block;
         width: 3px;
         height: 0;
@@ -48,34 +48,34 @@
         right: 0;
         transition: all 0.6s ease-out;
     }
-    &:hover .product-home-border-line-1 {
+    &:hover .product-border-line-1 {
         width: 100%;
     }
-    &:hover .product-home-border-line-2 {
+    &:hover .product-border-line-2 {
         width: 100%;
     }
-    &:hover .product-home-border-line-3 {
+    &:hover .product-border-line-3 {
         height: calc(100% - 3px);
     }
-    &:hover .product-home-border-line-4 {
+    &:hover .product-border-line-4 {
         height: 100%;
     }
     &:nth-child(n + 6) {
         display: none;
     }
-    .product-home-image {
+    .product-image {
         width: 100%;
         height: 100%;
-        .product-home-image-size {
+        .product-image-size {
             width: 271p;
             height: 318px;
         }
     }
-    .product-home-detail {
+    .product-detail {
         padding: 30px;
-        .product-home-outner-name {
+        .product-outner-name {
             margin-bottom: 10px;
-            .product-home-name {
+            .product-name {
                 color: var(--primary-color);
                 font-size: 2rem;
                 font-family: var(--font-special);
@@ -86,21 +86,21 @@
                 }
             }
         }
-        .product-home-price {
+        .product-price {
             margin-bottom: 10px;
-            .product-home-money {
+            .product-money {
                 color: var(--text-color);
                 font-size: 1.6rem;
                 font-weight: 600;
                 cursor: grab;
             }
         }
-        .product-home-star {
-            .product-home-outner-star {
+        .product-star {
+            .product-outner-star {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                .product-home-star-image {
+                .product-star-image {
                     list-style-type: none;
                 }
             }
