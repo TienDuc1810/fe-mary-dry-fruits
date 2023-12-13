@@ -145,6 +145,7 @@
                     border-right: none;
                     margin-top: 10px;
                     padding-left: 10px;
+                    width: 75%;
                     &::placeholder {
                         font-size: 1.5rem;
                     }
@@ -156,12 +157,13 @@
                 .cart-coupon-btn {
                     background-color: #3167eb;
                     color: var(--white-color);
-                    width: 60px;
+                    
                     height: 40px;
                     border: none;
                     border-top-right-radius: 7px;
                     border-bottom-right-radius: 7px;
                     transition: background-color 0.3s liner;
+                    width: 25%;
                     &:hover {
                         cursor: pointer;
                         background-color: #3167eb;
@@ -414,6 +416,29 @@
                 background-color: #3167eb;
                 filter: brightness(130%);
             }
+        }
+    }
+}
+
+@media (max-width: 1620px) {
+    .cart-wrapper {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        margin: 20px;
+        flex-direction: column;
+
+        .cart-info-product{
+            display: flex;
+            flex-direction: column;
+            width: 90% !important;
+
+            .cart-info-container {
+                width: 100%;
+            }
+        }
+        .cart-info-pay{
+            margin-left: 0px !important;
         }
     }
 }
