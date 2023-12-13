@@ -4,7 +4,7 @@ import SiteMapPage from '@/pages/SiteMap/SiteMapPage';
 import ProductPage from '@/pages/ProductPage';
 import LoginPage from '@/pages/Account/LoginPage';
 import RegisterPage from '@/pages/Account/RegisterPage';
-import ShoppingCartPage from '@/pages/ShoppingCart/ShoppingCartPage';
+import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
 import UserPage from '@/pages/UserPage';
 
 const routes = [
