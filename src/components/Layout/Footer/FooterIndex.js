@@ -1,103 +1,85 @@
 import classNames from 'classnames/bind';
 import styles from './FooterIndex.module.scss';
-import images from '@/assets';
 import { Link } from 'react-router-dom';
-import { FaceBook, Pinterest, Instagram } from '@/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import FooterItem from './FooterItem';
 
 const cx = classNames.bind(styles);
 
-function FooterIndex() {
-    const urlBackgroundImage = {
-        backgroundImage: `url(${images.br_image_3})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-    };
-
+function FooterIndex({ background }) {
     return (
         <div className={cx('footer-container')}>
-            <div className={cx('footer-back-ground')} style={urlBackgroundImage}>
+            <div className={cx('footer-back-ground')} style={background}>
                 <div className={cx('footer-main')}>
                     <ul className={cx('footer-wrapper')}>
                         <h4 className={cx('footer-title')}>About us</h4>
                         <li className={cx('footer-detail')}>
                             <span className={cx('footer-description')}>
-                                Pellentesque posuere orci lobortis scelerisque blandit. Donec id tellus lacinia an,
-                                tincidunt risus ac, consequat velit.
+                                Welcome to our world of premium dried fruits. 
+                            </span>
+                            <span className={cx('footer-description-none')}>
+                                Where quality meets taste in every delightful bite.
                             </span>
                         </li>
                         <li className={cx('footer-outner-btn')}>
-                            <Link to="/" className={cx('footer-btn')}>
+                            <Link to="/about-us" className={cx('footer-btn')}>
                                 Read More
                             </Link>
-                        </li>
-                        <li className={cx('footer-outner-icon')}>
-                            <span>
-                                <FaceBook />
-                                <Link to="/" />
-                            </span>
-                            <span>
-                                <Pinterest />
-                                <Link to="/" />
-                            </span>
-                            <span>
-                                <Instagram />
-                                <Link to="/" />
-                            </span>
                         </li>
                     </ul>
 
                     <FooterItem
                         title={'Help'}
-                        item_1={'Search'}
-                        item_2={'Help'}
-                        item_3={'Information'}
-                        item_4={'Privacy Policy'}
-                        item_5={'Shipping Details'}
+                        item_1={{ name: 'Search', link: '/search' }}
+                        item_2={{ name: 'Help', link: '/help' }}
+                        item_3={{ name: 'Privacy Policy', link: '/contact' }}
+                        item_4={{ name: 'Shipping Details', link: '/contact' }}
                     />
                     <FooterItem
                         title={'Support'}
-                        item_1={'Contact us'}
-                        item_2={'About us'}
-                        item_3={'Careers'}
-                        item_4={'Refunds'}
-                        item_5={'Deliveries'}
+                        item_1={{ name: 'Contact us', link: '/contact' }}
+                        item_2={{ name: 'About us', link: '/about-us' }}
+                        item_3={{ name: 'Refunds', link: '/contact' }}
+                        item_4={{ name: 'Deliveries', link: '/contact' }}
                     />
                     <FooterItem
                         title={'Information'}
-                        item_1={'Search Terms'}
-                        item_2={'Advanced Search'}
-                        item_3={"Help & Faq's"}
-                        item_4={'Store Location'}
-                        item_5={'Orders & Returns'}
+                        item_1={{ name: 'Social Network', link: '/contact' }}
+                        item_2={{ name: 'Categoty Product', link: '/about-us' }}
+                        item_3={{ name: 'Store Location', link: '/contact' }}
+                        item_4={{ name: 'Orders & Returns ', link: '/contact' }}
                     />
 
                     <ul className={cx('footer-wrapper')}>
                         <h4 className={cx('footer-title')}>Contact us</h4>
-                        <li className={cx('footer-detail')}>
-                            <span className={cx('footer__description')}>
-                                Pellentesque posuere orci lobortis scelerisque blandit. Donec id tellus lacinia an,
-                                tincidunt risus ac, consequat velit.
-                            </span>
+                        <li className={cx('footer-information')}>
+                            <FontAwesomeIcon
+                                icon={icon({ name: 'house', style: 'solid' })}
+                                className={cx('footer-icon')}
+                            />
+                            <span>35/6 đường D5, P.25, Q. Bình Thạnh</span>
                         </li>
-                        <li className={cx('footer-outner-btn')}>
-                            <Link to="/" className={cx('footer-btn')}>
-                                Read More
-                            </Link>
+                        <li className={cx('footer-information')}>
+                            <FontAwesomeIcon
+                                icon={icon({ name: 'phone', style: 'solid' })}
+                                className={cx('footer-icon')}
+                            />
+                            <span>000 - 123 - 456789</span>
                         </li>
-                        <li className={cx('footer-outner-icon')}>
-                            <span>
-                                <FaceBook />
-                                <Link to="/" />
-                            </span>
-                            <span>
-                                <Pinterest />
-                                <Link to="/" />
-                            </span>
-                            <span>
-                                <Instagram />
-                                <Link to="/" />
-                            </span>
+                        <li className={cx('footer-information')}>
+                            <FontAwesomeIcon
+                                icon={icon({ name: 'clock', style: 'solid' })}
+                                className={cx('footer-icon')}
+                            />
+                            <span>9.30AM - 7.30PM</span>
+                        </li>
+                        <li className={cx('footer-information')}>
+                            <FontAwesomeIcon
+                                icon={icon({ name: 'envelope', style: 'solid' })}
+                                className={cx('footer-icon')}
+                            />
+                            <span>mail@example.com</span>
                         </li>
                     </ul>
                 </div>

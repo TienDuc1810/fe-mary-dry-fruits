@@ -113,13 +113,14 @@ function ShoppingCartPage() {
                     </div>
 
                     <div className={cx('cart-info-pay')}>
-                        <div className={cx('cart-coupon')}>
+                        {/* <div className={cx('cart-coupon')}>
                             <span>Have coupon?</span>
                             <div>
                                 <input type="text" className={cx('cart-coupon-input')} placeholder="Coupon code" />
                                 <button className={cx('cart-coupon-btn')}>Apply</button>
                             </div>
-                        </div>
+                        </div> */}
+                        <CartInfoUser />
                         <div className={cx('cart-bill')}>
                             <div className={cx('cart-bill-outner')}>
                                 <div className={cx('cart-bill-detail')}>
@@ -162,7 +163,7 @@ function ShoppingCartPage() {
                             </div>
                         </div>
                     </div>
-                    <CartInfoUser />
+                    
                 </div>
             </div>
             <Footer />
