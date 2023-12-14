@@ -4,13 +4,20 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import FooterItem from './FooterItem';
+import images from '@/assets';
 
 const cx = classNames.bind(styles);
 
-function FooterIndex({ background }) {
+function FooterIndex() {
+    const backGroundImage = {
+        backgroundImage: `url(${images.br_image_3})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+    };
+
     return (
         <div className={cx('footer-container')}>
-            <div className={cx('footer-back-ground')} style={background}>
+            <div className={cx('footer-back-ground')} style={backGroundImage}>
                 <div className={cx('footer-main')}>
                     <ul className={cx('footer-wrapper')}>
                         <h4 className={cx('footer-title')}>About us</h4>
