@@ -2,7 +2,6 @@
 .parallax-banner-container {
     position: relative;
     overflow: hidden;
-    width: 100vw;
     
     .parallax-banner-image {
         position: fixed;
@@ -24,7 +23,7 @@
     left: 0;
 
     .parallax-banner__wrapper{
-        margin: 215px;
+        margin: 165px 215px;
 
         .parallax-banner__title {
             margin-bottom: 30px;
