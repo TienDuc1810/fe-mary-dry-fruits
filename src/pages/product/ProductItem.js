@@ -1,55 +1,43 @@
 import classNames from 'classnames/bind';
 import styles from './Store.module.scss';
-import images from '@/assets';
 import { Link } from 'react-router-dom';
 import { Star, StarCheck } from '@/icons';
 
 const cx = classNames.bind(styles);
 
-
-function ProductItem() {
+function ProductItem({ key, image, name, price, rating }) {
     return (
-        <div>
-            <li className={cx('product-main')}>
-                <div className={cx('product-border-line-1')}></div>
-                <div className={cx('product-border-line-2')}></div>
-                <div className={cx('product-border-line-3')}></div>
-                <div className={cx('product-border-line-4')}></div>
-                <div className={cx('product-image')}>
-                    <Link to="/product">
-                        <img src={images.product_1} alt="product" className={cx('product-image-size')} />
+        <div className={cx('product-main')} key={key}>
+            <div className={cx('product-border-line-1')}></div>
+            <div className={cx('product-border-line-2')}></div>
+            <div className={cx('product-border-line-3')}></div>
+            <div className={cx('product-border-line-4')}></div>
+            <div className={cx('product-image')}>
+                <Link to="/">
+                    <img src={image} alt="product" className={cx('product-image-size')} />
+                </Link>
+            </div>
+            <div className={cx('product-detail')}>
+                <div className={cx('product-outner-name')}>
+                    <Link to="/" className={cx('product-name')}>
+                        {name}
                     </Link>
                 </div>
-                <div className={cx('product-detail')}>
-                    <div className={cx('product-outner-name')}>
-                        <a href="/" className={cx('product-name')}>
-                            Black Cardamom
-                        </a>
-                    </div>
-                    <div className={cx('product-price')}>
-                        <span className={cx('product-money')}>$569.00</span>
-                    </div>
-                    <div className={cx('product-star')}>
-                        <ul className={cx('product-outner-star')}>
-                            <li className={cx('product-star-image')}>
-                                <StarCheck className={cx('check')} />
-                            </li>
-                            <li className={cx('product-star-image')}>
-                                <StarCheck className={cx('check')} />
-                            </li>
-                            <li className={cx('product-star-image')}>
-                                <StarCheck className={cx('check')} />
-                            </li>
-                            <li className={cx('product-star-image')}>
-                                <StarCheck className={cx('check')} />
-                            </li>
-                            <li className={cx('product-star-image')}>
-                                <Star className={cx('no-check')} />
-                            </li>
-                        </ul>
+                <div className={cx('product-price')}>
+                    <span className={cx('product-money')}>${price}</span>
+                </div>
+                <div className={cx('product-star')}>
+                    <div className={cx('product-star-image')}>
+                        {Array.from({ length: 5 }).map((_, index) =>
+                            index < rating ? (
+                                <StarCheck key={index} className={cx('check')} />
+                            ) : (
+                                <Star key={index} className={cx('no-check')} />
+                            ),
+                        )}
                     </div>
                 </div>
-            </li>
+            </div>
         </div>
     );
 }
