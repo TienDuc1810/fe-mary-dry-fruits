@@ -16,6 +16,9 @@ const images = {
     visa: require('@/assets/images/visa.png'),
     paypal: require('@/assets/images/money.png'),
     mastercard: require('@/assets/images/card.png'),
+    check: require('@/assets/images/check.png'),
+    banner: require('@/assets/images/banner.webp'),
+    brand: require('@/assets/images/brand.webp'),
 };
 
 export default images;

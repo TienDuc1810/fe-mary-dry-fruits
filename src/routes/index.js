@@ -2,9 +2,9 @@ import HomePage from '@/pages/HomePage';
 import ContactPage from '@/pages/ContactPage';
 import SiteMapPage from '@/pages/SiteMap/SiteMapPage';
 import ProductPage from '@/pages/ProductPage';
-import ShoppingCartPage from '@/pages/ShoppingCart/ShoppingCartPage';
-import LoginPage from '@/components/Account/Login/LoginForm';
-import RegisterPage from '@/components/Account/Login/LoginForm';
+import LoginPage from '@/pages/account/LoginPage';
+import RegisterPage from '@/pages/account/RegisterPage';
+import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
 import UserPage from '@/pages/UserPage';
 
 const routes = [
@@ -13,7 +13,6 @@ const routes = [
     { path: '/sitemap', component: SiteMapPage },
     { path: '/product', component: ProductPage },
     { path: '/addtocard', component: ShoppingCartPage },
-
     { path: '/account/login', component: LoginPage },
     { path: '/account/register', component: RegisterPage },
 ];

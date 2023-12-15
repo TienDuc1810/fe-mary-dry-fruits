@@ -6,7 +6,6 @@ import { Star, StarCheck } from '@/icons';
 
 const cx = classNames.bind(styles);
 
-
 function ProductItem() {
     return (
         <div>

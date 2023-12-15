@@ -131,3 +131,19 @@ export const Search = ({ width = '2.2rem', height = '2.2rem', className }) => (
         ></path>
     </svg>
 );
+export const Down = ({ width = '1.8rem', height = '1.6rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 20 20"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M10.103 12.778L16.81 6.08a.69.69 0 0 1 .99.012a.726.726 0 0 1-.012 1.012l-7.203 7.193a.69.69 0 0 1-.985-.006L2.205 6.72a.727.727 0 0 1 0-1.01a.69.69 0 0 1 .99 0z"
+        ></path>
+    </svg>
+);

@@ -41,16 +41,8 @@ const DetailMulImage = (props) => {
         setSelectedWeight(weight);
     };
 
-    const handleMore = () => {
-        setMore(true);
-    };
-
     const handleit = () => {
         setMore(false);
-    };
-
-    const handleAccount = () => {
-        navigate('/account/login');
     };
 
     const handleAdd = () => {
@@ -67,7 +59,7 @@ const DetailMulImage = (props) => {
                                 key={index}
                                 src={value}
                                 alt="detailProduct"
-                                className={cx('image', { choose: failImg })}
+                                className={cx('image')}
                                 onClick={() => {
                                     handleImg(value);
                                 }}
@@ -77,7 +69,6 @@ const DetailMulImage = (props) => {
                 </div>
                 <DisContentContent
                     dis=" Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam
-                    dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
                     commodo pharetras loremos.Donec pretium egestas sapien et mollis."
                 >
                     Busey ipsum dolor sit amet
@@ -87,7 +78,7 @@ const DetailMulImage = (props) => {
                     <p>
                         <span>&nbsp;Xem thêm</span>&nbsp;Ưu điểm & lưu ý của sản phẩm&nbsp;
                     </p>
-                    <img src={images.right} alt="right" onClick={handleAccount} />
+                    <img src={images.right} alt="right" />
                 </div>
             </div>
 
@@ -143,24 +134,6 @@ const DetailMulImage = (props) => {
                     >
                         Busey ipsum dolor sit amet
                     </DisContentContent>
-                    {more ? (
-                        <div className={cx('detail-dis-more')}>
-                            <DisContentContent
-                                dis=" Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam
-                                dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                                commodo pharetras loremos.Donec pretium egestas sapien et mollis."
-                            >
-                                Busey ipsum dolor sit amet
-                            </DisContentContent>
-                            <p className={cx('more')} onClick={handleit}>
-                                Thu Gọn
-                            </p>
-                        </div>
-                    ) : (
-                        <p className={cx('more')} onClick={handleMore}>
-                            Xem thêm
-                        </p>
-                    )}
                 </div>
             </div>
         </div>

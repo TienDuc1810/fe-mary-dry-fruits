@@ -1,47 +1,48 @@
-.banner-contairner{
+.banner-contairner {
     height: 220px;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     margin-top: 70px;
 
-    .banner-logo{
+    .banner-logo {
         display: flex;
         justify-content: center;
         align-items: center;
-        .img{
+        .img {
             width: 100px;
         }
-        .first{
+        .first {
             color: #b34d22;
             margin: 0 5px;
             font-size: 3rem;
         }
-        .last{
+        .last {
             color: #fefbea;
             font-size: 3rem;
             margin: 0 5px;
         }
     }
-    .banner-page{
+    .banner-page {
         text-align: center;
         color: #fefbea;
-        
-        .name{
+
+        .name {
             text-transform: uppercase;
             font-size: 4.4rem;
             color: #fefbea;
             margin: 10px 0;
         }
-        .page{
+        .page {
             text-decoration: none;
             margin: 0 10px;
             color: #fefbea;
             text-transform: capitalize;
             font-size: 1.8rem;
-            &:hover{
+            &:hover {
                 color: #f4b323;
             }
         }

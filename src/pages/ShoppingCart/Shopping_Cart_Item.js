@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import styles from './ShoppingCartPage.module.scss';
+import styles from './Shopping_Cart.module.scss';
 import images from '@/assets';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

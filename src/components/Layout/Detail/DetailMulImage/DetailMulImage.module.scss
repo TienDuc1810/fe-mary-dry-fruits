@@ -20,8 +20,10 @@
 
         .image-main {
             width: 100%;
-            border: 1px solid var(--primary-color);
             border-radius: 10px;
+            &:hover {
+                transform: scale(0.5);
+            }
         }
         .image-mul {
             display: flex;
@@ -29,18 +31,13 @@
             margin: 10px 0;
 
             .image {
-                width: 15%;
+                width: 18%;
                 border: 1px solid var(--primary-color);
                 border-radius: 5px;
                 &:hover {
                     border: 3px solid var(--primary-color);
                     cursor: pointer;
                 }
-
-                &.choose {
-                    border: 3px solid var(--primary-color);
-                }
-              
             }
         }
         .detail-more {

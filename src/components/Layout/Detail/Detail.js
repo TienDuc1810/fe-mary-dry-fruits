@@ -3,21 +3,22 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Detail.module.scss';
 
+import Banner from '@/components/Layout/Banner/Banner';
 import DetailMulImage from './DetailMulImage/DetailMulImage';
-import DetailDes from './DetailDes/DetailDes';
-// import ProductItem from '@/pages/product/ProductItem';
+import Footer from '@/components/Layout/Footer/FooterIndex';
 
 import images from '@/assets';
-
-import imgMail from '@/Images/detailProduct.webp';
 
 const cx = classNames.bind(styles);
 
 const Detail = () => {
     return (
         <div className={cx('detail-contairner')}>
+             <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
+                product
+            </Banner>
             <DetailMulImage
-                imgMain={imgMail}
+                imgMain={images.imgMain}
                 img1={images.img1}
                 img2={images.imgMain}
                 img3={images.img1}
@@ -26,7 +27,7 @@ const Detail = () => {
             >
                 Rosehip Berries
             </DetailMulImage>
-            {/* <DetailDes></DetailDes> */}
+            <Footer />
         </div>
     );
 };
