@@ -9,6 +9,7 @@
         width: 80%;
         height: 100%;
         display: flex;
+        justify-content: center;
         margin: 20px;
 
         .cart-info-product {
@@ -350,8 +351,7 @@
 
 //CSS Shopping Cart Info User
 .cart-info-user {
-    width: 20%;
-    margin-left: 20px;
+    width: 100%;
     gap: 20px;
 
     .cart-user {

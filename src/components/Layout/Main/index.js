@@ -24,21 +24,21 @@ const Main = () => {
                     <BenefitIndex
                         title={'Money Back Guarantee'}
                         description={
-                            'Consecteur adipisicing elitsed do eiusmod tempor incididunt ulabore et dolore ulabore et dolore dolor sit amet.'
+                            'Our Money Back Guarantee promises a refund if you\'re not completely satisfied. Shop worry-free with us.'
                         }
                         icon={<ArrowRotate/>}
                     />
                     <BenefitIndex
                         title={'Free Shipping'}
                         description={
-                            'Sit amet dolor consecteur adipisicing elitsed do eiusmod tempor incididunt ulabore et dolore ulabore et dolore.'
+                            'Enjoy the convenience of Free Delivery, bringing the best products right to your door at no additional cost.'
                         }
                         icon={<Suitcase/>}
                     />
                     <BenefitIndex
                         title={'24/7 Customer Service'}
                         description={
-                            'Dolor sit amet consecteur adipisicing elitsed do eiusmod tempor incididunt ulabore et dolore ulabore et dolore.'
+                            'Our  team is ready to assist you around 24/7, ensuring a seamless and satisfying shopping journey.'
                         }
                         icon={<Clock/>}
                     />

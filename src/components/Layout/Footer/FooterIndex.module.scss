@@ -1,6 +1,7 @@
 .footer-container {
     width: 100%;
-    height: 360px;
+    height: 300px;
+
     .footer-back-ground {
         width: 100%;
         height: 100%;
@@ -17,16 +18,21 @@
             background-color: rgb(46, 41, 36);
             opacity: 0.5;
         }
+
         .footer-main {
             width: 80%;
             display: flex;
             justify-content: space-between;
+
             .footer-wrapper {
-                color: white;
+                color: var(--white-color);
                 position: relative;
                 list-style-type: none;
-                padding-top: 60px;
+                padding-top: 50px;
                 max-width: 19%;
+                display: flex;
+                flex-direction: column;
+
                 .footer-title {
                     font-family: var(--font-special);
                     color: var(--second-color);
@@ -39,21 +45,37 @@
                 .footer-detail {
                     width: 100%;
                     font-size: 1.6rem;
-                    margin-bottom: 30px;
                     height: 100px;
-                    .footer-description{
+
+                    .footer-description {
+                        line-height: 2.7rem;
+                        margin-right: 5px;
+                    }
+
+                    .footer-description-none {
                         line-height: 2.7rem;
                     }
                 }
+
                 .footer-outner-btn {
-                    margin-bottom: 30px;
+                    display: block;
+                    margin-top: 19px;
+                    width: 100%;
+                    height: 100%;
                     .footer-btn {
                         color: var(--second-color);
                     }
                 }
-                .footer-outner-icon {
-                    display: flex;
-                    gap: 20px;
+
+                .footer-information {
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    line-height: 2.4rem;
+                    padding-bottom: 8px;
+                    
+                    .footer-icon {
+                        padding-right: 10px;
+                    }
                 }
             }
         }
@@ -63,19 +85,23 @@
 //Footer Item CSS
 .footer-item {
     min-width: 14%;
-    color: white;
     position: relative;
-    padding-top: 60px;
+    padding-top: 50px;
+
     .footer-item-title {
         font-family: var(--font-special);
         color: var(--second-color);
         margin-bottom: 30px;
         font-size: 2.4rem;
         font-weight: 400;
-        line-height: 2.6rem;
+        line-height: 2.7rem;
     }
+
     .footer-item-wrapper {
-        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        margin-top: -2px;
+
         .footer-item-child {
             font-size: 1.6rem;
             font-weight: 400;
@@ -83,6 +109,7 @@
             transition: all 0.3s linear;
             position: relative;
             margin: 0 0 5px 20px;
+            color: var(--white-color);
             &:hover {
                 color: var(--second-color);
                 cursor: pointer;
@@ -106,5 +133,11 @@
                 transform: translate(-50%, -50%) rotate(45deg);
             }
         }
+    }
+}
+
+@media (max-width: 1350px)  {
+    .footer-description-none{
+        display: none;
     }
 }
