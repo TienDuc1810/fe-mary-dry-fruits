@@ -22,7 +22,6 @@ const RegisterForm = () => {
 
     const handleRegister = async () => {
         const data = { email, password };
-        console.log(data);
 
         if (email.trim() === '') {
             setFailEmail(true);

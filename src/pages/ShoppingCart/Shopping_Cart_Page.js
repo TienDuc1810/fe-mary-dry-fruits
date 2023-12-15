@@ -13,32 +13,14 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 const cx = classNames.bind(styles);
 
 function ShoppingCartPage() {
-    const [totalPrice, setTotalPrice] = useState(948);
-    const [transport, setTransport] = useState(0);
-    const [discount, setDiscount] = useState(17);
+    const [totalPrice, setTotalPrice] = useState(900);
+    const [discount, setDiscount] = useState(10);
     const [total, setTotal] = useState(0);
-    const [transportOption, setTransportOption] = useState(false);
-    const [transportCheck, setTransportCheck] = useState(false);
-    const [transportCheckIcon1, setTransportCheckIcon1] = useState(false);
-    const [transportCheckIcon2, setTransportCheckIcon2] = useState(false);
-
-    const amount = totalPrice + transport;
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
-        setTotal(amount - amount * (discount / 100));
-    }, [totalPrice, transport, discount]);
-
-    const handleChoiceTransport = () => {
-        setTransport(0);
-        setTransportCheck(!transportCheck);
-        setTransportCheckIcon1(!transportCheckIcon1);
-    };
-
-    const handleChoiceFastTransport = () => {
-        setTransport(5);
-        setTransportCheck(!transportCheck);
-        setTransportCheckIcon2(!transportCheckIcon2);
-    };
+        setTotal(totalPrice - totalPrice * (discount / 100));
+    }, [totalPrice, discount]);
 
     return (
         <>
@@ -51,9 +33,9 @@ function ShoppingCartPage() {
                                 <div className={cx('cart-title')}>
                                     <h4 className={cx('cart-title-1')}>PRODUCT</h4>
                                     <h4 className={cx('cart-title-2')}>NAME</h4>
-                                    <h4>QUANTITY</h4>
-                                    <h4>PRICE</h4>
-                                    <h4>ACTION</h4>
+                                    <h4 className={cx('cart-title-3')}>QUANTITY</h4>
+                                    <h4 className={cx('cart-title-4')}>PRICE</h4>
+                                    <h4 className={cx('cart-title-5')}>ACTION</h4>
                                 </div>
                             </div>
                             <CartItem />
@@ -61,54 +43,21 @@ function ShoppingCartPage() {
                             <CartItem />
                         </div>
                         <div className={cx('cart-option')}>
-                            <Button text={'Continue shopping'} blackText />
-                            <span onClick={() => setTransportOption(!transportOption)}>
-                                <Button text={'Make Purchase'} blackText />
+                            <Button text={'Continue shopping'} blackText link={'/product'}/>
+                            <span onClick={() => setShow(!show)}>
+                                <Button text={'Special Offers'} blackText />
                             </span>
                         </div>
-                        {transportOption === true ? (
-                            <>
-                                <div className={cx('cart-transport-normal')} onClick={() => handleChoiceTransport()}>
-                                    <span>
-                                        <FontAwesomeIcon
-                                            icon={icon({ name: 'truck', style: 'solid' })}
-                                            className={cx('truck-icon')}
-                                        />
-                                    </span>
-                                    <span className={cx('cart-transport-text')}>Free Delivery within 1-2 weeks</span>
-                                    <span className={cx('cart-transport-check')}>
-                                        <input type="radio" id="transport" checked={transportCheck} hidden />
-                                        <label htmlFor="transport" className={cx('cart-transport-btn')}>
-                                            {transportCheckIcon1 === true ? (
-                                                <FontAwesomeIcon
-                                                    icon={icon({ name: 'check', style: 'solid' })}
-                                                    className={cx('check-icon')}
-                                                />
-                                            ) : null}
-                                        </label>
-                                    </span>
-                                </div>
-                                <div className={cx('cart-transport-fast')} onClick={() => handleChoiceFastTransport()}>
-                                    <span>
-                                        <FontAwesomeIcon
-                                            icon={icon({ name: 'truck-fast', style: 'solid' })}
-                                            className={cx('truck-icon')}
-                                        />
-                                    </span>
-                                    <span className={cx('cart-transport-text')}>Fast Delivery within 3 days</span>
-                                    <span className={cx('cart-transport-check')}>
-                                        <input type="radio" id="transport" checked={!transportCheck} hidden />
-                                        <label htmlFor="transport" className={cx('cart-transport-btn')}>
-                                            {transportCheckIcon2 === true ? (
-                                                <FontAwesomeIcon
-                                                    icon={icon({ name: 'check', style: 'solid' })}
-                                                    className={cx('check-icon')}
-                                                />
-                                            ) : null}
-                                        </label>
-                                    </span>
-                                </div>
-                            </>
+                        {show === false ? (
+                            <div className={cx('cart-transport-normal')}>
+                                <span>
+                                    <FontAwesomeIcon
+                                        icon={icon({ name: 'truck', style: 'solid' })}
+                                        className={cx('truck-icon')}
+                                    />
+                                </span>
+                                <span className={cx('cart-transport-text')}>Free Delivery within 1-2 weeks</span>
+                            </div>
                         ) : null}
                     </div>
 
@@ -133,7 +82,7 @@ function ShoppingCartPage() {
                                 <div className={cx('cart-bill-detail')}>
                                     <span>Transport:</span>
                                     <span>
-                                        <span>{transport}</span>
+                                        <span>0</span>
                                         <span className={cx('cart-bill-unit')}>USD</span>
                                     </span>
                                 </div>

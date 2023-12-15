@@ -23,7 +23,7 @@ function FooterIndex() {
                         <h4 className={cx('footer-title')}>About us</h4>
                         <li className={cx('footer-detail')}>
                             <span className={cx('footer-description')}>
-                                Welcome to our world of premium dried fruits. 
+                                Welcome to our world of premium dried fruits.
                             </span>
                             <span className={cx('footer-description-none')}>
                                 Where quality meets taste in every delightful bite.
@@ -65,7 +65,10 @@ function FooterIndex() {
                                 icon={icon({ name: 'house', style: 'solid' })}
                                 className={cx('footer-icon')}
                             />
-                            <span>35/6 đường D5, P.25, Q. Bình Thạnh</span>
+                            <span className={cx('footer-information-address')}>
+                                <span>35/6 D5 Street</span>
+                                <span className={cx('footer-information-district')}>Binh Thanh District</span>
+                            </span>
                         </li>
                         <li className={cx('footer-information')}>
                             <FontAwesomeIcon

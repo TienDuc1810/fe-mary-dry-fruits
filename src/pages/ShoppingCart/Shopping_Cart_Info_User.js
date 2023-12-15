@@ -35,8 +35,10 @@ function ShoppingCartInfoUser() {
                             <span className={cx('cart-user-result')}>{address}</span>
                         </div>
                         <div className={cx('cart-user-detail')}>
-                            <span className={cx('cart-user-title')}>Phone</span>
-                            <span>:</span>
+                            
+                                <span className={cx('cart-user-title')}>Phone</span>
+                                <span>:</span>
+                            
                             <span className={cx('cart-user-result')}>{phone}</span>
                         </div>
                         <div className={cx('cart-user-outner-btn')}>

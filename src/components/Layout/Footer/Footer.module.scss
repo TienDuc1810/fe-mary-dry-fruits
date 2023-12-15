@@ -72,9 +72,21 @@
                     font-weight: 400;
                     line-height: 2.4rem;
                     padding-bottom: 8px;
+                    display: flex;
                     
                     .footer-icon {
                         padding-right: 10px;
+                        margin-top: 4px;
+                    }
+
+                    .footer-information-address{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        .footer-information-district{
+                            margin-top: 7px;
+                        }
                     }
                 }
             }
