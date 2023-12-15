@@ -7,6 +7,7 @@ import styles from './CategoryList.module.scss';
 import images from '@/assets';
 import CategoryTitle from './CategoryTitle/CategoryTitle';
 import CategoryGram from './CategoryGram/CategoryGram';
+import ProductItem from '@/pages/product/ProductItem';
 
 const cx = classNames.bind(styles);
 
@@ -70,7 +71,9 @@ const CategoryList = () => {
                 <img src={images.brand} alt="brand" />
             </div>
             <CategoryTitle>Best Sellers</CategoryTitle>
-            <div className={cx('category-bestsaler')}></div>
+            <div className={cx('category-bestsaler')}>
+                <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
+            </div>
         </div>
     );
 };

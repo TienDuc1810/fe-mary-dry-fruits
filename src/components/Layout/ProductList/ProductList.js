@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './ProductList.module.scss';
+import ProductItem from '@/pages/product/ProductItem';
+import images from '@/assets';
 
 import { Down } from '@/icons';
 
@@ -25,8 +27,26 @@ const ProductList = () => {
                     </div> */}
                 </div>
             </div>
-
-            <div className={cx('product-item')}></div>
+            <div className={cx('product-item')}>
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+            </div>
+            <div className={cx('product-item')}>
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+            </div>
+            <div className={cx('product-item')}>
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+            </div>
+            <div className={cx('product-item')}>
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+            </div>
             <div className={cx('page-change')}>
                 <ul className={cx('page-practive')}>
                     <li>&lsaquo;</li>

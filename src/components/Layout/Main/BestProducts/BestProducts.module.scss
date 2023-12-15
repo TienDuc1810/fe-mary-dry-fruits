@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     .wrapper {
         width: 80%;
         height: 100%;
@@ -27,12 +28,9 @@
             height: 100%;
             margin-top: 30px;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
+           
             .product-home-wrapper {
-                width: 100%;
+                width: calc(100% + 32px);
                 height: 100%;
                 display: flex;
                 justify-content: center;
@@ -93,12 +91,7 @@
     }
 }
 
-.check {
-    color: var(--second-color);
-}
-.no-check {
-    color: #8d8d8d;
-}
+
 
 @keyframes borderAnimation {
     0% {

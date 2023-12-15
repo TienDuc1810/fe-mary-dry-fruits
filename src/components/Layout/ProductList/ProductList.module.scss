@@ -1,5 +1,7 @@
 .product-list {
     width: 65%;
+    overflow: hidden;
+
     .product-filter {
         padding: 20px;
         background-color: var(--gray-color);
@@ -46,6 +48,9 @@
 
     .product-item {
         display: flex;
+        width: calc(100% * 1.5);
+        margin-bottom: 10px;
+        margin-left: 10px;
     }
     .page-change {
         .page-practive {

@@ -1,6 +1,7 @@
 .category-list {
     width: 30%;
-   
+    overflow: hidden;
+
     .category-filter-panel {
         margin: 30px 0;
 
@@ -40,7 +41,7 @@
             }
         }
     }
-    
+
     .category-brand {
         margin: 10px 0;
         img {
@@ -48,5 +49,7 @@
         }
     }
     .category-bestsaler {
+        margin-top: 20px;
+        width: calc(100% * 5);
     }
 }
