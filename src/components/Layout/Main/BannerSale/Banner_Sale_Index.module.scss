@@ -9,14 +9,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('@/../../../../../assets/images/banner_sale.jpg');
-        background-size: cover;
-        background-position: center;
         transform: translateZ(0);
         z-index: -1;
-       
     }
 }
+
 .parallax-banner__outner {
     position: relative;
     top: 0;

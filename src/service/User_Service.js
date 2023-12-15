@@ -1,4 +1,4 @@
-import axios from '@/service/axios';
+import axios from './Axios';
 
 const loginUser = async (email, password) => {
     const loginUrl = '/api/auth/login';
@@ -22,11 +22,8 @@ const loginUser = async (email, password) => {
             expires_in: expires_in,
         };
     } catch (error) {
-        console.log('Authentication error:', error.response);
-        
         return {
             success: false,
-            error: error.response ? error.response.data : error.message,
         };
     }
 };
@@ -46,10 +43,8 @@ const logoutUser = async () => {
             success: true,
         };
     } catch (error) {
-        console.error('Logout error:', error.response ? error.response : error.message);
         return {
             success: false,
-            error: error.response ? error.response : error.message,
         };
     }
 };

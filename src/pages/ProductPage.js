@@ -1,5 +1,5 @@
 import Store from './Product/Store';
-import Footer from '@/components/Layout/Footer/FooterIndex';
+import Footer from '@/components/Layout/Footer/Footer_Index';
 
 const ProductPage = () => {
     return (

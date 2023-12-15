@@ -1,8 +1,7 @@
 import Header from '@/components/Layout/Header/HeaderIndex';
-import Footer from '@/components/Layout/Footer/FooterIndex';
+import Footer from '@/components/Layout/Footer/Footer_Index';
 import classNames from 'classnames/bind';
 import styles from './SiteMapPage.module.scss';
-
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +11,7 @@ const SiteMapPage = () => {
             <Header />
             <div className={cx('sitemap-container')}>
                 <div class={cx('sitemap-wrapper')}>
-                <h1 className={cx('sitemap-heading')}>MY SITEMAP</h1> 
+                    <h1 className={cx('sitemap-heading')}>MY SITEMAP</h1>
                     <nav className={cx('primary')}>
                         <ul>
                             <li id="home">
@@ -22,8 +21,7 @@ const SiteMapPage = () => {
                                 <ul>
                                     <li>
                                         <a href="/product">
-                                            <i className={cx('fa fa-search')}></i> Product{' '}
-                                            <small>Show product</small>
+                                            <i className={cx('fa fa-search')}></i> Product <small>Show product</small>
                                         </a>
                                         <ul>
                                             <li>
@@ -37,10 +35,9 @@ const SiteMapPage = () => {
 
                                     <li>
                                         <a href="/store">
-                                            <i className={cx('fa fa-search')}></i> Store{' '}
-                                            <small>Shopping Cart</small>
+                                            <i className={cx('fa fa-search')}></i> Store <small>Shopping Cart</small>
                                         </a>
-                                        
+
                                         <ul>
                                             <li>
                                                 <a href="/store/details">Customer Shopping Cart</a>
@@ -67,7 +64,7 @@ const SiteMapPage = () => {
                                                 <ul>
                                                     <li>
                                                         <a href="/store/categoty/:id" className={cx('multi')}>
-                                                            All products belong to the category ID 
+                                                            All products belong to the category ID
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -76,8 +73,7 @@ const SiteMapPage = () => {
                                     </li>
                                     <li>
                                         <a href="/account">
-                                            <i className={cx('fa fa-building')}></i> Account{' '}
-                                            <small>Account User</small>
+                                            <i className={cx('fa fa-building')}></i> Account <small>Account User</small>
                                         </a>
                                         <ul>
                                             <li>
@@ -88,11 +84,10 @@ const SiteMapPage = () => {
                                             </li>
                                         </ul>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="/store">
-                                            <i className={cx('fa fa-rss')}></i> Contact{' '}
-                                            <small>Contact Page</small>
+                                            <i className={cx('fa fa-rss')}></i> Contact <small>Contact Page</small>
                                         </a>
                                         <ul>
                                             <li>

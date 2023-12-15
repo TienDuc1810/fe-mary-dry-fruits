@@ -1,7 +1,7 @@
 import RegisterForm from '@/components/Account/Register/RegisterForm';
 import Banner from '@/components/Layout/Banner/Banner';
 import backGround from '@/Images/banner.webp';
-import Footer from '@/components/Layout/Footer/FooterIndex';
+import Footer from '@/components/Layout/Footer/Footer_Index';
 
 const RegisterPage = () => {
     return (
@@ -10,10 +10,9 @@ const RegisterPage = () => {
                 register
             </Banner>
             <RegisterForm />
-            <Footer/>
+            <Footer />
         </div>
     );
 };
-
 
 export default RegisterPage;

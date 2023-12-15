@@ -2,8 +2,8 @@ import HomePage from '@/pages/HomePage';
 import ContactPage from '@/pages/ContactPage';
 import SiteMapPage from '@/pages/SiteMap/SiteMapPage';
 import ProductPage from '@/pages/ProductPage';
-import LoginPage from '@/pages/Account/LoginPage';
-import RegisterPage from '@/pages/Account/RegisterPage';
+import LoginPage from '@/pages/Account/Login_Page';
+import RegisterPage from '@/pages/Account/Register_Page';
 import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
 import UserPage from '@/pages/UserPage';
 

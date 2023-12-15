@@ -1,13 +1,14 @@
+import React from 'react';
 import classNames from 'classnames/bind';
-import styles from './Store.module.scss';
 import { Link } from 'react-router-dom';
 import { Star, StarCheck } from '@/icons';
+import styles from './Store.module.scss';
 
 const cx = classNames.bind(styles);
 
-function ProductItem({ key, image, name, price, rating }) {
+function ProductItem({ id, image, name, price, rating }) {
     return (
-        <div className={cx('product-main')} key={key}>
+        <div className={cx('product-main')}>
             <div className={cx('product-border-line-1')}></div>
             <div className={cx('product-border-line-2')}></div>
             <div className={cx('product-border-line-3')}></div>

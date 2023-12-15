@@ -8,7 +8,7 @@
 
     .title-heading {
         font-size: 4rem;
-        font-family: 'Spicy Rice', serif;
+        font-family: var(--font-special);
         color: var(--primary-color);
         line-height: 4.4rem;
         letter-spacing: 0.2rem;
@@ -20,7 +20,7 @@
     .title-description {
         font-size: 1.6rem;
         padding-bottom: 7px;
-        color: #292929;
+        color: var(--text-color);
         line-height: 2.7rem;
         letter-spacing: 0.1rem;
         width: 100%;

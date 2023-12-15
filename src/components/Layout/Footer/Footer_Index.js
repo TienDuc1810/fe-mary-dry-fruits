@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
-import styles from './FooterIndex.module.scss';
+import styles from './Footer.module.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
-import FooterItem from './FooterItem';
+import FooterItem from './Footer_Item';
 import images from '@/assets';
 
 const cx = classNames.bind(styles);

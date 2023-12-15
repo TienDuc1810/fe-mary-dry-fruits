@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { loginUser } from '@/service/UserService';
+import { loginUser } from '@/service/User_Service';
 
 const cx = classNames.bind(styles);
 
@@ -28,8 +28,7 @@ const LoginForm = () => {
             setErrorEmail(true);
             setMessErrorEmail('Please enter your email');
             setErrorHeightEmail(true);
-        } 
-        else {
+        } else {
             setErrorEmail(false);
             setErrorHeightEmail(false);
             setMessErrorEmail('');

@@ -1,3 +1,4 @@
+//CSS Benefit Index
 .benefit-container {
     width: 100%;
     display: flex;
@@ -17,7 +18,7 @@
         background-color: var(--primary-color);
         border-radius: 50%;
         transition: all 0.3s linear;
-        &:hover{
+        &:hover {
             background-color: var(--second-color);
             cursor: pointer;
         }
@@ -60,5 +61,23 @@
             font-size: 1.6rem;
             line-height: 2.7rem;
         }
+    }
+}
+
+//CSS Benefit Item
+.wrapper {
+    padding: 100px 0 80px 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--white-color);
+    height: 450px;
+
+    .benefit {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        width: 80%;
+        height: 195px;
+        margin: 20px 0 20px;
     }
 }

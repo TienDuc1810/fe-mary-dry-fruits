@@ -1,10 +1,10 @@
 import classNames from 'classnames/bind';
-import styles from './BenefitIndex.module.scss';
+import styles from './Benefit.module.scss';
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function BenefitIndex({ title, description, icon, classNames = false }) {
+function BenefitItem({ title, description, icon }) {
     const handleClickTitle = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -12,7 +12,7 @@ function BenefitIndex({ title, description, icon, classNames = false }) {
     return (
         <div className={cx('benefit-container')}>
             <div className={cx('benefit-outner-icon')}>
-                <div className={cx('benefit-icon')}>{icon}</div>
+                <div className={cx('benefit-icon',)}>{icon}</div>
             </div>
             <div className={cx('benefit-wrapper')}>
                 <Link to="/" className={cx('benefit-title')} onClick={handleClickTitle}>
@@ -24,4 +24,4 @@ function BenefitIndex({ title, description, icon, classNames = false }) {
     );
 }
 
-export default BenefitIndex;
+export default BenefitItem;

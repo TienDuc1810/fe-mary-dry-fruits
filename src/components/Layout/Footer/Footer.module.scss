@@ -113,7 +113,6 @@
             &:hover {
                 color: var(--second-color);
                 cursor: pointer;
-
                 &::before {
                     border-right-color: var(--second-color);
                     border-top-color: var(--second-color);

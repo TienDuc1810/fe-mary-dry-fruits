@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import styles from './NavBarIndex.module.scss';
+import styles from './Nav_Index.module.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from '@/icons';

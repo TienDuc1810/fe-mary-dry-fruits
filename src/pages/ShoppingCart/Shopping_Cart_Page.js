@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Shopping_Cart.module.scss';
 import Header from '@/components/Layout/Header/HeaderIndex';
-import Footer from '@/components/Layout/Footer/FooterIndex';
+import Footer from '@/components/Layout/Footer/Footer_Index';
 import Button from '@/components/Button/ButtonIndex';
 import images from '@/assets';
 import { useState, useEffect } from 'react';
@@ -163,7 +163,6 @@ function ShoppingCartPage() {
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             <Footer />

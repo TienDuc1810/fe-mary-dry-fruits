@@ -4,8 +4,7 @@ import styles from './Store.module.scss';
 import Banner from '@/components/Layout/Banner/Banner';
 import backGround from '../../Images/banner.webp';
 import Detail from '@/components/Layout/Detail/Detail';
-import img1 from '@/Images/img1.webp';
-import imgMail from '@/Images/detailProduct.webp';
+
 
 const cx = classNames.bind(styles);
 
