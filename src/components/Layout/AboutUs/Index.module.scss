@@ -9,51 +9,18 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .about-us-first {
+       
+        .wrapper {
+            margin-top: 30px;
             display: flex;
-            width: 100%;
-            .first-content {
-                width: 50%;
-                min-height: 250px;
-                h4 {
-                    color: var(--primary-color);
-                    font-family: var(--font-special);
-                    letter-spacing: 1.2px;
-                    font-size: 2.2rem;
-                    margin-bottom: 20px;
-                    line-height: 30px;
-                }
-                p {
-                    margin-bottom: 30px;
-                    font-family: var(--font-family-global);
-                    line-height: 30px;
-                }
-                blockquote {
-                    font-family: var(--font-family-global);
-                    margin-left: 10px;
-                    position: relative;
-                    line-height: 30px;
-                }
-                blockquote::before {
-                    position: absolute;
-                    content: '';
-                    border: 1.4px solid var(--black-color);
-                    min-height: 150px;
-                    top: 0;
-                    left: -10px;
-                }
+            justify-content: center;
+            background-color: var(--white-color);
+
+            .benefit {
+                display: flex;
+                justify-content: space-between;
+                gap: 30px;
             }
-            .first-image {
-                width: 50%;
-                background-image: url(../../../assets//images//premium_img_1.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-clip: border-box;
-                background-position: center;
-            }
-        }
-        .about-us-second{
-            
         }
     }
 }

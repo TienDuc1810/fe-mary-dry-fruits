@@ -5,7 +5,14 @@ import styles from './Index.module.scss';
 
 import Banner from '../Banner/Banner';
 import images from '@/assets';
-import BestProductsIndex from '../Main/BestProducts/BestProductsIndex';
+import TitleIndex from '../Main/Title/TitleIndex';
+import AboutFirst from './AboutFirst/AboutFirst';
+import AboutSecond from './AboutUsSecond/AboutSecond';
+import AboutThree from './AboutThree/AboutThree';
+import BenefitIndex from '../Main/Benefit/BenefitIndex';
+import Footer from '@/components/Layout/Footer/FooterIndex';
+
+import { ArrowRotate, Suitcase, Clock } from '@/icons';
 
 const cx = classNames.bind(styles);
 
@@ -13,34 +20,46 @@ const Index = () => {
     return (
         <div className={cx('about-us-container')}>
             <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
-                product
+                about us
             </Banner>
             <div className={cx('about-us')}>
-                <div className={cx('about-us-first')}>
-                    <div className={cx('first-content')}>
-                        <h4>The Richest Masala In The World</h4>
-                        <p>
-                            Nullam malesuada erat ut ki diaml ka dhuddu pochu turpis. Suspendisse urna nibh, viverra
-                            non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Morbi
-                            in sem quis dui placerat ornare. Tortor dignissim convallis aenean et tortor. Ac tincidunt
-                            vitae semper quis lectus nulla at volutpat diam.
-                        </p>
-                        <blockquote>
-                            Nullam malesuada erat ut ki diaml ka dhuddu pochu turpis. Suspendisse urna nibh, viverra
-                            non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Morbi
-                            in sem quis dui placerat ornare. Tortor dignissim convallis aenean et tortor. Ac tincidunt
-                            vitae semper quis lectus nulla at volutpat diam.
-                        </blockquote>
-                    </div>
-                    <div className={cx('first-image')}></div>
-                </div>
-                <BestProductsIndex />  
-                <div className={cx('about-us-second')}>
-                    <div className={cx('second-flavors')}>
-                        <div></div>
+                <AboutFirst />
+                <TitleIndex heading={'Unique flavors spices'} description={'Quisque volutpat mattis eros.'} />
+                <AboutSecond />
+                <AboutSecond />
+                <TitleIndex
+                    heading={'A unique blended taste'}
+                    description={'Pellentesque habitant morbi tristique senectus et netus et male.'}
+                />
+                <AboutThree />
+                <TitleIndex heading={'Unique flavors spices'} description={'Quisque volutpat mattis eros.'} />
+                <div className={cx('wrapper')}>
+                    <div className={cx('benefit')}>
+                        <BenefitIndex
+                            title={'Money Back Guarantee'}
+                            description={
+                                "Our Money Back Guarantee promises a refund if you're not completely satisfied. Shop worry-free with us."
+                            }
+                            icon={<ArrowRotate />}
+                        />
+                        <BenefitIndex
+                            title={'Free Shipping'}
+                            description={
+                                'Enjoy the convenience of Free Delivery, bringing the best products right to your door at no additional cost.'
+                            }
+                            icon={<Suitcase />}
+                        />
+                        <BenefitIndex
+                            title={'24/7 Customer Service'}
+                            description={
+                                'Our  team is ready to assist you around 24/7, ensuring a seamless and satisfying shopping journey.'
+                            }
+                            icon={<Clock />}
+                        />
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

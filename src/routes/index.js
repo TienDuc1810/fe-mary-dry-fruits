@@ -6,12 +6,14 @@ import LoginPage from '@/pages/account/LoginPage';
 import RegisterPage from '@/pages/account/RegisterPage';
 import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
 import UserPage from '@/pages/UserPage';
+import AboutUs from '@/pages/AboutUs';
 
 const routes = [
     { path: '/', component: HomePage },
     { path: '/contact', component: ContactPage },
     { path: '/sitemap', component: SiteMapPage },
     { path: '/product', component: ProductPage },
+    { path: '/about-us', component: AboutUs },
     { path: '/addtocard', component: ShoppingCartPage },
     { path: '/account/login', component: LoginPage },
     { path: '/account/register', component: RegisterPage },

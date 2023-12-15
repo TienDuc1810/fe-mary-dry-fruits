@@ -19,6 +19,7 @@ const images = {
     check: require('@/assets/images/check.png'),
     banner: require('@/assets/images/banner.webp'),
     brand: require('@/assets/images/brand.webp'),
+    finest: require('@/assets/images/finest.webp'),
 };
 
 export default images;

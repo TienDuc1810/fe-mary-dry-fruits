@@ -147,7 +147,7 @@ export const Down = ({ width = '1.8rem', height = '1.6rem', className }) => (
         ></path>
     </svg>
 );
-export const World = ({ width = '1.8rem', height = '1.6rem', className }) => (
+export const World = ({ width = '4rem', height = '4rem', className }) => (
     <svg
         height={height}
         width={width}
@@ -160,6 +160,57 @@ export const World = ({ width = '1.8rem', height = '1.6rem', className }) => (
             fillRule="evenodd"
             clipRule="evenodd"
             d="M256 0Q150 0 75 75T0 256t75 181t181 75t181-75t75-181t-75-181T256 0M109 331q21 53 21 96q-40-28-63.5-73.5T43 256q0-103 81-166q18 14 33 36.5t14 42.5q-4 31-41 61q-19 20-25.5 47.5T109 331m360-75q0 88-62.5 150.5T256 469q-44 0-83-17q5-65-26-136q-11-34 13-54q50-50 53-89q6-54-51-109q39-21 94-21q26 0 49 6l-43 43l-15 15l62 62l150 21q10 35 10 66M331 130l-24-23l43-43q55 26 87 81zm-62 90l-17 25q-20 32-5 64l9 20l15 72q3 23 28 30q4 2 10 2q15 0 28-11l24-23l2-4q15-56 34-75q27-19 15-68q-7-27-37-39l-51-21h-4q-35 0-51 28m19 49l17-26q4-8 13-8l43 15q8 4 8 8q2 7 2 24q-27 20-49 91l-11 11l-12-68l-13-26q-6-9 2-21"
+        ></path>
+    </svg>
+);
+
+export const User = ({ width = '4rem', height = '4rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 448 512"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128m89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4"
+        ></path>
+    </svg>
+);
+
+export const Coffee = ({ width = '4rem', height = '4rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 16 16"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="m14 13l-4 1H4l-4-1v-1h14zm.7-10H13V2H1v5c0 1.5.8 2.8 2 3.4v.6h8v-.6c.9-.5 1.6-1.4 1.9-2.4h.1c2.3 0 2.9-2 3-3.5c.1-.8-.5-1.5-1.3-1.5M13 7V4h1.7c.1 0 .2.1.2.1s.1.1.1.3C14.8 7 13.4 7 13 7"
+        ></path>
+    </svg>
+);
+
+export const Eye = ({ width = '4rem', height = '4rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 16 16"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M8 3.9C1.3 3.9 0 9 0 9s2.2 4.1 7.9 4.1s8.1-4 8.1-4s-1.3-5.2-8-5.2M5.3 5.4c.5-.3 1.3-.3 1.3-.3s-.5.9-.5 1.6c0 .7.2 1.1.2 1.1L5.2 8s-.3-.5-.3-1.2c0-.8.4-1.4.4-1.4m2.6 6.7c-4.1 0-6.2-2.3-6.8-3.2c.3-.7 1.1-2.2 3.1-3.2c-.1.4-.2.8-.2 1.3c0 2.2 1.8 4 4 4s4-1.8 4-4c0-.5-.1-.9-.2-1.3c2 .9 2.8 2.5 3.1 3.2c-.7.9-2.8 3.2-7 3.2"
         ></path>
     </svg>
 );

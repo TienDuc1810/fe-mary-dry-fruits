@@ -1,0 +1,33 @@
+.about-us-second {
+    width: 100%;
+    display: flex;
+    .second-flavors {
+        width: 50%;
+        display: flex;
+        margin-right: 20px;
+        margin-bottom: 50px;
+
+        .flavors-img {
+            text-align: center;
+            padding: 10px;
+            height: 60px;
+            background-color: var(--second-color);
+            text-align: center;
+        }
+        .flavors-title {
+            width: 100%;
+            margin-left: 20px;
+            h4{
+                font-family: var(--font-special);
+                color: var(--black-color);
+                letter-spacing: 1.2px;
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            p{
+                line-height: 25px;
+                text-align: justify;
+            }
+        }
+    }
+}

@@ -24,23 +24,23 @@ const Main = () => {
                     <BenefitIndex
                         title={'Money Back Guarantee'}
                         description={
-                            'Our Money Back Guarantee promises a refund if you\'re not completely satisfied. Shop worry-free with us.'
+                            "Our Money Back Guarantee promises a refund if you're not completely satisfied. Shop worry-free with us."
                         }
-                        icon={<ArrowRotate/>}
+                        icon={<ArrowRotate />}
                     />
                     <BenefitIndex
                         title={'Free Shipping'}
                         description={
                             'Enjoy the convenience of Free Delivery, bringing the best products right to your door at no additional cost.'
                         }
-                        icon={<Suitcase/>}
+                        icon={<Suitcase />}
                     />
                     <BenefitIndex
                         title={'24/7 Customer Service'}
                         description={
                             'Our  team is ready to assist you around 24/7, ensuring a seamless and satisfying shopping journey.'
                         }
-                        icon={<Clock/>}
+                        icon={<Clock />}
                     />
                 </div>
             </div>
