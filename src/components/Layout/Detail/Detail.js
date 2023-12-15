@@ -14,7 +14,7 @@ const cx = classNames.bind(styles);
 const Detail = () => {
     return (
         <div className={cx('detail-contairner')}>
-             <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
+            <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
                 product
             </Banner>
             <DetailMulImage

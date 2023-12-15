@@ -22,7 +22,7 @@ function BestProductsIndex() {
                         <Button text={'Spicy Masas'} link={'/'} primary blackText />
                     </div>
 
-                    <div className={cx('product-home-container')}>
+                    {/* <div className={cx('product-home-container')}>
                         <ul className={cx('product-home-wrapper')}>
                             <ProductItem/>
                             <ProductItem/>
@@ -34,7 +34,7 @@ function BestProductsIndex() {
                             <button className={cx('product-home-back')}></button>
                             <button className={cx('product-home-next')}></button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
