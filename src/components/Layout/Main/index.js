@@ -3,6 +3,7 @@ import BestProducts from './BestProducts/BestProductsIndex';
 import Slide from './Slide/SlideIndex';
 import PremiumProducts from './PremiumProducts/Premium_Product_Index';
 import Benefit from './Benefit/Benefit_Index';
+import CategoryProduct from './CategoryProduct/Category_Product';
 import images from '@/assets';
 
 const Main = () => {
@@ -31,7 +32,7 @@ const Main = () => {
                     'Lorem ipsum has become the industry standard for design mockups and prototypes. By adding a little bit of Latin to a mockup.'
                 }
             />
-            <BestProducts />
+            <CategoryProduct/>
             <NormalBanner
                 image={urlNormalBanner}
                 name={'Cardamom / Clove / Cumin'}
