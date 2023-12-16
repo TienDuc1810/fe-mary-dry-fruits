@@ -63,7 +63,7 @@
 
     .category-item-main {
         position: absolute;
-        z-index: 10;
+        z-index: 1;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -86,6 +86,10 @@
             font-size: 1.6rem;
             font-weight: 400;
             line-height: 2.7rem;
+        }
+
+        .category-item-btn{
+            width: 200px;
         }
     }
 }
@@ -127,5 +131,16 @@
         opacity: 0;
         transition: all 0.3s linear;
         z-index: 1;
+    }
+}
+
+@media (max-width: 1450px) {
+    .category-container {
+        height: 600px;
+    }
+}
+@media (min-width: 1451px) and (max-width: 1700px) {
+    .category-container {
+        height: 700px;
     }
 }

@@ -14,7 +14,9 @@ function CategoryItem({ image, name, description }) {
             <div className={cx('category-item-main')}>
                 <h4 className={cx('category-item-heading')}>{name}</h4>
                 <p className={cx('category-item-text')}>{description}</p>
-                <Button text={'View Collection'} link={'/product'} />
+                <div className={cx('category-item-btn')}>
+                    <Button text={'View Collection'} link={'/product'} />
+                </div>
             </div>
         </div>
     );

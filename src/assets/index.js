@@ -8,6 +8,7 @@ const images = {
     banner_sale: require('@/assets/images/banner_sale.jpg'),
     star_image: require('@/assets/images/star.png'),
     product_1: require('@/assets/images/product_1.webp'),
+    product_1_change: require('@/assets/images/product_1_change.webp'),
     category: require('@/assets/images/category.jpg'),
     premium_img_1: require('@/assets/images/premium_img_1.jpg'),
     logo: require('@/assets/images/logo.png'),
