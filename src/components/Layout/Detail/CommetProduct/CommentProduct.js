@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './CommentProduct.module.scss';
 
-import axios from '@/service/axios'; // đây là axios đã config v
+import axios from '@/service/Axios'; // đây là axios đã config v
 
 // import axios from 'axios'; cái này là axios chua config ko dùng
 

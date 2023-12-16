@@ -5,12 +5,12 @@ import styles from './Index.module.scss';
 
 import Banner from '../Banner/Banner';
 import images from '@/assets';
-import TitleIndex from '../Main/Title/TitleIndex';
+import TitleIndex from '../Main/Title/Title_Index';
 import AboutFirst from './AboutFirst/AboutFirst';
 import AboutSecond from './AboutUsSecond/AboutSecond';
 import AboutThree from './AboutThree/AboutThree';
-import BenefitIndex from '../Main/Benefit/BenefitIndex';
-import Footer from '@/components/Layout/Footer/FooterIndex';
+import BenefitIndex from '../Main/Benefit/Benefit_Index';
+import Footer from '../Footer/Footer_Index';
 
 import { ArrowRotate, Suitcase, Clock } from '@/icons';
 

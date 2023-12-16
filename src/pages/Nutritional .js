@@ -3,7 +3,7 @@ import React from 'react';
 import Banner from '@/components/Layout/Banner/Banner';
 import images from '@/assets';
 import NutritionalAndContent from '@/components/Layout/NutritionalAndContent/NutritionalAndContent';
-import Footer from '@/components/Layout/Footer/FooterIndex';
+import Footer from '@/components/Layout/Footer/Footer_Index';
 
 const Nutritional = () => {
     return (

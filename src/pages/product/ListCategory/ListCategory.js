@@ -7,7 +7,7 @@ import Banner from '@/components/Layout/Banner/Banner';
 import images from '@/assets';
 import CategoryList from '@/components/Layout/CategoryList/CategoryList';
 import ProductList from '@/components/Layout/ProductList/ProductList';
-import Footer from '@/components/Layout/Footer/FooterIndex';
+import Footer from '@/components/Layout/Footer/Footer_Index';
 
 const cx = classNames.bind(styles);
 
