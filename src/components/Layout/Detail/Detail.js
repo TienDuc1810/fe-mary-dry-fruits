@@ -3,21 +3,45 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Detail.module.scss';
 
+import Banner from '@/components/Layout/Banner/Banner';
 import DetailMulImage from './DetailMulImage/DetailMulImage';
-import DetailDes from './DetailDes/DetailDes';
+import ProductEvaluate from './ProductEvaluate/ProductEvaluate';
+import DetailComment from './DetailComment/DetailComment';
+import CommentProduct from './CommetProduct/CommentProduct';
+import { StarYellow, StarCheck } from '@/icons';
+import Footer from '@/components/Layout/Footer/FooterIndex';
 
-import img1 from '@/Images/img1.webp';
-import imgMail from '@/Images/detailProduct.webp';
+import images from '@/assets';
 
 const cx = classNames.bind(styles);
 
 const Detail = () => {
     return (
         <div className={cx('detail-contairner')}>
-            <DetailMulImage imgMain={imgMail} img1={img1} ing2={1} ing3={1} ing4={1} ing5={1}>
+            <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
+                product
+            </Banner>
+            <DetailMulImage
+                imgMain={images.imgMain}
+                img1={images.img1}
+                img2={images.imgMain}
+                img3={images.img1}
+                img4={images.imgMain}
+                img5={images.img1}
+            >
                 Rosehip Berries
             </DetailMulImage>
-            <DetailDes></DetailDes>
+            <div className={cx('detail-evaluate')}>
+                <ProductEvaluate />
+                <div className={cx('detail-form')}>
+                    <DetailComment />
+                    <DetailComment />
+                    <DetailComment />
+                    <CommentProduct />
+                </div>
+            </div>
+
+            {/* <Footer /> */}
         </div>
     );
 };

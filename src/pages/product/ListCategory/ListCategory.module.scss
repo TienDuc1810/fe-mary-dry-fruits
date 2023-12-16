@@ -1,0 +1,13 @@
+.category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .category {
+        margin: 20px 0;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+}

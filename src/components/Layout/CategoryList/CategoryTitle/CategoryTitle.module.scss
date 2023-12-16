@@ -1,0 +1,12 @@
+.category-title {
+    padding: 10px;
+    border-left: 5px solid var(--primary-color);
+    background-color: var(--border-color);
+
+    h5 {
+        font-size: 2rem;
+        color: var(--black-color);
+        font-family: var(--font-special);
+        letter-spacing: 1px;
+    }
+}

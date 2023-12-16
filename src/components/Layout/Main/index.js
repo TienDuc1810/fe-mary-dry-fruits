@@ -17,7 +17,7 @@ const Main = () => {
         backgroundImage: `url(${images.banner_sale})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-    }
+    };
 
     return (
         <div>
@@ -32,7 +32,7 @@ const Main = () => {
                     'Lorem ipsum has become the industry standard for design mockups and prototypes. By adding a little bit of Latin to a mockup.'
                 }
             />
-            <CategoryProduct/>
+            <CategoryProduct />
             <NormalBanner
                 image={urlNormalBanner}
                 name={'Cardamom / Clove / Cumin'}

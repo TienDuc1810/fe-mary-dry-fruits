@@ -1,8 +1,12 @@
 import classNames from 'classnames/bind';
 import styles from './BestProducts.module.scss';
 import images from '@/assets';
-import TitleIndex from '../Title/Title_Index';
 import SliderProducts from './SliderProducts';
+import TitleIndex from '../Title/TitleIndex';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 const cx = classNames.bind(styles);
 

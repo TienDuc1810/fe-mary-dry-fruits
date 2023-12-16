@@ -131,3 +131,120 @@ export const Search = ({ width = '2.2rem', height = '2.2rem', className }) => (
         ></path>
     </svg>
 );
+export const Down = ({ width = '1.8rem', height = '1.6rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 20 20"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M10.103 12.778L16.81 6.08a.69.69 0 0 1 .99.012a.726.726 0 0 1-.012 1.012l-7.203 7.193a.69.69 0 0 1-.985-.006L2.205 6.72a.727.727 0 0 1 0-1.01a.69.69 0 0 1 .99 0z"
+        ></path>
+    </svg>
+);
+export const World = ({ width = '4rem', height = '4rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 512 512"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M256 0Q150 0 75 75T0 256t75 181t181 75t181-75t75-181t-75-181T256 0M109 331q21 53 21 96q-40-28-63.5-73.5T43 256q0-103 81-166q18 14 33 36.5t14 42.5q-4 31-41 61q-19 20-25.5 47.5T109 331m360-75q0 88-62.5 150.5T256 469q-44 0-83-17q5-65-26-136q-11-34 13-54q50-50 53-89q6-54-51-109q39-21 94-21q26 0 49 6l-43 43l-15 15l62 62l150 21q10 35 10 66M331 130l-24-23l43-43q55 26 87 81zm-62 90l-17 25q-20 32-5 64l9 20l15 72q3 23 28 30q4 2 10 2q15 0 28-11l24-23l2-4q15-56 34-75q27-19 15-68q-7-27-37-39l-51-21h-4q-35 0-51 28m19 49l17-26q4-8 13-8l43 15q8 4 8 8q2 7 2 24q-27 20-49 91l-11 11l-12-68l-13-26q-6-9 2-21"
+        ></path>
+    </svg>
+);
+
+export const User = ({ width = '4rem', height = '4rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 448 512"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128m89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4"
+        ></path>
+    </svg>
+);
+
+export const Coffee = ({ width = '4rem', height = '4rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 16 16"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="m14 13l-4 1H4l-4-1v-1h14zm.7-10H13V2H1v5c0 1.5.8 2.8 2 3.4v.6h8v-.6c.9-.5 1.6-1.4 1.9-2.4h.1c2.3 0 2.9-2 3-3.5c.1-.8-.5-1.5-1.3-1.5M13 7V4h1.7c.1 0 .2.1.2.1s.1.1.1.3C14.8 7 13.4 7 13 7"
+        ></path>
+    </svg>
+);
+
+export const Eye = ({ width = '4rem', height = '4rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 16 16"
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M8 3.9C1.3 3.9 0 9 0 9s2.2 4.1 7.9 4.1s8.1-4 8.1-4s-1.3-5.2-8-5.2M5.3 5.4c.5-.3 1.3-.3 1.3-.3s-.5.9-.5 1.6c0 .7.2 1.1.2 1.1L5.2 8s-.3-.5-.3-1.2c0-.8.4-1.4.4-1.4m2.6 6.7c-4.1 0-6.2-2.3-6.8-3.2c.3-.7 1.1-2.2 3.1-3.2c-.1.4-.2.8-.2 1.3c0 2.2 1.8 4 4 4s4-1.8 4-4c0-.5-.1-.9-.2-1.3c2 .9 2.8 2.5 3.1 3.2c-.7.9-2.8 3.2-7 3.2"
+        ></path>
+    </svg>
+);
+
+export const StarYellow = ({ width = '1.6rem', height = '1.6rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 128 128"
+        fill="#FDD835"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="m68.05 7.23l13.46 30.7a7.047 7.047 0 0 0 5.82 4.19l32.79 2.94c3.71.54 5.19 5.09 2.5 7.71l-24.7 20.75c-2 1.68-2.91 4.32-2.36 6.87l7.18 33.61c.63 3.69-3.24 6.51-6.56 4.76L67.56 102a7.033 7.033 0 0 0-7.12 0l-28.62 16.75c-3.31 1.74-7.19-1.07-6.56-4.76l7.18-33.61c.54-2.55-.36-5.19-2.36-6.87L5.37 52.78c-2.68-2.61-1.2-7.17 2.5-7.71l32.79-2.94a7.047 7.047 0 0 0 5.82-4.19l13.46-30.7c1.67-3.36 6.45-3.36 8.11-.01"
+        ></path>
+    </svg>
+);
+
+export const Calendar = ({ width = '2rem', height = '1.6rem', className }) => (
+    <svg
+        height={height}
+        width={width}
+        className={className}
+        viewBox="0 0 1024 1024"
+        fill="#f42a2a"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M128 384v512h768V192H768v32a32 32 0 1 1-64 0v-32H320v32a32 32 0 0 1-64 0v-32H128v128h768v64zm192-256h384V96a32 32 0 1 1 64 0v32h160a32 32 0 0 1 32 32v768a32 32 0 0 1-32 32H96a32 32 0 0 1-32-32V160a32 32 0 0 1 32-32h160V96a32 32 0 0 1 64 0zm-32 384h64a32 32 0 0 1 0 64h-64a32 32 0 0 1 0-64m0 192h64a32 32 0 1 1 0 64h-64a32 32 0 1 1 0-64m192-192h64a32 32 0 0 1 0 64h-64a32 32 0 0 1 0-64m0 192h64a32 32 0 1 1 0 64h-64a32 32 0 1 1 0-64m192-192h64a32 32 0 1 1 0 64h-64a32 32 0 1 1 0-64m0 192h64a32 32 0 1 1 0 64h-64a32 32 0 1 1 0-64"
+        ></path>
+    </svg>
+);
