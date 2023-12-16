@@ -1,0 +1,50 @@
+.customer-evaluate {
+    width: 30%;
+    h4 {
+        font-size: 1.6rem;
+        font-family: var(--font-family-global);
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 1.4rem;
+        font-family: var(--font-family-global);
+        margin-bottom: 10px;
+    }
+    .evaluate-star {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        h3 {
+            font-size: 2.4rem;
+            margin-right: 10px;
+        }
+    }
+    .evaluate-star-turn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .star-turn {
+            width: 30%;
+        }
+        .percent {
+            width: 60%;
+            height: 10px;
+            background-color: var(--border-color);
+            border-radius: 99px;
+            position: relative;
+            .percent-90 {
+                width: 90%;
+                background-color: var(--primary-color);
+                top: 0;
+                height: 10px;
+                border-radius: 99px;
+                z-index: 2;
+                position: absolute;
+            }
+        }
+        .ratting-munber {
+            width: 10%;
+            padding-left: 5px;
+        }
+    }
+}

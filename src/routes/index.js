@@ -5,6 +5,7 @@ import ProductPage from '@/pages/ProductPage';
 import LoginPage from '@/pages/account/LoginPage';
 import RegisterPage from '@/pages/account/RegisterPage';
 import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
+import Nutritional from '@/pages/Nutritional ';
 import UserPage from '@/pages/UserPage';
 import AboutUs from '@/pages/AboutUs';
 
@@ -17,6 +18,7 @@ const routes = [
     { path: '/addtocard', component: ShoppingCartPage },
     { path: '/account/login', component: LoginPage },
     { path: '/account/register', component: RegisterPage },
+    { path: '/product/nutritional', component: Nutritional },
 ];
 
 const privateRoutes = [

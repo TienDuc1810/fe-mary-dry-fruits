@@ -20,6 +20,9 @@ const images = {
     banner: require('@/assets/images/banner.webp'),
     brand: require('@/assets/images/brand.webp'),
     finest: require('@/assets/images/finest.webp'),
+    comment: require('@/assets/images/comment.png'),
+    like: require('@/assets/images/like.png'),
+    nutritional: require('@/assets/images/nutritional.webp'),
 };
 
 export default images;

@@ -9,8 +9,8 @@ const cx = classNames.bind(styles);
 const Store = () => {
     return (
         <div className={cx('container')}>
-            {/* <Detail/> */}
-            <ListCategory />
+            <Detail/>
+            {/* <ListCategory /> */}
         </div>
     );
 };

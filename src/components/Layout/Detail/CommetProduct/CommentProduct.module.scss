@@ -1,0 +1,23 @@
+.comment-product {
+    margin-top: 10px;
+    textarea {
+        font-size: 2rem;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100px;
+        border: 1px solid var(--gray-color);
+        border-radius: 10px;
+    }
+    button {
+        margin-top: 5px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        &:hover {
+            color: var(--black-color);
+            cursor: pointer;
+        }
+    }
+}

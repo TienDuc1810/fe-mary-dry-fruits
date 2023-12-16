@@ -48,6 +48,9 @@ const DetailMulImage = (props) => {
     const handleAdd = () => {
         navigate('/addtocard');
     };
+    const handlePageNutri = ()=>{
+        navigate('/product/nutritional')
+    }
     return (
         <div className={cx('detail-content')}>
             <div className={cx('detail-image')}>
@@ -84,7 +87,7 @@ const DetailMulImage = (props) => {
 
             <div className={cx('detail-tab-dis')}>
                 <div className={cx('detail-tab')}>
-                    <h2 className={cx('title')}>{children}</h2>
+                    <h2 className={cx('title')} onClick={handlePageNutri}>{children}</h2>
                     <div className={cx('img-mul')}>
                         <img src={star} alt="star" />
                         <img src={star} alt="star" />

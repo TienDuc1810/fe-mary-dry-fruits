@@ -3,7 +3,7 @@
     margin: 10px 0;
     justify-content: space-between;
     width: 80%;
-    min-height: 1200px;
+    min-height: 1000px;
 
     .detail-image {
         height: 100%;
@@ -79,6 +79,9 @@
                 font-size: 4.2rem;
                 margin: 10px 0;
                 letter-spacing: 1px;
+                &:hover{
+                    cursor: pointer;
+                }
             }
             .img-mul {
                 margin: 10px 0;
