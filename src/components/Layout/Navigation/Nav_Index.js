@@ -1,8 +1,9 @@
 import classNames from 'classnames/bind';
 import styles from './Nav_Index.module.scss';
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Search } from '@/icons';
+import { toast, Flip } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
@@ -12,9 +13,29 @@ function NavBarIndex() {
     const [check, setCheck] = useState(false);
     const [quantityCart, setQuantityCart] = useState(0);
 
+    const navigate = useNavigate();
+
     const handleSearch = () => {
         setCheck(!check);
     };
+
+    const handleCheckLogin = () => {
+        let check = localStorage.getItem('jwt');
+        if(!check){
+            navigate('/account/login')
+            toast.error('You need login to use this page', {
+                
+                autoClose: 2000,
+            });
+        }
+    }
+
+    const handleCheckWasLogin = () => {
+        let check = localStorage.getItem('jwt');
+        if(check){
+            navigate('/user'); 
+        }
+    }
 
     return (
         <div className={cx('nav-container')}>
@@ -61,13 +82,13 @@ function NavBarIndex() {
                                 </label>
                             </Link>
                         </li>
-                        <li className={cx('nav-item-right')}>
-                            <Link to="/cart" className={cx('nav-item-link')}>
+                        <li className={cx('nav-item-right')} onClick={()=>handleCheckLogin()}>
+                            <Link to="/cart" className={cx('nav-item-link')} >
                                 <FontAwesomeIcon icon={icon({ name: 'cart-shopping', style: 'solid' })} />
                                 <div className={cx('nav-cart-icon')} data-count={quantityCart}></div>
                             </Link>
                         </li>
-                        <li className={cx('nav-item-right')}>
+                        <li className={cx('nav-item-right')} onClick={()=>handleCheckWasLogin()}>
                             <Link to="/account/login" className={cx('nav-item-link')}>
                                 <FontAwesomeIcon
                                     icon={icon({ name: 'user', style: 'solid' })}

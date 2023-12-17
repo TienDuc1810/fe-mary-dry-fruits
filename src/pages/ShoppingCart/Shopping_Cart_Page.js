@@ -4,11 +4,13 @@ import Header from '@/components/Layout/Header/HeaderIndex';
 import Footer from '@/components/Layout/Footer/Footer_Index';
 import Button from '@/components/Button/ButtonIndex';
 import images from '@/assets';
-import { useState, useEffect } from 'react';
 import CartItem from './Shopping_Cart_Item';
 import CartInfoUser from './Shopping_Cart_Info_User';
+
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +19,8 @@ function ShoppingCartPage() {
     const [discount, setDiscount] = useState(10);
     const [total, setTotal] = useState(0);
     const [show, setShow] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         setTotal(totalPrice - totalPrice * (discount / 100));
@@ -62,13 +66,6 @@ function ShoppingCartPage() {
                     </div>
 
                     <div className={cx('cart-info-pay')}>
-                        {/* <div className={cx('cart-coupon')}>
-                            <span>Have coupon?</span>
-                            <div>
-                                <input type="text" className={cx('cart-coupon-input')} placeholder="Coupon code" />
-                                <button className={cx('cart-coupon-btn')}>Apply</button>
-                            </div>
-                        </div> */}
                         <CartInfoUser />
                         <div className={cx('cart-bill')}>
                             <div className={cx('cart-bill-outner')}>

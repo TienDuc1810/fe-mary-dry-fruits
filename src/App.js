@@ -27,7 +27,6 @@ function App() {
                 theme="light"
                 transition={Flip}
             />
-            <ToastContainer />
         </GlobalStyles>
     );
 }

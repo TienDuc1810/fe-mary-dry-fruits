@@ -6,7 +6,7 @@
     align-items: center;
     .wrapper {
         width: 400px;
-        height: 400px;
+        height: 410px;
         .login-avatar {
             width: 100%;
             display: flex;
@@ -141,34 +141,17 @@
                     }
                 }
             }
-            .login-options {
-                width: 90%;
-                height: 50px;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                .login-remember {
-                    display: flex;
-                    align-items: center;
-                    height: 100%;
-                    .login-remember-checkbox {
-                        margin-right: 10px;
-                        width: 17px;
-                        height: 17px;
-                    }
-                    .login-remember-text {
-                        color: var(--brown-color);
-                        font-size: 1.5rem;
-                    }
+    
+            .login-to-register {
+                margin-top: 10px;
+                .login-register-question {
+                    color: var(--brown-color);
+                    font-size: 1.5rem;
                 }
-                .login-forgot {
-                    display: flex;
-                    align-items: center;
-                    height: 100%;
-                    .login-forgot-text {
-                        color: var(--brown-color);
-                        font-size: 1.5rem;
-                    }
+                .login-register-text {
+                    margin-left: 5px;
+                    color: var(--brown-color);
+                    font-size: 1.5rem;
                 }
             }
         }
@@ -181,4 +164,3 @@
         height: 450px;
     }
 }
-
