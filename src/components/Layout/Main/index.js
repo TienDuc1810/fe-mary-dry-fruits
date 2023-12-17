@@ -1,6 +1,6 @@
 import { NormalBanner, ParallaxBanner } from './BannerSale/Banner_Sale_Index';
-import BestProducts from './BestProducts/BestProductsIndex';
-import Slide from './Slide/SlideIndex';
+import BestProducts from './BestProducts/Best_Product_Index';
+import Slide from './Slide/Slider_Index';
 import PremiumProducts from './PremiumProducts/Premium_Product_Index';
 import Benefit from './Benefit/Benefit_Index';
 import CategoryProduct from './CategoryProduct/Category_Product';

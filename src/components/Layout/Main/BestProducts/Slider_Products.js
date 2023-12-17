@@ -4,7 +4,7 @@ import ProductItem from '@/pages/Product/Product_Item';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import classNames from 'classnames/bind';
-import styles from './BestProducts.module.scss';
+import styles from './Best_Product.module.scss';
 
 const cx = classNames.bind(styles);
 

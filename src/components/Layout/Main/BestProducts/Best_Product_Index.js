@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
-import styles from './BestProducts.module.scss';
+import styles from './Best_Product.module.scss';
 import images from '@/assets';
-import SliderProducts from './SliderProducts';
+import SliderProducts from './Slider_Products';
 import TitleIndex from '../Title/Title_Index';
 
 import 'slick-carousel/slick/slick.css';
