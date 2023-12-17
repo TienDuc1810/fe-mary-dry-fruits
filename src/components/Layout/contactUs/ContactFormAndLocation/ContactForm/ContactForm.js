@@ -44,7 +44,7 @@ const ContactForm = () => {
             </div>
             <div className={cx('form-message')}>
                 <textarea
-                    className={cx('title-input')}
+                    className={cx('message-input')}
                     placeholder="Message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}

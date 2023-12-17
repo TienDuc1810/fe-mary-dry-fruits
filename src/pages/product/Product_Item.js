@@ -42,7 +42,7 @@ function ProductItem({ id, image, name, price, rating }) {
             </div>
             <div className={cx('product-detail')}>
                 <div className={cx('product-outner-name')}>
-                    <Link to="/" className={cx('product-name')}>
+                    <Link to="/product-detail" className={cx('product-name')}>
                         {name}
                     </Link>
                 </div>

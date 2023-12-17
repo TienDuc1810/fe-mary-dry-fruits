@@ -26,7 +26,6 @@ const Index = () => {
                 <AboutFirst />
                 <TitleIndex heading={'Unique flavors spices'} description={'Quisque volutpat mattis eros.'} />
                 <AboutSecond />
-                <AboutSecond />
                 <TitleIndex
                     heading={'A unique blended taste'}
                     description={'Pellentesque habitant morbi tristique senectus et netus et male.'}
@@ -41,20 +40,6 @@ const Index = () => {
                                 "Our Money Back Guarantee promises a refund if you're not completely satisfied. Shop worry-free with us."
                             }
                             icon={<ArrowRotate />}
-                        />
-                        <BenefitIndex
-                            title={'Free Shipping'}
-                            description={
-                                'Enjoy the convenience of Free Delivery, bringing the best products right to your door at no additional cost.'
-                            }
-                            icon={<Suitcase />}
-                        />
-                        <BenefitIndex
-                            title={'24/7 Customer Service'}
-                            description={
-                                'Our  team is ready to assist you around 24/7, ensuring a seamless and satisfying shopping journey.'
-                            }
-                            icon={<Clock />}
                         />
                     </div>
                 </div>
