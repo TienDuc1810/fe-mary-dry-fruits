@@ -9,7 +9,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const cx = classNames.bind(styles);
 
-function ProductItem({ id, image, name, price, rating }) {
+function ProductItem({ image, name, price, rating }) {
     return (
         <div className={cx('product-main')}>
             <div className={cx('product-border-line-1')}></div>

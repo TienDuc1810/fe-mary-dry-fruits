@@ -3,12 +3,10 @@ import styles from './Slider.module.scss';
 import images from '@/assets';
 import SliderItem from './Slider_Item';
 
-
 const cx = classNames.bind(styles);
 
 const SlideIndex = () => {
     
-
     const slider = [
         { title: 'The choice of chefs', text: '15% OFF ON SPICES', discount: 'SPI15', image: images.slider_1 },
         { title: 'Herbs & Spices', text: 'FLAT 10% OFF', discount: 'SPI10', image: images.slider_2 },

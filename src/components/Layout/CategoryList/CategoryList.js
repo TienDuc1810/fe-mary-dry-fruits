@@ -7,12 +7,11 @@ import styles from './CategoryList.module.scss';
 import images from '@/assets';
 import CategoryTitle from './CategoryTitle/CategoryTitle';
 import CategoryGram from './CategoryGram/CategoryGram';
-import ProductItem from '@/pages/product/Product_Item';
+import ProductItem from '@/pages/Product/Product_Item';
 
 const cx = classNames.bind(styles);
 
 const CategoryList = () => {
-    const [down, setDown] = useState(false);
     const [expandedIndex, setExpandedIndex] = useState(null);
     const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'];
 

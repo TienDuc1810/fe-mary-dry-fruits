@@ -1,13 +1,16 @@
 import classNames from 'classnames/bind';
 import styles from './Nav_Index.module.scss';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Search } from '@/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const cx = classNames.bind(styles);
 
 function NavBarIndex() {
     const [check, setCheck] = useState(false);
+    const [quantityCart, setQuantityCart] = useState(0);
 
     const handleSearch = () => {
         setCheck(!check);
@@ -19,24 +22,24 @@ function NavBarIndex() {
                 <div className={cx('nav-outner')}>
                     <ul className={cx('nav-list-left')}>
                         <li className={cx('nav-item-left')}>
-                            <Link to="/" className={cx('nav-item-link')}>
+                            <NavLink to="/" className={cx('nav-item-link')}>
                                 HOME
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className={cx('nav-item-left')}>
-                            <Link to="/product" className={cx('nav-item-link')}>
+                            <NavLink to="/product" className={cx('nav-item-link')}>
                                 PRODUCT
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className={cx('nav-item-left')}>
-                            <Link to="/contact" className={cx('nav-item-link')}>
+                            <NavLink to="/contact" className={cx('nav-item-link')}>
                                 CONTACT
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className={cx('nav-item-left')}>
-                            <Link to="/sitemap" className={cx('nav-item-link')}>
+                            <NavLink to="/sitemap" className={cx('nav-item-link')}>
                                 SITEMAP
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                     <ul className={cx('nav-list-right')}>
@@ -51,7 +54,7 @@ function NavBarIndex() {
                                         onChange={() => handleSearch()}
                                         hidden
                                     />
-                                    <input type="text" className={cx('nav-item-search')} placeholder='Search'/>
+                                    <input type="text" className={cx('nav-item-search')} placeholder="Search" />
                                     <div className={cx('outner')}>
                                         <Search className={cx('nav-item-icon')} />
                                     </div>
@@ -60,12 +63,16 @@ function NavBarIndex() {
                         </li>
                         <li className={cx('nav-item-right')}>
                             <Link to="/cart" className={cx('nav-item-link')}>
-                                Giỏ hàng
+                                <FontAwesomeIcon icon={icon({ name: 'cart-shopping', style: 'solid' })} />
+                                <div className={cx('nav-cart-icon')} data-count={quantityCart}></div>
                             </Link>
                         </li>
                         <li className={cx('nav-item-right')}>
                             <Link to="/account/login" className={cx('nav-item-link')}>
-                                Account
+                                <FontAwesomeIcon
+                                    icon={icon({ name: 'user', style: 'solid' })}
+                                    className={cx('product-icon')}
+                                />
                             </Link>
                         </li>
                     </ul>

@@ -1,5 +1,5 @@
-@import '~slick-carousel/slick/slick.css';
-@import '~slick-carousel/slick/slick-theme.css';
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
 
 .slider-container {
     width: 100%;
@@ -49,7 +49,7 @@
                 margin-bottom: 10px;
                 letter-spacing: 0.26rem;
 
-                .slider-coupon{
+                .slider-coupon {
                     margin-left: 10px;
                     color: var(--white-color);
                     font-weight: 500;
@@ -57,4 +57,64 @@
             }
         }
     }
+
+    .slider-directional {
+        position: relative;
+        .slider-back {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: -415px;
+            left: 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            background-color: transparent;
+            &::before {
+                content: '';
+                border-bottom: 1px solid var(--white-color);
+                border-left: 1px solid var(--white-color);
+                position: absolute;
+                width: 11px;
+                height: 11px;
+                top: 50%;
+                left: calc(50% + 2px);
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        }
+        .slider-next {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: -415px;
+            right: 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            background-color: transparent;
+            transition: all 0.3s linear;
+            &::before {
+                content: '';
+                border-top: 1px solid var(--white-color);
+                border-right: 1px solid var(--white-color);
+                position: absolute;
+                width: 11px;
+                height: 11px;
+                top: 50%;
+                left: calc(50% - 2px);
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        }
+
+        .slider-back:hover,
+        .slider-next:hover {
+            background-color: var(--second-color);
+            border-color: var(--second-color);
+            cursor: pointer;
+        }
+
+        .slider-back:hover::before,
+        .slider-next:hover::before{
+            border-color: var(--black-color);
+        }
+    }
 }
+

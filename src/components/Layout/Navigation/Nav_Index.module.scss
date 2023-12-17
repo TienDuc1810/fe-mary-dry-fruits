@@ -36,7 +36,6 @@
             .nav-item-right {
                 display: inline-block;
                 color: var(--white-color);
-                margin-left: 15px;
                 padding: 15px;
             }
 
@@ -46,6 +45,10 @@
                 &:hover {
                     color: var(--second-color);
                     cursor: pointer;
+                }
+                &:hover .nav-cart-icon::before {
+                    color: var(--second-color);
+                    border-color: var(--second-color);
                 }
                 .nav-item-search {
                     display: none;
@@ -77,7 +80,31 @@
                     top: 5px;
                     right: 10px;
                 }
+
+                .nav-cart-icon {
+                    position: relative;
+                    &::before {
+                        content: attr(data-count);
+                        position: absolute;
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid var(--white-color);
+                        border-radius: 50%;
+                        top: -30px;
+                        right: -80%;
+                        color: var(--white-color);
+                        font-size: 1.1rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-top: 1px;
+                    }
+                }
             }
-        }
+            .nav-item-link.active{
+                color: var(--second-color);
+            }
+        }   
     }
 }
+
