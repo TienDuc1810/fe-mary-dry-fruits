@@ -7,7 +7,7 @@ import styles from './CategoryList.module.scss';
 import images from '@/assets';
 import CategoryTitle from './CategoryTitle/CategoryTitle';
 import CategoryGram from './CategoryGram/CategoryGram';
-import ProductItem from '@/pages/Product/Product_Item';
+import ProductItem from '@/pages/product/Product_Item';
 
 const cx = classNames.bind(styles);
 

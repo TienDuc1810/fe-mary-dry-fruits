@@ -1,4 +1,4 @@
-import axios from './Axios';
+import axios from './axios';
 
 const loginUser = async (email, password) => {
     const loginUrl = '/api/auth/login';

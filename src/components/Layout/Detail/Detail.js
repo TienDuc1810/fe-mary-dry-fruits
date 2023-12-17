@@ -9,8 +9,7 @@ import ProductEvaluate from './ProductEvaluate/ProductEvaluate';
 import DetailComment from './DetailComment/DetailComment';
 import CommentProduct from './CommetProduct/CommentProduct';
 import { StarYellow, StarCheck } from '@/icons';
-import Footer from '@/components/Layout/Footer/FooterIndex';
-
+import Footer from '@/components/Layout/Footer/Footer_Index';
 import images from '@/assets';
 
 const cx = classNames.bind(styles);
@@ -41,7 +40,7 @@ const Detail = () => {
                 </div>
             </div>
 
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 };

@@ -2,9 +2,10 @@
     display: flex;
     width: 100%;
     margin-bottom: 40px;
+    min-height: 300px;
+
     .first-content {
         width: 50%;
-        min-height: 250px;
         h4 {
             color: var(--primary-color);
             font-family: var(--font-special);

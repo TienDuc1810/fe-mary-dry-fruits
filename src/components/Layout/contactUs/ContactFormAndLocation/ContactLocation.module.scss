@@ -1,9 +1,6 @@
-.google-map {
-    width: 80%;
-
-    .map {
-        min-width: 500px;
-        height: 500px;
-        border: none;
-    }
+.map {
+    width: 100%;
+    min-height: 500px;
+    border: 1px solid var(--gray-color);
+    border-radius: 20px;
 }

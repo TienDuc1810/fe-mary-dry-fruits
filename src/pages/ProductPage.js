@@ -1,5 +1,5 @@
 
-import Store from './Product/Store';
+import Store from './product/Store';
 import Footer from '@/components/Layout/Footer/Footer_Index';
 
 
