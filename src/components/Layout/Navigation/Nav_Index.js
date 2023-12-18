@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Search } from '@/icons';
 import { toast, Flip } from 'react-toastify';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
@@ -11,7 +12,8 @@ const cx = classNames.bind(styles);
 
 function NavBarIndex() {
     const [check, setCheck] = useState(false);
-    const [quantityCart, setQuantityCart] = useState(0);
+
+    const {cartQuantity} = useShoppingContext()
 
     const navigate = useNavigate();
 
@@ -22,13 +24,16 @@ function NavBarIndex() {
     const handleCheckLogin = () => {
         let check = localStorage.getItem('jwt');
         if(!check){
-            navigate('/account/login')
             toast.error('You need login to use this page', {
-                
+                transition: Flip,
                 autoClose: 2000,
             });
+            navigate('/account/login')
+        }else{
+            navigate('/cart')
         }
     }
+   
 
     const handleCheckWasLogin = () => {
         let check = localStorage.getItem('jwt');
@@ -82,11 +87,11 @@ function NavBarIndex() {
                                 </label>
                             </Link>
                         </li>
-                        <li className={cx('nav-item-right')} onClick={()=>handleCheckLogin()}>
-                            <Link to="/cart" className={cx('nav-item-link')} >
+                        <li className={cx('nav-item-right')} >
+                            <button className={cx('nav-item-link-cart')}  onClick={()=>handleCheckLogin()}>
                                 <FontAwesomeIcon icon={icon({ name: 'cart-shopping', style: 'solid' })} />
-                                <div className={cx('nav-cart-icon')} data-count={quantityCart}></div>
-                            </Link>
+                                <div className={cx('nav-cart-icon')} data-count={cartQuantity}></div>
+                            </button>
                         </li>
                         <li className={cx('nav-item-right')} onClick={()=>handleCheckWasLogin()}>
                             <Link to="/account/login" className={cx('nav-item-link')}>

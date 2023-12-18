@@ -6,21 +6,21 @@ import Button from '@/components/Button/ButtonIndex';
 import images from '@/assets';
 import CartItem from './Shopping_Cart_Item';
 import CartInfoUser from './Shopping_Cart_Info_User';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { useNavigate } from 'react-router-dom';
+
 
 const cx = classNames.bind(styles);
 
 function ShoppingCartPage() {
-    const [totalPrice, setTotalPrice] = useState(900);
     const [discount, setDiscount] = useState(10);
     const [total, setTotal] = useState(0);
     const [show, setShow] = useState(false);
 
-    const navigate = useNavigate();
+    const {cartItems, totalPrice} = useShoppingContext();
 
     useEffect(() => {
         setTotal(totalPrice - totalPrice * (discount / 100));
@@ -42,9 +42,10 @@ function ShoppingCartPage() {
                                     <h4 className={cx('cart-title-5')}>ACTION</h4>
                                 </div>
                             </div>
-                            <CartItem />
-                            <CartItem />
-                            <CartItem />
+                            {cartItems.map(item=>{
+                                return <CartItem key={item.id} {...item}/>
+                            })}
+                            
                         </div>
                         <div className={cx('cart-option')}>
                             <Button text={'Continue shopping'} blackText link={'/product'}/>

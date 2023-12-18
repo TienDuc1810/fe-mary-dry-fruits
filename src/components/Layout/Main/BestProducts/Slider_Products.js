@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import ProductItem from '@/pages/Product/Product_Item';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import classNames from 'classnames/bind';
@@ -37,6 +38,7 @@ const SliderProducts = ({ products }) => {
                         return (
                             <div key={index}>
                                 <ProductItem
+                                    id={item.id}
                                     name={item.name}
                                     image={item.image}
                                     price={item.price}
