@@ -2,6 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './AboutFirst.module.scss';
+import images from '@/assets';
 
 const cx = classNames.bind(styles);
 
@@ -23,7 +24,8 @@ const AboutFirst = () => {
                     nulla at volutpat diam.
                 </blockquote>
             </div>
-            <div className={cx('first-image')}></div>
+            <div className={cx('first-image')}>
+            </div>
         </div>
     );
 };

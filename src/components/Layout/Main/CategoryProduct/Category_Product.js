@@ -18,7 +18,6 @@ function CategoryProduct() {
                 <div className={cx('category-item', 'item-3')}>
                     <CategoryItem image={images.category} name={'Fenugreek'} description={'Common Ingredients'} />
                 </div>
-               
             </div>
         </div>
     );
