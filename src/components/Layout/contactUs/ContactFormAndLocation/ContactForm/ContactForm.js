@@ -11,14 +11,15 @@ const ContactForm = () => {
     const [message, setMessage] = useState('');
 
     const handleClick = () => {
-        const data = { name, email, phone, message };
+        const data = { fullname: name, email: email, phone: phone, content: message };
+        console.log(data);
     };
     return (
         <div className={cx('contact-form')}>
             <div className={cx('form-title')}>
                 <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="Full Name"
                     className={cx('title-input')}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
