@@ -30,6 +30,15 @@
                 }
             }
         }
+        .login-wrapper-error-mess {
+            width: 80%;
+            margin-top: 5px;
+            .login-error-mess {
+                color: rgb(243, 54, 54);
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+        }
         .register-form {
             width: 100%;
             height: 100%;
