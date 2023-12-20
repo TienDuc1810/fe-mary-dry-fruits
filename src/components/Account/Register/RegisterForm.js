@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
 const cx = classNames.bind(styles);
@@ -13,42 +14,88 @@ const RegisterForm = () => {
     const navigate = useNavigate();
 
     const [failEmail, setFailEmail] = useState(false);
+    const [errorEmail, setErrorEmail] = useState('');
+    const [trueEmail, setTrueEmail] = useState(true);
+
     const [failPassword, setFailPassword] = useState(false);
+    const [errorPassword, setErrorPassword] = useState('');
+    const [truePassword, setTruePassword] = useState(true);
+
     const [failPasswordCon, setFailPasswordCon] = useState(false);
-    
+    const [errorPasswordCon, setErrorPasswordCon] = useState('');
+    const [truePasswordCon, setTruePasswordCon] = useState(true);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleRegister = async () => {
         const data = { email, password };
-
+        const re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        const regex = /^[a-z0-9_-]+$/;
         if (email.trim() === '') {
             setFailEmail(true);
+            setTrueEmail(false);
+            setErrorEmail('Please Enter Email');
             return;
+        } else if (email.length >= 30) {
+            setFailEmail(true);
+            setTrueEmail(false);
+            setErrorEmail('Characters Email Less Than 30');
+            return;
+        } else if (!re.test(email)) {
+            setFailEmail(true);
+            setTrueEmail(false);
+            setErrorEmail('Entered wrong email');
         } else {
             setFailEmail(false);
-            if (email.length >= 30) {
-                setFailEmail(true);
+            setTrueEmail(true);
+            setErrorEmail('');
+
+            if (password.trim() === '') {
+                setFailPassword(true);
+                setTruePassword(false);
+                setErrorPassword('Pleast Enter PassWord');
+                return;
+            } else if (password.length >= 10) {
+                setFailPassword(true);
+                setTruePassword(false);
+                setErrorPassword('Characters PassWord Less Than 9');
+                return;
+            } else if (!regex.test(password)) {
+                setFailPassword(true);
+                setTruePassword(false);
+                setErrorPassword('password has special characters');
                 return;
             } else {
-                setFailEmail(false);
-                if (password.trim() === '' || confirmPassword.trim() === '') {
-                    setFailPassword(true);
-                    setFailPasswordCon(true);
-                    return;
-                } else {
-                    setFailPassword(false);
-                    setFailPasswordCon(false);
-                    try {
-                        const res = await axios.post('http://localhost:8000/api/auth/register', data);
-                        setFailPassword(false);
-                        setFailPasswordCon(false);
-                        navigate('/account/login');
-                    } catch (error) {
-                        console.error('Registration error:', error);
-                    }
-                }
+                setFailPassword(false);
+                setTruePassword(true);
+                setErrorPassword('');
+            }
+            if (confirmPassword.trim() === '') {
+                setFailPasswordCon(true);
+                setTruePasswordCon(false);
+                setErrorPasswordCon('Pleast Enter Confirm PassWord');
+                return;
+            } else if (password != confirmPassword) {
+                setFailPasswordCon(true);
+                setTruePasswordCon(false);
+                setErrorPasswordCon('Password Confrimed is not the same');
+                return;
+            } else {
+                setFailPasswordCon(false);
+                setTruePasswordCon(true);
+                setErrorPasswordCon('');
+            }
+            try {
+                const res = await axios.post('http://localhost:8000/api/auth/register', data);
+                toast.success('register successfully');
+                navigate('account/login');
+            } catch (error) {
+                setFailEmail(true);
+                setTrueEmail(false);
+                setErrorEmail('Email already exists');
+                console.log(error);
             }
         }
     };
@@ -70,7 +117,7 @@ const RegisterForm = () => {
                             <h2 className={cx('register-text')}>Sign Up</h2>
                         </div>
 
-                        <div className={cx({ fail: failEmail, true: !failEmail }, 'register-wrapper-input')}>
+                        <div className={cx({ fail: failEmail, true: trueEmail }, 'register-wrapper-input')}>
                             {/* Email Input */}
                             <div className={cx('register-outner-input')}>
                                 <span>
@@ -88,8 +135,11 @@ const RegisterForm = () => {
                                 />
                             </div>
                         </div>
+                        <div className={cx('login-wrapper-error-mess', { show: errorEmail })}>
+                            <p className={cx('login-error-mess')}>{errorEmail}</p>
+                        </div>
                         {/* Password Inputs */}
-                        <div className={cx({ fail: failPassword, true: !failPassword }, 'register-wrapper-input')}>
+                        <div className={cx({ fail: failPassword, true: truePassword }, 'register-wrapper-input')}>
                             {/* Password Input */}
                             <div className={cx('register-outner-input')}>
                                 <span>
@@ -115,10 +165,11 @@ const RegisterForm = () => {
                                 </span>
                             </div>
                         </div>
+                        <div className={cx('login-wrapper-error-mess', { show: errorPassword })}>
+                            <p className={cx('login-error-mess')}>{errorPassword}</p>
+                        </div>
                         {/* Confirm Password Input */}
-                        <div
-                            className={cx({ fail: failPasswordCon, true: !failPasswordCon }, 'register-wrapper-input')}
-                        >
+                        <div className={cx({ fail: failPasswordCon, true: truePasswordCon }, 'register-wrapper-input')}>
                             <div className={cx('register-outner-input')}>
                                 <span>
                                     <FontAwesomeIcon
@@ -143,7 +194,9 @@ const RegisterForm = () => {
                                 </span>
                             </div>
                         </div>
-
+                        <div className={cx('login-wrapper-error-mess', { show: errorPasswordCon })}>
+                            <p className={cx('login-error-mess')}>{errorPasswordCon}</p>
+                        </div>
                         {/* Terms and Conditions */}
                         <div className={cx('register-options')}>
                             <span className={cx('register-accept')}>

@@ -46,7 +46,7 @@ const DetailMulImage = (props) => {
     };
 
     const handleAdd = () => {
-        navigate('/addtocard');
+        navigate('/cart');
     };
     const handlePageNutri = ()=>{
         navigate('/product/nutritional')
