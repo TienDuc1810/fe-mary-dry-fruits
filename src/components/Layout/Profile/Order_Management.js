@@ -6,7 +6,7 @@ import styles from './Profile.module.scss';
 const cx = classNames.bind(styles);
 
 const OrderComponent = () => {
-    const { cartItems, totalPrice } = useShoppingContext();
+    const { cartItems } = useShoppingContext();
 
     return (
         <div>
