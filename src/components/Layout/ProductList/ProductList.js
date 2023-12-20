@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './ProductList.module.scss';
-import ProductItem from '@/pages/Product/Product_Item';
+import ProductItem from '@/pages/product/Product_Item';
 import images from '@/assets';
 
 import { Down } from '@/icons';

@@ -64,7 +64,7 @@ const LoginForm = () => {
                     let token = res.access_token;
                     let email = res.email;
                     localStorage.setItem('jwt', token);
-                    localStorage.setItem('user', email);
+                
                     navigate('/user');
                 } else {
                     toast.error('Wrong Login Information', {

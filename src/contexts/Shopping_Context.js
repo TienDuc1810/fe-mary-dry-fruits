@@ -14,7 +14,7 @@ export const ShoppingContextProvider = ({ children }) => {
 
     useEffect(  () => {
         localStorage.setItem('shopping_cart', JSON.stringify(cartItems));
-        localStorage.setItem('user');
+        
     }, [cartItems]);
 
     const cartQuantity = cartItems.reduce((quantity, item) => quantity + item.quantity, 0);
