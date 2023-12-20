@@ -1,7 +1,7 @@
 import images from '@/assets';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faStore, faBell, faTag, faHeadset } from '@fortawesome/free-solid-svg-icons'; // Import các biểu tượng cần sử dụng
+import { faUser, faStore, faBell, faTag, faHeadset } from '@fortawesome/free-solid-svg-icons'; 
 import AccountInformation from './Account_Information';
 import OrderComponent from './Order_Management';
 import DiscountCode from './Discount_Code';
