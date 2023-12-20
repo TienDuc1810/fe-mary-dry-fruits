@@ -11,7 +11,7 @@ const AboutThree = () => {
     return (
         <div className={cx('about-us-three')}>
             <div className={cx('three-image')}>
-                <img src={images.finest} alt="finest" />
+                <img src={images.finest}/>
             </div>
             <div className={cx('three-dis')}>
                 <h4>The Richest Masala In The World</h4>

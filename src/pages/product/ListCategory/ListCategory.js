@@ -12,10 +12,7 @@ import Footer from '@/components/Layout/Footer/Footer_Index';
 const cx = classNames.bind(styles);
 
 const ListCategory = () => {
-    const [selectedWeight, setSelectedWeight] = useState(null);
-    const handleWeightSelection = (weight) => {
-        setSelectedWeight(weight);
-    };
+   
     return (
         <div className={cx('category-container')}>
             <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
