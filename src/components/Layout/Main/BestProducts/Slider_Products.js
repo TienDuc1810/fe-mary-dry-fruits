@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import ProductItem from '@/pages/product/Product_Item';
+import ProductItem from '@/pages/Product/Product_Item';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

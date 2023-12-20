@@ -1,7 +1,4 @@
-
-import Store from './product/Store';
-import Footer from '@/components/Layout/Footer/Footer_Index';
-
+import Store from './Product/Store';
 
 const ProductPage = () => {
     return (
