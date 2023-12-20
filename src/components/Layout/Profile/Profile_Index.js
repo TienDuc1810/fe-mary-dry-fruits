@@ -1,4 +1,3 @@
-import images from '@/assets';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faStore, faBell, faTag, faHeadset } from '@fortawesome/free-solid-svg-icons'; 
@@ -42,10 +41,6 @@ const ProfileIndex = ({ children }) => {
         <div className={cx('profile-container')}>
             <div className={cx('profile-wrapper')}>
                 <div className={cx('profile-info-user')}>
-                    {/* <div className={cx('profile-info-outner-image')}>
-                        <img src={images.product_1} alt="image" className={cx('profile-info-image')} />
-                        <h2 className={cx('profile-info-name')}>Tien Duc</h2>
-                    </div> */}
                     <div className={cx('profile-info-outner-title')}>
                         {[
                             'Account Information',

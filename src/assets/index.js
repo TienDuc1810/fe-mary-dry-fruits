@@ -26,6 +26,8 @@ const images = {
     comment: require('@/assets/images/comment.png'),
     like: require('@/assets/images/like.png'),
     nutritional: require('@/assets/images/nutritional.webp'),
+    avatar: require('@/assets/images/Avatar.jpg'),
+    avatar_default: require('@/assets/images/avatar-default.png'),
 };
 
 export default images;

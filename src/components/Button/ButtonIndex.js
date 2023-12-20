@@ -4,7 +4,15 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function ButtonIndex({ text, link, icon, primary = true, normal = false, blackText = false, active = false }) {
+function ButtonIndex({
+    text,
+    link,
+    primary = true,
+    normal = false,
+    blackText = false,
+    active = false,
+    disabled = false,
+}) {
     return (
         <div className={cx('container')}>
             <div className={cx('btn-wrapper')}>
@@ -15,9 +23,10 @@ function ButtonIndex({ text, link, icon, primary = true, normal = false, blackTe
                         normal: normal,
                         blackText: blackText,
                         active: active,
+                        disabled: disabled,
                     })}
                 >
-                    {icon}{text}
+                    {text}
                 </Link>
             </div>
         </div>

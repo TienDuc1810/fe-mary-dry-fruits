@@ -20,11 +20,8 @@ const routes = [
     { path: '/account/login', component: LoginPage },
     { path: '/account/register', component: RegisterPage },
     { path: '/product/nutritional', component: Nutritional },
-];
-
-const privateRoutes = [
     { path: '/user', component: UserPage },
     { path: '/cart', component: ShoppingCartPage },
 ];
 
-export { routes, privateRoutes };
+export default routes;

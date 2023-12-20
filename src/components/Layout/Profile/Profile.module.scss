@@ -17,52 +17,40 @@
             flex-direction: column;
             border-radius: 4 px;
 
-            .profile-info-outner-image {
+            .profile-info-name {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+        }
+
+        .profile-info-outner-title {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .profile-info-title {
                 width: 100%;
-                height: 100%;
-                text-align: center;
-
-                .profile-info-image {
-                    width: 40%;
-                    height: 100%;
-                    border-radius: 50%;
-                }
-
-                .profile-info-name {
-                    font-size: 1.8rem;
-                    margin-bottom: 30px;
+                height: 50px;
+                display: flex;
+                border-bottom: none;
+                padding: 10px;
+                align-items: center;
+                cursor: pointer;
+                transition: all linear 0.1s;
+                &:hover,
+                &.active {
+                    background-color: var(--second-color);
+                    border-color: var(--second-color);
                 }
             }
 
-            .profile-info-outner-title {
-                display: flex;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-
-                .profile-info-title {
-                    width: 100%;
-                    height: 50px;
-                    display: flex;
-                    border-bottom: none;
-                    padding: 10px;
-                    align-items: center;
-                    transition: all linear 0.1s;
-                    &:hover,
-                    &.active {
-                        background-color: var(--second-color);
-                        border-color: var(--second-color);
-                        cursor: pointer;
-                    }
-                }
-
-                .profile-icon {
-                    color: var(--primary-color);
-                    margin-bottom: 3px;
-                    margin-right: 20px;
-                    font-size: 1.8rem;
-                }
+            .profile-icon {
+                color: var(--primary-color);
+                margin-bottom: 3px;
+                margin-right: 20px;
+                font-size: 1.8rem;
             }
         }
     }
@@ -72,7 +60,7 @@
 .profile-detail-user {
     width: 80%;
     height: 100%;
-    margin: 0 40px;
+    margin-left: 40px;
 
     .profile-detail-container {
         width: 100%;
@@ -82,31 +70,108 @@
 
         .profile-detail-wrapper {
             width: 100%;
-            height: 510px;
+            height: 100%;
 
+            .profile-detail-info {
+                display: flex;
+                width: 100%;
+                margin-top: 10px;
 
-            
+                .profile-detail-outner-image {
+                    width: 200px;
+                    height: 100%;
+                    margin-right: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background-color: var(--white-color);
+                        border: 1px solid var(--border-color);
+                        bottom: 8px;
+                        right: 8px;
+                    }
 
-            .profile-detail-outner-input {
+                    .profile-avatar-edit{
+                        position: absolute;
+                        bottom: 16px;
+                        right: 15px;
+                        cursor: pointer;
+                    }
+
+                    .profile-detail-image {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        
+                    }
+                }
+            }
+
+            .profile-detail-wrap {
+                width: 100%;
+
+                .profile-detail-outner-input {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin-bottom: 10px;
+
+                    .profile-detail-input {
+                        width: 100%;
+                        height: 40px;
+                        border-radius: 3px;
+                        border: none;
+                        border: 1px solid var(--border-color);
+                        margin: 10px 0;
+                        padding: 10px;
+                        font-size: 1.6rem;
+                        outline: none;
+                        &:focus {
+                            border: 1px solid var(--primary-color);
+                        }
+                    }
+
+                    .profile-detail-select {
+                        width: 100%;
+                        display: flex;
+                        gap: 20px;
+                        margin: 10px 0;
+
+                        .profile-detail-select-item {
+                            width: 100%;
+                            border: none;
+                            border: 1px solid var(--border-color);
+                            appearance: none;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            border-radius: 3px;
+                            padding: 10px;
+                            font-size: 1.6rem;
+                            outline: none;
+
+                            &:focus {
+                                border: 1px solid var(--primary-color);
+                            }
+                        }
+                        .profile-detail-select-item option {
+                            padding: 10px;
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+            }
+
+            .profile-detail-outner-select {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                margin: 10px 0;
-
-                .profile-detail-input {
-                    width: 100%;
-                    height: 40px;
-                    border-radius: 3px;
-                    border: none;
-                    border: 1px solid var(--border-color);
-                    margin: 10px 0;
-                    padding: 10px;
-                    font-size: 1.6rem;
-                    outline: none;
-                    &:focus {
-                        border: 1px solid var(--primary-color);
-                    }
-                }
+                margin: 20px 0;
 
                 .profile-detail-select {
                     width: 100%;
@@ -116,14 +181,11 @@
 
                     .profile-detail-select-item {
                         width: 100%;
-
                         border: none;
-
                         border: 1px solid var(--border-color);
                         appearance: none;
                         -webkit-appearance: none;
                         -moz-appearance: none;
-
                         border-radius: 3px;
                         padding: 10px;
                         font-size: 1.6rem;
@@ -178,15 +240,25 @@
             .profile-detail-main {
                 width: 100%;
                 height: 100%;
-                border-left: 1px solid var(--border-color);
                 margin-top: 50px;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    height: 545px;
+                    width: 1px;
+                    top: 10px;
+                    left: 10px;
+                    background-color: var(--border-color);
+                }
 
                 .profile-detail-item {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     padding-left: 30px;
-                    margin-bottom: 20px;
+                    margin-bottom: 30px;
 
                     .profile-detail-item-left {
                         display: flex;
@@ -245,61 +317,65 @@
 .profile-detail-heading {
     display: flex;
     align-items: center;
+    width: 400px;
     height: 50px;
     font-size: 3rem;
     color: var(--primary-color);
 }
 
+//CSS Profile Notification - Discount Code
 .profile-noti {
+    width: 53%;
     display: flex;
     align-items: center;
     height: 60px;
-    background-color: #f79177;
+    background-color: #ffa18a;
     border-radius: 7px;
     margin: 5px 0;
     padding: 15px;
     transition: background-color 0.3s liner;
 
     .profile-icon {
-        color: #e52525;
+        color: #f16262;
         margin-right: 10px;
     }
 
     .profile-text {
-        color: #c01e1e;
+        color: #cc3636;
     }
-
 }
 
-.profile-btn{
+.profile-btn {
     margin-top: 20px;
-    
 }
 
 //CSS Profile Help
-.profile-help{
+.profile-help {
     display: flex;
     flex-direction: column;
+    width: 70%;
 
-    .profile-help-heading{
+    .profile-help-heading {
         margin: 20px 0 10px;
     }
 
-    .profile-help-textarea{
+    .profile-help-textarea {
         border: none;
-        border: 2px solid var(--border-color);
+        border: 1px solid var(--border-color);
         border-radius: 3px;
         padding: 10px;
-        font-size: 1.6rem;
-        &:focus{
+        font-size: 1.8rem;
+        margin-top: 25px;
+        &:focus {
             border-color: var(--primary-color);
+            outline: none;
         }
     }
 }
 
-.profile-help-btn{
+.profile-help-btn {
     display: flex;
-    margin-top: 10px;
+    margin-top: 20px;
     justify-content: end;
-    width: 100%;
+    width: 70%;
 }
