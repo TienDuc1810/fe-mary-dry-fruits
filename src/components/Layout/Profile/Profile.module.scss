@@ -249,3 +249,57 @@
     font-size: 3rem;
     color: var(--primary-color);
 }
+
+.profile-noti {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color: #f79177;
+    border-radius: 7px;
+    margin: 5px 0;
+    padding: 15px;
+    transition: background-color 0.3s liner;
+
+    .profile-icon {
+        color: #e52525;
+        margin-right: 10px;
+    }
+
+    .profile-text {
+        color: #c01e1e;
+    }
+
+}
+
+.profile-btn{
+    margin-top: 20px;
+    
+}
+
+//CSS Profile Help
+.profile-help{
+    display: flex;
+    flex-direction: column;
+
+    .profile-help-heading{
+        margin: 20px 0 10px;
+    }
+
+    .profile-help-textarea{
+        border: none;
+        border: 2px solid var(--border-color);
+        border-radius: 3px;
+        padding: 10px;
+        font-size: 1.6rem;
+        &:focus{
+            border-color: var(--primary-color);
+        }
+    }
+}
+
+.profile-help-btn{
+    display: flex;
+    margin-top: 10px;
+    justify-content: end;
+    width: 100%;
+}
