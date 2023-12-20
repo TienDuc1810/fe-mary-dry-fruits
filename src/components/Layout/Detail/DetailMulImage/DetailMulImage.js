@@ -15,20 +15,15 @@ const cx = classNames.bind(styles);
 
 const DetailMulImage = (props) => {
     const navigate = useNavigate();
-    const { children, img1, img2, img3, img4, img5, imgMain } = props;
-    const dataImg = [img1, img2, img3, img4, img5];
+    const { children, imgMain } = props;
     const [plus, setPlus] = useState(0);
     const [selectedWeight, setSelectedWeight] = useState(null);
     const [more, setMore] = useState(false);
 
-    const [changeImg, setChangeImg] = useState(dataImg);
     const [changeImage, setChangeIamge] = useState('');
     const [failImg, setFailImg] = useState(false);
 
-    const handleImg = (msd) => {
-        setChangeIamge(msd);
-        setFailImg(true);
-    };
+
     const hanldePlus = () => {
         setPlus((pre) => pre + 1);
     };
@@ -55,21 +50,6 @@ const DetailMulImage = (props) => {
         <div className={cx('detail-content')}>
             <div className={cx('detail-image')}>
                 <img src={!failImg ? imgMain : changeImage} alt="detailProduct" className={cx('image-main')} />
-                <div className={cx('image-mul')}>
-                    {changeImg.map((value, index) => {
-                        return (
-                            <img
-                                key={index}
-                                src={value}
-                                alt="detailProduct"
-                                className={cx('image')}
-                                onClick={() => {
-                                    handleImg(value);
-                                }}
-                            />
-                        );
-                    })}
-                </div>
                 <DisContentContent
                     dis=" Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam
                     commodo pharetras loremos.Donec pretium egestas sapien et mollis."

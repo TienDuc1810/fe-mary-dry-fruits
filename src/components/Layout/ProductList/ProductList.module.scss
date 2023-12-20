@@ -55,8 +55,11 @@
                 display: flex;
                 margin: 30px 0 40px 0;
                 justify-content: space-between;
+                flex-wrap: wrap;
+                gap:32px 0px;
                 .grid-item {
                     width: calc(100% / 4.2);
+                    min-width: 200px;
                 }
             }
         }

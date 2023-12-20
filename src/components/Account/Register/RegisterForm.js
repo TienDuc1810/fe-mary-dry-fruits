@@ -32,7 +32,7 @@ const RegisterForm = () => {
     const handleRegister = async () => {
         const data = { email, password };
         const re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        const regex = /^[a-z0-9_-]+$/;
+        const regex = /^[a-zA-Z0-9_-]+$/;
         if (email.trim() === '') {
             setFailEmail(true);
             setTrueEmail(false);
@@ -88,13 +88,15 @@ const RegisterForm = () => {
                 setErrorPasswordCon('');
             }
             try {
-                const res = await axios.post('http://localhost:8000/api/auth/register', data);
+                const res = await axios.post('/api/auth/register', data);
                 toast.success('register successfully');
-                navigate('account/login');
+                navigate('/account/login');
             } catch (error) {
                 setFailEmail(true);
                 setTrueEmail(false);
                 setErrorEmail('Email already exists');
+                setPassword('');
+                setConfirmPassword('');
                 console.log(error);
             }
         }

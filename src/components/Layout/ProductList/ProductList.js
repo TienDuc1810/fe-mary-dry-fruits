@@ -45,70 +45,34 @@ const ProductList = () => {
                 </div>
             </div>
             <div className={cx('current')}>
-                {currentPage == 1 && (
-                    <div className={cx('page-current')}>
-                        <div className={cx('product-item')}>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
+                <div className={cx('page-current')}>
+                    <div className={cx('product-item')}>
+                        <div className={cx('grid-item')}>
+                            <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
                         </div>
-                        <div className={cx('product-item')}>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
+                        <div className={cx('grid-item')}>
+                            <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                        </div>
+                        <div className={cx('grid-item')}>
+                            <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
+                        </div>
+                        <div className={cx('grid-item')}>
+                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
+                        </div>
+                        <div className={cx('grid-item')}>
+                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
+                        </div>
+                        <div className={cx('grid-item')}>
+                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
+                        </div>
+                        <div className={cx('grid-item')}>
+                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
+                        </div>
+                        <div className={cx('grid-item')}>
+                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
                         </div>
                     </div>
-                )}
-                {currentPage == 2 && (
-                    <div className={cx('page-current')}>
-                        <div className={cx('product-item')}>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                        </div>
-                        <div className={cx('product-item')}>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                            <div className={cx('grid-item')}>
-                                <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                            </div>
-                        </div>
-                    </div>
-                )}
+                </div>
             </div>
             <div className={cx('page-change')}>
                 <ul className={cx('page-practive')}>
