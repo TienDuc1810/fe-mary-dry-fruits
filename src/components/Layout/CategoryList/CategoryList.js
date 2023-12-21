@@ -5,7 +5,7 @@ import images from '@/assets';
 import CategoryTitle from './CategoryTitle/CategoryTitle';
 
 import CategoryFilter from './CategoryFilter/CategoryFilter';
-import ProductItem from '@/pages/Product/Product_Item';
+import ProductItem from '@/pages/product/Product_Item';
 
 
 const cx = classNames.bind(styles);
