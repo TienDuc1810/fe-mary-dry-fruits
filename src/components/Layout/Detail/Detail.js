@@ -20,16 +20,13 @@ const Detail = () => {
 
     const a = async () => {
         try {
-            const res = await axios.get('api/product/allproduct');
-            console.log(res.product);
-            if (res?.product) {
-                setProduct(res?.product);
-            }
+            const res = await axios.post('api/product/product_details', 1);
+            console.log(res);
         } catch (error) {
             console.log('error', error);
         }
     };
- 
+    a();
 
     return (
         <div className={cx('detail-contairner')}>
