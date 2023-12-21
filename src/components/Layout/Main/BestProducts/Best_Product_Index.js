@@ -10,7 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const cx = classNames.bind(styles);
 
-function BestProductsIndex() {
+function BestProductsIndex({products}) {
     return (
         <div className={cx('container')}>
             <div className={cx('wrapper')}>
@@ -21,7 +21,7 @@ function BestProductsIndex() {
                 <div className={cx('product-home-show')}>
                     <div className={cx('product-home-container')}>
                         <div className={cx('product-home-wrapper')}>
-                            <SliderProducts/>
+                            <SliderProducts products={products}/>
                         </div>
                     </div>
                 </div>
