@@ -12,7 +12,6 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-
 const cx = classNames.bind(styles);
 
 function ShoppingCartPage() {
@@ -20,7 +19,7 @@ function ShoppingCartPage() {
     const [total, setTotal] = useState(0);
     const [show, setShow] = useState(false);
 
-    const {cartItems, totalPrice} = useShoppingContext();
+    const { cartItems, totalPrice } = useShoppingContext();
 
     useEffect(() => {
         setTotal(totalPrice - totalPrice * (discount / 100));
@@ -38,17 +37,20 @@ function ShoppingCartPage() {
                                     <h4 className={cx('cart-title-1')}>PRODUCT</h4>
                                     <h4 className={cx('cart-title-2')}>NAME</h4>
                                     <h4 className={cx('cart-title-3')}>QUANTITY</h4>
-                                    <h4 className={cx('cart-title-4')}>PRICE</h4>
+                                    <h4 className={cx('cart-title-4')}>SUBTOTAL</h4>
                                     <h4 className={cx('cart-title-5')}>ACTION</h4>
                                 </div>
                             </div>
-                            {cartItems.map(item=>{
-                                return <CartItem key={item.id} {...item}/>
+                            {cartItems.map((item) => {
+                                return (
+                                    <div key={item.id}>
+                                        <CartItem {...item} />
+                                    </div>
+                                );
                             })}
-                            
                         </div>
                         <div className={cx('cart-option')}>
-                            <Button text={'Continue shopping'} blackText link={'/product'}/>
+                            <Button text={'Continue shopping'} blackText link={'/product'} />
                             <span onClick={() => setShow(!show)}>
                                 <Button text={'Special Offers'} blackText />
                             </span>
@@ -71,7 +73,7 @@ function ShoppingCartPage() {
                         <div className={cx('cart-bill')}>
                             <div className={cx('cart-bill-outner')}>
                                 <div className={cx('cart-bill-detail')}>
-                                    <span>Total Price:</span>
+                                    <span>Sub Total:</span>
                                     <span>
                                         <span>{totalPrice}</span>
                                         <span className={cx('cart-bill-unit')}>USD</span>
