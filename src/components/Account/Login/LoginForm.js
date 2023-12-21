@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './LoginForm.module.scss';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,6 +33,7 @@ const LoginForm = () => {
             setErrorHeightEmail(false);
             setMessErrorEmail('');
         }
+        
         if (!password) {
             setErrorPassword(true);
             setMessErrorPassword('Please enter your password');
@@ -56,15 +57,17 @@ const LoginForm = () => {
                 let res = await loginUser(email, password);
 
                 if (res && res.expires_in === 3600) {
-                    toast.success('Đăng nhập thành công', {
+                    toast.success('Login Success', {
                         transition: Flip,
                         autoClose: 2000,
                     });
                     let token = res.access_token;
+                
                     localStorage.setItem('jwt', token);
+
                     navigate('/user');
                 } else {
-                    toast.error('Sai thông tin đăng nhập', {
+                    toast.error('Wrong Login Information', {
                         transition: Flip,
                         autoClose: 2000,
                     });
@@ -146,17 +149,11 @@ const LoginForm = () => {
                             <span className={cx('login-btn-title')}>LOGIN</span>
                         </button>
                     </div>
-                    <div className={cx('login-options')}>
-                        <span className={cx('login-remember')}>
-                            <input type="checkbox" className={cx('login-remember-checkbox')} />
-                            <span className="checkmark"></span>
-                            <p className={cx('login-remember-text')}>Remember me</p>
-                        </span>
-                        <span className={cx('login-forgot')}>
-                            <a href="/" className={cx('login-forgot-text')}>
-                                Forgot Password?
-                            </a>
-                        </span>
+                    <div className={cx('login-to-register')}>
+                        <span className={cx('login-register-question')}>You don't have an account yet?</span>
+                        <Link to="/account/register" className={cx('login-register-text')}>
+                             Register now!
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
+import { useEffect } from 'react';
+import Header from '@/components/Layout/Header/HeaderIndex';
+import Footer from '@/components/Layout/Footer/Footer_Index';
+import Profile from '@/components/Layout/Profile/Profile_Index';
 
 import classNames from 'classnames/bind';
 import styles from './userpage.module.scss';
@@ -10,6 +14,13 @@ const cx = classNames.bind(styles);
 function UserPage() {
     const navigate = useNavigate();
     const token = localStorage.getItem('jwt');
+
+    useEffect(() => {
+        let check = localStorage.getItem('jwt');
+        if (!check) {
+            navigate('/account/login');
+        }
+    }, []);
 
     const handleLogout = async () => {
         let res = await logoutUser();
@@ -31,7 +42,9 @@ function UserPage() {
 
     return (
         <div>
-            <h2>Hello User</h2>
+            <Header />
+            <Profile/>
+                
             <div>
                 <button onClick={() => handleLogout()} className={cx('Btn')}>
                     <div className={cx('sign')}>
@@ -42,6 +55,7 @@ function UserPage() {
                     <div className={cx('text')}>Logout</div>
                 </button>
             </div>
+            <Footer />
         </div>
     );
 }

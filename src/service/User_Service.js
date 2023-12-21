@@ -14,12 +14,13 @@ const loginUser = async (email, password) => {
 
     try {
         const response = await axios.post(loginUrl, loginData, { headers });
-        const { access_token, token_type, expires_in } = response;
+        const { access_token, token_type, expires_in, email } = response;
         return {
             success: true,
             access_token: access_token,
             token_type: token_type,
             expires_in: expires_in,
+            email: email,
         };
     } catch (error) {
         return {

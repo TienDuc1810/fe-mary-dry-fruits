@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import ProductItem from '@/pages/product/Product_Item';
+import ProductItem from '@/pages/Product/Product_Item';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import classNames from 'classnames/bind';
-import styles from './BestProducts.module.scss';
+import styles from './Best_Product.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -33,11 +34,11 @@ const SliderProducts = ({ products }) => {
     return (
         <div className={cx('container-slide')}>
             <Slider ref={(c) => setSlider(c)} {...settings}>
-                   
                     {products.map((item, index) => {
                         return (
                             <div key={index}>
                                 <ProductItem
+                                    id={item.id}
                                     name={item.name}
                                     image={item.image}
                                     price={item.price}
@@ -46,7 +47,6 @@ const SliderProducts = ({ products }) => {
                             </div>
                         );
                     })}
-                
             </Slider>
             <div className={cx('slider-directional')}>
                 <button className={cx('slider-back')} onClick={previous}></button>

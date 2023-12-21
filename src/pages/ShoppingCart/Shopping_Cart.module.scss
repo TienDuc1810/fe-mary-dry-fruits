@@ -78,7 +78,6 @@
 
             }
 
-            .cart-transport-fast,
             .cart-transport-normal {
                 display: flex;
                 align-items: center;
@@ -102,21 +101,7 @@
                     color: #149680;
                 }
 
-                .cart-transport-check {
-                    display: flex;
-                    width: 71%;
-                    justify-content: end;
-                }
-
-                .cart-transport-btn {
-                    width: 20px;
-                    height: 20px;
-                    border: 1px solid var(--border-color);
-                    background-color: var(--white-color);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
+          
             }
             .cart-transport-fast {
                 background-color: #82d2f3;
