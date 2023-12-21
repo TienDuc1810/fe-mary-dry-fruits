@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
 import Slider from 'react-slick';
+
 import ProductItem from '@/pages/product/Product_Item';
+import { useEffect, useState } from 'react';
+import { topProduct } from '@/service/Product_Service';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,7 +11,7 @@ import styles from './Best_Product.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SliderProducts = ({ products }) => {
+const SliderProducts = () => {
     const [slider, setSlider] = useState(null);
     const settings = {
         dots: false,
@@ -31,22 +33,39 @@ const SliderProducts = ({ products }) => {
         }
     };
 
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await topProduct();
+                console.log(res);
+
+                if (res.success && res.response) {
+                    setProducts(res.response);
+                } else {
+                    console.error('Invalid response from topProduct API:', res);
+                    setProducts([]);
+                }
+            } catch (error) {
+                console.error('Error fetching top products:', error);
+                setProducts([]);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <div className={cx('container-slide')}>
             <Slider ref={(c) => setSlider(c)} {...settings}>
-                    {products.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                <ProductItem
-                                    id={item.id}
-                                    name={item.name}
-                                    image={item.image}
-                                    price={item.price}
-                                    rating={item.rating}
-                                />
-                            </div>
-                        );
-                    })}
+                {products.map((item) => {
+                    return (
+                        <div key={item.id}>
+                            <ProductItem {...item} />
+                        </div>
+                    );
+                })}
             </Slider>
             <div className={cx('slider-directional')}>
                 <button className={cx('slider-back')} onClick={previous}></button>
@@ -56,9 +75,3 @@ const SliderProducts = ({ products }) => {
     );
 };
 export default SliderProducts;
-
-  
-    
-  
-    
-  

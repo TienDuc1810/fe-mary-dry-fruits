@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Button from '@/components/Button/ButtonIndex';
-import { useState } from 'react';
+import { InfomationUser } from '@/service/User_Service';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from '../Profile.module.scss';
 
@@ -9,6 +10,7 @@ const cx = classNames.bind(styles);
 
 const UserContact = () => {
     const [updatePass, setUpdatePass] = useState(false);
+
 
     return (
         <div className={cx('profile-detail-wrapper')}>

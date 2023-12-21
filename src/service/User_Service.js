@@ -49,4 +49,5 @@ const logoutUser = async () => {
         };
     }
 };
+
 export { loginUser, logoutUser };

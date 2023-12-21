@@ -20,8 +20,8 @@ const Detail = () => {
 
     const a = async () => {
         try {
-            const res = await axios.post('api/product/product_details', 1);
-            console.log(res);
+            const res = await axios.post('api/product/allproduct', 0);
+            console.log(res?.product_detail);
         } catch (error) {
             console.log('error', error);
         }
