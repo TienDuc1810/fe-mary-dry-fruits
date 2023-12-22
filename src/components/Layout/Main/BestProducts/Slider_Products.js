@@ -32,6 +32,30 @@ const SliderProducts = ({products}) => {
         }
     };
 
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await topProduct();
+                console.log(res.res);
+
+                if (res.success && res.response) {
+                    setProducts(res.response);
+                } else {
+                    console.error('Invalid response from topProduct API:', res);
+                    setProducts([]);
+                }
+            } catch (error) {
+                console.error('Error fetching top products:', error);
+                setProducts([]);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
     return (
         <div className={cx('container-slide')}>
             <Slider ref={(c) => setSlider(c)} {...settings}>

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
+import axios from '@/service/axios';
 
 const cx = classNames.bind(styles);
 

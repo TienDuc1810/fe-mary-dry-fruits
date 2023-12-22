@@ -15,7 +15,7 @@ const routes = [
     { path: '/contact', component: ContactPage },
     { path: '/sitemap', component: SiteMapPage },
     { path: '/product', component: ProductPage },
-    { path: '/product-detail', component: Detail },
+    { path: '/product-detail/:id', component: Detail },
     { path: '/about-us', component: AboutUs },
     { path: '/account/login', component: LoginPage },
     { path: '/account/register', component: RegisterPage },

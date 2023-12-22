@@ -1,4 +1,4 @@
-import Store from './Product/Store';
+import Store from './product/Store';
 
 const ProductPage = () => {
     return (

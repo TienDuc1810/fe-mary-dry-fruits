@@ -54,7 +54,7 @@
             .product-item {
                 display: flex;
                 margin: 30px 0 40px 0;
-                justify-content: space-between;
+                justify-content: space-evenly;
                 flex-wrap: wrap;
                 gap:32px 0px;
                 .grid-item {

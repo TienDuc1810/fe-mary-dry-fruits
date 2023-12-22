@@ -8,14 +8,16 @@
     .detail-evaluate {
         width: 80%;
         height: 10px;
-        min-height: 2100px;
+        min-height: 600px;
         margin: 20px 0;
         display: flex;
         .detail-form {
             width: 70%;
             display: flex;
             flex-direction: column;
-           
         }
+    }
+    .first {
+        width: 80%;
     }
 }

@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import styles from './DetailMulImage.module.scss';
 
 import nostar from '@/Images/icont/star-line.svg';
-import star from '@/Images/icont/star (1).svg';
+import starYello from '@/Images/icont/star (1).svg';
 import detail from '@/Images/detailProduct.webp';
 
 import DisContentContent from '../DetailDes/DisContentContent/DisContentContent';
@@ -15,14 +15,9 @@ const cx = classNames.bind(styles);
 
 const DetailMulImage = (props) => {
     const navigate = useNavigate();
-    const { children, imgMain } = props;
+    const { children, imgMain, value, star } = props;
     const [plus, setPlus] = useState(0);
     const [selectedWeight, setSelectedWeight] = useState(null);
-    const [more, setMore] = useState(false);
-
-    const [changeImage, setChangeIamge] = useState('');
-    const [failImg, setFailImg] = useState(false);
-
 
     const hanldePlus = () => {
         setPlus((pre) => pre + 1);
@@ -36,26 +31,17 @@ const DetailMulImage = (props) => {
         setSelectedWeight(weight);
     };
 
-    const handleit = () => {
-        setMore(false);
-    };
-
     const handleAdd = () => {
         navigate('/cart');
     };
-    const handlePageNutri = ()=>{
-        navigate('/product/nutritional')
-    }
+    const handlePageNutri = () => {
+        navigate('/product/nutritional');
+    };
     return (
         <div className={cx('detail-content')}>
             <div className={cx('detail-image')}>
-                <img src={!failImg ? imgMain : changeImage} alt="detailProduct" className={cx('image-main')} />
-                <DisContentContent
-                    dis=" Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam
-                    commodo pharetras loremos.Donec pretium egestas sapien et mollis."
-                >
-                    Busey ipsum dolor sit amet
-                </DisContentContent>
+                <img src={imgMain} alt="detailProduct" className={cx('image-main')} />
+                <DisContentContent dis={value.nutrition_detail}>Nutrition</DisContentContent>
                 <div className={cx('detail-more')}>
                     <img src={images.food} alt="food" />
                     <p>
@@ -67,33 +53,33 @@ const DetailMulImage = (props) => {
 
             <div className={cx('detail-tab-dis')}>
                 <div className={cx('detail-tab')}>
-                    <h2 className={cx('title')} onClick={handlePageNutri}>{children}</h2>
+                    <h2 className={cx('title')} onClick={handlePageNutri}>
+                        {children}
+                    </h2>
                     <div className={cx('img-mul')}>
-                        <img src={star} alt="star" />
-                        <img src={star} alt="star" />
-                        <img src={star} alt="star" />
-                        <img src={star} alt="star" />
-                        <img src={nostar} alt="star" />
+                        {[...Array(5)].map((_, i) => (
+                            <img
+                                key={i}
+                                src={i < star ? starYello : nostar}
+                                alt={i < star ? 'star yellow' : 'no star'}
+                            />
+                        ))}
                     </div>
-                    <p className={cx('dis')}>
-                        Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque
-                        diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis
-                        drostique des commodo pharetras...
-                    </p>
+                    <p className={cx('dis')}>{value.description}</p>
                     <div className={cx('price')}>
                         <h6>Price:</h6>
-                        <span>629.000 VND</span>
+                        <span>${value.price}</span>
                     </div>
                     <div className={cx('price')}>
                         <h6>Weight:</h6>
-                        {[250, 500, 750, 1000, 1250, 1500].map((weight) => (
+                        {value.weight_tags.map((weight) => (
                             <button
-                                key={weight}
+                                key={weight.id}
                                 className={cx('gram')}
                                 onClick={() => handleWeightSelection(weight)}
                                 disabled={selectedWeight !== weight ? false : true}
                             >
-                                {weight / 1000} kg
+                                {weight.mass / 1000} Kg
                             </button>
                         ))}
                     </div>
@@ -110,13 +96,7 @@ const DetailMulImage = (props) => {
                     </div>
                 </div>
                 <div className={cx('detail-dis')}>
-                    <DisContentContent
-                        dis=" Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam
-                    dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des
-                    commodo pharetras loremos.Donec pretium egestas sapien et mollis."
-                    >
-                        Busey ipsum dolor sit amet
-                    </DisContentContent>
+                    <DisContentContent dis={value.nutrition_detail}>Nutrition</DisContentContent>
                 </div>
             </div>
         </div>

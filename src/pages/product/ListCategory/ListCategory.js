@@ -12,15 +12,18 @@ import Footer from '@/components/Layout/Footer/Footer_Index';
 const cx = classNames.bind(styles);
 
 const ListCategory = () => {
-   
+    const [categoryId, setCategoryID] = useState(0);
+    const getIdCategory = (msd) => {
+        setCategoryID(msd);
+    };
     return (
         <div className={cx('category-container')}>
             <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
                 product
             </Banner>
             <div className={cx('category')}>
-                <CategoryList />
-                <ProductList />
+                <CategoryList getIdCategory={getIdCategory} />
+                <ProductList categoryId={categoryId} />
             </div>
             <Footer />
         </div>
