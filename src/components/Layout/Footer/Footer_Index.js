@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 function FooterIndex() {
     const backGroundImage = {
-        backgroundImage: `url(${images.br_image_3})`,
+        backgroundImage: `url(${images.footer})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };

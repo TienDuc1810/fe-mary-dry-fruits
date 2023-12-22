@@ -4,7 +4,7 @@ import Button from '@/components/Button/ButtonIndex';
 
 const cx = classNames.bind(styles);
 
-function PremiumProductItem({name, description, image}) {
+function PremiumProductItem({ name, image }) {
     return (
         <div className={cx('premium-product-main')}>
             <div className={cx('premium-product-image')}>
@@ -15,11 +15,11 @@ function PremiumProductItem({name, description, image}) {
             </div>
             <div className={cx('premium-product-outner-description')}>
                 <p className={cx('premium-product-description')}>
-                    {description}
+                    Unveiling our store's pinnacle product a symbol of unmatched quality and sophistication.
                 </p>
             </div>
             <div className={cx('premium-product-btn')}>
-                <Button text={'Read more'} link={'/detail'} primary blackText/>
+                <Button text={'Shop Now'} link={'/product'} primary blackText />
             </div>
         </div>
     );

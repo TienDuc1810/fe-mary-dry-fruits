@@ -17,4 +17,5 @@ const Banner = async () => {
     }
 };
 
+
 export { Banner };

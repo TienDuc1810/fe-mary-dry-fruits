@@ -1,18 +1,11 @@
 const images = {
     slider_1: require('@/assets/images/slider_1.jpg'),
-    slider_2: require('@/assets/images/slider2.webp'),
-    slider_3: require('@/assets/images/sider_3.jpg'),
-    br_image_1: require('@/assets/images/back_ground_image_1.webp'),
-    br_image_2: require('@/assets/images/back_ground_image_2.webp'),
-    br_image_3: require('@/assets/images/back_ground_image_3.webp'),
-    banner_sale: require('@/assets/images/banner_sale.jpg'),
     star_image: require('@/assets/images/star.png'),
     product_1: require('@/assets/images/product_1.webp'),
     product_1_change: require('@/assets/images/product_1_change.webp'),
     category_1: require('@/assets/images/category_1.jpg'),
     category_2: require('@/assets/images/category_2.jpg'),
     category_3: require('@/assets/images/category_3.jpg'),
-    premium_img_1: require('@/assets/images/premium_img_1.jpg'),
     logo: require('@/assets/images/logo.png'),
     food: require('@/assets/images/food.png'),
     right: require('@/assets/images/right.png'),
@@ -22,7 +15,6 @@ const images = {
     paypal: require('@/assets/images/money.png'),
     mastercard: require('@/assets/images/card.png'),
     check: require('@/assets/images/check.png'),
-    banner: require('@/assets/images/banner.webp'),
     brand: require('@/assets/images/brand.webp'),
     finest: require('@/assets/images/finest.webp'),
     comment: require('@/assets/images/comment.png'),
@@ -30,6 +22,10 @@ const images = {
     nutritional: require('@/assets/images/nutritional.webp'),
     avatar: require('@/assets/images/Avatar.jpg'),
     avatar_default: require('@/assets/images/avatar-default.png'),
+    normal_banner: require('@/assets/images/normal_baner.jpg'),
+    parallax_banner: require('@/assets/images/parallax_banner.jpg'),
+    banner: require('@/assets/images/pexels-ayberk-mirza-19205235.jpg'),
+    footer: require('@/assets/images/footer.jpg'),
 };
 
 export default images;

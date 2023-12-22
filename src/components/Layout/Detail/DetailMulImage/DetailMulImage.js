@@ -6,7 +6,7 @@ import styles from './DetailMulImage.module.scss';
 
 import nostar from '@/Images/icont/star-line.svg';
 import starYello from '@/Images/icont/star (1).svg';
-import detail from '@/Images/detailProduct.webp';
+
 
 import DisContentContent from '../DetailDes/DisContentContent/DisContentContent';
 import images from '@/assets';

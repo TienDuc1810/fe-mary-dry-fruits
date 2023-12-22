@@ -2,11 +2,10 @@ import classNames from 'classnames/bind';
 import styles from './Premium_Product.module.scss';
 import TitleIndex from '../Title/Title_Index';
 import PremiumProductItem from './Premium_Product_Item';
-import images from '@/assets';
 
 const cx = classNames.bind(styles);
 
-const PremiumProductsIndex = () => {
+const PremiumProductsIndex = ({ premiumProducts }) => {
     return (
         <div className={cx('container')}>
             <div className={cx('wrapper')}>
@@ -17,34 +16,13 @@ const PremiumProductsIndex = () => {
                     />
                 </div>
                 <div className={cx('premium-product-wrapper')}>
-                    <PremiumProductItem
-                        image={images.premium_img_1}
-                        name={'Spicy Masalas'}
-                        description={
-                            'Porem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
-                        }
-                    />
-                    <PremiumProductItem
-                        image={images.premium_img_1}
-                        name={'Spicy Masalas'}
-                        description={
-                            'Porem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
-                        }
-                    />
-                    <PremiumProductItem
-                        image={images.premium_img_1}
-                        name={'Spicy Masalas'}
-                        description={
-                            'Porem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
-                        }
-                    />
-                    <PremiumProductItem
-                        image={images.premium_img_1}
-                        name={'Spicy Masalas'}
-                        description={
-                            'Porem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
-                        }
-                    />
+                    {premiumProducts.map((item) => {
+                        return (
+                            <div key={item.id}>
+                                <PremiumProductItem image={item.image} name={item.name} />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

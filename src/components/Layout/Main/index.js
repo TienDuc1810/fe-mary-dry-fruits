@@ -6,7 +6,7 @@ import Benefit from './Benefit/Benefit_Index';
 import CategoryProduct from './CategoryProduct/Category_Product';
 import images from '@/assets';
 import { useEffect, useState } from 'react';
-import { topProduct } from '@/service/Product_Service';
+import { topProduct, premiumProduct } from '@/service/Product_Service';
 import { Banner } from '@/service/Banner_Service';
 import FadeLoader from 'react-spinners/FadeLoader';
 import classNames from 'classnames/bind';
@@ -16,13 +16,13 @@ const cx = classNames.bind(styles);
 
 const Main = () => {
     const urlNormalBanner = {
-        backgroundImage: `url(${images.br_image_2})`,
+        backgroundImage: `url(${images.normal_banner})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };
 
     const urlParallaxBanner = {
-        backgroundImage: `url(${images.banner_sale})`,
+        backgroundImage: `url(${images.banner})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };
@@ -30,12 +30,14 @@ const Main = () => {
     const [products, setProducts] = useState([]);
     const [banners, setBanners] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [preProducts, setPreProducts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const resBanner = await Banner();
                 const resTopProduct = await topProduct();
+                const resPremiumProduct = await premiumProduct();
 
                 
                 if (resBanner.success && resBanner.response){
@@ -45,6 +47,10 @@ const Main = () => {
 
                 if (resTopProduct.success && resTopProduct.response) {
                     setProducts(resTopProduct.response);
+                }
+
+                if (resPremiumProduct.success && resPremiumProduct.response) {
+                    setPreProducts(resPremiumProduct.response);
                 }
 
             } catch (error) {
@@ -93,7 +99,7 @@ const Main = () => {
                         percent_decrease={50}
                         description={'ALL PRODUCTS'}
                     />
-                    <PremiumProducts />
+                    <PremiumProducts premiumProducts={preProducts}/>
                     <Benefit />
                 </div>
             )}

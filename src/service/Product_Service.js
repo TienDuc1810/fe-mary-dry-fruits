@@ -16,7 +16,19 @@ const topProduct = async () => {
     }
 };
 
-const premiumProduct = () => {
-    
+const premiumProduct = async () => {
+    const premiumProductUrl =  '/api/product/featured_products';
+
+    try {
+        const response = await axios.get(premiumProductUrl);
+        return {
+            response: response.featuredProduct,
+            success: true,
+        };
+    } catch (error) {
+        return {
+            success: false,
+        };
+    }
 }
-export { topProduct };
+export { topProduct, premiumProduct };

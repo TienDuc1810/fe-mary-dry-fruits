@@ -39,7 +39,6 @@ const SliderProducts = () => {
         const fetchData = async () => {
             try {
                 const res = await topProduct();
-                console.log(res.res);
 
                 if (res.success && res.response) {
                     setProducts(res.response);

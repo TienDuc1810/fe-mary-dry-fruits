@@ -8,6 +8,7 @@ const ParallaxBanner = ({ image, name, percent_decrease, description, text }) =>
     return (
         <div className={cx('container')}>
             <div className={cx('parallax-banner-container')}>
+                <div className={cx('parallax-banner-overlay')}></div>
                 <div className={cx('parallax-banner-image')} style={image}></div>
             </div>
             <div className={cx('parallax-banner__outner')}>
