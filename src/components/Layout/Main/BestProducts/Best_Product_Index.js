@@ -15,7 +15,7 @@ function BestProductsIndex({products}) {
         <div className={cx('container')}>
             <div className={cx('wrapper')}>
                 <TitleIndex
-                    heading={'BestProducts'}
+                    heading={'Best Products'}
                     description={'Pellentesque massa placerat duis ultricies lacus sit sed.'}
                 />
                 <div className={cx('product-home-show')}>

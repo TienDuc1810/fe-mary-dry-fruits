@@ -16,4 +16,7 @@ const topProduct = async () => {
     }
 };
 
+const premiumProduct = () => {
+    
+}
 export { topProduct };
