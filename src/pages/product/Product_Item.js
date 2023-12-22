@@ -38,7 +38,7 @@ function ProductItem({ ...item }) {
             </div>
             <div className={cx('product-detail')}>
                 <div className={cx('product-outner-name')}>
-                    <Link to="/product-detail" className={cx('product-name')}>
+                    <Link to={`/product-detail/${item.id}`} className={cx('product-name')}>
                         {item.name}
                     </Link>
                 </div>

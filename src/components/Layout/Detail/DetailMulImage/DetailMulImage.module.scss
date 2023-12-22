@@ -2,8 +2,6 @@
     display: flex;
     margin: 10px 0;
     justify-content: space-between;
-    width: 80%;
-    min-height: 1000px;
 
     .detail-image {
         height: 100%;
@@ -76,7 +74,7 @@
             .title {
                 font-family: var(--font-special);
                 color: var(--primary-color);
-                font-size: 4.2rem;
+                font-size: 4rem;
                 margin: 10px 0;
                 letter-spacing: 1px;
                 &:hover{
@@ -200,7 +198,6 @@
             background-color: var(--white-color);
             display: flex;
             flex-direction: column;
-            align-items: center;
             .more {
                 color: var(--primary-color);
                 &:hover {

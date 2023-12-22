@@ -1,26 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './ProductList.module.scss';
 import ProductItem from '@/pages/product/Product_Item';
 import images from '@/assets';
+import axios from '@/service/axios';
 
 import { Down } from '@/icons';
 
 const cx = classNames.bind(styles);
 
-const ProductList = () => {
+const ProductList = ({categoryId}) => {
+    const [product, setProduct] = useState([]);
+
     const [drop, setDrop] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+
     const handleDrop = () => {
         setDrop(!drop);
     };
+
     const changePage = (pageNumber) => {
         setCurrentPage('');
         setTimeout(() => {
             setCurrentPage(pageNumber);
         }, 2000);
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.post('api/product/allproduct', { category: categoryId });
+                if (res?.product) {
+                    setProduct(res?.product);
+                } else {
+                    setProduct('');
+                }
+            } catch (error) {
+                console.log('error', error);
+            }
+        };
+        fetchData();
+    }, [categoryId]);
     return (
         <div className={cx('product-list')}>
             <div className={cx('product-filter')}>
@@ -47,30 +68,19 @@ const ProductList = () => {
             <div className={cx('current')}>
                 <div className={cx('page-current')}>
                     <div className={cx('product-item')}>
-                        <div className={cx('grid-item')}>
-                            <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                        </div>
-                        <div className={cx('grid-item')}>
-                            <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                        </div>
-                        <div className={cx('grid-item')}>
-                            <ProductItem name={'Black Cardamom'} price={500} rating={4} image={images.product_1} />
-                        </div>
-                        <div className={cx('grid-item')}>
-                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
-                        </div>
-                        <div className={cx('grid-item')}>
-                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
-                        </div>
-                        <div className={cx('grid-item')}>
-                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
-                        </div>
-                        <div className={cx('grid-item')}>
-                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
-                        </div>
-                        <div className={cx('grid-item')}>
-                            <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
-                        </div>
+                        {product.map((item, index) => {
+                            return (
+                                <div className={cx('grid-item')} key={index}>
+                                    <ProductItem
+                                        name={item.name}
+                                        price={item.price}
+                                        rating={item.star}
+                                        image={item.image}
+                                        id={item.id}
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
