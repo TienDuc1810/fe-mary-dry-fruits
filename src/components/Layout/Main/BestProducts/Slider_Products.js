@@ -1,6 +1,7 @@
 import Slider from 'react-slick';
 import ProductItem from '@/pages/Product/Product_Item';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { topProduct } from '@/service/Product_Service';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,7 +10,7 @@ import styles from './Best_Product.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SliderProducts = ({products}) => {
+const SliderProducts = () => {
     const [slider, setSlider] = useState(null);
 
     const settings = {

@@ -6,7 +6,7 @@ import CategoryTitle from './CategoryTitle/CategoryTitle';
 import axios from '@/service/axios';
 
 import CategoryFilter from './CategoryFilter/CategoryFilter';
-import ProductItem from '@/pages/product/Product_Item';
+import ProductItem from '@/pages/Product/Product_Item';
 
 import { useEffect, useState } from 'react';
 
