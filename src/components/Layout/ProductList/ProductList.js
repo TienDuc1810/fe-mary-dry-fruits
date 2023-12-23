@@ -10,7 +10,7 @@ import { Down } from '@/icons';
 
 const cx = classNames.bind(styles);
 
-const ProductList = ({categoryId}) => {
+const ProductList = ({ categoryId }) => {
     const [product, setProduct] = useState([]);
 
     const [drop, setDrop] = useState(false);
