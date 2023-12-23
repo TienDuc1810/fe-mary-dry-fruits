@@ -115,7 +115,7 @@ export const Pinterest = ({ width = '1.6rem', height = '1.6rem', className }) =>
     </svg>
 );
 
-export const Search = ({ width = '2.2rem', height = '2.2rem', className }) => (
+export const Search = ({ width = '2.5rem', height = '2.5rem', className }) => (
     <svg
         height={height}
         width={width}

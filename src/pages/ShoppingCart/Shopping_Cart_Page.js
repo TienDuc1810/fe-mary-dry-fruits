@@ -3,27 +3,20 @@ import styles from './Shopping_Cart.module.scss';
 import Header from '@/components/Layout/Header/HeaderIndex';
 import Footer from '@/components/Layout/Footer/Footer_Index';
 import Button from '@/components/Button/ButtonIndex';
-import images from '@/assets';
 import CartItem from './Shopping_Cart_Item';
 import CartInfoUser from './Shopping_Cart_Info_User';
+import ShoppingCartBill from './Shopping_Cart_Bill';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
+import { useState } from 'react';
 
-import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const cx = classNames.bind(styles);
 
 function ShoppingCartPage() {
-    const [discount, setDiscount] = useState(10);
-    const [total, setTotal] = useState(0);
+    const { cartItems } = useShoppingContext();
     const [show, setShow] = useState(false);
-
-    const { cartItems, totalPrice } = useShoppingContext();
-
-    useEffect(() => {
-        setTotal(totalPrice - totalPrice * (discount / 100));
-    }, [totalPrice, discount]);
 
     return (
         <>
@@ -70,47 +63,7 @@ function ShoppingCartPage() {
 
                     <div className={cx('cart-info-pay')}>
                         <CartInfoUser />
-                        <div className={cx('cart-bill')}>
-                            <div className={cx('cart-bill-outner')}>
-                                <div className={cx('cart-bill-detail')}>
-                                    <span>Sub Total:</span>
-                                    <span>
-                                        <span>{totalPrice}</span>
-                                        <span className={cx('cart-bill-unit')}>USD</span>
-                                    </span>
-                                </div>
-                                <div className={cx('cart-bill-detail')}>
-                                    <span>Transport:</span>
-                                    <span>
-                                        <span>0</span>
-                                        <span className={cx('cart-bill-unit')}>USD</span>
-                                    </span>
-                                </div>
-                                <div className={cx('cart-bill-detail')}>
-                                    <span>Discount:</span>
-                                    <span>
-                                        <span>- {discount}</span>
-                                        <span className={cx('cart-bill-percent')}>%</span>
-                                    </span>
-                                </div>
-                                <div className={cx('cart-bill-detail')}>
-                                    <span>Total:</span>
-                                    <span>
-                                        <span>{total.toFixed(1)}</span>
-                                        <span className={cx('cart-bill-unit')}>USD</span>
-                                    </span>
-                                </div>
-                                <div className={cx('cart-bill-outner-btn')}>
-                                    <button className={cx('cart-bill-btn')}>Pay</button>
-                                </div>
-                            </div>
-
-                            <div className={cx('cart-bill-card')}>
-                                <img src={images.paypal} alt="payment card" width={'50px'} />
-                                <img src={images.visa} alt="payment card" width={'50px'} />
-                                <img src={images.mastercard} alt="payment card" width={'50px'} />
-                            </div>
-                        </div>
+                        <ShoppingCartBill/>
                     </div>
                 </div>
             </div>

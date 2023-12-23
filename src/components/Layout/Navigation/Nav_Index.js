@@ -1,19 +1,23 @@
 import classNames from 'classnames/bind';
 import styles from './Nav_Index.module.scss';
 import { useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search } from '@/icons';
 import { toast, Flip } from 'react-toastify';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import Tippy from '@tippyjs/react/headless'
+import 'tippy.js/dist/tippy.css';
+import Cart from '../Cart/Cart';
 
 const cx = classNames.bind(styles);
 
 function NavBarIndex() {
     const [check, setCheck] = useState(false);
+    const [show, setShow] = useState(false);
 
-    const {cartQuantity} = useShoppingContext()
+    const { cartQuantity,remove,showPoper } = useShoppingContext();
 
     const navigate = useNavigate();
 
@@ -22,24 +26,29 @@ function NavBarIndex() {
     };
 
     const handleCheckLogin = () => {
-        let check = localStorage.getItem('jwt');
-        if(!check){
-            toast.error('You need login to use this page', {
-                transition: Flip,
-                autoClose: 2000,
-            });
-            navigate('/account/login')
-        }else{
-            navigate('/cart')
-        }
-    }
-   
+        // let check = localStorage.getItem('jwt');
+        // if(!check){
+        //     toast.error('You need login to use this page', {
+        //         transition: Flip,
+        //         autoClose: 2000,
+        //     });
+        //     navigate('/account/login')
+        // }else{
+        //     navigate('/')
+        // }
+        setShow(true);
+        showPoper();
+    };
 
     const handleCheckWasLogin = () => {
         let check = localStorage.getItem('jwt');
-        if(check){
-            navigate('/user'); 
+        if (check) {
+            navigate('/user');
         }
+    };
+
+    const handleHideCart = () => {
+        setShow(false)
     }
 
     return (
@@ -48,24 +57,24 @@ function NavBarIndex() {
                 <div className={cx('nav-outner')}>
                     <ul className={cx('nav-list-left')}>
                         <li className={cx('nav-item-left')}>
-                            <NavLink to="/" className={cx('nav-item-link')}>
+                            <Link to="/" className={cx('nav-item-link')}>
                                 HOME
-                            </NavLink>
+                            </Link>
                         </li>
                         <li className={cx('nav-item-left')}>
-                            <NavLink to="/product" className={cx('nav-item-link')}>
+                            <Link to="/product" className={cx('nav-item-link')}>
                                 PRODUCT
-                            </NavLink>
+                            </Link>
                         </li>
                         <li className={cx('nav-item-left')}>
-                            <NavLink to="/contact" className={cx('nav-item-link')}>
+                            <Link to="/contact" className={cx('nav-item-link')}>
                                 CONTACT
-                            </NavLink>
+                            </Link>
                         </li>
                         <li className={cx('nav-item-left')}>
-                            <NavLink to="/sitemap" className={cx('nav-item-link')}>
+                            <Link to="/sitemap" className={cx('nav-item-link')}>
                                 SITEMAP
-                            </NavLink>
+                            </Link>
                         </li>
                     </ul>
                     <ul className={cx('nav-list-right')}>
@@ -75,7 +84,7 @@ function NavBarIndex() {
                                     <input
                                         type="checkbox"
                                         id="checkbox1"
-                                        checked={check}
+                                        checked={false}
                                         className={cx('nav-item-check')}
                                         onChange={() => handleSearch()}
                                         hidden
@@ -87,17 +96,29 @@ function NavBarIndex() {
                                 </label>
                             </Link>
                         </li>
-                        <li className={cx('nav-item-right')} >
-                            <button className={cx('nav-item-link-cart')}  onClick={()=>handleCheckLogin()}>
-                                <FontAwesomeIcon icon={icon({ name: 'cart-shopping', style: 'solid' })} />
-                                <div className={cx('nav-cart-icon')} data-count={cartQuantity}></div>
-                            </button>
-                        </li>
-                        <li className={cx('nav-item-right')} onClick={()=>handleCheckWasLogin()}>
+                        <Tippy
+                            interactive={true}
+                            visible={remove && show && cartQuantity > 0}
+                            offset={[-200, 24]}
+                            render={(attrs) => (
+                                <div className={cx('add-cart')} tabIndex="-1" {...attrs}>
+                                    <Cart />
+                                </div>
+                            )}
+                            onClickOutside={()=>handleHideCart()}
+                        >
+                            <li className={cx('nav-item-right')}>
+                                <button className={cx('nav-item-link-cart')} onClick={() => handleCheckLogin()}>
+                                    <FontAwesomeIcon icon={icon({ name: 'cart-shopping', style: 'solid' })} />
+                                    <div className={cx('nav-cart-icon')} data-count={cartQuantity}></div>
+                                </button>
+                            </li>
+                        </Tippy>
+                        <li className={cx('nav-item-right')} onClick={() => handleCheckWasLogin()}>
                             <Link to="/account/login" className={cx('nav-item-link')}>
                                 <FontAwesomeIcon
                                     icon={icon({ name: 'user', style: 'solid' })}
-                                    className={cx('product-icon')}
+                                    className={cx('nav-user-icon')}
                                 />
                             </Link>
                         </li>

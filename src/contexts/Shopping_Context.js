@@ -36,8 +36,11 @@ export const ShoppingContextProvider = ({ children }) => {
     const decreaseQuantity = (id) => {
         const currentCartItem = cartItems.find((item) => item.id === id);
         if (currentCartItem) {
-            if (currentCartItem.quantity === 0) {
+            if (currentCartItem.quantity === 1) {
                 removeCartItem(id);
+                if(cartQuantity === 0){
+                    removePoper()
+                }
             } else {
                 const newItems = cartItems.map((item) => {
                     if (item.id === id) {
@@ -52,6 +55,7 @@ export const ShoppingContextProvider = ({ children }) => {
     };
 
     const addCartItem = (product) => {
+        removePoper()
         if (product) {
             const currentCartItem = cartItems.find((item) => item.id === product.id);
             if (currentCartItem) {
@@ -76,11 +80,24 @@ export const ShoppingContextProvider = ({ children }) => {
         const newItems = [...cartItems];
         newItems.splice(currentCartItemIndex, 1);
         setCartItems(newItems);
+        if(cartQuantity === 0){
+            removePoper()
+        }
     };
 
     const clearCart = () => {
         setCartItems([]);
     };
+
+    const [remove, setRemove] = useState(true);
+
+    const removePoper = () => {
+        setRemove(false);
+    }
+
+    const showPoper = () => {
+        setRemove(true);
+    }
 
     return (
         <ShoppingContext.Provider
@@ -88,11 +105,14 @@ export const ShoppingContextProvider = ({ children }) => {
                 cartItems,
                 cartQuantity,
                 totalPrice,
+                remove,
                 increaseQuantity,
                 decreaseQuantity,
                 addCartItem,
                 removeCartItem,
                 clearCart,
+                removePoper,
+                showPoper
             }}
         >
             {children}

@@ -29,7 +29,7 @@ function ShoppingCartItem({ id, name, price, quantity, image }) {
                 </button>
             </div>
             <div className={cx('cart-item-price')}>
-                <span>{price * quantity}$</span>
+                <span>{(price * quantity).toFixed(1)} $</span>
             </div>
             <div className={cx('cart-item-action')}>
                 <button className={cx('cart-item-btn')} onClick={()=>removeCartItem(id)}>Remove</button>
