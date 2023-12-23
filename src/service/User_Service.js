@@ -70,4 +70,33 @@ const dataUser = async () => {
         };
     }
 };
-export { loginUser, logoutUser, dataUser };
+
+const editDataUser = async (fullname, email,phone,address, new_password) => {
+    const editDataUrl = '/api/edit_profile/edit_profile';
+
+    const editData = {
+        full_name: fullname,
+        email: email,
+        phone: phone,
+        address: address,
+        new_password: new_password,
+    };
+
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+
+    try {
+        const response = await axios.post(editDataUrl, editData, { headers });
+        
+        return {
+            success: true,
+            response: response
+        };
+    } catch (error) {
+        return {
+            success: false,
+        };
+    }
+};
+export { loginUser, logoutUser, dataUser, editDataUser };
