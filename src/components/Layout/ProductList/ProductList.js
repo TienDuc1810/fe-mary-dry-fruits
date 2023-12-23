@@ -10,9 +10,8 @@ import { Down } from '@/icons';
 
 const cx = classNames.bind(styles);
 
-const ProductList = ({categoryId}) => {
+const ProductList = ({ categoryId }) => {
     const [product, setProduct] = useState([]);
-
     const [drop, setDrop] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -20,11 +19,17 @@ const ProductList = ({categoryId}) => {
         setDrop(!drop);
     };
 
+    const itemsPerPage = 4;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentProducts = product.slice(startIndex, endIndex);
+    const buttonCount = Math.ceil(product.length / 4);
+    const buttonArray = Array.from({ length: buttonCount }, (_, index) => index + 1);
+
+    const currentCategory = product.slice(startIndex, endIndex);
+
     const changePage = (pageNumber) => {
-        setCurrentPage('');
-        setTimeout(() => {
-            setCurrentPage(pageNumber);
-        }, 2000);
+        setCurrentPage(pageNumber);
     };
 
     useEffect(() => {
@@ -42,6 +47,7 @@ const ProductList = ({categoryId}) => {
         };
         fetchData();
     }, [categoryId]);
+
     return (
         <div className={cx('product-list')}>
             <div className={cx('product-filter')}>
@@ -68,19 +74,29 @@ const ProductList = ({categoryId}) => {
             <div className={cx('current')}>
                 <div className={cx('page-current')}>
                     <div className={cx('product-item')}>
-                        {product.map((item, index) => {
-                            return (
-                                <div className={cx('grid-item')} key={index}>
-                                    <ProductItem
-                                        name={item.name}
-                                        price={item.price}
-                                        rating={item.star}
-                                        image={item.image}
-                                        id={item.id}
-                                    />
-                                </div>
-                            );
-                        })}
+                        {categoryId != 0
+                            ? currentCategory.map((item, index) => (
+                                  <div className={cx('grid-item')} key={index}>
+                                      <ProductItem
+                                          name={item.name}
+                                          price={item.price}
+                                          rating={item.star}
+                                          image={item.image}
+                                          id={item.id}
+                                      />
+                                  </div>
+                              ))
+                            : currentProducts.map((item, index) => (
+                                  <div className={cx('grid-item')} key={index}>
+                                      <ProductItem
+                                          name={item.name}
+                                          price={item.price}
+                                          rating={item.star}
+                                          image={item.image}
+                                          id={item.id}
+                                      />
+                                  </div>
+                              ))}
                     </div>
                 </div>
             </div>
@@ -89,12 +105,17 @@ const ProductList = ({categoryId}) => {
                     <li className={cx('left')} onClick={() => changePage(currentPage - 1)}>
                         &lsaquo;
                     </li>
-                    <li onClick={() => changePage(1)} className={cx({ choose: currentPage === 1 })}>
-                        1
-                    </li>
-                    <li onClick={() => changePage(2)} className={cx({ choose: currentPage === 2 })}>
-                        2
-                    </li>
+
+                    {buttonArray.map((pageNumber) => (
+                        <li
+                            key={pageNumber}
+                            value={pageNumber}
+                            onClick={() => changePage(pageNumber)}
+                            className={cx({ choose: currentPage === pageNumber })}
+                        >
+                            {pageNumber}
+                        </li>
+                    ))}
                     <li className={cx('right')} onClick={() => changePage(currentPage + 1)}>
                         &rsaquo;
                     </li>
