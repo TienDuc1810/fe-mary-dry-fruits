@@ -14,13 +14,10 @@ const loginUser = async (email, password) => {
 
     try {
         const response = await axios.post(loginUrl, loginData, { headers });
-        const { access_token, token_type, expires_in, email } = response;
+        
         return {
             success: true,
-            access_token: access_token,
-            token_type: token_type,
-            expires_in: expires_in,
-            email: email,
+            response: response
         };
     } catch (error) {
         return {
@@ -50,4 +47,27 @@ const logoutUser = async () => {
     }
 };
 
-export { loginUser, logoutUser };
+const dataUser = async () => {
+    const dataUrl = '/api/auth/profile';
+
+    const token = localStorage.getItem('jwt');
+
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+    };
+
+    try {
+        const response = await axios.get(dataUrl, {}, { headers });
+        
+        return {
+            success: true,
+            response: response
+        };
+    } catch (error) {
+        return {
+            success: false,
+        };
+    }
+};
+export { loginUser, logoutUser, dataUser };

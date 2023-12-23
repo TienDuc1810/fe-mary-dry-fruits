@@ -10,10 +10,12 @@ import Notification from './Notification';
 import classNames from 'classnames/bind';
 import styles from './Profile.module.scss';
 
+
 const cx = classNames.bind(styles);
 
 const ProfileIndex = ({ children }) => {
     const [activeTab, setActiveTab] = useState(0);
+    
 
     const handleCheckActive = (index) => {
         setActiveTab(index);

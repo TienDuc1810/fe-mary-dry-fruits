@@ -8,7 +8,7 @@ import styles from '../Profile.module.scss';
 
 const cx = classNames.bind(styles);
 
-function UserInfo() {
+function UserInfo({ data }) {
     const [avatar, setAvatar] = useState(images.avatar);
     const [isImageError, setIsImageError] = useState(false);
 
@@ -48,7 +48,12 @@ function UserInfo() {
                 <div className={cx('profile-detail-wrap')}>
                     <div className={cx('profile-detail-outner-input')}>
                         <label htmlFor="Fullname">Full Name</label>
-                        <input id="Fullname" type="text" className={cx('profile-detail-input')} />
+                        <input
+                            id="Fullname"
+                            type="text"
+                            className={cx('profile-detail-input')}
+                            value={data.full_name}
+                        />
                     </div>
 
                     <div className={cx('profile-detail-outner-input')}>
@@ -58,12 +63,9 @@ function UserInfo() {
                 </div>
             </div>
             <div className={cx('profile-detail-outner-select')}>
-                <label>Nationality</label>
-                <div className={cx('profile-detail-select')}>
-                    <select className={cx('profile-detail-select-item')}>
-                        <option className={cx('profile-detail-option')}>Choose your nationality</option>
-                        <option className={cx('profile-detail-option')}>Viet Nam</option>
-                    </select>
+                <div className={cx('profile-detail-outner-input')}>
+                    <label htmlFor="email">Level</label>
+                    <input id="email" type="text" className={cx('profile-detail-input')} value={data.level === 1 ? "Admin" : "Member"}/>
                 </div>
             </div>
 

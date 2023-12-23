@@ -8,12 +8,12 @@ import { ShoppingContextProvider } from './contexts/Shopping_Context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <ShoppingContextProvider>
-        <React.StrictMode>
-            <BrowserRouter>
+        <BrowserRouter>
+            <React.StrictMode>
                 <App />
-            </BrowserRouter>
-        </React.StrictMode>
-    </ShoppingContextProvider>
+            </React.StrictMode>
+        </BrowserRouter>
+    </ShoppingContextProvider>,
 );
 
 // If you want to start measuring performance in your app, pass a function

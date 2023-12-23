@@ -1,4 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import { loginUser } from '@/service/User_Service';
+import { toast, Flip } from 'react-toastify';
+
 
 const ShoppingContext = createContext({});
 
@@ -12,7 +15,7 @@ export const ShoppingContextProvider = ({ children }) => {
         return data && typeof data === 'string' ? JSON.parse(data) : data || [];
     });
 
-    useEffect(  () => {
+    useEffect(() => {
         localStorage.setItem('shopping_cart', JSON.stringify(cartItems));
     }, [cartItems]);
 
@@ -38,8 +41,8 @@ export const ShoppingContextProvider = ({ children }) => {
         if (currentCartItem) {
             if (currentCartItem.quantity === 1) {
                 removeCartItem(id);
-                if(cartQuantity === 0){
-                    removePoper()
+                if (cartQuantity === 0) {
+                    removePoper();
                 }
             } else {
                 const newItems = cartItems.map((item) => {
@@ -55,7 +58,7 @@ export const ShoppingContextProvider = ({ children }) => {
     };
 
     const addCartItem = (product) => {
-        removePoper()
+        removePoper();
         if (product) {
             const currentCartItem = cartItems.find((item) => item.id === product.id);
             if (currentCartItem) {
@@ -80,8 +83,8 @@ export const ShoppingContextProvider = ({ children }) => {
         const newItems = [...cartItems];
         newItems.splice(currentCartItemIndex, 1);
         setCartItems(newItems);
-        if(cartQuantity === 0){
-            removePoper()
+        if (cartQuantity === 0) {
+            removePoper();
         }
     };
 
@@ -93,12 +96,33 @@ export const ShoppingContextProvider = ({ children }) => {
 
     const removePoper = () => {
         setRemove(false);
-    }
+    };
 
     const showPoper = () => {
         setRemove(true);
-    }
+    };
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const infoUser = async () => {
+        let res = await loginUser(email, password);
+
+        if (res && res.success === true) {
+            toast.success('Login Success', {
+                transition: Flip,
+                autoClose: 2000,
+            });
+            let token = res.response.access_token;
+            localStorage.setItem('jwt', token);
+            
+        } else {
+            toast.error('Wrong Login Information', {
+                transition: Flip,
+                autoClose: 2000,
+            });
+        }
+    };
     return (
         <ShoppingContext.Provider
             value={{
@@ -106,13 +130,18 @@ export const ShoppingContextProvider = ({ children }) => {
                 cartQuantity,
                 totalPrice,
                 remove,
+                email,
+                password,
                 increaseQuantity,
                 decreaseQuantity,
                 addCartItem,
                 removeCartItem,
                 clearCart,
                 removePoper,
-                showPoper
+                showPoper,
+                setEmail,
+                setPassword,
+                infoUser,
             }}
         >
             {children}

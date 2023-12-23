@@ -1,14 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Button from '@/components/Button/ButtonIndex';
-import { InfomationUser } from '@/service/User_Service';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from '../Profile.module.scss';
 
 const cx = classNames.bind(styles);
 
-const UserContact = () => {
+const UserContact = ({data}) => {
     const [updatePass, setUpdatePass] = useState(false);
 
 
@@ -23,7 +22,7 @@ const UserContact = () => {
                         />
                         <p className={cx('profile-detail-title')}>Phone</p>
                         <span className={cx('profile-detail-dots')}>:</span>
-                        <span>0123456789</span>
+                        <span>{data.phone}</span>
                     </div>
                     <Button text={'Update'} blackText />
                 </div>
@@ -35,7 +34,7 @@ const UserContact = () => {
                         />
                         <p className={cx('profile-detail-title')}>Email</p>
                         <span className={cx('profile-detail-dots')}>:</span>
-                        <span>dotienduc@gmail.com</span>
+                        <span>{data.email}</span>
                     </div>
                     <Button text={'Update'} blackText />
                 </div>
@@ -47,7 +46,7 @@ const UserContact = () => {
                         />
                         <p className={cx('profile-detail-title')}>Address</p>
                         <span className={cx('profile-detail-dots')}>:</span>
-                        <span>70 Duong Dinh Hoi</span>
+                        <span>{data.address}</span>
                     </div>
                     <Button text={'Update'} blackText />
                 </div>

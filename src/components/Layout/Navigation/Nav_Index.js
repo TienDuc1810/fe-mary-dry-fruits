@@ -1,55 +1,51 @@
 import classNames from 'classnames/bind';
 import styles from './Nav_Index.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search } from '@/icons';
-import { toast, Flip } from 'react-toastify';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
-import Tippy from '@tippyjs/react/headless'
+import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import Cart from '../Cart/Cart';
+import { dataUser } from '@/service/User_Service';
 
 const cx = classNames.bind(styles);
 
 function NavBarIndex() {
-    const [check, setCheck] = useState(false);
+    const [checkLogin, setCheckLogin] = useState(null);
     const [show, setShow] = useState(false);
-
-    const { cartQuantity,remove,showPoper } = useShoppingContext();
+    const [data, getData] = useState('');
+    const { cartQuantity, remove, showPoper } = useShoppingContext();
 
     const navigate = useNavigate();
 
-    const handleSearch = () => {
-        setCheck(!check);
-    };
+    useEffect(() => {
+        const jwt = localStorage.getItem('jwt');
+        setCheckLogin(jwt);
+        if (checkLogin !== null) {
+            navigate('/user');
+        }
 
-    const handleCheckLogin = () => {
-        // let check = localStorage.getItem('jwt');
-        // if(!check){
-        //     toast.error('You need login to use this page', {
-        //         transition: Flip,
-        //         autoClose: 2000,
-        //     });
-        //     navigate('/account/login')
-        // }else{
-        //     navigate('/')
-        // }
+        const fetchData = async () => {
+            let res = await dataUser();
+            getData(res.response);
+            console.log(data);
+        };
+        fetchData();
+    }, []);
+
+    const handleCart = () => {
         setShow(true);
         showPoper();
     };
 
-    const handleCheckWasLogin = () => {
-        let check = localStorage.getItem('jwt');
-        if (check) {
-            navigate('/user');
-        }
-    };
+    const handleCheckWasLogin = () => {};
 
     const handleHideCart = () => {
-        setShow(false)
-    }
+        setShow(false);
+    };
 
     return (
         <div className={cx('nav-container')}>
@@ -80,13 +76,12 @@ function NavBarIndex() {
                     <ul className={cx('nav-list-right')}>
                         <li className={cx('nav-item-right')}>
                             <Link to="/" className={cx('nav-item-link')}>
-                                <label htmlFor="checkbox1" onClick={handleSearch}>
+                                <label htmlFor="checkbox1">
                                     <input
                                         type="checkbox"
                                         id="checkbox1"
-                                        checked={false}
+                                        defaultChecked="fasle"
                                         className={cx('nav-item-check')}
-                                        onChange={() => handleSearch()}
                                         hidden
                                     />
                                     <input type="text" className={cx('nav-item-search')} placeholder="Search" />
@@ -105,22 +100,28 @@ function NavBarIndex() {
                                     <Cart />
                                 </div>
                             )}
-                            onClickOutside={()=>handleHideCart()}
+                            onClickOutside={() => handleHideCart()}
                         >
                             <li className={cx('nav-item-right')}>
-                                <button className={cx('nav-item-link-cart')} onClick={() => handleCheckLogin()}>
+                                <button className={cx('nav-item-link-cart')} onClick={() => handleCart()}>
                                     <FontAwesomeIcon icon={icon({ name: 'cart-shopping', style: 'solid' })} />
                                     <div className={cx('nav-cart-icon')} data-count={cartQuantity}></div>
                                 </button>
                             </li>
                         </Tippy>
                         <li className={cx('nav-item-right')} onClick={() => handleCheckWasLogin()}>
-                            <Link to="/account/login" className={cx('nav-item-link')}>
-                                <FontAwesomeIcon
-                                    icon={icon({ name: 'user', style: 'solid' })}
-                                    className={cx('nav-user-icon')}
-                                />
-                            </Link>
+                            {checkLogin === null ? (
+                                <Link to="/account/login" className={cx('nav-item-link')}>
+                                    <FontAwesomeIcon
+                                        icon={icon({ name: 'user', style: 'solid' })}
+                                        className={cx('nav-user-icon')}
+                                    />
+                                </Link>
+                            ) : (
+                                <Link to="/user">
+                                    Wellcome: {data.full_name !== null ? data.full_name : data.email}
+                                </Link>
+                            )}
                         </li>
                     </ul>
                 </div>

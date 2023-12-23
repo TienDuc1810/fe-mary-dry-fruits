@@ -1,27 +1,26 @@
 import classNames from 'classnames/bind';
 import styles from './LoginForm.module.scss';
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 
-import { toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { loginUser } from '@/service/User_Service';
+
 
 const cx = classNames.bind(styles);
 
 const LoginForm = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const {email, password, setEmail, setPassword, infoUser} = useShoppingContext();
+
     const [errorHeightEmail, setErrorHeightEmail] = useState(false);
     const [errorHeightPassword, setErrorHeightPassword] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
     const [errorPassword, setErrorPassword] = useState(false);
     const [messErrorEmail, setMessErrorEmail] = useState('');
     const [messErrorPassword, setMessErrorPassword] = useState('');
-    const navigate = useNavigate();
 
     const handleLogin = async () => {
         if (!email) {
@@ -54,24 +53,7 @@ const LoginForm = () => {
                 setErrorEmail(false);
                 setMessErrorEmail('');
                 setErrorHeightEmail(false);
-                let res = await loginUser(email, password);
-
-                if (res && res.expires_in === 3600) {
-                    toast.success('Login Success', {
-                        transition: Flip,
-                        autoClose: 2000,
-                    });
-                    let token = res.access_token;
-                
-                    localStorage.setItem('jwt', token);
-
-                    navigate('/user');
-                } else {
-                    toast.error('Wrong Login Information', {
-                        transition: Flip,
-                        autoClose: 2000,
-                    });
-                }
+                infoUser();
             }
         }
     };
