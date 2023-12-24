@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import ProductItem from '@/pages/Product/Product_Item';
+import ProductItem from '@/pages/product/Product_Item';
 import { useState, useEffect } from 'react';
 import { topProduct } from '@/service/Product_Service';
 
@@ -54,7 +54,6 @@ const SliderProducts = () => {
 
         fetchData();
     }, []);
-
 
     return (
         <div className={cx('container-slide')}>

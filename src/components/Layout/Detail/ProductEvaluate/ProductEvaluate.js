@@ -3,87 +3,22 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './ProductEvaluate.module.scss';
 import { StarYellow, StarCheck } from '@/icons';
+import starYello from '@/Images/icont/star (1).svg';
+import nostar from '@/Images/icont/star-line.svg';
 
 import images from '@/assets';
 const cx = classNames.bind(styles);
 
 const ProductEvaluate = () => {
+    const star = 5;
     return (
         <div className={cx('customer-evaluate')}>
-            <h4>Khách hàng đánh giá</h4>
-            <p>Tổng quan</p>
+            <h4>Customer Reviewer</h4>
             <div className={cx('evaluate-star')}>
-                <h3>4.9</h3>
-                <StarYellow />
-                <StarYellow />
-                <StarYellow />
-                <StarYellow />
-                <StarYellow />
-            </div>
-            <div className={cx('evaluate-star-turn')}>
-                <div className={cx('star-turn')}>
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                </div>
-                <div className={cx('percent')}>
-                    <div className={cx('percent-90')}></div>
-                </div>
-                <span className={cx('ratting-munber')}>13</span>
-            </div>
-            <div className={cx('evaluate-star-turn')}>
-                <div className={cx('star-turn')}>
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                </div>
-                <div className={cx('percent')}>
-                    <div className={cx('percent-90')}></div>
-                </div>
-                <span className={cx('ratting-munber')}>13</span>
-            </div>
-            <div className={cx('evaluate-star-turn')}>
-                <div className={cx('star-turn')}>
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                </div>
-                <div className={cx('percent')}>
-                    <div className={cx('percent-90')}></div>
-                </div>
-                <span className={cx('ratting-munber')}>13</span>
-            </div>
-            <div className={cx('evaluate-star-turn')}>
-                <div className={cx('star-turn')}>
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                </div>
-                <div className={cx('percent')}>
-                    <div className={cx('percent-90')}></div>
-                </div>
-                <span className={cx('ratting-munber')}>13</span>
-            </div>
-            <div className={cx('evaluate-star-turn')}>
-                <div className={cx('star-turn')}>
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                    <StarYellow />
-                </div>
-                <div className={cx('percent')}>
-                    <div className={cx('percent-90')}></div>
-                </div>
-                <span className={cx('ratting-munber')}>13</span>
+                {[...Array(5)].map((_, i) => (
+                    <img key={i} src={i < star ? starYello : nostar} alt={i < star ? 'star yellow' : 'no star'} />
+                ))}
+                <h5>Base on 2 reviews</h5>
             </div>
         </div>
     );
