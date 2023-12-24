@@ -1,7 +1,7 @@
 import Banner from '@/components/Layout/Banner/Banner';
 import images from '@/assets';
 import Footer from '@/components/Layout/Footer/Footer_Index';
-import LayoutProduct from '../components/Layout/LayoutProduct/LayoutProduct';
+import LayoutProduct from '@/components/Layout/LayoutProduct/LayoutProduct';
 
 const ProductPage = () => {
     return (
