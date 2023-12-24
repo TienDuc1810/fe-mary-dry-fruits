@@ -1,0 +1,146 @@
+//CSS Contact Index
+.contact-container {
+    width: 100%;
+    height: 100%;
+    padding: 60px 0 100px;
+
+    .contact-wrapper {
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .contact-info {
+            display: flex;
+            width: 100%;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contact-location {
+            display: flex;
+            width: 100%;
+            margin-top: 30px;
+        }
+    }
+}
+
+//CSS Contact Item
+.contact-item-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 30px 0;
+    height: 100%;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    padding: 25px;
+    transition: all linear 0.3s;
+    &:hover {
+        border-color: var(--second-color);
+    }
+    &:hover .contact-item-icon {
+        background-color: var(--second-color);
+    }
+    &:hover .contact-item-icon .contact-icon {
+        color: var(--black-color);
+    }
+
+    .contact-item-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        position: relative;
+        margin-bottom: 30px;
+        transition: all linear 0.3s;
+
+        .contact-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--white-color);
+            font-size: 2rem;
+            transition: all linear 0.3s;
+        }
+    }
+
+    .contact-item-title {
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        font-family: var(--font-special);
+    }
+
+    .contact-item-info {
+        font-size: 1.8rem;
+    }
+}
+
+//CSS Google Map
+.contact-map{
+    width: 60%;
+    margin-right: 40px;
+
+    .map {
+        width: 100%;
+        height: 100%;
+        border: 2px solid var(--border-color);
+        border-radius: 25px;
+    }
+}
+
+//CSS Contact Form
+.contact-form-container {
+    width: 40%;
+    height: 100%;
+
+    .contact-form-outner {
+        height: 100%;
+        width: 100%;
+        margin-bottom: 30px;
+
+        .contact-form-input {
+            width: 100%;
+            height: 50px;
+            border-radius: 50px;
+            border: none;
+            border: 2px solid var(--border-color);
+            padding: 0 20px;
+            font-size: 1.8rem;
+            &::placeholder {
+                font-size: 1.6rem;
+            }
+            &:focus{
+                border-color: var(--primary-color);
+            }
+        }
+
+        .contact-form-textarea{
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            border: none;
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            font-size: 1.8rem;
+            &::placeholder {
+                font-size: 1.8rem;
+            }
+            &:focus{
+                border-color: var(--primary-color);
+            }
+        }
+    }
+    
+    .contact-form-btn{
+       display: flex;
+       justify-content: end;
+       width: 100%;
+       margin-left: 15px;
+    }
+}

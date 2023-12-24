@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '@/components/Layout/Banner/Banner';
 import background from '@/Images/banner.webp';
-import ContactUs from '@/components/Layout/contactUs/ContactUs';
+import ContactUs from '@/components/Layout/contactUs/Contact_Index';
 import Footer from '@/components/Layout/Footer/Footer_Index';
 
 const ContactPage = () => {
