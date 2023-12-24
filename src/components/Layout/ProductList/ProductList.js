@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ProductList.module.scss';
 import ProductItem from '@/pages/Product/Product_Item';
-import images from '@/assets';
+
 import axios from '@/service/axios';
 
 import { Down } from '@/icons';

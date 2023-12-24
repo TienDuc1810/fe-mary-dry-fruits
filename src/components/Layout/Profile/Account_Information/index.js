@@ -7,7 +7,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Button from '@/components/Button/ButtonIndex';
 import { editDataUser } from '@/service/User_Service';
 import images from '@/assets';
-import { toast } from 'react-toastify';
+
 
 const cx = classNames.bind(styles);
 
@@ -25,6 +25,7 @@ const AccountInformation = () => {
         const fetchData = async () => {
             let res = await dataUser();
             getData(res.response);
+            setFullname(data.full_name)
         };
         fetchData();
     }, []);
@@ -45,17 +46,8 @@ const AccountInformation = () => {
     };
 
     const handleEditUser = async () => {
-        let res = await editDataUser( fullname, email, phone, address);
+        await editDataUser( fullname);
 
-        if (res && res.success === true) {
-            toast.success('Login Success', {
-                autoClose: 2000,
-            });
-        } else {
-            toast.error('Wrong Login Information', {
-                autoClose: 2000,
-            });
-        }
     };
 
     return (
@@ -86,7 +78,7 @@ const AccountInformation = () => {
                                     id="Fullname"
                                     type="text"
                                     className={cx('profile-detail-input')}
-                                    value={data.full_name}
+                                    value={fullname}
                                     onChange={(e) => setFullname(e.target.value)}
                                 />
                             </div>

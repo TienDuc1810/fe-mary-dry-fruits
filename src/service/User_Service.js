@@ -71,19 +71,21 @@ const dataUser = async () => {
     }
 };
 
-const editDataUser = async (fullname, email,phone,address, new_password) => {
-    const editDataUrl = '/api/edit_profile/edit_profile';
+const editDataUser = async (fullname,phone,address, password) => {
+    const editDataUrl = '/api/auth/edit_profile';
+
+    const token = localStorage.getItem('jwt');
 
     const editData = {
         full_name: fullname,
-        email: email,
         phone: phone,
         address: address,
-        new_password: new_password,
+        password: password,
     };
 
     const headers = {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
     };
 
     try {
