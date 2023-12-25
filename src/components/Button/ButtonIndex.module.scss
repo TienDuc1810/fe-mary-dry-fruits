@@ -29,6 +29,10 @@
         color: var(--text-color);
     }
 
+    .btn-link.big{
+        padding: 10px 100px;
+    }
+
     .btn-link.primary:hover,
     .btn-link.normal:hover,
     .btn-link.active {

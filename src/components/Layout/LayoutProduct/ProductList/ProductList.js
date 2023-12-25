@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './ProductList.module.scss';
+<<<<<<< HEAD:src/components/Layout/LayoutProduct/ProductList/ProductList.js
 import ProductItem from '@/pages/product/Product_Item';
 import images from '@/assets';
+=======
+import ProductItem from '@/pages/Product/Product_Item';
+
+>>>>>>> f3f19df7602e5889d3e78df27b3df956489c65da:src/components/Layout/ProductList/ProductList.js
 import axios from '@/service/axios';
 
 import { Down } from '@/icons';

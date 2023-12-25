@@ -9,6 +9,7 @@ function ButtonIndex({
     link,
     primary = true,
     normal = false,
+    big = false,
     blackText = false,
     active = false,
     disabled = false,
@@ -21,6 +22,7 @@ function ButtonIndex({
                     className={cx('btn-link', {
                         primary: primary,
                         normal: normal,
+                        big: big,
                         blackText: blackText,
                         active: active,
                         disabled: disabled,

@@ -4,7 +4,6 @@ import Slide from './Slide/Slider_Index';
 import PremiumProducts from './PremiumProducts/Premium_Product_Index';
 import Benefit from './Benefit/Benefit_Index';
 import CategoryProduct from './CategoryProduct/Category_Product';
-import images from '@/assets';
 import { useEffect, useState } from 'react';
 import { topProduct, premiumProduct } from '@/service/Product_Service';
 import { Banner } from '@/service/Banner_Service';
@@ -15,34 +14,33 @@ import styles from '@/components/GlobalStyles/GlobalStyles.scss';
 const cx = classNames.bind(styles);
 
 const Main = () => {
-    const urlNormalBanner = {
-        backgroundImage: `url(${images.normal_banner})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-    };
-
-    const urlParallaxBanner = {
-        backgroundImage: `url(${images.banner})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-    };
-
     const [products, setProducts] = useState([]);
-    const [banners, setBanners] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [preProducts, setPreProducts] = useState([]);
+    const [sliderBanners, setSliderBanners] = useState([]);
+    const [parallaxBanner, setParallaxBanner] = useState([]);
+    const [normalBanner, setNormalBanner] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const resBanner = await Banner();
+                const resSliderBanner = await Banner(1);
+                const resNormalBanner = await Banner(2);
+                const resParallaxBanner = await Banner(3);
                 const resTopProduct = await topProduct();
                 const resPremiumProduct = await premiumProduct();
 
-                
-                if (resBanner.success && resBanner.response){
-                    setBanners(resBanner.response)
-                    console.log(resBanner.response)
+                if (resSliderBanner.success && resSliderBanner.response) {
+                    setSliderBanners(resSliderBanner.response);
+                }
+
+                if (resParallaxBanner.success && resSliderBanner.response) {
+                    setParallaxBanner(resParallaxBanner.response);
+                    console.log(resParallaxBanner.response);
+                }
+
+                if (resNormalBanner.success && resSliderBanner.response) {
+                    setNormalBanner(resNormalBanner.response);
                 }
 
                 if (resTopProduct.success && resTopProduct.response) {
@@ -54,8 +52,9 @@ const Main = () => {
                 }
 
             } catch (error) {
-                console.error('Error fetching top products:', error);
+                console.error('Error fetching data:', error);
                 setProducts([]);
+                setPreProducts([]);
             } finally {
                 setTimeout(() => {
                     setLoading(false);
@@ -81,25 +80,12 @@ const Main = () => {
                 </div>
             ) : (
                 <div>
-                    <Slide banners={banners}/>
+                    <Slide banners={sliderBanners} />
                     <BestProducts products={products} />
-                    <ParallaxBanner
-                        image={urlParallaxBanner}
-                        name={'Healthy Herbs'}
-                        percent_decrease={10}
-                        description={'On all Spicy & Herbs'}
-                        text={
-                            'Lorem ipsum has become the industry standard for design mockups and prototypes. By adding a little bit of Latin to a mockup.'
-                        }
-                    />
+                    <ParallaxBanner banners={parallaxBanner} />
                     <CategoryProduct />
-                    <NormalBanner
-                        image={urlNormalBanner}
-                        name={'Cardamom / Clove / Cumin'}
-                        percent_decrease={50}
-                        description={'ALL PRODUCTS'}
-                    />
-                    <PremiumProducts premiumProducts={preProducts}/>
+                    <NormalBanner banners={normalBanner} />
+                    <PremiumProducts premiumProducts={preProducts} />
                     <Benefit />
                 </div>
             )}

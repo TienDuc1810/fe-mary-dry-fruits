@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import images from '@/assets';
 
 const cx = classNames.bind(styles);
 
@@ -35,7 +34,6 @@ function SliderItem({ banners }) {
         }
     };
 
-    const banner = [images.slider_1,images.br_image_2]
 
     return (
         <div>
@@ -49,10 +47,10 @@ function SliderItem({ banners }) {
                             <div className={cx('slider-content')}>
                                 <div className={cx('slider-heading')}>{item.title}</div>
                                 <div className={cx('slider-text')}>{item.description}</div>
-                                {/* <div className={cx('slider-discount')}>
+                                <div className={cx('slider-discount')}>
                                     USE COUPON:
-                                    <span className={cx('slider-coupon')}>{item.discount}</span>
-                                </div> */}
+                                    <span className={cx('slider-coupon')}>SPI18</span>
+                                </div>
                             </div>
                         </div>
                     );
