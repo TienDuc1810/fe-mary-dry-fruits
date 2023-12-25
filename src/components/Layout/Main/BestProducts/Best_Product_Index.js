@@ -3,7 +3,6 @@ import styles from './Best_Product.module.scss';
 import SliderProducts from './Slider_Products';
 import TitleIndex from '../Title/Title_Index';
 
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
