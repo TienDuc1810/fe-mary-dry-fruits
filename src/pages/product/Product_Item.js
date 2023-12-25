@@ -20,7 +20,7 @@ function ProductItem({ ...item }) {
             <div className={cx('product-border-line-3')}></div>
             <div className={cx('product-border-line-4')}></div>
             <div className={cx('product-image')}>
-                <Link to="/">
+                <Link to={item.link}>
                     <img src={item.image} alt="product" className={cx('product-image-origin')} />
                 </Link>
                 <div className={cx('product-image-add')} onClick={() => addCartItem(item)}>

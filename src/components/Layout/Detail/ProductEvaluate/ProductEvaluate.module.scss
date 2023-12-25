@@ -1,13 +1,18 @@
 .customer-evaluate {
     width: 30%;
     h4 {
-        font-size: 1.6rem;
-        font-family: var(--font-family-global);
+        font-size: 4rem;
         margin-bottom: 10px;
+        font-family: var(--font-special);
+        color: var(--primary-color);
+    }
+    h5 {
+        font-size: 2rem;
+        margin-bottom: 0px;
     }
     p {
         font-size: 1.4rem;
-        font-family: var(--font-family-global);
+        font-family: var(--font-special);
         margin-bottom: 10px;
     }
     .evaluate-star {
@@ -17,6 +22,10 @@
         h3 {
             font-size: 2.4rem;
             margin-right: 10px;
+        }
+
+        img {
+            width: 30px;
         }
     }
     .evaluate-star-turn {

@@ -1,18 +1,15 @@
 import classNames from 'classnames/bind';
-import styles from './CategoryList.module.scss';
 
-import images from '@/assets';
-import CategoryTitle from './CategoryTitle/CategoryTitle';
 import axios from '@/service/axios';
-
+import CategoryTitle from './CategoryTitle/CategoryTitle';
+import styles from './CategoryList.module.scss';
 import CategoryFilter from './CategoryFilter/CategoryFilter';
-import ProductItem from '@/pages/Product/Product_Item';
-
+import SliderProducts from '../../Main/BestProducts/Slider_Products';
 import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-const CategoryList = ({getIdCategory}) => {
+const CategoryList = ({ getIdCategory }) => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
@@ -32,7 +29,7 @@ const CategoryList = ({getIdCategory}) => {
     }, []);
 
     const handleIdCategory = (msd) => {
-        getIdCategory(msd)
+        getIdCategory(msd);
     };
 
     return (
@@ -40,6 +37,7 @@ const CategoryList = ({getIdCategory}) => {
             <CategoryTitle>Category</CategoryTitle>
             <div className={cx('category-filter-panel')}>
                 <ul className={cx('filter')}>
+                    <CategoryFilter name={'All'} id={0} handleIdCategory={handleIdCategory} />
                     {category.map((item, index) => {
                         return (
                             <CategoryFilter
@@ -53,13 +51,7 @@ const CategoryList = ({getIdCategory}) => {
                 </ul>
             </div>
             <CategoryTitle>Best Sellers</CategoryTitle>
-            <div className={cx('category-bestsaler')}>
-                <ProductItem name={'Black Cardamom'} price={500} rating={3} image={images.product_1} />
-                <ul className={cx('page-practive')}>
-                    <li className={cx('left')}>&lsaquo;</li>
-                    <li className={cx('right')}>&rsaquo;</li>
-                </ul>
-            </div>
+            <SliderProducts slidesToShow={1} />
         </div>
     );
 };
