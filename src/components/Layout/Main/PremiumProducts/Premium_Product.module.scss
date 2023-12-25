@@ -35,6 +35,10 @@
                     text-align: center;
 
                     .premium-product-name {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        -webkit-line-clamp: 1;
                         font-family: var(--font-special);
                         font-size: 2rem;
                         font-weight: 400;

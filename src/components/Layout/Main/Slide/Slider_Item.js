@@ -11,7 +11,6 @@ function SliderItem({ banners }) {
     const [slide, setSlide] = useState(null);
 
     const settings = {
-        dots: false,
         infinite: true,
         speed: 700,
         slidesToShow: 1,
@@ -19,12 +18,13 @@ function SliderItem({ banners }) {
         autoplay: true,
         autoplaySpeed: 4000,
         pauseOnHover: true,
+        prevArrow: <></>, // Sử dụng React element trống để tắt nút previous
+        nextArrow: <></>, // Sử dụng React element trống để tắt nút next
     };
 
     const previous = () => {
         if (slide) {
             slide.slickPrev();
-           
         }
     };
 
@@ -34,7 +34,6 @@ function SliderItem({ banners }) {
         }
     };
 
-
     return (
         <div>
             <Slider ref={(c) => setSlide(c)} {...settings}>
@@ -42,7 +41,7 @@ function SliderItem({ banners }) {
                     return (
                         <div key={index} className={cx('slider-wrapper')}>
                             <div className={cx('slider-outner-image')}>
-                                <img src={item.image} alt={`Slider ${index + 1}`} className={cx('slider-image')}/>
+                                <img src={item.image} alt={`Slider ${index + 1}`} className={cx('slider-image')} />
                             </div>
                             <div className={cx('slider-content')}>
                                 <div className={cx('slider-heading')}>{item.title}</div>
