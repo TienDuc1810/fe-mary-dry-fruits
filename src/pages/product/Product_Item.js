@@ -43,6 +43,9 @@ function ProductItem({ ...item }) {
                     </Link>
                 </div>
                 <div className={cx('product-price')}>
+                    <span className={cx('product-size')}>Size: 100 gram</span>
+                </div>
+                <div className={cx('product-price')}>
                     <span className={cx('product-money')}>${item.price}</span>
                 </div>
                 <div className={cx('product-star')}>

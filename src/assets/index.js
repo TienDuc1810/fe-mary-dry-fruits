@@ -1,8 +1,6 @@
 const images = {
     slider_1: require('@/assets/images/slider_1.jpg'),
     star_image: require('@/assets/images/star.png'),
-    product_1: require('@/assets/images/product_1.webp'),
-    product_1_change: require('@/assets/images/product_1_change.webp'),
     category_1: require('@/assets/images/category_1.jpg'),
     category_2: require('@/assets/images/category_2.jpg'),
     category_3: require('@/assets/images/category_3.jpg'),
@@ -22,9 +20,6 @@ const images = {
     nutritional: require('@/assets/images/nutritional.webp'),
     avatar: require('@/assets/images/Avatar.jpg'),
     avatar_default: require('@/assets/images/avatar-default.png'),
-    normal_banner: require('@/assets/images/normal_baner.jpg'),
-    parallax_banner: require('@/assets/images/parallax_banner.jpg'),
-    banner: require('@/assets/images/pexels-ayberk-mirza-19205235.jpg'),
     footer: require('@/assets/images/footer.jpg'),
 };
 

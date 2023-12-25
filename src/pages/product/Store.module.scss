@@ -120,9 +120,15 @@
     }
     .product-detail {
         padding: 20px 30px 30px;
+
         .product-outner-name {
             margin-bottom: 10px;
+
             .product-name {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                -webkit-line-clamp: 1;
                 color: var(--primary-color);
                 font-size: 2rem;
                 font-family: var(--font-special);
@@ -135,6 +141,11 @@
         }
         .product-price {
             margin-bottom: 10px;
+
+            .product-size {
+                font-size: 1.6rem;
+            }
+
             .product-money {
                 color: var(--text-color);
                 font-size: 1.6rem;
