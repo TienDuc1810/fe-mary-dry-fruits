@@ -14,10 +14,10 @@ const loginUser = async (email, password) => {
 
     try {
         const response = await axios.post(loginUrl, loginData, { headers });
-        
+
         return {
             success: true,
-            response: response
+            response: response,
         };
     } catch (error) {
         return {
@@ -59,10 +59,10 @@ const dataUser = async () => {
 
     try {
         const response = await axios.get(dataUrl, {}, { headers });
-        
+
         return {
             success: true,
-            response: response
+            response: response,
         };
     } catch (error) {
         return {
@@ -71,7 +71,7 @@ const dataUser = async () => {
     }
 };
 
-const editDataUser = async (fullname,phone,address, password) => {
+const editDataUser = async (fullname, phone, address, password) => {
     const editDataUrl = '/api/auth/edit_profile';
 
     const token = localStorage.getItem('jwt');
@@ -90,10 +90,10 @@ const editDataUser = async (fullname,phone,address, password) => {
 
     try {
         const response = await axios.post(editDataUrl, editData, { headers });
-        
+
         return {
             success: true,
-            response: response
+            response: response,
         };
     } catch (error) {
         return {

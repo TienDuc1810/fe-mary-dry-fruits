@@ -15,17 +15,11 @@ const cx = classNames.bind(styles);
 
 const Detail = () => {
     const id = useParams();
-    const [product, setProduct] = useState([]);
+    const [item, setItem] = useState([]);
     const fetchData = async () => {
         try {
             const res = await axios.post('api/product/product_details', { product_id: id });
-            setProduct(res.data);
-            console.log(product);
-            // if (res?.product_detail) {
-            //     setProduct(res?.product_detail);
-            // } else {
-            //     setProduct('');
-            // }
+            setItem(res.data[0]);
         } catch (error) {
             console.log('error', error);
         }
@@ -40,15 +34,11 @@ const Detail = () => {
             <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
                 product
             </Banner>
-            {product.map((value) => {
-                return (
-                    <div className={cx('first')} key={value.id}>
-                        <DetailMulImage imgMain={value.image} value={value} star={value.star}>
-                            {value.name}
-                        </DetailMulImage>
-                    </div>
-                );
-            })}
+            {
+                <div className={cx('first')}>
+                    <DetailMulImage product={item} />
+                </div>
+            }
 
             <Footer />
         </div>

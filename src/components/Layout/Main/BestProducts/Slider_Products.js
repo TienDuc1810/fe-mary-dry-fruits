@@ -10,14 +10,14 @@ import styles from './Best_Product.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SliderProducts = () => {
+const SliderProducts = ({ slidesToShow }) => {
     const [slider, setSlider] = useState(null);
 
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: slidesToShow || 5,
         slidesToScroll: 1,
     };
 
