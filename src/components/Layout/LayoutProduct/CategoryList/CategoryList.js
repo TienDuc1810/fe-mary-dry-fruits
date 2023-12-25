@@ -51,7 +51,9 @@ const CategoryList = ({ getIdCategory }) => {
                 </ul>
             </div>
             <CategoryTitle>Best Sellers</CategoryTitle>
-            <SliderProducts slidesToShow={1} />
+            <div className={cx('silder')}>
+                <SliderProducts slidesToShow={1} />
+            </div>
         </div>
     );
 };

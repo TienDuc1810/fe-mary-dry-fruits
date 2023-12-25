@@ -31,7 +31,6 @@ function NavBarIndex() {
         const fetchData = async () => {
             let res = await dataUser();
             getData(res.response);
-            console.log(data);
         };
         fetchData();
     }, []);

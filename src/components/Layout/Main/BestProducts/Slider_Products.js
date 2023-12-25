@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import ProductItem from '@/pages/product/Product_Item';
+import ProductItem from '@/pages/Product/Product_Item';
 import { useState, useEffect } from 'react';
 import { topProduct } from '@/service/Product_Service';
 
@@ -10,14 +10,14 @@ import styles from './Best_Product.module.scss';
 
 const cx = classNames.bind(styles);
 
-const SliderProducts = () => {
+const SliderProducts = ({ slidesToShow }) => {
     const [slider, setSlider] = useState(null);
 
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: slidesToShow || 5,
         slidesToScroll: 1,
     };
 

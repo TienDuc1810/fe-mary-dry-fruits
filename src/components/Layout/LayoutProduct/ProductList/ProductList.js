@@ -10,10 +10,10 @@ import { Down } from '@/icons';
 
 const cx = classNames.bind(styles);
 
-const ProductList = ({categoryId}) => {
+const ProductList = ({ categoryId }) => {
     const [product, setProduct] = useState([]);
-
     const [drop, setDrop] = useState(false);
+    const [lastPage, setLastPage] = useState(Array.from({ length: 1 }, (_, index) => index + 1));
     const [currentPage, setCurrentPage] = useState(1);
 
     const handleDrop = () => {
@@ -21,27 +21,27 @@ const ProductList = ({categoryId}) => {
     };
 
     const changePage = (pageNumber) => {
-        setCurrentPage('');
-        setTimeout(() => {
-            setCurrentPage(pageNumber);
-        }, 2000);
+        setCurrentPage(pageNumber);
+    };
+
+    const fetchData = async (categoryId, currentPage) => {
+        try {
+            const res = await axios.post('api/product/allproduct', { category: categoryId, page: currentPage });
+            const lastPage = res.data.last_page;
+            const data = res.data.data || res.data;
+            console.log(lastPage);
+            setProduct(data);
+            setLastPage(Array.from({ length: lastPage }, (_, index) => index + 1));
+            console.log(lastPage);
+        } catch (error) {
+            console.log('error', error);
+        }
     };
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await axios.post('api/product/allproduct', { category: categoryId });
-                if (res?.product) {
-                    setProduct(res?.product);
-                } else {
-                    setProduct('');
-                }
-            } catch (error) {
-                console.log('error', error);
-            }
-        };
-        fetchData();
-    }, [categoryId]);
+        fetchData(categoryId, currentPage);
+    }, [categoryId, currentPage]);
+
     return (
         <div className={cx('product-list')}>
             <div className={cx('product-filter')}>
@@ -77,6 +77,7 @@ const ProductList = ({categoryId}) => {
                                         rating={item.star}
                                         image={item.image}
                                         id={item.id}
+                                        link={'/product-detail/' + item.id}
                                     />
                                 </div>
                             );
@@ -89,12 +90,17 @@ const ProductList = ({categoryId}) => {
                     <li className={cx('left')} onClick={() => changePage(currentPage - 1)}>
                         &lsaquo;
                     </li>
-                    <li onClick={() => changePage(1)} className={cx({ choose: currentPage === 1 })}>
-                        1
-                    </li>
-                    <li onClick={() => changePage(2)} className={cx({ choose: currentPage === 2 })}>
-                        2
-                    </li>
+
+                    {lastPage.map((pageNumber) => (
+                        <li
+                            onClick={() => changePage(pageNumber)}
+                            key={pageNumber}
+                            className={cx({ choose: pageNumber === currentPage })}
+                        >
+                            {pageNumber}
+                        </li>
+                    ))}
+
                     <li className={cx('right')} onClick={() => changePage(currentPage + 1)}>
                         &rsaquo;
                     </li>

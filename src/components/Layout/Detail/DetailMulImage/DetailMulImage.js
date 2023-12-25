@@ -1,40 +1,55 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import axios from '@/service/axios';
 import classNames from 'classnames/bind';
 import styles from './DetailMulImage.module.scss';
-
 import nostar from '@/Images/icont/star-line.svg';
 import starYello from '@/Images/icont/star (1).svg';
 import BestProductsIndex from '../../Main/BestProducts/Best_Product_Index';
 import ProductEvaluate from '../ProductEvaluate/ProductEvaluate';
 import DetailComment from '../DetailComment/DetailComment';
 import CommentProduct from '../CommetProduct/CommentProduct';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 
 const cx = classNames.bind(styles);
 
-const DetailMulImage = (props) => {
+const DetailMulImage = ({ product }) => {
     const navigate = useNavigate();
-    const { children, imgMain, value, star } = props;
-    const [plus, setPlus] = useState(0);
+    const { addCartItem } = useShoppingContext();
     const [zoneDetails, setZoneDetails] = useState(1);
-    const [selectedWeight, setSelectedWeight] = useState(null);
 
-    const hanldePlus = () => {
-        setPlus((pre) => pre + 1);
+    const [item, setItem] = useState({
+        name: product.name || '',
+        id: product.id || '',
+        price: product.price || 0,
+        weight: product.weight_tags ? product.weight_tags[0].mass : 0,
+        quantity: 1,
+    });
+
+    const hanldePlus = (quantity) => {
+        setItem({ ...item, quantity: quantity + 1 });
     };
 
-    const handleMinus = () => {
-        plus <= 0 ? setPlus(0) : setPlus((pre) => pre - 1);
+    const handleMinus = (quantity) => {
+        quantity <= 1 ? setItem({ ...item, quantity: 1 }) : setItem({ ...item, quantity: quantity - 1 });
     };
 
-    const handleWeightSelection = (weight) => {
-        setSelectedWeight(weight);
+    const handleSetWeight = (e) => {
+        setItem({ ...item, weight: parseInt(e.target.value) });
     };
 
-    const handleAdd = () => {
-        navigate('/cart');
+    const fetchData = async () => {
+        try {
+            const res = await axios.post('api/review/return_review', { product_id: product.id });
+            console.log(res);
+        } catch (error) {
+            console.log('error', error);
+        }
     };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div className={cx('detail-content')}>
@@ -42,74 +57,84 @@ const DetailMulImage = (props) => {
                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
                 rel="stylesheet"
                 integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-                crossorigin="anonymous"
+                crossOrigin="anonymous"
             ></link>
             <div className={cx('detail-head')}>
                 <div className={cx('detail-image')}>
-                    <img src={imgMain} alt="detailProduct" className={cx('image-main')} />
+                    <img src={product.image} alt="detailProduct" className={cx('image-main')} />
                 </div>
                 <div className={cx('detail-tab-dis')}>
                     <div className={cx('detail-tab')}>
-                        <h2 className={cx('title')}>{children}</h2>
+                        <h2 className={cx('title')}>{product.name}</h2>
                         <div className={cx('img-mul')}>
                             {[...Array(5)].map((_, i) => (
                                 <img
                                     key={i}
-                                    src={i < star ? starYello : nostar}
-                                    alt={i < star ? 'star yellow' : 'no star'}
+                                    src={i < product.star ? starYello : nostar}
+                                    alt={i < product.star ? 'star yellow' : 'no star'}
                                 />
                             ))}
-                        </div>
-                        <div className={cx('description')}>
-                            <div dangerouslySetInnerHTML={{ __html: value.description }} />
                         </div>
 
                         <div className={cx('col')}>
                             <h6>Price:</h6>
-                            <span>${value.price}</span>
+                            <span>${product.price}</span>
                         </div>
 
                         <div className={cx('col')}>
                             <h6>Weight:</h6>
-                            {value.weight_tags.map((weight) => (
-                                <button
-                                    key={weight.id}
-                                    className={cx('gram')}
-                                    onClick={() => handleWeightSelection(weight)}
-                                    disabled={selectedWeight !== weight ? false : true}
-                                >
-                                    {weight.mass < 1000 ? weight.mass + 'gram' : weight.mass / 1000 + 'kg'}
-                                </button>
-                            ))}
+                            {product.weight_tags
+                                ? product.weight_tags.map((element) => (
+                                      <button
+                                          key={element.id}
+                                          className={cx('gram')}
+                                          onClick={(e) => handleSetWeight(e)}
+                                          disabled={element.mass !== item.weight ? false : true}
+                                          value={element.mass}
+                                      >
+                                          {element.mass < 1000 ? element.mass + 'gram' : element.mass / 1000 + 'kg'}
+                                      </button>
+                                  ))
+                                : ''}
                         </div>
                         <div className={cx('col')}>
                             <h6>Quantity:</h6>
                             <div className={cx('plus')}>
-                                <button onClick={handleMinus}>-</button>
-                                <p className={cx('gramPlus')}>{plus}</p>
-                                <button onClick={hanldePlus}>+</button>
+                                <button onClick={() => handleMinus(item.quantity)}>-</button>
+                                <p className={cx('gramPlus')}>{item.quantity}</p>
+                                <button onClick={() => hanldePlus(item.quantity)}>+</button>
                             </div>
                         </div>
 
                         <div className={cx('add-cart')}>
-                            <input className={cx('add')} type="button" value="Add To Cart" onClick={handleAdd} />
+                            <button
+                                className={cx('add')}
+                                type="button"
+                                value="Add To Cart"
+                                onClick={() => addCartItem(item)}
+                            >
+                                Add Cart
+                            </button>
                         </div>
+                        <p className={cx('description')}>***{product.sumary}</p>
                     </div>
                 </div>
             </div>
+
             <div className={cx('detail-description')}>
                 <button onClick={() => setZoneDetails(1)}>Product Description</button>
                 <button onClick={() => setZoneDetails(2)}>Nutrition Label</button>
                 <button onClick={() => setZoneDetails(3)}>Reviewer</button>
             </div>
+
             <div className={cx('zone')}>
                 {' '}
                 {zoneDetails == 1 ? (
-                    <div dangerouslySetInnerHTML={{ __html: value.description }} className={cx('plr-40')} />
+                    <div dangerouslySetInnerHTML={{ __html: product.description }} className={cx('plr-40')} />
                 ) : (
                     ''
                 )}
-                {zoneDetails == 2 ? <div dangerouslySetInnerHTML={{ __html: value.nutrition_detail }} /> : ''}
+                {zoneDetails == 2 ? <div dangerouslySetInnerHTML={{ __html: product.nutrition_detail }} /> : ''}
                 {zoneDetails == 3 ? (
                     <div className={cx('detail-evaluate')}>
                         <ProductEvaluate />
