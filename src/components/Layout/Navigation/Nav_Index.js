@@ -76,13 +76,6 @@ function NavBarIndex() {
                         <li className={cx('nav-item-right')}>
                             <Link to="/" className={cx('nav-item-link')}>
                                 <label htmlFor="checkbox1">
-                                    <input
-                                        type="checkbox"
-                                        id="checkbox1"
-                                        defaultChecked="fasle"
-                                        className={cx('nav-item-check')}
-                                        hidden
-                                    />
                                     <input type="text" className={cx('nav-item-search')} placeholder="Search" />
                                     <div className={cx('outner')}>
                                         <Search className={cx('nav-item-icon')} />
@@ -93,7 +86,7 @@ function NavBarIndex() {
                         <Tippy
                             interactive={true}
                             visible={remove && show && cartQuantity > 0}
-                            offset={[-200, 24]}
+                            offset={[-277, 24]}
                             render={(attrs) => (
                                 <div className={cx('add-cart')} tabIndex="-1" {...attrs}>
                                     <Cart />

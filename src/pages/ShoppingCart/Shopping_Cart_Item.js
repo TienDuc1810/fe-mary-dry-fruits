@@ -16,8 +16,15 @@ function ShoppingCartItem({ id, name, price, quantity, image }) {
             </div>
             <div className={cx('cart-item-info')}>
                 <p className={cx('cart-item-name')}>{name}</p>
-                <p className={cx('cart-item-size')}>Size: 1kg</p>
                 <p className={cx('cart-item-brand')}>Cost: {price}$</p>
+            </div>
+            <div className={cx('cart-item-size')}>
+                <select className={cx('cart-item-select')}>
+                    <option>250 Gram</option>
+                    <option>500 Gram</option>
+                    <option>1 Kg</option>
+                    <option>2 Kg</option>
+                </select>
             </div>
             <div className={cx('cart-item-quantity')}>
                 <button className={cx('cart-item-up')} onClick={()=>decreaseQuantity(id)}>

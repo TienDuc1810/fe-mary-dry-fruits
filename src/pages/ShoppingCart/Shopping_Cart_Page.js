@@ -29,9 +29,10 @@ function ShoppingCartPage() {
                                 <div className={cx('cart-title')}>
                                     <h4 className={cx('cart-title-1')}>PRODUCT</h4>
                                     <h4 className={cx('cart-title-2')}>NAME</h4>
-                                    <h4 className={cx('cart-title-3')}>QUANTITY</h4>
-                                    <h4 className={cx('cart-title-4')}>SUBTOTAL</h4>
-                                    <h4 className={cx('cart-title-5')}>ACTION</h4>
+                                    <h4 className={cx('cart-title-3')}>SIZE</h4>
+                                    <h4 className={cx('cart-title-4')}>QUANTITY</h4>
+                                    <h4 className={cx('cart-title-5')}>SUBTOTAL</h4>
+                                    <h4 className={cx('cart-title-6')}>ACTION</h4>
                                 </div>
                             </div>
                             {cartItems.map((item) => {
