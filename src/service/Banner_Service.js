@@ -11,7 +11,7 @@ const Banner = async (number) => {
         const response = await axios.post(BannerUrl, { headers });
         
         return {
-            response: response.banner_and_slide,
+            response: response.data,
             success: true,
         };
     } catch (error) {

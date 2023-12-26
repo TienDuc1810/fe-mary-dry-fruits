@@ -36,7 +36,6 @@ const Main = () => {
 
                 if (resParallaxBanner.success && resSliderBanner.response) {
                     setParallaxBanner(resParallaxBanner.response);
-                    console.log(resParallaxBanner.response);
                 }
 
                 if (resNormalBanner.success && resSliderBanner.response) {

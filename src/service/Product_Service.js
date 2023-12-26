@@ -6,7 +6,7 @@ const topProduct = async () => {
     try {
         const response = await axios.get(topProductUrl);
         return {
-            response: response.top10Product,
+            response: response.data,
             success: true,
         };
     } catch (error) {
@@ -22,7 +22,7 @@ const premiumProduct = async () => {
     try {
         const response = await axios.get(premiumProductUrl);
         return {
-            response: response.featuredProduct,
+            response: response.data,
             success: true,
         };
     } catch (error) {

@@ -3,6 +3,7 @@ import styles from './Shopping_Cart.module.scss';
 import images from '@/assets';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { useState, useEffect } from 'react';
+import { placeOrder } from '@/service/Order_Service';
 
 const cx = classNames.bind(styles);
 
@@ -14,6 +15,10 @@ function ShoppingCartBill() {
     useEffect(() => {
         setTotal(totalPrice - totalPrice * (discount / 100));
     }, [totalPrice, discount]);
+
+    const handlePayBill = async () => {
+        await placeOrder();
+    }
 
     return (
         <div className={cx('cart-bill')}>
@@ -46,7 +51,7 @@ function ShoppingCartBill() {
                         <span className={cx('cart-bill-unit')}>USD</span>
                     </span>
                 </div>
-                <div className={cx('cart-bill-outner-btn')}>
+                <div className={cx('cart-bill-outner-btn')} onClick={()=>handlePayBill()}>
                     <button className={cx('cart-bill-btn')}>Pay</button>
                 </div>
             </div>
