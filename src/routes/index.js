@@ -1,13 +1,13 @@
 import HomePage from '@/pages/HomePage';
 import ContactPage from '@/pages/ContactPage';
 import SiteMapPage from '@/pages/SiteMap/SiteMapPage';
-import ProductPage from '@/pages/ProductPage';
+import ProductPage from '@/pages/Product_Page';
 import LoginPage from '@/pages/Account/Login_Page';
 import RegisterPage from '@/pages/Account/Register_Page';
 import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
 import Nutritional from '@/pages/Nutritional ';
 import Detail from '@/components/Layout/Detail/Detail';
-import UserPage from '@/pages/UserPage';
+import UserPage from '@/pages/User_Page';
 import AboutUs from '@/pages/AboutUs';
 
 const routes = [

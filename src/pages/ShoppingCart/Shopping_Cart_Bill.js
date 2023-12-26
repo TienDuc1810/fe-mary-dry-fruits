@@ -3,7 +3,7 @@ import styles from './Shopping_Cart.module.scss';
 import images from '@/assets';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { useState, useEffect } from 'react';
-import { placeOrder } from '@/service/Order_Service';
+import { Order } from '@/service/Order_Service';
 
 const cx = classNames.bind(styles);
 
@@ -17,7 +17,7 @@ function ShoppingCartBill() {
     }, [totalPrice, discount]);
 
     const handlePayBill = async () => {
-        await placeOrder();
+        await Order();
     }
 
     return (

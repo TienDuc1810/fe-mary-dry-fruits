@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ProductList.module.scss';
 import ProductItem from '@/pages/product/Product_Item';
-import images from '@/assets';
 import axios from '@/service/axios';
 
 import { Down } from '@/icons';
@@ -29,10 +28,8 @@ const ProductList = ({ categoryId }) => {
             const res = await axios.post('api/product/allproduct', { category: categoryId, page: currentPage });
             const lastPage = res.data.last_page;
             const data = res.data.data || res.data;
-            console.log(lastPage);
             setProduct(data);
             setLastPage(Array.from({ length: lastPage }, (_, index) => index + 1));
-            console.log(lastPage);
         } catch (error) {
             console.log('error', error);
         }

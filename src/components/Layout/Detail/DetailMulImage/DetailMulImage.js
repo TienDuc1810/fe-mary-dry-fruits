@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from '@/service/axios';
 import classNames from 'classnames/bind';
 import styles from './DetailMulImage.module.scss';
@@ -14,8 +13,7 @@ import { useShoppingContext } from '@/contexts/Shopping_Context';
 const cx = classNames.bind(styles);
 
 const DetailMulImage = ({ product }) => {
-    const navigate = useNavigate();
-    const { addCartItem } = useShoppingContext();
+    const { addCartItem, increaseQuantity, decreaseQuantity, cartQuantity } = useShoppingContext();
     const [zoneDetails, setZoneDetails] = useState(1);
 
     const [item, setItem] = useState({
@@ -23,16 +21,8 @@ const DetailMulImage = ({ product }) => {
         id: product.id || '',
         price: product.price || 0,
         weight: product.weight_tags ? product.weight_tags[0].mass : 0,
-        quantity: 1,
+        
     });
-
-    const hanldePlus = (quantity) => {
-        setItem({ ...item, quantity: quantity + 1 });
-    };
-
-    const handleMinus = (quantity) => {
-        quantity <= 1 ? setItem({ ...item, quantity: 1 }) : setItem({ ...item, quantity: quantity - 1 });
-    };
 
     const handleSetWeight = (e) => {
         setItem({ ...item, weight: parseInt(e.target.value) });
@@ -100,9 +90,9 @@ const DetailMulImage = ({ product }) => {
                         <div className={cx('col')}>
                             <h6>Quantity:</h6>
                             <div className={cx('plus')}>
-                                <button onClick={() => handleMinus(item.quantity)}>-</button>
-                                <p className={cx('gramPlus')}>{item.quantity}</p>
-                                <button onClick={() => hanldePlus(item.quantity)}>+</button>
+                                <button onClick={() => decreaseQuantity(product.id)}>-</button>
+                                <p className={cx('gramPlus')}>{cartQuantity}</p>
+                                <button onClick={() => increaseQuantity(product.id)}>+</button>
                             </div>
                         </div>
 
@@ -111,7 +101,7 @@ const DetailMulImage = ({ product }) => {
                                 className={cx('add')}
                                 type="button"
                                 value="Add To Cart"
-                                onClick={() => addCartItem(item)}
+                                onClick={() => addCartItem(product)}
                             >
                                 Add Cart
                             </button>
@@ -129,13 +119,13 @@ const DetailMulImage = ({ product }) => {
 
             <div className={cx('zone')}>
                 {' '}
-                {zoneDetails == 1 ? (
+                {zoneDetails === 1 ? (
                     <div dangerouslySetInnerHTML={{ __html: product.description }} className={cx('plr-40')} />
                 ) : (
                     ''
                 )}
-                {zoneDetails == 2 ? <div dangerouslySetInnerHTML={{ __html: product.nutrition_detail }} /> : ''}
-                {zoneDetails == 3 ? (
+                {zoneDetails === 2 ? <div dangerouslySetInnerHTML={{ __html: product.nutrition_detail }} /> : ''}
+                {zoneDetails === 3 ? (
                     <div className={cx('detail-evaluate')}>
                         <ProductEvaluate />
                         <div className={cx('detail-form')}>

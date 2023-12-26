@@ -1,6 +1,6 @@
 import axios from './axios';
 
-const placeOrder = async () => {
+const Order = async () => {
     const orderDataUrl = '/api/order/order';
 
     const token = localStorage.getItem('jwt');
@@ -39,4 +39,4 @@ const placeOrder = async () => {
     }
 };
 
-export { placeOrder };
+export { Order };

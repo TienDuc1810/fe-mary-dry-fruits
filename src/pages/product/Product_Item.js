@@ -51,7 +51,7 @@ function ProductItem({ ...item }) {
                 <div className={cx('product-star')}>
                     <div className={cx('product-star-image')}>
                         {Array.from({ length: 5 }).map((_, index) =>
-                            index < 5 ? (
+                            index < item.star ? (
                                 <StarCheck key={index} className={cx('check')} />
                             ) : (
                                 <Star key={index} className={cx('no-check')} />

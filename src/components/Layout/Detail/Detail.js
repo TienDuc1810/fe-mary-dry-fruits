@@ -16,6 +16,7 @@ const cx = classNames.bind(styles);
 const Detail = () => {
     const id = useParams();
     const [item, setItem] = useState([]);
+
     const fetchData = async () => {
         try {
             const res = await axios.post('api/product/product_details', { product_id: id });
@@ -24,8 +25,10 @@ const Detail = () => {
             console.log('error', error);
         }
     };
+   
 
     useEffect(() => {
+        
         fetchData();
     }, []);
 
