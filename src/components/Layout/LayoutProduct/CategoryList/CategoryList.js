@@ -16,8 +16,8 @@ const CategoryList = ({ getIdCategory }) => {
         const fetchData = async () => {
             try {
                 const res = await axios.get('api/product/category');
-                if (res?.categories) {
-                    setCategory(res?.categories);
+                if (res?.data) {
+                    setCategory(res?.data);
                 } else {
                     setCategory('');
                 }
