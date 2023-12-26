@@ -9,7 +9,6 @@ import ProductEvaluate from '../ProductEvaluate/ProductEvaluate';
 import DetailComment from '../DetailComment/DetailComment';
 import CommentProduct from '../CommetProduct/CommentProduct';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
-import Button from '@/components/Button/ButtonIndex';
 import { useParams } from 'react-router-dom';
 
 const cx = classNames.bind(styles);

@@ -1,10 +1,7 @@
-import React from 'react';
-
+import Header from '../Header/HeaderIndex';
 import classNames from 'classnames/bind';
 import styles from './Index.module.scss';
 
-import Banner from '../Banner/Banner';
-import images from '@/assets';
 import TitleIndex from '../Main/Title/Title_Index';
 import AboutFirst from './AboutFirst/AboutFirst';
 import AboutSecond from './AboutUsSecond/AboutSecond';
@@ -19,9 +16,7 @@ const cx = classNames.bind(styles);
 const Index = () => {
     return (
         <div className={cx('about-us-container')}>
-            <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
-                about us
-            </Banner>
+           <Header/>
             <div className={cx('about-us')}>
                 <AboutFirst />
                 <TitleIndex heading={'Unique flavors spices'} description={'Quisque volutpat mattis eros.'} />

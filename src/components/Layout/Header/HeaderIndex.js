@@ -1,19 +1,12 @@
-
-import classNames from "classnames";
-import styles from './HeaderIndex.module.scss'
-import backGround from '../../../Images/banner.webp'
-import Banner from "../Banner/Banner";
-
-
+import classNames from 'classnames';
+import styles from './HeaderIndex.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     return (
         <div className={cx('container')}>
-            <Banner title={""} backGround={backGround}>
-                register
-            </Banner>
+            Hello
         </div>
     );
 }

@@ -25,7 +25,7 @@ const ProductList = ({ categoryId }) => {
 
     const fetchData = async (categoryId, currentPage) => {
         try {
-            const res = await axios.post('api/product/allproduct', { category: categoryId, page: currentPage });
+            const res = await axios.post('/api/product/allproduct', { category: categoryId, page: currentPage });
             const lastPage = res.data.last_page;
             const data = res.data.data || res.data;
             setProduct(data);
