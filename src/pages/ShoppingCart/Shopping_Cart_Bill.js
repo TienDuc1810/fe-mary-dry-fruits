@@ -13,7 +13,7 @@ function ShoppingCartBill() {
     const { totalPrice } = useShoppingContext();
 
     useEffect(() => {
-        setTotal(totalPrice - totalPrice * (discount / 100));
+        setTotal((totalPrice * 2.5) - totalPrice * (discount / 100));
     }, [totalPrice, discount]);
 
     const handlePayBill = async () => {
@@ -26,7 +26,7 @@ function ShoppingCartBill() {
                 <div className={cx('cart-bill-detail')}>
                     <span>Sub Total:</span>
                     <span>
-                        <span>{totalPrice}</span>
+                        <span>{total}</span>
                         <span className={cx('cart-bill-unit')}>USD</span>
                     </span>
                 </div>

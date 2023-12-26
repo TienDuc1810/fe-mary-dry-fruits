@@ -9,29 +9,26 @@ import ProductEvaluate from '../ProductEvaluate/ProductEvaluate';
 import DetailComment from '../DetailComment/DetailComment';
 import CommentProduct from '../CommetProduct/CommentProduct';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
+import Button from '@/components/Button/ButtonIndex';
+import { useParams } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-const DetailMulImage = ({ product }) => {
+const DetailMulImage = () => {
+    const id = useParams();
+
     const { addCartItem, increaseQuantity, decreaseQuantity, cartQuantity } = useShoppingContext();
     const [zoneDetails, setZoneDetails] = useState(1);
+    const [item, setItem] = useState([]);
 
-    const [item, setItem] = useState({
-        name: product.name || '',
-        id: product.id || '',
-        price: product.price || 0,
-        weight: product.weight_tags ? product.weight_tags[0].mass : 0,
-        
-    });
-
-    const handleSetWeight = (e) => {
+    const handleSelectWeight = (e) => {
         setItem({ ...item, weight: parseInt(e.target.value) });
     };
 
     const fetchData = async () => {
         try {
-            const res = await axios.post('api/review/return_review', { product_id: product.id });
-            console.log(res);
+            const res = await axios.post('api/product/product_details', { product_id: id });
+            setItem({ ...res.data[0], weight: 250 });
         } catch (error) {
             console.log('error', error);
         }
@@ -51,34 +48,34 @@ const DetailMulImage = ({ product }) => {
             ></link>
             <div className={cx('detail-head')}>
                 <div className={cx('detail-image')}>
-                    <img src={product.image} alt="detailProduct" className={cx('image-main')} />
+                    <img src={item.image} alt="detailProduct" className={cx('image-main')} />
                 </div>
                 <div className={cx('detail-tab-dis')}>
                     <div className={cx('detail-tab')}>
-                        <h2 className={cx('title')}>{product.name}</h2>
+                        <h2 className={cx('title')}>{item.name}</h2>
                         <div className={cx('img-mul')}>
                             {[...Array(5)].map((_, i) => (
                                 <img
                                     key={i}
-                                    src={i < product.star ? starYello : nostar}
-                                    alt={i < product.star ? 'star yellow' : 'no star'}
+                                    src={i < item.star ? starYello : nostar}
+                                    alt={i < item.star ? 'star yellow' : 'no star'}
                                 />
                             ))}
                         </div>
 
                         <div className={cx('col')}>
                             <h6>Price:</h6>
-                            <span>${product.price}</span>
+                            <span>${item.price}</span>
                         </div>
 
                         <div className={cx('col')}>
                             <h6>Weight:</h6>
-                            {product.weight_tags
-                                ? product.weight_tags.map((element) => (
+                            {item.weight_tags
+                                ? item.weight_tags.map((element) => (
                                       <button
                                           key={element.id}
                                           className={cx('gram')}
-                                          onClick={(e) => handleSetWeight(e)}
+                                          onClick={(e) => handleSelectWeight(e)}
                                           disabled={element.mass !== item.weight ? false : true}
                                           value={element.mass}
                                       >
@@ -90,9 +87,9 @@ const DetailMulImage = ({ product }) => {
                         <div className={cx('col')}>
                             <h6>Quantity:</h6>
                             <div className={cx('plus')}>
-                                <button onClick={() => decreaseQuantity(product.id)}>-</button>
+                                <button onClick={() => decreaseQuantity(item.id)}>-</button>
                                 <p className={cx('gramPlus')}>{cartQuantity}</p>
-                                <button onClick={() => increaseQuantity(product.id)}>+</button>
+                                <button onClick={() => increaseQuantity(item.id)}>+</button>
                             </div>
                         </div>
 
@@ -101,12 +98,12 @@ const DetailMulImage = ({ product }) => {
                                 className={cx('add')}
                                 type="button"
                                 value="Add To Cart"
-                                onClick={() => addCartItem(product)}
+                                onClick={() => addCartItem(item)}
                             >
                                 Add Cart
                             </button>
                         </div>
-                        <p className={cx('description')}>***{product.sumary}</p>
+                        <p className={cx('description')}>***{item.sumary}</p>
                     </div>
                 </div>
             </div>
@@ -120,11 +117,11 @@ const DetailMulImage = ({ product }) => {
             <div className={cx('zone')}>
                 {' '}
                 {zoneDetails === 1 ? (
-                    <div dangerouslySetInnerHTML={{ __html: product.description }} className={cx('plr-40')} />
+                    <div dangerouslySetInnerHTML={{ __html: item.description }} className={cx('plr-40')} />
                 ) : (
                     ''
                 )}
-                {zoneDetails === 2 ? <div dangerouslySetInnerHTML={{ __html: product.nutrition_detail }} /> : ''}
+                {zoneDetails === 2 ? <div dangerouslySetInnerHTML={{ __html: item.nutrition_detail }} /> : ''}
                 {zoneDetails === 3 ? (
                     <div className={cx('detail-evaluate')}>
                         <ProductEvaluate />

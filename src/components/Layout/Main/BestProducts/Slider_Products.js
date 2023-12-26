@@ -61,7 +61,7 @@ const SliderProducts = ({ slidesToShow }) => {
                 {products.map((item) => {
                     return (
                         <div key={item.id}>
-                            <ProductItem {...item} />
+                            <ProductItem {...item}/>
                         </div>
                     );
                 })}

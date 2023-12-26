@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { loginUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
 
-
 const ShoppingContext = createContext({});
 
 export const useShoppingContext = () => {
@@ -20,7 +19,7 @@ export const ShoppingContextProvider = ({ children }) => {
     }, [cartItems]);
 
     const cartQuantity = cartItems.reduce((quantity, item) => quantity + item.quantity, 0);
-    const totalPrice = cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+    const totalPrice = cartItems.reduce((total, item) => total + item.quantity * ((item.price * item.weight) / 100), 0);
 
     const increaseQuantity = (id) => {
         const currentCartItem = cartItems.find((item) => item.id === id);
@@ -28,6 +27,20 @@ export const ShoppingContextProvider = ({ children }) => {
             const newItems = cartItems.map((item) => {
                 if (item.id === id) {
                     return { ...item, quantity: item.quantity + 1 };
+                } else {
+                    return item;
+                }
+            });
+            setCartItems(newItems);
+        }
+    };
+
+    const choiceWeight = (id, choice) => {
+        const currentCartItem = cartItems.find((item) => item.id === id);
+        if (currentCartItem) {
+            const newItems = cartItems.map((item) => {
+                if (item.id === id) {
+                    return { ...item, weight: item.weight };
                 } else {
                     return item;
                 }
@@ -115,7 +128,6 @@ export const ShoppingContextProvider = ({ children }) => {
             });
             let token = res.response.access_token;
             localStorage.setItem('jwt', token);
-            
         } else {
             toast.error('Wrong Login Information', {
                 transition: Flip,
@@ -123,6 +135,7 @@ export const ShoppingContextProvider = ({ children }) => {
             });
         }
     };
+
     return (
         <ShoppingContext.Provider
             value={{
@@ -132,6 +145,7 @@ export const ShoppingContextProvider = ({ children }) => {
                 remove,
                 email,
                 password,
+                choiceWeight,
                 increaseQuantity,
                 decreaseQuantity,
                 addCartItem,

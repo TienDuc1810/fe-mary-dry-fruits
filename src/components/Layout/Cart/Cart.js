@@ -36,7 +36,7 @@ const Cart = () => {
                 );
             })}
             <div className={cx('cart-checkout')}>
-                <span className={cx('cart-total')}>Total: {totalPrice} $</span>
+                <span className={cx('cart-total')}></span>
                 <span onClick={()=>handleCheckLogin()}>
                     <Button text={'Checkout'} blackText link={'/cart'} />
                 </span>
