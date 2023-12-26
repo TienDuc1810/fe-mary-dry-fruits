@@ -1,13 +1,11 @@
 import RegisterForm from '@/components/Account/Register/RegisterForm';
-import Header from '@/components/Layout/Header/HeaderIndex';
-import Footer from '@/components/Layout/Footer/Footer_Index';
+import Header from '@/components/Layout/Header/Header_Index';
 
 const RegisterPage = () => {
     return (
         <div>
-            <Header/>
+            <Header title={'Register'}/>
             <RegisterForm />
-            <Footer />
         </div>
     );
 };

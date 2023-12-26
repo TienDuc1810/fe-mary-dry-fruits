@@ -1,4 +1,4 @@
-import Header from '../Header/HeaderIndex';
+import Header from '../Header/Header_Index';
 import classNames from 'classnames/bind';
 import styles from './Index.module.scss';
 
@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 const Index = () => {
     return (
         <div className={cx('about-us-container')}>
-           <Header/>
+            <Header title={'About Us'}/>
             <div className={cx('about-us')}>
                 <AboutFirst />
                 <TitleIndex heading={'Unique flavors spices'} description={'Quisque volutpat mattis eros.'} />

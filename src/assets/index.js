@@ -7,8 +7,6 @@ const images = {
     logo: require('@/assets/images/logo.png'),
     food: require('@/assets/images/food.png'),
     right: require('@/assets/images/right.png'),
-    img1: require('@/assets/images/img1.webp'),
-    imgMain: require('@/assets/images/imgMain.webp'),
     visa: require('@/assets/images/visa.png'),
     paypal: require('@/assets/images/money.png'),
     mastercard: require('@/assets/images/card.png'),
@@ -21,6 +19,7 @@ const images = {
     avatar: require('@/assets/images/Avatar.jpg'),
     avatar_default: require('@/assets/images/avatar-default.png'),
     footer: require('@/assets/images/footer.jpg'),
+    header: require('@/assets/images/header.jpg'),
 };
 
 export default images;

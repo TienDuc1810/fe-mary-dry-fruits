@@ -1,13 +1,11 @@
-import Footer from '@/components/Layout/Footer/Footer_Index';
 import LayoutProduct from '@/components/Layout/LayoutProduct/LayoutProduct';
-import Header from '@/components/Layout/Header/HeaderIndex';
+import Header from '@/components/Layout/Header/Header_Index';
 
 const ProductPage = () => {
     return (
         <div>
-            <Header/>
+            <Header title={'Product'}/>
             <LayoutProduct />
-            <Footer />
         </div>
     );
 };

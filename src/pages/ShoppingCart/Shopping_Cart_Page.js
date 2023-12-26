@@ -1,7 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Shopping_Cart.module.scss';
-import Header from '@/components/Layout/Header/HeaderIndex';
-import Footer from '@/components/Layout/Footer/Footer_Index';
+import Header from '@/components/Layout/Header/Header_Index';
 import Button from '@/components/Button/ButtonIndex';
 import CartItem from './Shopping_Cart_Item';
 import CartInfoUser from './Shopping_Cart_Info_User';
@@ -20,7 +19,7 @@ function ShoppingCartPage() {
 
     return (
         <>
-            <Header />
+            <Header title={'Shopping Cart'}/>
             <div className={cx('cart-container')}>
                 <div className={cx('cart-wrapper')}>
                     <div className={cx('cart-info-product')}>
@@ -64,11 +63,10 @@ function ShoppingCartPage() {
 
                     <div className={cx('cart-info-pay')}>
                         <CartInfoUser />
-                        <ShoppingCartBill/>
+                        <ShoppingCartBill />
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

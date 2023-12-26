@@ -1,14 +1,12 @@
 import React from 'react';
-import Header from '@/components/Layout/Header/HeaderIndex';
+import Header from '@/components/Layout/Header/Header_Index';
 import NutritionalAndContent from '@/components/Layout/NutritionalAndContent/NutritionalAndContent';
-import Footer from '@/components/Layout/Footer/Footer_Index';
 
 const Nutritional = () => {
     return (
         <div>
-            <Header/>
+            <Header title={'Nutritional'}/>
             <NutritionalAndContent />
-            <Footer />
         </div>
     );
 };
