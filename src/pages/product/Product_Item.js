@@ -3,10 +3,12 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { Star, StarCheck } from '@/icons';
 import styles from './Store.module.scss';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 
 const cx = classNames.bind(styles);
 
 function ProductItem({ ...item }) {
+    const { addCartItem } = useShoppingContext();
 
     return (
         <div className={cx('product-main')} key={item.id}>

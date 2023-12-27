@@ -18,7 +18,6 @@ const DetailItem = () => {
     const [zoneDetails, setZoneDetails] = useState(1);
     const [quantity, setQuantity] = useState(1);
     const [item, setItem] = useState([]);
-
     const [activeTab, setActiveTab] = useState(0);
 
     const handleCheckActive = (index) => {
@@ -41,11 +40,12 @@ const DetailItem = () => {
 
     useEffect(() => {
         fetchData();
-    }, []);
+        window.scrollTo(0, 0);
+    }, [id]);
 
     const addCartItemWithQuantity = () => {
-        setCartQuantity(quantity); 
-        const itemWithQuantity = { ...item, cartQuantity: quantity }; 
+        setCartQuantity(quantity);
+        const itemWithQuantity = { ...item, cartQuantity: quantity };
         addCartItem(itemWithQuantity);
     };
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './ProductList.module.scss';
-import ProductItem from '@/pages/product/Product_Item';
+import ProductItem from '@/pages/Product/Product_Item';
 import axios from '@/service/axios';
 
 import { Down } from '@/icons';
@@ -14,6 +14,7 @@ const ProductList = ({ categoryId }) => {
     const [drop, setDrop] = useState(false);
     const [lastPage, setLastPage] = useState(Array.from({ length: 1 }, (_, index) => index + 1));
     const [currentPage, setCurrentPage] = useState(1);
+    const [oldCategoryID, setOldCategoryID] = useState(0);
 
     const handleDrop = () => {
         setDrop(!drop);
@@ -25,7 +26,8 @@ const ProductList = ({ categoryId }) => {
 
     const fetchData = async (categoryId, currentPage) => {
         try {
-            const res = await axios.post('/api/product/allproduct', { category: categoryId, page: currentPage });
+            let page = categoryId !== oldCategoryID ? 1 : currentPage;
+            const res = await axios.post('api/product/allproduct', { category: categoryId, page });
             const lastPage = res.data.last_page;
             const data = res.data.data || res.data;
             setProduct(data);
@@ -36,6 +38,12 @@ const ProductList = ({ categoryId }) => {
     };
 
     useEffect(() => {
+        if (categoryId !== oldCategoryID) {
+            fetchData(categoryId, 1);
+            setCurrentPage(1);
+            setOldCategoryID(categoryId);
+            return;
+        }
         fetchData(categoryId, currentPage);
     }, [categoryId, currentPage]);
 
@@ -74,6 +82,7 @@ const ProductList = ({ categoryId }) => {
                                         rating={item.star}
                                         image={item.image}
                                         id={item.id}
+                                        star={item.star}
                                         link={'/product-detail/' + item.id}
                                     />
                                 </div>
