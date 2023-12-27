@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import ProductItem from '@/pages/product/Product_Item';
+import ProductItem from '@/pages/Product/Product_Item';
 import { useState, useEffect } from 'react';
 import { topProduct } from '@/service/Product_Service';
 
@@ -61,7 +61,7 @@ const SliderProducts = ({ slidesToShow }) => {
                 {products.map((item) => {
                     return (
                         <div key={item.id}>
-                            <ProductItem {...item}/>
+                            <ProductItem {...item} link={'/product-detail/' + item.id} />
                         </div>
                     );
                 })}

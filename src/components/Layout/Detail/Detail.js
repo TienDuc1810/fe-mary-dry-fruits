@@ -17,11 +17,11 @@ const Detail = () => {
             <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
                 product
             </Banner>
-            {
-                <div className={cx('first')}>
-                    <DetailMulImage />
-                </div>
-            }
+
+            <div className={cx('first')}>
+                <DetailMulImage />
+            </div>
+
             <Footer />
         </div>
     );

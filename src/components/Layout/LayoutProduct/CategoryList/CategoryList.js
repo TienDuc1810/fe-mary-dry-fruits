@@ -19,7 +19,7 @@ const CategoryList = ({ getIdCategory }) => {
                 if (res?.data) {
                     setCategory(res?.data);
                 } else {
-                    setCategory('');
+                    setCategory([]);
                 }
             } catch (error) {
                 console.log('error', error);

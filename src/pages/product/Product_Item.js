@@ -12,7 +12,6 @@ const cx = classNames.bind(styles);
 
 function ProductItem({ ...item }) {
     const { addCartItem } = useShoppingContext();
-
     return (
         <div className={cx('product-main')} key={item.id}>
             <div className={cx('product-border-line-1')}></div>

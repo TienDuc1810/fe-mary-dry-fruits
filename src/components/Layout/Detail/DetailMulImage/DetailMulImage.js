@@ -16,7 +16,6 @@ const cx = classNames.bind(styles);
 
 const DetailMulImage = () => {
     const id = useParams();
-
     const { addCartItem, increaseQuantity, decreaseQuantity, cartQuantity } = useShoppingContext();
     const [zoneDetails, setZoneDetails] = useState(1);
     const [item, setItem] = useState([]);
@@ -36,7 +35,8 @@ const DetailMulImage = () => {
 
     useEffect(() => {
         fetchData();
-    }, []);
+        window.scrollTo(0, 0);
+    }, [id]);
 
     return (
         <div className={cx('detail-content')}>
