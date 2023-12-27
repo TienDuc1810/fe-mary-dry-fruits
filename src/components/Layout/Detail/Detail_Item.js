@@ -51,7 +51,6 @@ const DetailItem = () => {
 
     return (
         <div className={cx('detail-container')}>
-         
             <div className={cx('detail-wrapper')}>
                 <div className={cx('detail-main')}>
                     <div className={cx('detail-outner-image')}>
@@ -69,8 +68,6 @@ const DetailItem = () => {
                                 ),
                             )}
                         </div>
-                        <p className={cx('detail-info-description')}>{item.description}</p>
-
                         <p className={cx('detail-info-description')}>{item.sumary}</p>
 
                         <div className={cx('detail-info-price')}>
