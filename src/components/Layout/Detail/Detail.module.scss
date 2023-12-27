@@ -45,7 +45,7 @@
                     color: var(--primary-color);
                 }
 
-                .detail-info-star{
+                .detail-info-star {
                     display: flex;
                     gap: 3px;
                 }
@@ -173,6 +173,20 @@
     border: 1px solid var(--border-color);
     margin-bottom: 10px;
     font-size: 1.6rem;
+
+    table {
+        caption-side: bottom;
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #000;
+        vertical-align: middle;
+        border-color: #d9dee3;
+        td {
+            padding: 4px 0;
+            border-bottom: 1px solid #697a8d;
+        }
+    }
 }
 
 .check {
@@ -181,7 +195,3 @@
 .no-check {
     color: #8d8d8d;
 }
-
-
-   
-
