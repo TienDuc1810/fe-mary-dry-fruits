@@ -52,12 +52,6 @@ const DetailItem = () => {
 
     return (
         <div className={cx('detail-container')}>
-            <link
-                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-                rel="stylesheet"
-                integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-                crossOrigin="anonymous"
-            ></link>
             <div className={cx('detail-wrapper')}>
                 <div className={cx('detail-main')}>
                     <div className={cx('detail-outner-image')}>
@@ -74,9 +68,8 @@ const DetailItem = () => {
                                 ),
                             )}
                         </div>
-                        <p className={cx('detail-info-description')}>{item.description}</p>
 
-                        {/* <p className={cx('detail-info-description')}>{item.sumary}</p> */}
+                        <p className={cx('detail-info-description')}>{item.sumary}</p>
 
                         <div className={cx('detail-info-price')}>
                             <h6 className={cx('detail-info-title')}>Price:</h6>
@@ -150,12 +143,27 @@ const DetailItem = () => {
                     {zoneDetails === 2 ? <div dangerouslySetInnerHTML={{ __html: item.nutrition_detail }} /> : ''}
                     {zoneDetails === 3 ? (
                         <div className={cx('detail-evaluate')}>
-                            <DetailReview />
-                            <div className={cx('detail-form')}>
-                                <DetailComment text={'Hàng đúng mô tả, vừa bỏ vào miệng là cảm giác vị rất ngon'} star={5}/>
+
+                            
+                            
+                                {/* <DetailComment text={'Hàng đúng mô tả, vừa bỏ vào miệng là cảm giác vị rất ngon'} star={5}/>
                                 <DetailComment text={'Mình ăn thử thấy khá ngon, nhiều hạt, giá lại quá tốt, đóng gói chắc chắn, date mới, cực kì hài lòng'} star={5}/>
                                 <DetailComment text={'Hạt mới, thơm ngon. Đóng gói cẩn thận.'} star={5}/>
-                                <CommentProduct />
+                                <CommentProduct /> */}
+
+                            <div className={cx('detail-form')}>
+                                {item.reviews.length !== 0 ? (
+                                    item.reviews.map((element, index) => {
+                                        return (
+                                            <DetailComment content={element.content} star={element.star} key={index} />
+                                        );
+                                    })
+                                ) : (
+                                    <h2 className={cx('title-no-coment')}>This product has no comments yet</h2>
+                                )}
+
+                                <CommentProduct reload={fetchData} />
+
                             </div>
                         </div>
                     ) : (

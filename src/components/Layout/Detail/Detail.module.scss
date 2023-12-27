@@ -5,6 +5,11 @@
     display: flex;
     justify-content: center;
 
+    .title-no-coment {
+        padding: 24px 0;
+        text-align: center;
+    }
+
     .detail-wrapper {
         width: 80%;
         height: 100%;
@@ -168,6 +173,20 @@
     border: 1px solid var(--border-color);
     margin-bottom: 10px;
     font-size: 1.6rem;
+
+    table {
+        caption-side: bottom;
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #000;
+        vertical-align: middle;
+        border-color: #d9dee3;
+        td {
+            padding: 4px 0;
+            border-bottom: 1px solid #697a8d;
+        }
+    }
 }
 
 //CSS Detail Review
@@ -194,8 +213,6 @@
         }
     }
 }
-
-
 
 //CSS Detail Comment
 .detail-comment-container {
@@ -227,3 +244,4 @@
         margin-bottom: 20px;
     }
 }
+
