@@ -40,7 +40,7 @@
                     color: var(--primary-color);
                 }
 
-                .detail-info-star{
+                .detail-info-star {
                     display: flex;
                     gap: 3px;
                 }
@@ -164,19 +164,66 @@
 .detail-content {
     width: 100%;
     min-height: 300px;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid var(--border-color);
     margin-bottom: 10px;
     font-size: 1.6rem;
 }
 
-.check {
-    color: var(--second-color);
+//CSS Detail Review
+.detail-review {
+    .detail-review-heading {
+        font-family: var(--font-special);
+        color: var(--primary-color);
+        font-size: 4rem;
+    }
+
+    .detail-review-title {
+        font-size: 1.6rem;
+    }
+
+    .detail-review-star {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--border-color);
+
+        .detail-review-amount {
+            margin-right: 20px;
+            font-size: 3.6rem;
+            font-weight: 600;
+        }
+    }
 }
-.no-check {
-    color: #8d8d8d;
+
+
+
+//CSS Detail Comment
+.detail-comment-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+
+    .detail-comment-wrapper {
+        display: flex;
+        align-items: center;
+        height: 60px;
+
+        .detail-comment-level {
+            margin-right: 10px;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .detail-comment-star{
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .detail-comment-text{
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
 }
-
-
-   
-

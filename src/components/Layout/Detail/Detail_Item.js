@@ -3,8 +3,8 @@ import axios from '@/service/axios';
 import classNames from 'classnames/bind';
 import styles from './Detail.module.scss';
 import BestProductsIndex from '../Main/BestProducts/Best_Product_Index';
-import ProductEvaluate from './ProductEvaluate/ProductEvaluate';
-import DetailComment from './DetailComment/DetailComment';
+import DetailReview from './DetailReview/Detail_Review';
+import DetailComment from './DetailReview/Detail_Comment';
 import CommentProduct from './CommetProduct/CommentProduct';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { useParams } from 'react-router-dom';
@@ -65,7 +65,6 @@ const DetailItem = () => {
                     </div>
                     <div className={cx('detail-info')}>
                         <h2 className={cx('detail-info-name')}>{item.name}</h2>
-
                         <div className={cx('detail-info-star')}>
                             {Array.from({ length: 5 }).map((_, index) =>
                                 index < item.star ? (
@@ -77,7 +76,7 @@ const DetailItem = () => {
                         </div>
                         <p className={cx('detail-info-description')}>{item.description}</p>
 
-                        <p className={cx('detail-info-description')}>{item.sumary}</p>
+                        {/* <p className={cx('detail-info-description')}>{item.sumary}</p> */}
 
                         <div className={cx('detail-info-price')}>
                             <h6 className={cx('detail-info-title')}>Price:</h6>
@@ -151,11 +150,11 @@ const DetailItem = () => {
                     {zoneDetails === 2 ? <div dangerouslySetInnerHTML={{ __html: item.nutrition_detail }} /> : ''}
                     {zoneDetails === 3 ? (
                         <div className={cx('detail-evaluate')}>
-                            <ProductEvaluate />
+                            <DetailReview />
                             <div className={cx('detail-form')}>
-                                <DetailComment />
-                                <DetailComment />
-                                <DetailComment />
+                                <DetailComment text={'Hàng đúng mô tả, vừa bỏ vào miệng là cảm giác vị rất ngon'} star={5}/>
+                                <DetailComment text={'Mình ăn thử thấy khá ngon, nhiều hạt, giá lại quá tốt, đóng gói chắc chắn, date mới, cực kì hài lòng'} star={5}/>
+                                <DetailComment text={'Hạt mới, thơm ngon. Đóng gói cẩn thận.'} star={5}/>
                                 <CommentProduct />
                             </div>
                         </div>

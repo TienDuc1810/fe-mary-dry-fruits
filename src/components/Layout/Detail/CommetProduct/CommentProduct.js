@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { StarCheck, Star } from '@/icons';
 import classNames from 'classnames/bind';
 import styles from './CommentProduct.module.scss';
 import axios from '@/service/axios';
@@ -12,10 +12,6 @@ const CommentProduct = ({ product_id }) => {
         product_id: product_id,
         star: 0,
     });
-
-    const setStart = (star) => {
-        setData({ ...data, star: star });
-    };
 
     const handleContent = (e) => {
         setData({ ...data, content: e.target.value });
@@ -40,17 +36,14 @@ const CommentProduct = ({ product_id }) => {
     return (
         <div className={cx('container-comment')}>
             <div className={cx('start')}>
-                {[...Array(data.star)].map((_, i) => (
-                    <img key={i} src="" alt={'star yellow'} onClick={() => setStart(i + 1)} />
-                ))}
-                {[...Array(5 - data.star)].map((_, i) => (
-                    <img
-                        key={i + data.star + 1}
-                        src=""
-                        alt={'no star'}
-                        onClick={() => setStart(i + data.star + 1)}
-                    />
-                ))}
+                <span>Quality Evalution: </span>
+                {Array.from({ length: 5 }).map((_, index) =>
+                    index < data.star ? (
+                        <StarCheck key={index} className={cx('check')} />
+                    ) : (
+                        <Star key={index} className={cx('no-check')} />
+                    ),
+                )}
             </div>
             <div className={cx('comment-product')}>
                 <textarea placeholder="Comment" value={data.content} onChange={(e) => handleContent(e)}></textarea>
