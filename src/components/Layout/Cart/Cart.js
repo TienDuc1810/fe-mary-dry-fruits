@@ -28,15 +28,16 @@ const Cart = () => {
 
     return (
         <div className={cx('cart-wrapper')}>
-            {cartItems.map((item) => {
+
+            {cartItems.map((item, index) => {
                 return (
-                    <div key={item.id}>
+                    <div key={index}>
                         <CartItem {...item} />
                     </div>
                 );
             })}
             <div className={cx('cart-checkout')}>
-                <span className={cx('cart-total')}></span>
+                <span className={cx('cart-total')}>Totol Price: {totalPrice}$</span>
                 <span onClick={()=>handleCheckLogin()}>
                     <Button text={'Checkout'} blackText link={'/cart'} />
                 </span>

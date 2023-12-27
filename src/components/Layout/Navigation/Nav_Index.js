@@ -17,7 +17,7 @@ function NavBarIndex() {
     const [checkLogin, setCheckLogin] = useState(null);
     const [show, setShow] = useState(false);
     const [data, getData] = useState('');
-    const { cartQuantity, remove, showPoper, addQuantity } = useShoppingContext();
+    const { cartQuantity, remove, showPoper } = useShoppingContext();
 
     const navigate = useNavigate();
 
@@ -97,7 +97,7 @@ function NavBarIndex() {
                             <li className={cx('nav-item-right')}>
                                 <button className={cx('nav-item-link-cart')} onClick={() => handleCart()}>
                                     <FontAwesomeIcon icon={icon({ name: 'cart-shopping', style: 'solid' })} />
-                                    <div className={cx('nav-cart-icon')} data-count={addQuantity}></div>
+                                    <div className={cx('nav-cart-icon')} data-count={cartQuantity}></div>
                                 </button>
                             </li>
                         </Tippy>

@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-
 const ShoppingContext = createContext({});
 
 export const useShoppingContext = () => {
@@ -10,24 +9,26 @@ export const useShoppingContext = () => {
 export const ShoppingContextProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState(() => {
         const data = localStorage.getItem('shopping_cart');
-        return data && typeof data === 'string' ? JSON.parse(data) : data || [];
+        return data ? JSON.parse(data) : [];
     });
+    console.log(cartItems)
 
     useEffect(() => {
         localStorage.setItem('shopping_cart', JSON.stringify(cartItems));
     }, [cartItems]);
 
     const [cartQuantity, setCartQuantity] = useState(0);
-    const [addQuantity, setAddQuantity] = useState(0);
-    // cartItems.reduce((quantity, item) => quantity + item.quantity, 0)
-    const totalPrice = cartItems.reduce((total, item) => total + item.quantity * ((item.price * item.weight) / 100), 0);
 
-    const increaseQuantity = (id) => {
-        const currentCartItem = cartItems.find((item) => item.id === id);
+    let addQuantity = 0;
+
+    const totalPrice = cartItems.reduce((total, item) => total + item.addQuantity * ((item.price * item.weight) / 100), 0);
+
+    const increaseQuantity = (id, weight) => {
+        const currentCartItem = cartItems.find((item) => item.id === id && item.weight === weight);
         if (currentCartItem) {
             const newItems = cartItems.map((item) => {
-                if (item.id === id) {
-                    return { ...item, quantity: item.quantity + 1 };
+                if (item.id === id && item.weight === weight) {
+                    return { ...item, addQuantity: item.addQuantity + 1 };
                 } else {
                     return item;
                 }
@@ -36,18 +37,18 @@ export const ShoppingContextProvider = ({ children }) => {
         }
     };
 
-    const decreaseQuantity = (id) => {
-        const currentCartItem = cartItems.find((item) => item.id === id);
+    const decreaseQuantity = (id, weight) => {
+        const currentCartItem = cartItems.find((item) => item.id === id && item.weight === weight);
         if (currentCartItem) {
-            if (currentCartItem.quantity === 1) {
+            if (currentCartItem.addQuantity === 1) {
                 removeCartItem(id);
                 if (cartQuantity === 0) {
                     removePoper();
                 }
             } else {
                 const newItems = cartItems.map((item) => {
-                    if (item.id === id) {
-                        return { ...item, quantity: item.quantity - 1 };
+                    if (item.id === id && item.weight === weight) {
+                        return { ...item, addQuantity: item.addQuantity - 1 };
                     } else {
                         return item;
                     }
@@ -58,32 +59,34 @@ export const ShoppingContextProvider = ({ children }) => {
     };
 
     const addCartItem = (product) => {
-        setAddQuantity(addQuantity + 1);
         removePoper();
         if (product) {
-            const currentCartItem = cartItems.find((item) => item.id === product.id);
+            const currentCartItem = cartItems.find((item) => item.id === product.id && item.weight === product.weight);
+           
             if (currentCartItem) {
                 const newItems = cartItems.map((item) => {
-                    if (item.id === product.id) {
-                        return { ...item, quantity: item.quantity + 1 };
+                    if (item.id === product.id && item.weight === product.weight) {
+                        return { ...item, addQuantity: product.addQuantity  };
                     } else {
                         return item;
                     }
                 });
                 setCartItems(newItems);
-            } else {
-                const newItem = { ...product, quantity: 1 };
+            }else{
+                setCartQuantity(cartQuantity + 1);
+                const newItem = { ...product, addQuantity: product.addQuantity };
                 setCartItems([...cartItems, newItem]);
             }
+
         }
     };
 
-    const removeCartItem = (id) => {
-        setAddQuantity(addQuantity - 1);
-        const currentCartItemIndex = cartItems.findIndex((item) => item.id === id);
+    const removeCartItem = (id, weight) => {
+        const currentCartItemIndex = cartItems.findIndex((item) => item.id === id && item.weight === weight);
         const newItems = [...cartItems];
         newItems.splice(currentCartItemIndex, 1);
         setCartItems(newItems);
+        setCartQuantity(cartQuantity - 1);
         if (cartQuantity === 0) {
             removePoper();
         }
