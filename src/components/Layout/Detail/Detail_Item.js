@@ -144,12 +144,9 @@ const DetailItem = () => {
                     {zoneDetails === 3 ? (
                         <div className={cx('detail-evaluate')}>
 
+                            <DetailReview />
                             
-                            
-                                {/* <DetailComment text={'Hàng đúng mô tả, vừa bỏ vào miệng là cảm giác vị rất ngon'} star={5}/>
-                                <DetailComment text={'Mình ăn thử thấy khá ngon, nhiều hạt, giá lại quá tốt, đóng gói chắc chắn, date mới, cực kì hài lòng'} star={5}/>
-                                <DetailComment text={'Hạt mới, thơm ngon. Đóng gói cẩn thận.'} star={5}/>
-                                <CommentProduct /> */}
+                                
 
                             <div className={cx('detail-form')}>
                                 {item.reviews.length !== 0 ? (
