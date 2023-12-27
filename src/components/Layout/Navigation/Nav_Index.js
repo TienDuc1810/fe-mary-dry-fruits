@@ -110,8 +110,8 @@ function NavBarIndex() {
                                     />
                                 </Link>
                             ) : (
-                                <Link to="/user">
-                                    Wellcome: {data.full_name !== null ? data.full_name : data.email}
+                                <Link to="/account/profile">
+                                    Wellcome: {data.full_name}
                                 </Link>
                             )}
                         </li>

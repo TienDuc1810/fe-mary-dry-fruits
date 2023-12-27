@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { loginUser } from '@/service/User_Service';
-import { toast, Flip } from 'react-toastify';
+
 
 const ShoppingContext = createContext({});
 
@@ -19,7 +18,7 @@ export const ShoppingContextProvider = ({ children }) => {
     }, [cartItems]);
 
     const [cartQuantity, setCartQuantity] = useState(0);
-    const [addQuantity, setAddQuantity] = useState(0)
+    const [addQuantity, setAddQuantity] = useState(0);
     // cartItems.reduce((quantity, item) => quantity + item.quantity, 0)
     const totalPrice = cartItems.reduce((total, item) => total + item.quantity * ((item.price * item.weight) / 100), 0);
 
@@ -72,7 +71,6 @@ export const ShoppingContextProvider = ({ children }) => {
                     }
                 });
                 setCartItems(newItems);
-                
             } else {
                 const newItem = { ...product, quantity: 1 };
                 setCartItems([...cartItems, newItem]);
@@ -105,27 +103,6 @@ export const ShoppingContextProvider = ({ children }) => {
         setRemove(true);
     };
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const infoUser = async () => {
-        let res = await loginUser(email, password);
-
-        if (res && res.success === true) {
-            toast.success('Login Success', {
-                transition: Flip,
-                autoClose: 2000,
-            });
-            let token = res.response.access_token;
-            localStorage.setItem('jwt', token);
-        } else {
-            toast.error('Wrong Login Information', {
-                transition: Flip,
-                autoClose: 2000,
-            });
-        }
-    };
-
     return (
         <ShoppingContext.Provider
             value={{
@@ -133,8 +110,6 @@ export const ShoppingContextProvider = ({ children }) => {
                 cartQuantity,
                 totalPrice,
                 remove,
-                email,
-                password,
                 addQuantity,
                 setCartQuantity,
                 increaseQuantity,
@@ -144,9 +119,6 @@ export const ShoppingContextProvider = ({ children }) => {
                 clearCart,
                 removePoper,
                 showPoper,
-                setEmail,
-                setPassword,
-                infoUser,
             }}
         >
             {children}
