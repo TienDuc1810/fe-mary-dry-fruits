@@ -138,21 +138,22 @@
 }
 
 //CSS Detail Description
-.detail-description{
+.detail-description {
     width: 40%;
     height: 100%;
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
 
-    .detail-description-btn{
+    .detail-description-btn {
         width: 100%;
         border: none;
         background-color: transparent;
         padding: 4px 8px;
         border: 2px solid var(--primary-color);
         font-size: 1.6rem;
-        &:hover, &.active{
+        &:hover,
+        &.active {
             background-color: var(--second-color);
             box-shadow: none;
             border-color: transparent;
@@ -160,7 +161,7 @@
     }
 }
 
-.detail-content{
+.detail-content {
     width: 100%;
     min-height: 300px;
     padding: 10px;
@@ -175,3 +176,7 @@
 .no-check {
     color: #8d8d8d;
 }
+
+
+   
+

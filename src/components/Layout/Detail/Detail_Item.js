@@ -65,6 +65,7 @@ const DetailItem = () => {
                     </div>
                     <div className={cx('detail-info')}>
                         <h2 className={cx('detail-info-name')}>{item.name}</h2>
+
                         <div className={cx('detail-info-star')}>
                             {Array.from({ length: 5 }).map((_, index) =>
                                 index < item.star ? (
@@ -75,6 +76,9 @@ const DetailItem = () => {
                             )}
                         </div>
                         <p className={cx('detail-info-description')}>{item.description}</p>
+
+                        <p className={cx('detail-info-description')}>{item.sumary}</p>
+
                         <div className={cx('detail-info-price')}>
                             <h6 className={cx('detail-info-title')}>Price:</h6>
                             <span className={cx('detail-info-price-amount')}>${item.price}</span>
@@ -87,7 +91,6 @@ const DetailItem = () => {
                                           key={element.id}
                                           className={cx('detail-info-btn')}
                                           onClick={(e) => handleSelectWeight(e)}
-                                          disabled={element.mass !== item.weight ? false : true}
                                           value={element.mass}
                                       >
                                           {element.mass < 1000 ? element.mass + 'gram' : element.mass / 1000 + 'kg'}
@@ -123,7 +126,6 @@ const DetailItem = () => {
                                 Add Cart
                             </button>
                         </div>
-                        {/* <p className={cx('description')}>***{item.sumary}</p> */}
                     </div>
                 </div>
 
@@ -161,7 +163,8 @@ const DetailItem = () => {
                         ''
                     )}
                 </div>
-                <div>
+
+                <div className={cx('container-slider')}>
                     <BestProductsIndex />
                 </div>
             </div>
