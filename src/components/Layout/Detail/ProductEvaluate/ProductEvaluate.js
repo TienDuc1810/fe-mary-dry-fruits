@@ -9,9 +9,7 @@ const ProductEvaluate = () => {
         <div className={cx('customer-evaluate')}>
             <h4>Customer Reviewer</h4>
             <div className={cx('evaluate-star')}>
-                {[...Array(5)].map((_, i) => (
-                    <img key={i} src="" alt={i < star ? 'star yellow' : 'no star'} />
-                ))}
+               
                 <h5>Base on 2 reviews</h5>
             </div>
         </div>

@@ -3,7 +3,6 @@ import axios from '@/service/axios';
 import classNames from 'classnames/bind';
 import styles from './Detail.module.scss';
 import BestProductsIndex from '../Main/BestProducts/Best_Product_Index';
-import ProductEvaluate from './ProductEvaluate/ProductEvaluate';
 import DetailComment from './DetailComment/DetailComment';
 import CommentProduct from './CommetProduct/CommentProduct';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
@@ -51,7 +50,6 @@ const DetailItem = () => {
 
     return (
         <div className={cx('detail-container')}>
-         
             <div className={cx('detail-wrapper')}>
                 <div className={cx('detail-main')}>
                     <div className={cx('detail-outner-image')}>
@@ -72,7 +70,6 @@ const DetailItem = () => {
                                           key={element.id}
                                           className={cx('detail-info-btn')}
                                           onClick={(e) => handleSelectWeight(e)}
-                                      
                                           value={element.mass}
                                       >
                                           {element.mass < 1000 ? element.mass + 'gram' : element.mass / 1000 + 'kg'}
@@ -133,12 +130,18 @@ const DetailItem = () => {
                     {zoneDetails === 2 ? <div dangerouslySetInnerHTML={{ __html: item.nutrition_detail }} /> : ''}
                     {zoneDetails === 3 ? (
                         <div className={cx('detail-evaluate')}>
-                            <ProductEvaluate />
                             <div className={cx('detail-form')}>
-                                <DetailComment />
-                                <DetailComment />
-                                <DetailComment />
-                                <CommentProduct />
+                                {item.reviews.length !== 0 ? (
+                                    item.reviews.map((element, index) => {
+                                        return (
+                                            <DetailComment content={element.content} star={element.star} key={index} />
+                                        );
+                                    })
+                                ) : (
+                                    <h2 className={cx('title-no-coment')}>This product has no comments yet</h2>
+                                )}
+
+                                <CommentProduct reload={fetchData} />
                             </div>
                         </div>
                     ) : (

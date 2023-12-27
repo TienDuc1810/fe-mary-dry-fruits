@@ -7,12 +7,12 @@ import { StarYellow, StarCheck } from '@/icons';
 
 const cx = classNames.bind(styles);
 
-const DetailComment = () => {
+const DetailComment = ({ content, star }) => {
     return (
         <div className={cx('detail-comment')}>
             <div className={cx('comment')}>
-                <div className={cx('comment-pay')}>
-                    <span>Cực kì hài lòng</span>
+                <div className={cx('comment-name')}>
+                    HeoloveNinh
                 </div>
                 <div className={cx('comment-star')}>
                     <StarYellow />
@@ -20,13 +20,9 @@ const DetailComment = () => {
                     <StarYellow />
                     <StarYellow />
                     <StarYellow />
-                    <span>Cực kì hài lòng</span>
                 </div>
 
-                <p className={cx('comment-content')}>
-                    Tiếc là không mua được màu Pink. Đành phải mua màu blue. Chứ màu pink thì ngon quá ạ. Mong tiki độ
-                    mua cho vài con pink ạ. Màu pink thì đẹp mê
-                </p>
+                <p className={cx('comment-content')}>{content}</p>
             </div>
         </div>
     );
