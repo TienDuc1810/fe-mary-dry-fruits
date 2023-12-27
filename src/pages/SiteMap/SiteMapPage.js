@@ -1,5 +1,4 @@
-import Header from '@/components/Layout/Header/HeaderIndex';
-import Footer from '@/components/Layout/Footer/Footer_Index';
+import Header from '@/components/Layout/Header/Header_Index';
 import classNames from 'classnames/bind';
 import styles from './SiteMapPage.module.scss';
 
@@ -8,7 +7,7 @@ const cx = classNames.bind(styles);
 const SiteMapPage = () => {
     return (
         <>
-            <Header />
+            <Header title={'Site Map'}/>
             <div className={cx('sitemap-container')}>
                 <div class={cx('sitemap-wrapper')}>
                     <h1 className={cx('sitemap-heading')}>MY SITEMAP</h1>
@@ -123,7 +122,6 @@ const SiteMapPage = () => {
                     </nav>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };

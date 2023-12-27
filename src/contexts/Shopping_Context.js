@@ -18,7 +18,9 @@ export const ShoppingContextProvider = ({ children }) => {
         localStorage.setItem('shopping_cart', JSON.stringify(cartItems));
     }, [cartItems]);
 
-    const cartQuantity = cartItems.reduce((quantity, item) => quantity + item.quantity, 0);
+    const [cartQuantity, setCartQuantity] = useState(0);
+    const [addQuantity, setAddQuantity] = useState(0)
+    // cartItems.reduce((quantity, item) => quantity + item.quantity, 0)
     const totalPrice = cartItems.reduce((total, item) => total + item.quantity * ((item.price * item.weight) / 100), 0);
 
     const increaseQuantity = (id) => {
@@ -27,20 +29,6 @@ export const ShoppingContextProvider = ({ children }) => {
             const newItems = cartItems.map((item) => {
                 if (item.id === id) {
                     return { ...item, quantity: item.quantity + 1 };
-                } else {
-                    return item;
-                }
-            });
-            setCartItems(newItems);
-        }
-    };
-
-    const choiceWeight = (id, choice) => {
-        const currentCartItem = cartItems.find((item) => item.id === id);
-        if (currentCartItem) {
-            const newItems = cartItems.map((item) => {
-                if (item.id === id) {
-                    return { ...item, weight: item.weight };
                 } else {
                     return item;
                 }
@@ -71,6 +59,7 @@ export const ShoppingContextProvider = ({ children }) => {
     };
 
     const addCartItem = (product) => {
+        setAddQuantity(addQuantity + 1);
         removePoper();
         if (product) {
             const currentCartItem = cartItems.find((item) => item.id === product.id);
@@ -83,7 +72,7 @@ export const ShoppingContextProvider = ({ children }) => {
                     }
                 });
                 setCartItems(newItems);
-                console.log(currentCartItem);
+                
             } else {
                 const newItem = { ...product, quantity: 1 };
                 setCartItems([...cartItems, newItem]);
@@ -92,6 +81,7 @@ export const ShoppingContextProvider = ({ children }) => {
     };
 
     const removeCartItem = (id) => {
+        setAddQuantity(addQuantity - 1);
         const currentCartItemIndex = cartItems.findIndex((item) => item.id === id);
         const newItems = [...cartItems];
         newItems.splice(currentCartItemIndex, 1);
@@ -145,7 +135,8 @@ export const ShoppingContextProvider = ({ children }) => {
                 remove,
                 email,
                 password,
-                choiceWeight,
+                addQuantity,
+                setCartQuantity,
                 increaseQuantity,
                 decreaseQuantity,
                 addCartItem,

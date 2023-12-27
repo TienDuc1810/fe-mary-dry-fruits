@@ -1,16 +1,11 @@
-import Banner from '@/components/Layout/Banner/Banner';
-import images from '@/assets';
-import Footer from '@/components/Layout/Footer/Footer_Index';
 import LayoutProduct from '@/components/Layout/LayoutProduct/LayoutProduct';
+import Header from '@/components/Layout/Header/Header_Index';
 
 const ProductPage = () => {
     return (
         <div>
-            <Banner pageMain="all" pageEtra="Rosehip Berries" backGround={images.banner}>
-                product
-            </Banner>
+            <Header title={'Product'}/>
             <LayoutProduct />
-            <Footer />
         </div>
     );
 };

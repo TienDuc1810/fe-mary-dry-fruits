@@ -1,16 +1,11 @@
 import RegisterForm from '@/components/Account/Register/RegisterForm';
-import Banner from '@/components/Layout/Banner/Banner';
-import backGround from '@/Images/banner.webp';
-import Footer from '@/components/Layout/Footer/Footer_Index';
+import Header from '@/components/Layout/Header/Header_Index';
 
 const RegisterPage = () => {
     return (
         <div>
-            <Banner pageMain="home" pageEtra="register" backGround={backGround}>
-                register
-            </Banner>
+            <Header title={'Register'}/>
             <RegisterForm />
-            <Footer />
         </div>
     );
 };

@@ -84,40 +84,8 @@
             height: 100%;
             transition: opacity 0.5s ease-in-out;
         }
-
-        .product-image-add,
-        .product-image-search {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--white-color);
-            top: 80%;
-            left: 33%;
-            opacity: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: opacity 0.5s ease-in-out;
-            &:hover .product-icon {
-                color: var(--white-color);
-            }
-            &:hover {
-                background-color: var(--primary-color);
-            }
-        }
-
-        .product-image-search {
-            top: 80%;
-            left: 52%;
-        }
-
-        .product-icon {
-            color: var(--primary-color);
-            font-size: 1.4rem;
-        }
     }
+    
     .product-detail {
         padding: 20px 30px 30px;
 

@@ -6,21 +6,18 @@ const images = {
     category_3: require('@/assets/images/category_3.jpg'),
     logo: require('@/assets/images/logo.png'),
     food: require('@/assets/images/food.png'),
-    right: require('@/assets/images/right.png'),
-    img1: require('@/assets/images/img1.webp'),
-    imgMain: require('@/assets/images/imgMain.webp'),
     visa: require('@/assets/images/visa.png'),
     paypal: require('@/assets/images/money.png'),
     mastercard: require('@/assets/images/card.png'),
     check: require('@/assets/images/check.png'),
     brand: require('@/assets/images/brand.webp'),
-    finest: require('@/assets/images/finest.webp'),
     comment: require('@/assets/images/comment.png'),
     like: require('@/assets/images/like.png'),
     nutritional: require('@/assets/images/nutritional.webp'),
     avatar: require('@/assets/images/Avatar.jpg'),
     avatar_default: require('@/assets/images/avatar-default.png'),
     footer: require('@/assets/images/footer.jpg'),
+    header: require('@/assets/images/header.jpg'),
 };
 
 export default images;

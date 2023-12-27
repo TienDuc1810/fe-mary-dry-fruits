@@ -8,7 +8,7 @@ import { useState } from 'react';
 const cx = classNames.bind(styles);
 
 function ShoppingCartItem({ id, name, price, quantity, image, weight_tags, weight }) {
-    const { increaseQuantity, decreaseQuantity, removeCartItem, choiceWeight } = useShoppingContext();
+    const { increaseQuantity, decreaseQuantity, removeCartItem, cartQuantity } = useShoppingContext();
 
     const [selectedWeight, setSelectedWeight] = useState(weight);
 
@@ -34,23 +34,19 @@ function ShoppingCartItem({ id, name, price, quantity, image, weight_tags, weigh
                             </option>
                         );
                     })}
-                    {/* <option value={2.5}>250 Gram</option>
-                    <option value={5}>500 Gram</option>
-                    <option value={10}>1 Kg</option>
-                    <option value={20}>2 Kg</option> */}
                 </select>
             </div>
             <div className={cx('cart-item-quantity')}>
                 <button className={cx('cart-item-up')} onClick={() => decreaseQuantity(id)}>
                     <FontAwesomeIcon icon={icon({ name: 'minus', style: 'solid' })} className={cx('minus-icon')} />
                 </button>
-                <span className={cx('cart-item-number')}>{quantity}</span>
+                <span className={cx('cart-item-number')}>{cartQuantity}</span>
                 <button className={cx('cart-item-down')} onClick={() => increaseQuantity(id)}>
                     <FontAwesomeIcon icon={icon({ name: 'plus', style: 'solid' })} className={cx('plus-icon')} />
                 </button>
             </div>
             <div className={cx('cart-item-price')}>
-                <span>{(price * (selectedWeight / 100) * quantity).toFixed(2)} $</span>
+                <span>{(price * (selectedWeight / 100) * cartQuantity).toFixed(2)} $</span>
             </div>
             <div className={cx('cart-item-action')}>
                 <button className={cx('cart-item-btn')} onClick={() => removeCartItem(id)}>

@@ -6,7 +6,7 @@ import LoginPage from '@/pages/Account/Login_Page';
 import RegisterPage from '@/pages/Account/Register_Page';
 import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
 import Nutritional from '@/pages/Nutritional ';
-import Detail from '@/components/Layout/Detail/Detail';
+import Detail from '@/components/Layout/Detail/Detail_Index';
 import UserPage from '@/pages/User_Page';
 import AboutUs from '@/pages/AboutUs';
 

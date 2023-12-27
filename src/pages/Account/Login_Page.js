@@ -1,16 +1,12 @@
 import LoginForm from '@/components/Account/Login/LoginForm';
-import Banner from '@/components/Layout/Banner/Banner';
-import backGround from '@/Images/banner.webp';
-import Footer from '@/components/Layout/Footer/Footer_Index';
+import Header from '@/components/Layout/Header/Header_Index';
+
 
 const LoginPage = () => {
     return (
         <div>
-            <Banner pageMain="home" pageEtra="login" backGround={backGround}>
-                login
-            </Banner>
+            <Header title={'Login'}/>
             <LoginForm />
-            <Footer />
         </div>
     );
 };

@@ -10,7 +10,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const cx = classNames.bind(styles);
 
-const ContactUs = () => {
+const ContactIndex = () => {
     return (
         <div className={cx('contact-container')}>
             <div className={cx('contact-wrapper')}>
@@ -56,4 +56,4 @@ const ContactUs = () => {
     );
 };
 
-export default ContactUs;
+export default ContactIndex;
