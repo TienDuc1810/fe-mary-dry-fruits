@@ -1,12 +1,6 @@
-import React from 'react';
-
 import classNames from 'classnames/bind';
 import styles from './ProductEvaluate.module.scss';
-import { StarYellow, StarCheck } from '@/icons';
-import starYello from '@/Images/icont/star (1).svg';
-import nostar from '@/Images/icont/star-line.svg';
 
-import images from '@/assets';
 const cx = classNames.bind(styles);
 
 const ProductEvaluate = () => {
@@ -16,7 +10,7 @@ const ProductEvaluate = () => {
             <h4>Customer Reviewer</h4>
             <div className={cx('evaluate-star')}>
                 {[...Array(5)].map((_, i) => (
-                    <img key={i} src={i < star ? starYello : nostar} alt={i < star ? 'star yellow' : 'no star'} />
+                    <img key={i} src="" alt={i < star ? 'star yellow' : 'no star'} />
                 ))}
                 <h5>Base on 2 reviews</h5>
             </div>

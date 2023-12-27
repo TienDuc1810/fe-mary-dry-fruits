@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './NutritionalAndContent.module.scss';
 import images from '@/assets';
-import { UserBrown, Calendar } from '@/icons';
+import { Calendar } from '@/icons';
 
 const cx = classNames.bind(styles);
 

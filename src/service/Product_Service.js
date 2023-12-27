@@ -31,4 +31,5 @@ const premiumProduct = async () => {
         };
     }
 }
+
 export { topProduct, premiumProduct };

@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './CommentProduct.module.scss';
-import nostar from '@/Images/icont/star-line.svg';
-import starYello from '@/Images/icont/star (1).svg';
-import axios from '@/service/axios'; // đây là axios đã config
+import axios from '@/service/axios';
 
 const cx = classNames.bind(styles);
 
@@ -43,12 +41,12 @@ const CommentProduct = ({ product_id }) => {
         <div className={cx('container-comment')}>
             <div className={cx('start')}>
                 {[...Array(data.star)].map((_, i) => (
-                    <img key={i} src={starYello} alt={'star yellow'} onClick={() => setStart(i + 1)} />
+                    <img key={i} src="" alt={'star yellow'} onClick={() => setStart(i + 1)} />
                 ))}
                 {[...Array(5 - data.star)].map((_, i) => (
                     <img
                         key={i + data.star + 1}
-                        src={nostar}
+                        src=""
                         alt={'no star'}
                         onClick={() => setStart(i + data.star + 1)}
                     />

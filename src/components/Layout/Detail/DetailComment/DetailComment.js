@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames/bind';
 import styles from './DetailComment.module.scss';
-import images from '@/assets';
+
 import { StarYellow, StarCheck } from '@/icons';
 
 const cx = classNames.bind(styles);

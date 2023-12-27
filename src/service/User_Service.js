@@ -101,4 +101,5 @@ const editDataUser = async (fullname, phone, address, password) => {
         };
     }
 };
+
 export { loginUser, logoutUser, dataUser, editDataUser };
