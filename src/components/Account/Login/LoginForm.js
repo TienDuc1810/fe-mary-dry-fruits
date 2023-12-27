@@ -2,18 +2,19 @@ import classNames from 'classnames/bind';
 import styles from './LoginForm.module.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useShoppingContext } from '@/contexts/Shopping_Context';
-
+import { loginUser } from '@/service/User_Service';
+import { toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-
 const cx = classNames.bind(styles);
 
 const LoginForm = () => {
-    const {email, password, setEmail, setPassword, infoUser} = useShoppingContext();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const [errorHeightEmail, setErrorHeightEmail] = useState(false);
     const [errorHeightPassword, setErrorHeightPassword] = useState(false);
@@ -21,6 +22,8 @@ const LoginForm = () => {
     const [errorPassword, setErrorPassword] = useState(false);
     const [messErrorEmail, setMessErrorEmail] = useState('');
     const [messErrorPassword, setMessErrorPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         if (!email) {
@@ -32,7 +35,7 @@ const LoginForm = () => {
             setErrorHeightEmail(false);
             setMessErrorEmail('');
         }
-        
+
         if (!password) {
             setErrorPassword(true);
             setMessErrorPassword('Please enter your password');
@@ -53,7 +56,22 @@ const LoginForm = () => {
                 setErrorEmail(false);
                 setMessErrorEmail('');
                 setErrorHeightEmail(false);
-                infoUser();
+                let res = await loginUser(email, password);
+
+                if (res && res.success === true) {
+                    navigate('/account/profile');
+                    toast.success('Login Success', {
+                        transition: Flip,
+                        autoClose: 2000,
+                    });
+                    let token = res.response.access_token;
+                    localStorage.setItem('jwt', token);
+                } else {
+                    toast.error('Wrong Login Information', {
+                        transition: Flip,
+                        autoClose: 2000,
+                    });
+                }
             }
         }
     };
@@ -134,7 +152,7 @@ const LoginForm = () => {
                     <div className={cx('login-to-register')}>
                         <span className={cx('login-register-question')}>You don't have an account yet?</span>
                         <Link to="/account/register" className={cx('login-register-text')}>
-                             Register now!
+                            Register now!
                         </Link>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import DetailComment from './DetailComment/DetailComment';
 import CommentProduct from './CommetProduct/CommentProduct';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { useParams } from 'react-router-dom';
+import { StarCheck, Star } from '@/icons';
 
 const cx = classNames.bind(styles);
 
@@ -64,6 +65,15 @@ const DetailItem = () => {
                     </div>
                     <div className={cx('detail-info')}>
                         <h2 className={cx('detail-info-name')}>{item.name}</h2>
+                        <div className={cx('detail-info-star')}>
+                            {Array.from({ length: 5 }).map((_, index) =>
+                                index < item.star ? (
+                                    <StarCheck key={index} className={cx('check')} />
+                                ) : (
+                                    <Star key={index} className={cx('no-check')} />
+                                ),
+                            )}
+                        </div>
                         <p className={cx('detail-info-description')}>{item.description}</p>
                         <div className={cx('detail-info-price')}>
                             <h6 className={cx('detail-info-title')}>Price:</h6>
@@ -151,8 +161,9 @@ const DetailItem = () => {
                         ''
                     )}
                 </div>
-
-                <BestProductsIndex />
+                <div>
+                    <BestProductsIndex />
+                </div>
             </div>
         </div>
     );

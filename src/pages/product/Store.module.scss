@@ -124,12 +124,7 @@
     }
 }
 
-.check {
-    color: var(--second-color);
-}
-.no-check {
-    color: #8d8d8d;
-}
+
 
 @media (max-width: 1600px) {
     .product-image-add,
@@ -151,6 +146,7 @@
         left: 63% !important;
     }
 }
+
 @media (max-width: 1400px) {
     .product-image-add {
         left: 21% !important;

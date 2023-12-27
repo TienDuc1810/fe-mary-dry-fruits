@@ -40,6 +40,11 @@
                     color: var(--primary-color);
                 }
 
+                .detail-info-star{
+                    display: flex;
+                    gap: 3px;
+                }
+
                 .detail-info-description {
                     font-size: 1.6rem;
                     font-weight: 400;
@@ -162,4 +167,11 @@
     border: 1px solid var(--border-color);
     margin-bottom: 10px;
     font-size: 1.6rem;
+}
+
+.check {
+    color: var(--second-color);
+}
+.no-check {
+    color: #8d8d8d;
 }
