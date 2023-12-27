@@ -51,12 +51,7 @@ const DetailItem = () => {
 
     return (
         <div className={cx('detail-container')}>
-            <link
-                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-                rel="stylesheet"
-                integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-                crossOrigin="anonymous"
-            ></link>
+         
             <div className={cx('detail-wrapper')}>
                 <div className={cx('detail-main')}>
                     <div className={cx('detail-outner-image')}>
@@ -64,7 +59,7 @@ const DetailItem = () => {
                     </div>
                     <div className={cx('detail-info')}>
                         <h2 className={cx('detail-info-name')}>{item.name}</h2>
-                        <p className={cx('detail-info-description')}>{item.description}</p>
+                        <p className={cx('detail-info-description')}>{item.sumary}</p>
                         <div className={cx('detail-info-price')}>
                             <h6 className={cx('detail-info-title')}>Price:</h6>
                             <span className={cx('detail-info-price-amount')}>${item.price}</span>
@@ -77,7 +72,7 @@ const DetailItem = () => {
                                           key={element.id}
                                           className={cx('detail-info-btn')}
                                           onClick={(e) => handleSelectWeight(e)}
-                                          disabled={element.mass !== item.weight ? false : true}
+                                      
                                           value={element.mass}
                                       >
                                           {element.mass < 1000 ? element.mass + 'gram' : element.mass / 1000 + 'kg'}
@@ -113,7 +108,6 @@ const DetailItem = () => {
                                 Add Cart
                             </button>
                         </div>
-                        {/* <p className={cx('description')}>***{item.sumary}</p> */}
                     </div>
                 </div>
 
@@ -152,7 +146,9 @@ const DetailItem = () => {
                     )}
                 </div>
 
-                <BestProductsIndex />
+                <div className={cx('container-slider')}>
+                    <BestProductsIndex />
+                </div>
             </div>
         </div>
     );
