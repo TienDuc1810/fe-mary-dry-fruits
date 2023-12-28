@@ -16,10 +16,10 @@ function SliderItem({ banners }) {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 3000,
         pauseOnHover: true,
-        prevArrow: <></>, // Sử dụng React element trống để tắt nút previous
-        nextArrow: <></>, // Sử dụng React element trống để tắt nút next
+        prevArrow: <></>, 
+        nextArrow: <></>, 
     };
 
     const previous = () => {

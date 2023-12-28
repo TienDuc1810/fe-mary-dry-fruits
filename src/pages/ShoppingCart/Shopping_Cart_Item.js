@@ -10,7 +10,6 @@ const cx = classNames.bind(styles);
 function ShoppingCartItem({...item}) {
     const { increaseQuantity, decreaseQuantity, removeCartItem } = useShoppingContext();
 
-    console.log(item);
     const [selectedWeight, setSelectedWeight] = useState(item.weight);
 
     const handleWeightChange = (event) => {

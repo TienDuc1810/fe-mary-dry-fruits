@@ -7,11 +7,16 @@ export const useShoppingContext = () => {
 };
 
 export const ShoppingContextProvider = ({ children }) => {
+    
     const [cartItems, setCartItems] = useState(() => {
         const data = localStorage.getItem('shopping_cart');
         return data ? JSON.parse(data) : [];
     });
-    console.log(cartItems)
+    
+    useEffect(() => {
+        const totalCount = cartItems.reduce((total, item) => total + 1, 0);
+        setCartQuantity(totalCount);
+    }, [cartItems]);
 
     useEffect(() => {
         localStorage.setItem('shopping_cart', JSON.stringify(cartItems));
@@ -20,7 +25,7 @@ export const ShoppingContextProvider = ({ children }) => {
     const [cartQuantity, setCartQuantity] = useState(0);
 
     let addQuantity = 0;
-
+    
     const totalPrice = cartItems.reduce((total, item) => total + item.addQuantity * ((item.price * item.weight) / 100), 0);
 
     const increaseQuantity = (id, weight) => {

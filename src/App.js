@@ -6,6 +6,8 @@ import NavBar from './components/Layout/Navigation/Nav_Index';
 import Footer from './components/Layout/Footer/Footer_Index';
 
 function App() {
+   
+
     return (
         <GlobalStyles>
             <NavBar />
@@ -14,7 +16,7 @@ function App() {
                     return <Route key={index} path={route.path} element={<route.component />} />;
                 })}
             </Routes>
-            <Footer/>
+            <Footer />
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
