@@ -26,7 +26,6 @@ function UserPage() {
 
         if (res && res.success === true && token) {
             navigate('/account/login');
-            localStorage.removeItem('jwt');
             toast.success('Logout success', {
                 transition: Flip,
                 autoClose: 2000,

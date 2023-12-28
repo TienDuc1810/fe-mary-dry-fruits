@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 //Base URL
 const instance = axios.create({
@@ -8,9 +8,9 @@ const instance = axios.create({
 //Setup add JWT on header request
 instance.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('jwt')}`;
 
-
 instance.interceptors.request.use(
     function (config) {
+        config.headers.Authorization = `Bearer ${localStorage.getItem('jwt')}`;
         return config;
     },
     function (error) {

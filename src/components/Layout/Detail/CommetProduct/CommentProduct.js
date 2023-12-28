@@ -1,5 +1,5 @@
 import { StarCheck, Star } from '@/icons';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './CommentProduct.module.scss';
 import axios from '@/service/axios';
@@ -38,10 +38,12 @@ const CommentProduct = ({ id, permission, text, reload }) => {
                 });
                 return;
             }
+            
             let res = await axios.post('/api/review/review', {
                 content: data.content,
                 star: data.star >= 1 ? data.star : 5,
                 product_id: data.product_id,
+
             });
             reload();
         } catch (error) {

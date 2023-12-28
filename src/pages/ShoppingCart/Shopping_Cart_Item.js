@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 function ShoppingCartItem({ ...item }) {
     const { increaseQuantity, decreaseQuantity, removeCartItem } = useShoppingContext();
-    console.log(item);
+    
 
     return (
         <div className={cx('cart-item-container')}>

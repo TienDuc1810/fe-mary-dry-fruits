@@ -10,23 +10,20 @@ import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import Cart from '../Cart/Cart';
 import { dataUser } from '@/service/User_Service';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 
 const cx = classNames.bind(styles);
 
 function NavBarIndex() {
-    const [checkLogin, setCheckLogin] = useState(null);
     const [show, setShow] = useState(false);
     const [data, getData] = useState('');
-    const { cartQuantity, remove, showPoper } = useShoppingContext();
+    const { cartQuantity, remove, showPoper, isLogin } = useShoppingContext();
 
     const navigate = useNavigate();
 
+
     useEffect(() => {
-        const jwt = localStorage.getItem('jwt');
-        setCheckLogin(jwt);
-        if (checkLogin !== null) {
-            navigate('/account/profile');
-        }
+        
 
         const fetchData = async () => {
             let res = await dataUser();
@@ -40,7 +37,9 @@ function NavBarIndex() {
         showPoper();
     };
 
-    const handleCheckWasLogin = () => {};
+    const handleCheckWasLogin = () => {
+
+    };
 
     const handleHideCart = () => {
         setShow(false);
@@ -84,7 +83,7 @@ function NavBarIndex() {
                             </Link>
                         </li>
                         <Tippy
-                            appendTo={()=>document.body}
+                            appendTo={() => document.body}
                             interactive={true}
                             visible={remove && show && cartQuantity > 0}
                             offset={[-277, 24]}
@@ -103,18 +102,17 @@ function NavBarIndex() {
                             </li>
                         </Tippy>
                         <li className={cx('nav-item-right')} onClick={() => handleCheckWasLogin()}>
-                            {checkLogin === null ? (
-                                <Link to="/account/login" className={cx('nav-item-link')}>
-                                    <FontAwesomeIcon
-                                        icon={icon({ name: 'user', style: 'solid' })}
-                                        className={cx('nav-user-icon')}
-                                    />
-                                </Link>
-                            ) : (
+                            <Link to="/account/login" className={cx('nav-item-link')}>
+                                <FontAwesomeIcon
+                                    icon={icon({ name: 'user', style: 'solid' })}
+                                    className={cx('nav-user-icon')}
+                                />
+                            </Link>
+                            {/* ) : (
                                 <Link to="/account/profile">
                                     Wellcome: {data.full_name}
                                 </Link>
-                            )}
+                            )} */}
                         </li>
                     </ul>
                 </div>

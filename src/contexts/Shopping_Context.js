@@ -102,6 +102,7 @@ export const ShoppingContextProvider = ({ children }) => {
     };
 
     const [remove, setRemove] = useState(true);
+    const [isLogin, setIsLogin] = useState(false);
 
     const removePoper = () => {
         setRemove(false);
@@ -119,6 +120,8 @@ export const ShoppingContextProvider = ({ children }) => {
                 totalPrice,
                 remove,
                 addQuantity,
+                isLogin,
+                setIsLogin,
                 setCartQuantity,
                 increaseQuantity,
                 decreaseQuantity,

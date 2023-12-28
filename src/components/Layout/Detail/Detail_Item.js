@@ -15,7 +15,7 @@ const cx = classNames.bind(styles);
 const DetailItem = () => {
     const id = useParams();
 
-    const { addCartItem, setCartQuantity } = useShoppingContext();
+    const { addCartItem } = useShoppingContext();
     const [zoneDetails, setZoneDetails] = useState(1);
     const [quantity, setQuantity] = useState(1);
     const [item, setItem] = useState([]);
@@ -35,6 +35,7 @@ const DetailItem = () => {
     const handleCheckPermission = async (id) => {
         try {
             let res = await axios.post('/api/review/check', { product_id: id });
+            console.log(res)
             let statusCode = parseInt(res.status_code);
             if (statusCode == 901 || statusCode == 902 || statusCode == 903 || statusCode == 904) {
                 setTextNotifi(res.message);

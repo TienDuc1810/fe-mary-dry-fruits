@@ -14,6 +14,7 @@ const loginUser = async (email, password) => {
 
     try {
         const response = await axios.post(loginUrl, loginData, { headers });
+        localStorage.setItem('jwt', response.access_token);
 
         return {
             success: true,
@@ -28,11 +29,10 @@ const loginUser = async (email, password) => {
 
 const logoutUser = async () => {
     const logoutUrl = '/api/auth/logout';
-    const token = localStorage.getItem('jwt');
+    localStorage.removeItem('jwt');
 
     const headers = {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
     };
 
     try {
@@ -56,7 +56,6 @@ const dataUser = async () => {
 
     try {
         const response = await axios.get(dataUrl, {}, { headers });
-        console.log(response)
 
         return {
             success: true,

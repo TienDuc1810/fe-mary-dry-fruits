@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { loginUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -14,6 +15,7 @@ const cx = classNames.bind(styles);
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const {setIsLogin} = useShoppingContext();
 
     const [errorHeightEmail, setErrorHeightEmail] = useState(false);
     const [errorHeightPassword, setErrorHeightPassword] = useState(false);
@@ -59,12 +61,12 @@ const LoginForm = () => {
 
                 if (res && res.success === true) {
                     navigate('/account/profile');
+                    setIsLogin(true);
                     toast.success('Login Success', {
                         transition: Flip,
                         autoClose: 2000,
                     });
-                    let token = res.response.access_token;
-                    localStorage.setItem('jwt', token);
+
                 } else {
                     toast.error('Wrong Login Information', {
                         transition: Flip,
