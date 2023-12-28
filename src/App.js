@@ -7,8 +7,6 @@ import NavBar from './components/Layout/Navigation/Nav_Index';
 import Footer from './components/Layout/Footer/Footer_Index';
 
 function App() {
-   
-
     return (
         <GlobalStyles>
             <NavBar />

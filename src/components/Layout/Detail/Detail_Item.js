@@ -46,7 +46,6 @@ const DetailItem = () => {
 
     const addCartItemWithQuantity = () => {
         const itemWithQuantity = { ...item, addQuantity: quantity };
-        console.log(itemWithQuantity);
         addCartItem(itemWithQuantity);
     };
 
@@ -110,11 +109,7 @@ const DetailItem = () => {
                         </div>
 
                         <div className={cx('detail-info-add-cart')}>
-                            <button
-                                className={cx('detail-info-btn')}
-                                value="Add To Cart"
-                                onClick={addCartItemWithQuantity}
-                            >
+                            <button className={cx('detail-info-btn')} onClick={addCartItemWithQuantity}>
                                 Add Cart
                             </button>
                         </div>
@@ -143,10 +138,7 @@ const DetailItem = () => {
                     {zoneDetails === 2 ? <div dangerouslySetInnerHTML={{ __html: item.nutrition_detail }} /> : ''}
                     {zoneDetails === 3 ? (
                         <div className={cx('detail-evaluate')}>
-
                             <DetailReview />
-                            
-                                
 
                             <div className={cx('detail-form')}>
                                 {item.reviews.length !== 0 ? (
@@ -160,7 +152,6 @@ const DetailItem = () => {
                                 )}
 
                                 <CommentProduct reload={fetchData} />
-
                             </div>
                         </div>
                     ) : (

@@ -50,15 +50,13 @@ const logoutUser = async () => {
 const dataUser = async () => {
     const dataUrl = '/api/auth/profile';
 
-    const token = localStorage.getItem('jwt');
-
     const headers = {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
     };
 
     try {
         const response = await axios.get(dataUrl, {}, { headers });
+        console.log(response)
 
         return {
             success: true,
@@ -74,8 +72,6 @@ const dataUser = async () => {
 const editDataUser = async (fullname, phone, address, password) => {
     const editDataUrl = '/api/auth/edit_profile';
 
-    const token = localStorage.getItem('jwt');
-
     const editData = {
         full_name: fullname,
         phone: phone,
@@ -85,7 +81,6 @@ const editDataUser = async (fullname, phone, address, password) => {
 
     const headers = {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
     };
 
     try {

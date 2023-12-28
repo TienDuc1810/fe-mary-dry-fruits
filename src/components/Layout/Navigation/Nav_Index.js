@@ -25,7 +25,7 @@ function NavBarIndex() {
         const jwt = localStorage.getItem('jwt');
         setCheckLogin(jwt);
         if (checkLogin !== null) {
-            navigate('/user');
+            navigate('/account/profile');
         }
 
         const fetchData = async () => {
@@ -84,6 +84,7 @@ function NavBarIndex() {
                             </Link>
                         </li>
                         <Tippy
+                            appendTo={()=>document.body}
                             interactive={true}
                             visible={remove && show && cartQuantity > 0}
                             offset={[-277, 24]}

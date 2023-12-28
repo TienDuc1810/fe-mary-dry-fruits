@@ -287,12 +287,16 @@
         display: flex;
         justify-content: center;
 
-        .cart-item-select{
+        .cart-item-weight{
             border: none;
             padding: 10px 5px;
             border: 1px solid var(--border-color);
             border-radius: 7px;
-            cursor: pointer;
+            cursor: default;
+            min-width: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 

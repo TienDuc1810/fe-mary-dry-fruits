@@ -26,9 +26,7 @@ const CategoryList = ({ getIdCategory }) => {
             } catch (error) {
                 console.log('error', error);
             } finally {
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
+                setLoading(false);
             }
         };
         fetchData();
@@ -65,7 +63,8 @@ const CategoryList = ({ getIdCategory }) => {
                         <SliderProducts slidesToShow={1} />
                     </div>
                 </div>
-            )};
+            )}
+            ;
         </>
     );
 };

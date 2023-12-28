@@ -14,7 +14,7 @@ export const ShoppingContextProvider = ({ children }) => {
     });
     
     useEffect(() => {
-        const totalCount = cartItems.reduce((total, item) => total + 1, 0);
+        const totalCount = cartItems.reduce((total) => total + 1, 0);
         setCartQuantity(totalCount);
     }, [cartItems]);
 

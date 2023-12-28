@@ -34,9 +34,9 @@ function ShoppingCartPage() {
                                     <h4 className={cx('cart-title-6')}>ACTION</h4>
                                 </div>
                             </div>
-                            {cartItems.map((item) => {
+                            {cartItems.map((item, index) => {
                                 return (
-                                    <div key={item.id}>
+                                    <div key={index}>
                                         <CartItem {...item} />
                                     </div>
                                 );

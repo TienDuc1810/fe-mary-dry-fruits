@@ -9,7 +9,6 @@ import { topProduct, premiumProduct } from '@/service/Product_Service';
 import { Banner } from '@/service/Banner_Service';
 import Loading from '../Loading/Loading';
 
-
 const Main = () => {
     const [products, setProducts] = useState([]);
     const [preProducts, setPreProducts] = useState([]);
@@ -46,15 +45,12 @@ const Main = () => {
                 if (resPremiumProduct.success && resPremiumProduct.response) {
                     setPreProducts(resPremiumProduct.response);
                 }
-
             } catch (error) {
                 console.error('Error fetching data:', error);
                 setProducts([]);
                 setPreProducts([]);
             } finally {
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
+                setLoading(false);
             }
         };
 
@@ -64,7 +60,7 @@ const Main = () => {
     return (
         <div>
             {loading === true ? (
-                <Loading/>
+                <Loading />
             ) : (
                 <div>
                     <Slide banners={sliderBanners} />

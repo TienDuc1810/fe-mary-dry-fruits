@@ -3,18 +3,11 @@ import styles from './Shopping_Cart.module.scss';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function ShoppingCartItem({...item}) {
+function ShoppingCartItem({ ...item }) {
     const { increaseQuantity, decreaseQuantity, removeCartItem } = useShoppingContext();
-
-    const [selectedWeight, setSelectedWeight] = useState(item.weight);
-
-    const handleWeightChange = (event) => {
-        setSelectedWeight(parseFloat(event.target.value));
-    };
 
     return (
         <div className={cx('cart-item-container')}>
@@ -26,15 +19,9 @@ function ShoppingCartItem({...item}) {
                 <p className={cx('cart-item-brand')}>Cost: {item.price}$</p>
             </div>
             <div className={cx('cart-item-size')}>
-                <select className={cx('cart-item-select')} value={selectedWeight} onChange={handleWeightChange}>
-                    {item.weight_tags.map((element, index) => {
-                        return (
-                            <option value={element.mass} key={index}>
-                                {element.mass < 1000 ? element.mass + 'gram' : element.mass / 1000 + 'kg'}
-                            </option>
-                        );
-                    })}
-                </select>
+                <div className={cx('cart-item-weight')}>
+                    {item.weight && item.weight >= 1000 ? `${item.weight / 1000} Kg` : `${item.weight} Gram`} 
+                </div>
             </div>
             <div className={cx('cart-item-quantity')}>
                 <button className={cx('cart-item-up')} onClick={() => decreaseQuantity(item.id, item.weight)}>
@@ -46,7 +33,7 @@ function ShoppingCartItem({...item}) {
                 </button>
             </div>
             <div className={cx('cart-item-price')}>
-                <span>{((item.price * item.weight / 100) * item.addQuantity).toFixed(2)} $</span>
+                <span>{(((item.price * item.weight) / 100) * item.addQuantity).toFixed(2)} $</span>
             </div>
             <div className={cx('cart-item-action')}>
                 <button className={cx('cart-item-btn')} onClick={() => removeCartItem(item.id, item.weight)}>
