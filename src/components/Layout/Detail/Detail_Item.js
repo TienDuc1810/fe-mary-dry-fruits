@@ -31,6 +31,7 @@ const DetailItem = () => {
     const handleSelectWeight = (e) => {
         setItem({ ...item, weight: parseInt(e.target.value) });
     };
+
     const handleCheckPermission = async (id) => {
         try {
             let res = await axios.post('/api/review/check', { product_id: id });
@@ -68,8 +69,7 @@ const DetailItem = () => {
     }, [id]);
 
     const addCartItemWithQuantity = () => {
-        setCartQuantity(quantity);
-        const itemWithQuantity = { ...item, cartQuantity: quantity };
+        const itemWithQuantity = { ...item, addQuantity: quantity };
         addCartItem(itemWithQuantity);
     };
 
