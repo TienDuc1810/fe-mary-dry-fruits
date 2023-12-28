@@ -7,11 +7,8 @@ import CategoryProduct from './CategoryProduct/Category_Product';
 import { useEffect, useState } from 'react';
 import { topProduct, premiumProduct } from '@/service/Product_Service';
 import { Banner } from '@/service/Banner_Service';
-import FadeLoader from 'react-spinners/FadeLoader';
-import classNames from 'classnames/bind';
-import styles from '@/components/GlobalStyles/GlobalStyles.scss';
+import Loading from '../Loading/Loading';
 
-const cx = classNames.bind(styles);
 
 const Main = () => {
     const [products, setProducts] = useState([]);
@@ -67,16 +64,7 @@ const Main = () => {
     return (
         <div>
             {loading === true ? (
-                <div className={cx('loading-container')}>
-                    <FadeLoader
-                        color="#1877f2"
-                        loading={loading}
-                        size={30}
-                        aria-label="Loading Spinner"
-                        data-testid="loader"
-                    />
-                    <div>Loading Data...</div>
-                </div>
+                <Loading/>
             ) : (
                 <div>
                     <Slide banners={sliderBanners} />

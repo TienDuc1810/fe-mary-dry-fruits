@@ -7,11 +7,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import classNames from 'classnames/bind';
 import styles from './Best_Product.module.scss';
+import Loading from '../../Loading/Loading';
 
 const cx = classNames.bind(styles);
 
 const SliderProducts = ({ slidesToShow }) => {
     const [slider, setSlider] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const settings = {
         dots: false,
@@ -49,6 +51,10 @@ const SliderProducts = ({ slidesToShow }) => {
             } catch (error) {
                 console.error('Error fetching top products:', error);
                 setProducts([]);
+            } finally {
+                setTimeout(() => {
+                    setLoading(false);
+                }, 1000);
             }
         };
 
@@ -56,21 +62,27 @@ const SliderProducts = ({ slidesToShow }) => {
     }, []);
 
     return (
-        <div className={cx('container-slide')}>
-            <Slider ref={(c) => setSlider(c)} {...settings}>
-                {products.map((item) => {
-                    return (
-                        <div key={item.id}>
-                            <ProductItem {...item} link={'/product-detail/' + item.id} />
-                        </div>
-                    );
-                })}
-            </Slider>
-            <div className={cx('slider-directional')}>
-                <button className={cx('slider-back')} onClick={previous}></button>
-                <button className={cx('slider-next')} onClick={next}></button>
-            </div>
-        </div>
+        <>
+            {loading === true ? (
+                <Loading />
+            ) : (
+                <div className={cx('container-slide')}>
+                    <Slider ref={(c) => setSlider(c)} {...settings}>
+                        {products.map((item) => {
+                            return (
+                                <div key={item.id}>
+                                    <ProductItem {...item} link={'/product-detail/' + item.id} />
+                                </div>
+                            );
+                        })}
+                    </Slider>
+                    <div className={cx('slider-directional')}>
+                        <button className={cx('slider-back')} onClick={previous}></button>
+                        <button className={cx('slider-next')} onClick={next}></button>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 export default SliderProducts;
