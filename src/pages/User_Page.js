@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 
 function UserPage() {
     const navigate = useNavigate();
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem('jwt');   
 
     useEffect(() => {
         let check = localStorage.getItem('jwt');
@@ -26,6 +26,9 @@ function UserPage() {
 
         if (res && res.success === true && token) {
             navigate('/account/login');
+            localStorage.removeItem('jwt');
+            localStorage.removeItem('login');
+            
             toast.success('Logout success', {
                 transition: Flip,
                 autoClose: 2000,
@@ -40,7 +43,7 @@ function UserPage() {
 
     return (
         <div>
-            <Header title={'Profile'}/>
+            <Header title={'Profile'} />
             <Profile />
 
             <div>

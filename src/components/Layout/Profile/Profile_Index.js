@@ -13,7 +13,7 @@ import styles from './Profile.module.scss';
 
 const cx = classNames.bind(styles);
 
-const ProfileIndex = ({ children }) => {
+const ProfileIndex = () => {
     const [activeTab, setActiveTab] = useState(0);
     
 

@@ -14,7 +14,6 @@ const loginUser = async (email, password) => {
 
     try {
         const response = await axios.post(loginUrl, loginData, { headers });
-        localStorage.setItem('jwt', response.access_token);
 
         return {
             success: true,
@@ -29,7 +28,6 @@ const loginUser = async (email, password) => {
 
 const logoutUser = async () => {
     const logoutUrl = '/api/auth/logout';
-    localStorage.removeItem('jwt');
 
     const headers = {
         'Content-Type': 'application/json',
