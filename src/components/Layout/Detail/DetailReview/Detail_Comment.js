@@ -7,11 +7,11 @@ import { Star, StarCheck } from '@/icons';
 
 const cx = classNames.bind(styles);
 
-const DetailComment = ({text, star}) => {
+const DetailComment = ({ content, star, userName }) => {
     return (
         <div className={cx('detail-comment-container')}>
             <div className={cx('detail-comment-wrapper')}>
-                <span className={cx('detail-comment-level')}>Cực kì hài lòng</span>
+                <p className={cx('detail-comment-level')}>{userName}</p>
                 <div className={cx('detail-comment-star')}>
                     {Array.from({ length: 5 }).map((_, index) =>
                         index < star ? (
@@ -22,7 +22,7 @@ const DetailComment = ({text, star}) => {
                     )}
                 </div>
             </div>
-            <p className={cx('detail-comment-text')}>{text}</p>
+            <p className={cx('detail-comment-text')}>{content}</p>
         </div>
     );
 };
