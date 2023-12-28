@@ -140,6 +140,11 @@
         box-shadow: none;
         border-color: transparent;
     }
+    &.active {
+        background-color: var(--second-color);
+        box-shadow: none;
+        border-color: transparent;
+    }
 }
 
 //CSS Detail Description
@@ -233,15 +238,14 @@
             font-weight: 600;
         }
 
-        .detail-comment-star{
+        .detail-comment-star {
             display: flex;
             align-items: center;
         }
     }
 
-    .detail-comment-text{
+    .detail-comment-text {
         font-size: 1.8rem;
         margin-bottom: 20px;
     }
 }
-

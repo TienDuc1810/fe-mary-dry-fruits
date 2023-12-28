@@ -11,9 +11,7 @@ const DetailComment = ({ content, star }) => {
     return (
         <div className={cx('detail-comment')}>
             <div className={cx('comment')}>
-                <div className={cx('comment-name')}>
-                    HeoloveNinh
-                </div>
+                <div className={cx('comment-name')}>HeoloveNinh</div>
                 <div className={cx('comment-star')}>
                     <StarYellow />
                     <StarYellow />

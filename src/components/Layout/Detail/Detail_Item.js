@@ -15,11 +15,13 @@ const cx = classNames.bind(styles);
 const DetailItem = () => {
     const id = useParams();
 
-    const { addCartItem } = useShoppingContext();
+    const { addCartItem, setCartQuantity } = useShoppingContext();
     const [zoneDetails, setZoneDetails] = useState(1);
     const [quantity, setQuantity] = useState(1);
     const [item, setItem] = useState([]);
     const [activeTab, setActiveTab] = useState(0);
+    const [checkPermision, setCheckPermision] = useState(false);
+    const [textNotifi, setTextNotifi] = useState('');
 
     const handleCheckActive = (index) => {
         setActiveTab(index);
@@ -29,24 +31,45 @@ const DetailItem = () => {
     const handleSelectWeight = (e) => {
         setItem({ ...item, weight: parseInt(e.target.value) });
     };
+    const handleCheckPermission = async (id) => {
+        try {
+            let res = await axios.post('/api/review/check', { product_id: id });
+            let statusCode = parseInt(res.status_code);
+            if (statusCode == 901 || statusCode == 902 || statusCode == 903 || statusCode == 904) {
+                setTextNotifi(res.message);
+                setCheckPermision(false);
+                return;
+            }
+            setCheckPermision(true);
+        } catch (error) {
+            console.error('Comment error:', error);
+        }
+    };
 
     const fetchData = async () => {
         try {
             const res = await axios.post('api/product/product_details', { product_id: id });
-            setItem({ ...res.data[0], weight: 250 });
+            if (res) {
+                let id = res.data[0].id;
+                setItem({ ...res.data[0], weight: 250 });
+                handleCheckPermission(id);
+            }
         } catch (error) {
-            console.log('error', error);
+            console.error(error);
         }
     };
 
     useEffect(() => {
         fetchData();
+        setZoneDetails(1);
+        setActiveTab(0);
         window.scrollTo(0, 0);
+        return;
     }, [id]);
 
     const addCartItemWithQuantity = () => {
-        const itemWithQuantity = { ...item, addQuantity: quantity };
-        console.log(itemWithQuantity);
+        setCartQuantity(quantity);
+        const itemWithQuantity = { ...item, cartQuantity: quantity };
         addCartItem(itemWithQuantity);
     };
 
@@ -81,7 +104,7 @@ const DetailItem = () => {
                                 ? item.weight_tags.map((element) => (
                                       <button
                                           key={element.id}
-                                          className={cx('detail-info-btn')}
+                                          className={cx('detail-info-btn', { active: item.weight === element.mass })}
                                           onClick={(e) => handleSelectWeight(e)}
                                           value={element.mass}
                                       >
@@ -143,24 +166,30 @@ const DetailItem = () => {
                     {zoneDetails === 2 ? <div dangerouslySetInnerHTML={{ __html: item.nutrition_detail }} /> : ''}
                     {zoneDetails === 3 ? (
                         <div className={cx('detail-evaluate')}>
-
                             <DetailReview />
-                            
-                                
 
                             <div className={cx('detail-form')}>
                                 {item.reviews.length !== 0 ? (
                                     item.reviews.map((element, index) => {
                                         return (
-                                            <DetailComment content={element.content} star={element.star} key={index} />
+                                            <DetailComment
+                                                content={element.content}
+                                                star={element.star}
+                                                key={index}
+                                                userName={element.user.full_name}
+                                            />
                                         );
                                     })
                                 ) : (
                                     <h2 className={cx('title-no-coment')}>This product has no comments yet</h2>
                                 )}
 
-                                <CommentProduct reload={fetchData} />
-
+                                <CommentProduct
+                                    id={item.id}
+                                    permission={checkPermision}
+                                    text={textNotifi}
+                                    reload={fetchData}
+                                />
                             </div>
                         </div>
                     ) : (
