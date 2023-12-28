@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { loginUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
