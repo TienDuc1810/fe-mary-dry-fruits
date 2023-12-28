@@ -68,12 +68,8 @@ const DetailItem = () => {
     }, [id]);
 
     const addCartItemWithQuantity = () => {
-<<<<<<< HEAD
-        const itemWithQuantity = { ...item, addQuantity: quantity };
-=======
         setCartQuantity(quantity);
         const itemWithQuantity = { ...item, cartQuantity: quantity };
->>>>>>> c8383f361712d072d80db57c77f29332a360491c
         addCartItem(itemWithQuantity);
     };
 
@@ -184,16 +180,12 @@ const DetailItem = () => {
                                     <h2 className={cx('title-no-coment')}>This product has no comments yet</h2>
                                 )}
 
-<<<<<<< HEAD
-                                <CommentProduct reload={fetchData} />
-=======
                                 <CommentProduct
                                     id={item.id}
                                     permission={checkPermision}
                                     text={textNotifi}
                                     reload={fetchData}
                                 />
->>>>>>> c8383f361712d072d80db57c77f29332a360491c
                             </div>
                         </div>
                     ) : (
