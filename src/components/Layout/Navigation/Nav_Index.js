@@ -16,17 +16,16 @@ const cx = classNames.bind(styles);
 function NavBarIndex() {
     const [show, setShow] = useState(false);
     const [data, getData] = useState('');
-    const { cartQuantity, remove, showPoper} = useShoppingContext();
+    const { cartQuantity, remove, showPoper } = useShoppingContext();
 
     const navigate = useNavigate();
-    const check = localStorage.getItem('login')
+    const check = localStorage.getItem('login');
 
     useEffect(() => {
-        
         const fetchData = async () => {
             let res = await dataUser();
             getData(res.response);
-            console.log(res.response)
+            console.log(res.response);
         };
         fetchData();
     }, [check]);
@@ -70,13 +69,11 @@ function NavBarIndex() {
                     </ul>
                     <ul className={cx('nav-list-right')}>
                         <li className={cx('nav-item-right')}>
-                            <Link to="/" className={cx('nav-item-link')}>
-                                <label htmlFor="checkbox1">
-                                    <input type="text" className={cx('nav-item-search')} placeholder="Search" />
-                                    <div className={cx('outner')}>
-                                        <Search className={cx('nav-item-icon')} />
-                                    </div>
-                                </label>
+                            <Link to="/#" className={cx('nav-item-link')}>
+                                <input type="text" className={cx('nav-item-search')} placeholder="Search" />
+                                <div className={cx('nav-item-outner-icon')}>
+                                    <Search className={cx('nav-item-icon')} />
+                                </div>
                             </Link>
                         </li>
                         <Tippy
@@ -100,7 +97,9 @@ function NavBarIndex() {
                         </Tippy>
                         <li className={cx('nav-item-right')} onClick={() => handleCheckWasLogin()}>
                             {check ? (
-                                <Link to="/account/profile" className={cx('nav-item-name')}>Wellcome: {data.full_name}</Link>
+                                <Link to="/account/profile" className={cx('nav-item-name')}>
+                                    Wellcome: {data.full_name}
+                                </Link>
                             ) : (
                                 <Link to="/account/login" className={cx('nav-item-link')}>
                                     <FontAwesomeIcon

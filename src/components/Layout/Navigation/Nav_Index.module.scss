@@ -86,13 +86,20 @@
                     border-color: var(--second-color);
                 }
                 .nav-item-search {
-                    display: none;
+                    color: var(--white-color);
                     position: relative;
                     border-radius: 15px;
                     background-color: transparent;
                     border: 2px solid var(--white-color);
+                    padding: 7px;
+                    position: relative;
+                    width: 200px;
                 }
-                .outner {
+                .nav-item-outner-icon {
+                    position: absolute;
+                    top: -3px;
+                    right: 10px;
+                    margin-left: 5px;
                     .nav-item-icon {
                         display: block;
                         color: var(--white-color);
@@ -134,4 +141,5 @@
 .add-cart {
     width: 700px;
     height: 100%;
+    
 }

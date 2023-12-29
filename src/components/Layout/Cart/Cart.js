@@ -12,33 +12,34 @@ const Cart = () => {
     const { cartItems, totalPrice, removePoper } = useShoppingContext();
     const navigate = useNavigate();
 
-    const handleCheckLogin = () =>{
+    const handleCheckLogin = () => {
         let check = localStorage.getItem('jwt');
-        if(!check){
+        if (!check) {
             toast.error('You need login to checkout this cart!', {
                 transition: Flip,
                 autoClose: 2000,
             });
-            navigate('/account/login')
-        }else{
-            navigate('/cart')
+            navigate('/account/login');
+        } else {
+            navigate('/cart');
         }
-        removePoper()
-    }
+        removePoper();
+    };
 
     return (
-        <div className={cx('cart-wrapper')}>
-
-            {cartItems.map((item, index) => {
-                return (
-                    <div key={index}>
-                        <CartItem {...item} />
-                    </div>
-                );
-            })}
+        <div className={cx('cart-container')}>
+            <div className={cx('cart-wrapper')}>
+                {cartItems.map((item, index) => {
+                    return (
+                        <div key={index}>
+                            <CartItem {...item} />
+                        </div>
+                    );
+                })}
+            </div>
             <div className={cx('cart-checkout')}>
                 <span className={cx('cart-total')}>Totol Price: {totalPrice}$</span>
-                <span onClick={()=>handleCheckLogin()}>
+                <span onClick={() => handleCheckLogin()}>
                     <Button text={'Checkout'} blackText link={'/cart'} />
                 </span>
             </div>
