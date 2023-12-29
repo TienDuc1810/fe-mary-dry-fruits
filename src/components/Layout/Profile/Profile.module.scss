@@ -85,9 +85,9 @@
                     align-items: center;
                     justify-content: center;
                     position: relative;
-                    &::before{
+                    &::before {
                         position: absolute;
-                        content: "";
+                        content: '';
                         width: 30px;
                         height: 30px;
                         border-radius: 50%;
@@ -97,7 +97,7 @@
                         right: 8px;
                     }
 
-                    .profile-avatar-edit{
+                    .profile-avatar-edit {
                         position: absolute;
                         bottom: 16px;
                         right: 15px;
@@ -108,7 +108,6 @@
                         width: 100%;
                         height: 100%;
                         border-radius: 50%;
-                        
                     }
                 }
             }
@@ -136,95 +135,32 @@
                             border: 1px solid var(--primary-color);
                         }
                     }
-
-                    .profile-detail-select {
-                        width: 100%;
-                        display: flex;
-                        gap: 20px;
-                        margin: 10px 0;
-
-                        .profile-detail-select-item {
-                            width: 100%;
-                            border: none;
-                            border: 1px solid var(--border-color);
-                            appearance: none;
-                            -webkit-appearance: none;
-                            -moz-appearance: none;
-                            border-radius: 3px;
-                            padding: 10px;
-                            font-size: 1.6rem;
-                            outline: none;
-
-                            &:focus {
-                                border: 1px solid var(--primary-color);
-                            }
-                        }
-                        .profile-detail-select-item option {
-                            padding: 10px;
-                            font-size: 1.6rem;
-                        }
-                    }
                 }
             }
 
-            .profile-detail-outner-select {
+            .profile-detail-level {
                 display: flex;
-                flex-direction: column;
+                justify-content: flex-end;
                 width: 100%;
-                margin: 20px 0;
 
-                .profile-detail-select {
-                    width: 100%;
+                .profile-detail-outner-level {
+                    width: 72%;
                     display: flex;
-                    gap: 20px;
-                    margin: 10px 0;
+                    gap: 10px;
+                    flex-direction: column;
 
-                    .profile-detail-select-item {
+                    .profile-detail-input {
                         width: 100%;
+                        height: 40px;
+                        border-radius: 3px;
                         border: none;
                         border: 1px solid var(--border-color);
-                        appearance: none;
-                        -webkit-appearance: none;
-                        -moz-appearance: none;
-                        border-radius: 3px;
                         padding: 10px;
                         font-size: 1.6rem;
-                        outline: none;
-
                         &:focus {
                             border: 1px solid var(--primary-color);
+                            outline: none;
                         }
-                    }
-                    .profile-detail-select-item option {
-                        padding: 10px;
-                        font-size: 1.6rem;
-                    }
-                }
-            }
-
-            .profile-detail-outner-radio {
-                display: flex;
-                flex-direction: column;
-                width: 50%;
-                margin: 10px 0;
-
-                .profile-detail-option {
-                    width: 100%;
-                    height: 50px;
-                    display: flex;
-                    align-items: center;
-
-                    .profile-detail-radio {
-                        width: 17px;
-                        height: 17px;
-                        border-radius: 3px;
-                        margin-right: 10px;
-                    }
-
-                    .profile-detail-label {
-                        margin-right: 20px;
-                        font-size: 1.6rem;
-                        line-height: 1.8rem;
                     }
                 }
             }
@@ -258,14 +194,17 @@
                     align-items: center;
                     justify-content: space-between;
                     padding-left: 30px;
-                    margin-bottom: 30px;
+                    margin-bottom: 19px;
 
                     .profile-detail-item-left {
                         display: flex;
+                        align-items: center;
+                        height: 40px;
 
                         .profile-detail-icon {
                             color: var(--primary-color);
                             margin-right: 10px;
+                            line-height: 4rem;
                         }
 
                         .profile-detail-title {
@@ -275,6 +214,19 @@
 
                         .profile-detail-dots {
                             margin-right: 10px;
+                        }
+
+                        .profile-detail-change {
+                            padding: 10px;
+                            font-size: 1.6rem;
+                            width: 250px;
+                            height: 40px;
+                            border-radius: 3px;
+                            border: none;
+                            border: 1px solid var(--border-color);
+                            &:focus {
+                                border-color: var(--primary-color);
+                            }
                         }
                     }
                 }

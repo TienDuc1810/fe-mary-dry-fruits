@@ -17,9 +17,16 @@ const AccountInformation = () => {
     const [avatar, setAvatar] = useState(images.avatar);
     const [isImageError, setIsImageError] = useState(false);
     const [loading, setLoading] = useState(true);
-    // const [email, setEmail] = useState('');
-    // const [phone, setPhone] = useState('');
-    // const [address, setAddress] = useState('');
+
+    //Check status button and set new value
+    const [phone, setPhone] = useState(false);
+    const [newPhone, setNewPhone] = useState('');
+
+    const [email, setEmail] = useState(false);
+    const [newEmail, setNewEmail] = useState('');
+
+    const [address, setAddress] = useState(false);
+    const [newAddress, setNewAddress] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -50,6 +57,7 @@ const AccountInformation = () => {
         setIsImageError(true);
     };
 
+    //function edit info user
     const handleEditUser = async () => {
         await editDataUser();
     };
@@ -96,33 +104,19 @@ const AccountInformation = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={cx('profile-detail-outner-select')}>
-                                <div className={cx('profile-detail-outner-input')}>
+                            <div className={cx('profile-detail-level')}>
+                                <div className={cx('profile-detail-outner-level')}>
                                     <label htmlFor="email">Level</label>
                                     <input
-                                        id="email"
                                         type="text"
                                         className={cx('profile-detail-input')}
                                         value={data.level === 1 ? 'Admin' : 'Member'}
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </div>
 
-                            <div className={cx('profile-detail-outner-select')}>
-                                <label>Birthday</label>
-                                <div className={cx('profile-detail-select')}>
-                                    <select className={cx('profile-detail-select-item')}>
-                                        <option>Day</option>
-                                    </select>
-                                    <select className={cx('profile-detail-select-item')}>
-                                        <option>Month</option>
-                                    </select>
-                                    <select className={cx('profile-detail-select-item')}>
-                                        <option>Years</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div className={cx('profile-detail-btn')} onClick={() => handleEditUser()}>
                                 <Button text={'Save Changes'} blackText />
                             </div>
@@ -138,9 +132,19 @@ const AccountInformation = () => {
                                     />
                                     <p className={cx('profile-detail-title')}>Phone</p>
                                     <span className={cx('profile-detail-dots')}>:</span>
-                                    <span>{data.phone}</span>
+                                    {phone ? (
+                                        <input
+                                            value={newPhone}
+                                            onChange={(e) => setNewPhone(e.target.value)}
+                                            className={cx('profile-detail-change')}
+                                        />
+                                    ) : (
+                                        <span>{data.phone}</span>
+                                    )}
                                 </div>
-                                <Button text={'Update'} blackText />
+                                <span onClick={() => setPhone(!phone)}>
+                                    <Button text={'Update'} blackText />
+                                </span>
                             </div>
                             <div className={cx('profile-detail-item')}>
                                 <div className={cx('profile-detail-item-left')}>
@@ -150,9 +154,19 @@ const AccountInformation = () => {
                                     />
                                     <p className={cx('profile-detail-title')}>Email</p>
                                     <span className={cx('profile-detail-dots')}>:</span>
-                                    <span>{data.email}</span>
+                                    {email ? (
+                                        <input
+                                            value={newEmail}
+                                            onChange={(e) => setNewEmail(e.target.value)}
+                                            className={cx('profile-detail-change')}
+                                        />
+                                    ) : (
+                                        <span>{data.email}</span>
+                                    )}
                                 </div>
-                                <Button text={'Update'} blackText />
+                                <span onClick={() => setEmail(!email)}>
+                                    <Button text={'Update'} blackText />
+                                </span>
                             </div>
                             <div className={cx('profile-detail-item')}>
                                 <div className={cx('profile-detail-item-left')}>
@@ -162,9 +176,19 @@ const AccountInformation = () => {
                                     />
                                     <p className={cx('profile-detail-title')}>Address</p>
                                     <span className={cx('profile-detail-dots')}>:</span>
-                                    <span>{data.address}</span>
+                                    {address ? (
+                                        <input
+                                            value={newAddress}
+                                            onChange={(e) => setNewAddress(e.target.value)}
+                                            className={cx('profile-detail-change')}
+                                        />
+                                    ) : (
+                                        <span>{data.address}</span>
+                                    )}
                                 </div>
-                                <Button text={'Update'} blackText />
+                                <span onClick={() => setAddress(!address)}>
+                                    <Button text={'Update'} blackText />
+                                </span>
                             </div>
                             <div className={cx('profile-detail-item')}>
                                 <div className={cx('profile-detail-item-left')}>
