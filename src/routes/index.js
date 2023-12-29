@@ -1,5 +1,5 @@
-import HomePage from '@/pages/HomePage';
-import ContactPage from '@/pages/ContactPage';
+import HomePage from '@/pages/Home_Page';
+import ContactPage from '@/pages/Contact_Page';
 import SiteMapPage from '@/pages/SiteMap/SiteMapPage';
 import ProductPage from '@/pages/Product_Page';
 import LoginPage from '@/pages/Account/Login_Page';
@@ -8,7 +8,7 @@ import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
 import Nutritional from '@/pages/Nutritional ';
 import Detail from '@/components/Layout/Detail/Detail_Index';
 import UserPage from '@/pages/User_Page';
-import AboutUs from '@/pages/AboutUs';
+import AboutUs from '@/pages/About_Us';
 
 const routes = [
     { path: '/', component: HomePage },

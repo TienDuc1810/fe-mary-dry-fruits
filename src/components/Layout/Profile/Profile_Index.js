@@ -55,6 +55,7 @@ const ProfileIndex = () => {
                                 key={index}
                                 className={cx('profile-info-title', { active: activeTab === index })}
                                 onClick={() => handleCheckActive(index)}
+                                id={`tab-${index}`}
                             >
                                 <FontAwesomeIcon icon={icons[index]} className={cx('profile-icon')} />
                                 {title}
