@@ -1,0 +1,103 @@
+.profile-detail-heading {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.history-order-overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--black-color);
+    opacity: 0.6;
+}
+
+.history-order-container{
+    width: 1100px;
+    max-height: 700px;
+    background-color: var(--white-color);
+    margin: auto;
+    z-index: 10;
+    border-radius: 7px;
+    padding-bottom: 30px;
+    
+
+    .history-order-index{
+        display: flex;
+        justify-content: space-between;
+        height: 55px;
+        border-bottom: 1px solid var(--border-color);
+        padding: 20px;
+    }
+
+    .history-order-title{
+        display: flex;
+        padding: 20px;
+    }
+
+    .history-order-details{
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px 20px;
+        max-height: 284px;
+        overflow-y: auto;
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+          
+            th, td {
+              border: 1px solid #ddd;
+              padding: 8px;
+              text-align: left;
+            }
+          
+            th {
+              background-color: #f2f2f2;
+            }
+          }
+    }
+
+    .history-order-result{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        width: 40%;
+
+        .history-order-item{
+            width: 100%;
+            display: flex;
+            
+            padding: 10px;
+            margin: 10px 0 0 10px;
+            border-bottom: 1px solid var(--border-color);
+
+            .history-order-sup{
+                width: 40%;
+            }
+
+            .history-order-des{
+                width: 60%;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .history-order-btn{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 30px;
+    }
+}
+
+.history-order-heading{
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+

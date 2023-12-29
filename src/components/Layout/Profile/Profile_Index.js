@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faStore, faBell, faTag, faHeadset } from '@fortawesome/free-solid-svg-icons'; 
 import AccountInformation from './Account_Information';
-import OrderComponent from './Order_Management';
+import OrderComponent from './History_Order/Order_Management';
 import DiscountCode from './Discount_Code';
 import CustomerSupport from './Customer_Support';
 import Notification from './Notification';
