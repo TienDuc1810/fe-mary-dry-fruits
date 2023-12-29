@@ -10,6 +10,7 @@ import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import Cart from '../Cart/Cart';
 import { dataUser } from '@/service/User_Service';
+import MenuUser from '../Menu/Menu_User';
 
 const cx = classNames.bind(styles);
 
@@ -25,7 +26,6 @@ function NavBarIndex() {
         const fetchData = async () => {
             let res = await dataUser();
             getData(res.response);
-            console.log(res.response);
         };
         fetchData();
     }, [check]);
@@ -97,9 +97,22 @@ function NavBarIndex() {
                         </Tippy>
                         <li className={cx('nav-item-right')} onClick={() => handleCheckWasLogin()}>
                             {check ? (
-                                <Link to="/account/profile" className={cx('nav-item-name')}>
-                                    Wellcome: {data.full_name}
-                                </Link>
+                                <Tippy
+                                    appendTo={() => document.body}
+                                    interactive={true}
+                                    delay={[0,500]}
+                                    offset={[0, 15]}
+                                    render={(attrs) => (
+                                        <div className={cx('menu-user')} tabIndex="-1" {...attrs}>
+                                            <MenuUser/>
+                                        </div>
+                                    )}
+                                   
+                                >
+                                    <div to="/account/profile" className={cx('nav-item-name')}>
+                                        Wellcome: {data.full_name}
+                                    </div>
+                                </Tippy>
                             ) : (
                                 <Link to="/account/login" className={cx('nav-item-link')}>
                                     <FontAwesomeIcon

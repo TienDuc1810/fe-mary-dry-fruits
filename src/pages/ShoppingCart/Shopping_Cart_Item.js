@@ -17,7 +17,7 @@ function ShoppingCartItem({ ...item }) {
             </div>
             <div className={cx('cart-item-info')}>
                 <p className={cx('cart-item-name')}>{item.name}</p>
-                <p className={cx('cart-item-brand')}>Cost: {item.price}$</p>
+                <p className={cx('cart-item-brand')}>Cost: ${item.price.toFixed(2)}</p>
             </div>
             <div className={cx('cart-item-size')}>
                 <div className={cx('cart-item-weight')}>
@@ -34,7 +34,7 @@ function ShoppingCartItem({ ...item }) {
                 </button>
             </div>
             <div className={cx('cart-item-price')}>
-                <span>{(((item.price * item.weight) / 100) * item.addQuantity).toFixed(2)} $</span>
+                <span>${(((item.price * item.weight) / 100) * item.addQuantity).toFixed(2)}</span>
             </div>
             <div className={cx('cart-item-action')}>
                 <button className={cx('cart-item-btn')} onClick={() => removeCartItem(item.id, item.weight)}>

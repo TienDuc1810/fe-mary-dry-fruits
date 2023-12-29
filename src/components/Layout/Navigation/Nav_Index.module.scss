@@ -129,6 +129,9 @@
 
             .nav-item-name{
                 color: var(--white-color);
+                &:hover{
+                    color: var(--second-color);
+                }
             }
 
             .nav-item-link.active {
@@ -138,8 +141,17 @@
     }
 }
 
+//Tippy Cart 
 .add-cart {
     width: 700px;
     height: 100%;
     
+}
+
+//Tippy Menu User
+.menu-user{
+    width: 170px;
+    height: 100%;
+    background-color: var(--white-color);
+    border-radius: 7px;
 }

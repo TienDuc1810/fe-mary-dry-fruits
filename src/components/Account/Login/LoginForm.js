@@ -60,7 +60,7 @@ const LoginForm = () => {
 
                 if (res && res.success === true) {
                     navigate('/account/profile');
-                    console.log(res)
+                    
                     localStorage.setItem('jwt', res.response.access_token);
                     localStorage.setItem('login', true);
                     toast.success('Login Success', {

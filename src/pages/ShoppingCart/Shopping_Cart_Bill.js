@@ -26,15 +26,15 @@ function ShoppingCartBill() {
                 <div className={cx('cart-bill-detail')}>
                     <span>Sub Total:</span>
                     <span>
-                        <span>{total}</span>
-                        <span className={cx('cart-bill-unit')}>USD</span>
+                        <span className={cx('cart-bill-unit')}>$</span>
+                        <span>{total.toFixed(2)}</span>
                     </span>
                 </div>
                 <div className={cx('cart-bill-detail')}>
                     <span>Transport:</span>
                     <span>
                         <span>0</span>
-                        <span className={cx('cart-bill-unit')}>USD</span>
+                        <span className={cx('cart-bill-unit')}>$</span>
                     </span>
                 </div>
                 <div className={cx('cart-bill-detail')}>
@@ -47,8 +47,8 @@ function ShoppingCartBill() {
                 <div className={cx('cart-bill-detail')}>
                     <span>Total:</span>
                     <span>
-                        <span>{total.toFixed(1)}</span>
-                        <span className={cx('cart-bill-unit')}>USD</span>
+                        <span className={cx('cart-bill-unit')}>$</span>
+                        <span>{total.toFixed(2)}</span>
                     </span>
                 </div>
                 <div className={cx('cart-bill-outner-btn')} onClick={()=>handlePayBill()}>
