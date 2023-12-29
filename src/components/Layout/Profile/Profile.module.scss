@@ -66,7 +66,6 @@
         width: 100%;
         height: 100%;
         display: flex;
-        gap: 40px;
 
         .profile-detail-wrapper {
             width: 100%;
@@ -74,7 +73,7 @@
 
             .profile-detail-info {
                 display: flex;
-                width: 100%;
+                width: 90%;
                 margin-top: 10px;
 
                 .profile-detail-outner-image {
@@ -138,35 +137,28 @@
                 }
             }
 
-            .profile-detail-level {
-                display: flex;
-                justify-content: flex-end;
+            .profile-detail-outner-level {
                 width: 100%;
+                display: flex;
+                flex-direction: column;
 
-                .profile-detail-outner-level {
-                    width: 72%;
-                    display: flex;
-                    gap: 10px;
-                    flex-direction: column;
-
-                    .profile-detail-input {
-                        width: 100%;
-                        height: 40px;
-                        border-radius: 3px;
-                        border: none;
-                        border: 1px solid var(--border-color);
-                        padding: 10px;
-                        font-size: 1.6rem;
-                        &:focus {
-                            border: 1px solid var(--primary-color);
-                            outline: none;
-                        }
+                .profile-detail-input {
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 3px;
+                    border: none;
+                    border: 1px solid var(--border-color);
+                    padding: 10px;
+                    font-size: 1.6rem;
+                    &:focus {
+                        border: 1px solid var(--primary-color);
+                        outline: none;
                     }
                 }
             }
 
             .profile-detail-btn {
-                width: 100%;
+                width: 90%;
                 display: flex;
                 justify-content: end;
                 padding-top: 20px;
@@ -174,7 +166,7 @@
             }
 
             .profile-detail-main {
-                width: 100%;
+                min-width: 390px;
                 height: 100%;
                 margin-top: 50px;
                 position: relative;
@@ -182,7 +174,7 @@
                     content: '';
                     position: absolute;
                     display: block;
-                    height: 100%;
+                    min-height: 338px;
                     width: 1px;
                     top: 10px;
                     left: 10px;
@@ -195,9 +187,11 @@
                     justify-content: space-between;
                     padding-left: 30px;
                     margin-bottom: 19px;
+                    flex-wrap: wrap;
 
                     .profile-detail-item-left {
                         display: flex;
+                        
                         align-items: center;
                         height: 40px;
 
@@ -210,6 +204,7 @@
                         .profile-detail-title {
                             margin-right: 5px;
                             width: 60px;
+                            line-height: 3rem;
                         }
 
                         .profile-detail-dots {
@@ -228,6 +223,7 @@
                                 border-color: var(--primary-color);
                             }
                         }
+
                     }
                 }
 
@@ -237,7 +233,7 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 20px;
+                    gap: 10px;
                     padding: 0 30px;
 
                     .profile-detail-pass {
@@ -281,7 +277,7 @@
     display: flex;
     align-items: center;
     height: 60px;
-    background-color: #ffa18a;
+    background-color: #f6c2bf;
     border-radius: 7px;
     margin: 5px 0;
     padding: 15px;
@@ -314,7 +310,7 @@
     .profile-help-textarea {
         border: none;
         border: 1px solid var(--border-color);
-        border-radius: 3px;
+        border-radius: 7px;
         padding: 10px;
         font-size: 1.8rem;
         margin-top: 25px;

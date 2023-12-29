@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import axios from '@/service/axios';
 import classNames from 'classnames/bind';
@@ -37,7 +38,7 @@ const DetailItem = () => {
             let res = await axios.post('/api/review/check', { product_id: id });
             console.log(res)
             let statusCode = parseInt(res.status_code);
-            if (statusCode == 901 || statusCode == 902 || statusCode == 903 || statusCode == 904) {
+            if (statusCode === 901 || statusCode === 902 || statusCode === 903 || statusCode === 904) {
                 setTextNotifi(res.message);
                 setCheckPermision(false);
                 return;

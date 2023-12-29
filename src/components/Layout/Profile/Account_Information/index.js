@@ -18,12 +18,8 @@ const AccountInformation = () => {
     const [isImageError, setIsImageError] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    //Check status button and set new value
     const [phone, setPhone] = useState(false);
     const [newPhone, setNewPhone] = useState('');
-
-    const [email, setEmail] = useState(false);
-    const [newEmail, setNewEmail] = useState('');
 
     const [address, setAddress] = useState(false);
     const [newAddress, setNewAddress] = useState('');
@@ -57,7 +53,6 @@ const AccountInformation = () => {
         setIsImageError(true);
     };
 
-    //function edit info user
     const handleEditUser = async () => {
         await editDataUser();
     };
@@ -89,9 +84,9 @@ const AccountInformation = () => {
                                 <input type="file" id="avatar" hidden onChange={handleAvatarChange} />
                                 <div className={cx('profile-detail-wrap')}>
                                     <div className={cx('profile-detail-outner-input')}>
-                                        <label htmlFor="Fullname">Full Name</label>
+                                        <label htmlFor="name">Full Name</label>
                                         <input
-                                            id="Fullname"
+                                            id="name"
                                             type="text"
                                             className={cx('profile-detail-input')}
                                             value={data.full_name}
@@ -99,26 +94,34 @@ const AccountInformation = () => {
                                     </div>
 
                                     <div className={cx('profile-detail-outner-input')}>
-                                        <label htmlFor="email">Nick Name</label>
-                                        <input id="email" type="text" className={cx('profile-detail-input')} />
+                                        <label htmlFor="email">Email</label>
+                                        <input
+                                            id="email"
+                                            type="text"
+                                            className={cx('profile-detail-input')}
+                                            value={data.email}
+                                            readOnly
+                                            disabled
+                                        />
                                     </div>
-                                </div>
-                            </div>
-                            <div className={cx('profile-detail-level')}>
-                                <div className={cx('profile-detail-outner-level')}>
-                                    <label htmlFor="email">Level</label>
-                                    <input
-                                        type="text"
-                                        className={cx('profile-detail-input')}
-                                        value={data.level === 1 ? 'Admin' : 'Member'}
-                                        readOnly
-                                        disabled
-                                    />
+
+                                    <div className={cx('profile-detail-outner-input')}>
+                                        <div className={cx('profile-detail-outner-level')}>
+                                            <label>Level</label>
+                                            <input
+                                                type="text"
+                                                className={cx('profile-detail-input')}
+                                                value={data.level === 1 ? 'Admin' : 'Member'}
+                                                readOnly
+                                                disabled
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div className={cx('profile-detail-btn')} onClick={() => handleEditUser()}>
-                                <Button text={'Save Changes'} blackText />
+                                <Button text={'Save'} blackText />
                             </div>
                         </div>
                     </div>
@@ -143,35 +146,14 @@ const AccountInformation = () => {
                                     )}
                                 </div>
                                 <span onClick={() => setPhone(!phone)}>
-                                    <Button text={'Update'} blackText />
+                                    <Button text={'Update'} blackText smal />
                                 </span>
                             </div>
+
                             <div className={cx('profile-detail-item')}>
                                 <div className={cx('profile-detail-item-left')}>
                                     <FontAwesomeIcon
-                                        icon={icon({ name: 'envelope', style: 'solid' })}
-                                        className={cx('profile-detail-icon')}
-                                    />
-                                    <p className={cx('profile-detail-title')}>Email</p>
-                                    <span className={cx('profile-detail-dots')}>:</span>
-                                    {email ? (
-                                        <input
-                                            value={newEmail}
-                                            onChange={(e) => setNewEmail(e.target.value)}
-                                            className={cx('profile-detail-change')}
-                                        />
-                                    ) : (
-                                        <span>{data.email}</span>
-                                    )}
-                                </div>
-                                <span onClick={() => setEmail(!email)}>
-                                    <Button text={'Update'} blackText />
-                                </span>
-                            </div>
-                            <div className={cx('profile-detail-item')}>
-                                <div className={cx('profile-detail-item-left')}>
-                                    <FontAwesomeIcon
-                                        icon={icon({ name: 'envelope', style: 'solid' })}
+                                        icon={icon({ name: 'map', style: 'solid' })}
                                         className={cx('profile-detail-icon')}
                                     />
                                     <p className={cx('profile-detail-title')}>Address</p>
@@ -187,7 +169,7 @@ const AccountInformation = () => {
                                     )}
                                 </div>
                                 <span onClick={() => setAddress(!address)}>
-                                    <Button text={'Update'} blackText />
+                                    <Button text={'Update'} blackText smal />
                                 </span>
                             </div>
                             <div className={cx('profile-detail-item')}>
@@ -199,7 +181,7 @@ const AccountInformation = () => {
                                     <p className={cx('profile-detail-title')}>Password</p>
                                 </div>
                                 <span onClick={() => setUpdatePass(true)}>
-                                    <Button text={'Update'} blackText />
+                                    <Button text={'Update'} blackText smal />
                                 </span>
                             </div>
                             {updatePass === true ? (
@@ -213,7 +195,7 @@ const AccountInformation = () => {
                                         <input id="Fullname" type="text" className={cx('profile-detail-input')} />
                                     </div>
                                     <span onClick={() => setUpdatePass(false)}>
-                                        <Button text={'Save'} blackText />
+                                        <Button text={'Change'} blackText />
                                     </span>
                                 </div>
                             ) : null}

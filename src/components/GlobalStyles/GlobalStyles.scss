@@ -55,6 +55,16 @@ a {
     transition: opacity 0.5s ease;
 }
 
+.loading-cart-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 1;
+}
+
 .popup-container{
     position: fixed;
     top: 0;

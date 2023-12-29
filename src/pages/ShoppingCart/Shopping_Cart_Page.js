@@ -3,7 +3,6 @@ import styles from './Shopping_Cart.module.scss';
 import Header from '@/components/Layout/Header/Header_Index';
 import Button from '@/components/Button/ButtonIndex';
 import CartItem from './Shopping_Cart_Item';
-import CartInfoUser from './Shopping_Cart_Info_User';
 import ShoppingCartBill from './Shopping_Cart_Bill';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { useState } from 'react';
@@ -56,13 +55,13 @@ function ShoppingCartPage() {
                                         className={cx('truck-icon')}
                                     />
                                 </span>
-                                <span className={cx('cart-transport-text')}>Free Delivery within 1-2 weeks</span>
+                                <span className={cx('cart-transport-text')}>Free Delivery On Orders $20.00 Or More </span>
                             </div>
                         ) : null}
                     </div>
 
                     <div className={cx('cart-info-pay')}>
-                        <CartInfoUser />
+                        
                         <ShoppingCartBill />
                     </div>
                 </div>
