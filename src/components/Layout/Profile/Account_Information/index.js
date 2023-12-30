@@ -126,7 +126,6 @@ const AccountInformation = () => {
                                     className={cx('profile-detail-input')}
                                     value={data.full_name}
                                     // value={newFullName}
-                                    onChange={(e) => setNewFullName(e.target.value)}
                                 />
                             </div>
 
@@ -172,7 +171,11 @@ const AccountInformation = () => {
                                 <p className={cx('profile-detail-title')}>Name</p>
                                 <span className={cx('profile-detail-dots')}>:</span>
                                 {fullName ? (
-                                    <input className={cx('profile-detail-change')} />
+                                    <input
+                                        value={newFullName}
+                                        onChange={(e) => setNewFullName(e.target.value)}
+                                        className={cx('profile-detail-change')}
+                                    />
                                 ) : (
                                     <span>{newFullName.length > 0 ? newFullName : data.full_name}</span>
                                 )}
