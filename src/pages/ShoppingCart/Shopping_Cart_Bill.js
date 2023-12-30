@@ -9,7 +9,6 @@ import { dataUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
 import Loading from '@/components/Layout/Loading/Loading';
 
-
 const cx = classNames.bind(styles);
 
 function ShoppingCartBill() {
@@ -32,8 +31,8 @@ function ShoppingCartBill() {
 
     const data_order = {
         full_name: data.full_name,
-        address: data.address,
-        phone: data.phone,
+        address: address,
+        phone: phone,
         transaction: 100,
         subtotal: totalPrice,
         order_items: orderItems,
@@ -53,11 +52,10 @@ function ShoppingCartBill() {
                 console.log(error);
             }
         };
-    
+
         fetchData();
     }, []);
 
-    
     const handlePayBill = async (totalPrice) => {
         setLoading(true);
         const newTotal = totalPrice * 20000;
@@ -65,21 +63,27 @@ function ShoppingCartBill() {
             const res = await PayOrder(newTotal);
             if (res && res.success === true) {
                 const redirectUrl = res.response.url;
-                try{
-                    const resOrder = await Order(data_order);
-                    if (resOrder && resOrder.success === true) {
-                        setLoading(false);
+                if (cartItems.length > 0) {
+                    try {
+                        const resOrder = await Order(data_order);
+                        if (resOrder && resOrder.success === true) {
+                        }
+                    } catch (error) {
+                        console.log(error);
                     }
-                } catch(error) {
-                    console.log(error);
+                    window.location.href = redirectUrl;
+                } else{
+                    setLoading(false);
+                    toast.error('There are no products in your shopping cart', {
+                        transition: Flip,
+                        autoClose: 2000,
+                    });
                 }
-                window.location.href = redirectUrl;
             }
         } catch (error) {
             console.log(error);
         }
     };
-
 
     const handleEditInfo = () => {
         setEdit(true);
