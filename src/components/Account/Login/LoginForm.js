@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { loginUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -14,8 +15,8 @@ const cx = classNames.bind(styles);
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { setCheckLogin } = useShoppingContext();
     
-
     const [errorHeightEmail, setErrorHeightEmail] = useState(false);
     const [errorHeightPassword, setErrorHeightPassword] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
@@ -59,20 +60,40 @@ const LoginForm = () => {
                 let res = await loginUser(email, password);
 
                 if (res && res.success === true) {
-                    navigate('/account/profile');
-                    
                     localStorage.setItem('jwt', res.response.access_token);
                     localStorage.setItem('login', true);
+                    setCheckLogin(true);
+                    navigate('/');
+
                     toast.success('Login Success', {
                         transition: Flip,
                         autoClose: 2000,
                     });
+                    
+                    setInterval(async () => {
+                        localStorage.removeItem('jwt');
+                        localStorage.removeItem('login');
+                        
+                        try {
+                            const res = await loginUser(email, password);
+                            if (res && res.success === true) {
+                                localStorage.setItem('jwt', res.response.access_token);
+                                localStorage.setItem('login', true);
+                                setCheckLogin(true);
+                            } else {
+                                navigate('/account/login');
+                            }
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    }, 55 * 60 * 1000);
 
                 } else {
                     toast.error('Wrong Login Information', {
                         transition: Flip,
                         autoClose: 2000,
                     });
+                    navigate('/account/login');
                 }
             }
         }

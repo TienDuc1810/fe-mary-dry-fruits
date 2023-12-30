@@ -4,7 +4,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
-import { useEffect } from 'react';
+import { useShoppingContext } from '@/contexts/Shopping_Context';
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 
@@ -12,23 +12,17 @@ const cx = classNames.bind(styles);
 
 function MenuUser() {
     const navigate = useNavigate();
-    const token = localStorage.getItem('jwt');   
-
-    useEffect(() => {
-        let check = localStorage.getItem('jwt');
-        if (!check) {
-            navigate('/account/login');
-        }
-    }, []);
+    const { setCheckLogin } = useShoppingContext();
 
     const handleLogout = async () => {
         let res = await logoutUser();
 
-        if (res && res.success === true && token) {
-            navigate('/account/login');
+        if (res && res.success === true) {
             localStorage.removeItem('jwt');
             localStorage.removeItem('login');
-            
+            setCheckLogin(false);
+            navigate('/account/login');
+
             toast.success('Logout success', {
                 transition: Flip,
                 autoClose: 2000,
@@ -49,7 +43,10 @@ function MenuUser() {
                 </Link>
             </div>
             <div className={cx('menu-user-wrapper')}>
-                <FontAwesomeIcon icon={icon({ name: 'right-from-bracket', style: 'solid' })} className={cx('menu-user-icon-logout')} />
+                <FontAwesomeIcon
+                    icon={icon({ name: 'right-from-bracket', style: 'solid' })}
+                    className={cx('menu-user-icon-logout')}
+                />
                 <div onClick={() => handleLogout()} className={cx('menu-user-item')}>
                     Logout
                 </div>

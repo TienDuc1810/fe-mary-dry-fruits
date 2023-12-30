@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Nav_Index.module.scss';
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Search } from '@/icons';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,10 +17,7 @@ const cx = classNames.bind(styles);
 function NavBarIndex() {
     const [show, setShow] = useState(false);
     const [data, getData] = useState('');
-    const { cartQuantity, remove, showPoper } = useShoppingContext();
-
-    const navigate = useNavigate();
-    const check = localStorage.getItem('login');
+    const { cartQuantity, remove, showPoper, checkLogin } = useShoppingContext();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,14 +25,12 @@ function NavBarIndex() {
             getData(res.response);
         };
         fetchData();
-    }, [check]);
+    }, []);
 
     const handleCart = () => {
         setShow(true);
         showPoper();
     };
-
-    const handleCheckWasLogin = () => {};
 
     const handleHideCart = () => {
         setShow(false);
@@ -95,8 +90,8 @@ function NavBarIndex() {
                                 </button>
                             </li>
                         </Tippy>
-                        <li className={cx('nav-item-right')} onClick={() => handleCheckWasLogin()}>
-                            {check ? (
+                        <li className={cx('nav-item-right')}>
+                            {checkLogin ? (
                                 <Tippy
                                     appendTo={() => document.body}
                                     interactive={true}
@@ -110,7 +105,7 @@ function NavBarIndex() {
                                    
                                 >
                                     <div to="/account/profile" className={cx('nav-item-name')}>
-                                        Wellcome: {data.full_name}
+                                        Wellcome: {data && data.full_name ? data.full_name: data.email}
                                     </div>
                                 </Tippy>
                             ) : (
