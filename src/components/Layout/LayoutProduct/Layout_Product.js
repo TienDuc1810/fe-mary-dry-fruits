@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from '../LayoutProduct/Layout_Product.module.scss';
-import CategoryList from '@/components/Layout/LayoutProduct/CategoryList';
-import ProductList from '@/components/Layout/LayoutProduct/ProductList';
+import CategoryList from '@/components/Layout/LayoutProduct/Category_List';
+import ProductList from '@/components/Layout/LayoutProduct/Product_List';
 const cx = classNames.bind(styles);
 
 const LayoutProduct = () => {

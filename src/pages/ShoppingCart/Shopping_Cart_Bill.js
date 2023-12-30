@@ -22,6 +22,22 @@ function ShoppingCartBill() {
     const [address, setAddress] = useState();
     const [phone, setPhone] = useState('');
 
+    const orderItems = cartItems.map((item) => ({
+        product_id: item.id,
+        price: item.price,
+        weight: item.weight,
+        quantity: item.addQuantity,
+    }));
+
+    const data_order = {
+        full_name: data.full_name,
+        address: address,
+        phone: phone,
+        transaction: 100,
+        subtotal: totalPrice,
+        order_items: orderItems,
+    };
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -36,17 +52,33 @@ function ShoppingCartBill() {
                 console.log(error);
             }
         };
+
         fetchData();
     }, []);
 
     const handlePayBill = async (totalPrice) => {
+        setLoading(true);
         const newTotal = totalPrice * 20000;
         try {
             const res = await PayOrder(newTotal);
             if (res && res.success === true) {
-                const redirectUrl = res.response.url;  
-                console.log(redirectUrl);
-                window.location.href = redirectUrl; 
+                const redirectUrl = res.response.url;
+                if (cartItems.length > 0) {
+                    try {
+                        const resOrder = await Order(data_order);
+                        if (resOrder && resOrder.success === true) {
+                        }
+                    } catch (error) {
+                        console.log(error);
+                    }
+                    window.location.href = redirectUrl;
+                } else{
+                    setLoading(false);
+                    toast.error('There are no products in your shopping cart', {
+                        transition: Flip,
+                        autoClose: 2000,
+                    });
+                }
             }
         } catch (error) {
             console.log(error);
