@@ -9,6 +9,7 @@ import { dataUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
 import Loading from '@/components/Layout/Loading/Loading';
 
+
 const cx = classNames.bind(styles);
 
 function ShoppingCartBill() {
@@ -21,6 +22,22 @@ function ShoppingCartBill() {
 
     const [address, setAddress] = useState();
     const [phone, setPhone] = useState('');
+
+    const orderItems = cartItems.map((item) => ({
+        product_id: item.id,
+        price: item.price,
+        weight: item.weight,
+        quantity: item.addQuantity,
+    }));
+
+    const data_order = {
+        full_name: data.full_name,
+        address: data.address,
+        phone: data.phone,
+        transaction: 100,
+        subtotal: totalPrice,
+        order_items: orderItems,
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,22 +53,33 @@ function ShoppingCartBill() {
                 console.log(error);
             }
         };
+    
         fetchData();
     }, []);
 
+    
     const handlePayBill = async (totalPrice) => {
+        setLoading(true);
         const newTotal = totalPrice * 20000;
         try {
             const res = await PayOrder(newTotal);
             if (res && res.success === true) {
-                const redirectUrl = res.response.url;  
-                console.log(redirectUrl);
-                window.location.href = redirectUrl; 
+                const redirectUrl = res.response.url;
+                try{
+                    const resOrder = await Order(data_order);
+                    if (resOrder && resOrder.success === true) {
+                        setLoading(false);
+                    }
+                } catch(error) {
+                    console.log(error);
+                }
+                window.location.href = redirectUrl;
             }
         } catch (error) {
             console.log(error);
         }
     };
+
 
     const handleEditInfo = () => {
         setEdit(true);
