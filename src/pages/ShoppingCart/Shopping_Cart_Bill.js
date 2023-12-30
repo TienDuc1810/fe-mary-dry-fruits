@@ -4,7 +4,7 @@ import styles from './Shopping_Cart.module.scss';
 import images from '@/assets';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { useState, useEffect } from 'react';
-import { Order } from '@/service/Order_Service';
+import { Order, PayOrder } from '@/service/Order_Service';
 import { dataUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
 import Loading from '@/components/Layout/Loading/Loading';
@@ -39,47 +39,17 @@ function ShoppingCartBill() {
         fetchData();
     }, []);
 
-    const orderItems = cartItems.map((item) => ({
-        product_id: item.id,
-        price: item.price,
-        weight: item.weight,
-        quantity: item.addQuantity,
-    }));
-
-    const data_order = {
-        full_name: data.full_name,
-        address: address,
-        phone: phone,
-        transaction: 100,
-        subtotal: totalPrice,
-        order_items: orderItems,
-    };
-
-    const handlePayBill = async () => {
-        if (orderItems.length > 0) {
-            setLoading(true);
-            try {
-                const res = await Order(data_order);
-                if (res && res.success === true) {
-                    clearCart();
-                    setLoading(false);
-                    toast.success('You Have Placed Your Order Successfully', {
-                        transition: Flip,
-                        autoClose: 2000,
-                    });
-                }
-            } catch (error) {
-                console.error(error);
-                toast.error('Order Failed', {
-                    transition: Flip,
-                    autoClose: 2000,
-                });
+    const handlePayBill = async (totalPrice) => {
+        const newTotal = totalPrice * 20000;
+        try {
+            const res = await PayOrder(newTotal);
+            if (res && res.success === true) {
+                const redirectUrl = res.response.url;  
+                console.log(redirectUrl);
+                window.location.href = redirectUrl; 
             }
-        } else {
-            toast.error('No products in your cart', {
-                transition: Flip,
-                autoClose: 2000,
-            });
+        } catch (error) {
+            console.log(error);
         }
     };
 
@@ -194,7 +164,7 @@ function ShoppingCartBill() {
                             <span>{totalPrice.toFixed(2)}</span>
                         </span>
                     </div>
-                    <div className={cx('cart-bill-outner-btn')} onClick={() => handlePayBill()}>
+                    <div className={cx('cart-bill-outner-btn')} onClick={() => handlePayBill(totalPrice)}>
                         <button className={cx('cart-bill-btn')}>Pay</button>
                     </div>
                 </div>

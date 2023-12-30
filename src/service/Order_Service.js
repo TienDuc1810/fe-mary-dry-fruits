@@ -21,4 +21,25 @@ const Order = async (data_order) => {
     }
 };
 
-export { Order };
+const PayOrder = async (data) => {
+    const orderPayOrderUrl = `/api/vnpay/vnpay_payment?subtotal=${data}&bank_code=NCB`;
+
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+
+    try {
+        const response = await axios.post(orderPayOrderUrl, { headers });
+
+        return {
+            success: true,
+            response: response,
+        };
+    } catch (error) {
+        return {
+            success: false,
+        };
+    }
+};
+
+export { Order, PayOrder };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import classNames from 'classnames/bind';
-import styles from './ProductList.module.scss';
+import styles from '@/components/Layout/LayoutProduct/Layout_Product.module.scss';
 import ProductItem from '@/pages/Product/Product_Item';
 import axios from '@/service/axios';
 

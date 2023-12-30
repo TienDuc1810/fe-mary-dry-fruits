@@ -1,12 +1,10 @@
 import classNames from 'classnames/bind';
-
 import axios from '@/service/axios';
-import CategoryTitle from './CategoryTitle/CategoryTitle';
-import styles from './CategoryList.module.scss';
-import CategoryFilter from './CategoryFilter/CategoryFilter';
-import SliderProducts from '../../Main/BestProducts/Slider_Products';
+import styles from '@/components/Layout/LayoutProduct/Layout_Product.module.scss';
+import SliderProducts from '../Main/BestProducts/Slider_Products';
 import { useEffect, useState } from 'react';
-import Loading from '../../Loading/Loading';
+import Loading from '../Loading/Loading';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -42,29 +40,39 @@ const CategoryList = ({ getIdCategory }) => {
                 <Loading />
             ) : (
                 <div className={cx('category-list')}>
-                    <CategoryTitle>Category</CategoryTitle>
+                    <div className={cx('category-title')}>
+                        <h5>Category</h5>
+                    </div>
                     <div className={cx('category-filter-panel')}>
                         <ul className={cx('filter')}>
-                            <CategoryFilter name={'All'} id={0} handleIdCategory={handleIdCategory} />
+                            <li className={cx('filter-practice-nodrop')}>
+                                <Link to={'#'} className={cx('filter-link')} onClick={() => handleIdCategory(0)}>
+                                    All
+                                </Link>
+                            </li>
                             {category.map((item, index) => {
                                 return (
-                                    <CategoryFilter
-                                        name={item.name}
-                                        id={item.id}
-                                        handleIdCategory={handleIdCategory}
-                                        key={index}
-                                    />
+                                    <li className={cx('filter-practice-nodrop')} key={index}>
+                                        <Link
+                                            to={'#'}
+                                            className={cx('filter-link')}
+                                            onClick={() => handleIdCategory(item.id)}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    </li>
                                 );
                             })}
                         </ul>
                     </div>
-                    <CategoryTitle>Best Sellers</CategoryTitle>
+                    <div className={cx('category-title')}>
+                        <h5>Best Sellers</h5>
+                    </div>
                     <div className={cx('silder')}>
                         <SliderProducts slidesToShow={1} />
                     </div>
                 </div>
             )}
-            ;
         </>
     );
 };

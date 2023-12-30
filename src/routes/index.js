@@ -7,7 +7,7 @@ import RegisterPage from '@/pages/Account/Register_Page';
 import ShoppingCartPage from '@/pages/ShoppingCart/Shopping_Cart_Page';
 import Nutritional from '@/pages/Nutritional ';
 import Detail from '@/components/Layout/Detail/Detail_Index';
-import UserPage from '@/pages/User_Page';
+import ProfilePage from '@/pages/Profile_Page';
 import AboutUs from '@/pages/About_Us';
 
 const routes = [
@@ -20,7 +20,7 @@ const routes = [
     { path: '/account/login', component: LoginPage },
     { path: '/account/register', component: RegisterPage },
     { path: '/product/nutritional', component: Nutritional },
-    { path: '/account/profile', component: UserPage },
+    { path: '/account/profile', component: ProfilePage },
     { path: '/cart', component: ShoppingCartPage },
 ];
 
