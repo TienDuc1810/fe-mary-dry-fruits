@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Nav_Index.module.scss';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search } from '@/icons';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,22 +9,56 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import Cart from '../Cart/Cart';
-import { dataUser } from '@/service/User_Service';
 import MenuUser from '../Menu/Menu_User';
+import { loginUser } from '@/service/User_Service';
 
 const cx = classNames.bind(styles);
 
 function NavBarIndex() {
     const [show, setShow] = useState(false);
-    const [data, getData] = useState('');
-    const { cartQuantity, remove, showPoper, checkLogin } = useShoppingContext();
+    const { cartQuantity, remove, showPoper, checkLogin, dataName, setCheckLogin } =
+        useShoppingContext();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchData = async () => {
-            let res = await dataUser();
-            getData(res.response);
-        };
-        fetchData();
+        const check = localStorage.getItem('login');
+        const check1 = localStorage.getItem('email');
+        const check2 = localStorage.getItem('pass');
+
+        if (check === 'true') {
+            let loginAgain = async () => {
+                const res = await loginUser(check1, check2);
+
+                if (res && res.success === true) {
+                    localStorage.setItem('jwt', res.response.access_token);
+                    localStorage.setItem('login', true);
+                    setCheckLogin(true);
+                    navigate('/');
+
+                    setInterval(async () => {
+                        localStorage.removeItem('jwt');
+                        localStorage.removeItem('login');
+
+                        try {
+                            const res = await loginUser(check1, check2);
+                            if (res && res.success === true) {
+                                localStorage.setItem('jwt', res.response.access_token);
+                                localStorage.setItem('login', true);
+                                setCheckLogin(true);
+                            } else {
+                                navigate('/account/login');
+                            }
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    }, 55 * 10 * 1000);
+                } else {
+                    navigate('/account/login');
+                }
+            };
+            loginAgain();
+        }
     }, []);
 
     const handleCart = () => {
@@ -95,17 +129,16 @@ function NavBarIndex() {
                                 <Tippy
                                     appendTo={() => document.body}
                                     interactive={true}
-                                    delay={[0,500]}
+                                    delay={[0, 500]}
                                     offset={[0, 15]}
                                     render={(attrs) => (
                                         <div className={cx('menu-user')} tabIndex="-1" {...attrs}>
-                                            <MenuUser/>
+                                            <MenuUser />
                                         </div>
                                     )}
-                                   
                                 >
                                     <div to="/account/profile" className={cx('nav-item-name')}>
-                                        Wellcome: {data && data.full_name ? data.full_name: data.email}
+                                        Wellcome: {dataName ? dataName : 'User'}
                                     </div>
                                 </Tippy>
                             ) : (

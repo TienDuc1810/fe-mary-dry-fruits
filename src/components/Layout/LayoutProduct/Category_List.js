@@ -30,7 +30,11 @@ const CategoryList = ({ getIdCategory }) => {
     }, []);
 
     const handleIdCategory = (msd) => {
+        setLoading(true);
         getIdCategory(msd);
+        setTimeout(()=>{
+            setLoading(false);
+        }, 100)
     };
 
     return (
@@ -46,17 +50,23 @@ const CategoryList = ({ getIdCategory }) => {
                         <div className={cx('filter-link')} onClick={() => handleIdCategory(0)}>
                             All
                         </div>
-                        {category.map((item, index) => {
-                            return (
-                                <div
-                                    className={cx('filter-link')}
-                                    key={index}
-                                    onClick={() => handleIdCategory(item.id)}
-                                >
-                                    {item.name}
-                                </div>
-                            );
-                        })}
+                        {loading === true ? (
+                            <Loading />
+                        ) : (
+                            <>
+                                {category.map((item, index) => {
+                                    return (
+                                        <div
+                                            className={cx('filter-link')}
+                                            key={index}
+                                            onClick={() => handleIdCategory(item.id)}
+                                        >
+                                            {item.name}
+                                        </div>
+                                    );
+                                })}
+                            </>
+                        )}
                     </div>
                     <div className={cx('category-title')}>
                         <h5 className={cx('category-heading')}>Best Sellers</h5>

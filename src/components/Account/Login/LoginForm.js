@@ -6,6 +6,7 @@ import { loginUser } from '@/service/User_Service';
 import { toast, Flip } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useShoppingContext } from '@/contexts/Shopping_Context';
+import { dataUser } from '@/service/User_Service';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -15,8 +16,8 @@ const cx = classNames.bind(styles);
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { setCheckLogin } = useShoppingContext();
-    
+    const { setCheckLogin, setDataName  } = useShoppingContext();
+
     const [errorHeightEmail, setErrorHeightEmail] = useState(false);
     const [errorHeightPassword, setErrorHeightPassword] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
@@ -62,18 +63,23 @@ const LoginForm = () => {
                 if (res && res.success === true) {
                     localStorage.setItem('jwt', res.response.access_token);
                     localStorage.setItem('login', true);
+                    localStorage.setItem('email', email);
+                    localStorage.setItem('pass', password);
                     setCheckLogin(true);
+                    
                     navigate('/');
+                    let data = await dataUser()
+                    setDataName(data.response.full_name)
 
                     toast.success('Login Success', {
                         transition: Flip,
                         autoClose: 2000,
                     });
-                    
+
                     setInterval(async () => {
                         localStorage.removeItem('jwt');
                         localStorage.removeItem('login');
-                        
+
                         try {
                             const res = await loginUser(email, password);
                             if (res && res.success === true) {
@@ -86,8 +92,7 @@ const LoginForm = () => {
                         } catch (error) {
                             console.log(error);
                         }
-                    }, 55 * 60 * 1000);
-
+                    }, 55 * 10 * 1000);
                 } else {
                     toast.error('Wrong Login Information', {
                         transition: Flip,
@@ -129,7 +134,7 @@ const LoginForm = () => {
                                 />
                             </span>
                             <input
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e)=>setEmail(e.target.value)}
                                 value={email}
                                 type="text"
                                 placeholder="Email"
@@ -149,7 +154,7 @@ const LoginForm = () => {
                                 />
                             </span>
                             <input
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e)=>setPassword(e.target.value)}
                                 value={password}
                                 type="password"
                                 placeholder="Password"

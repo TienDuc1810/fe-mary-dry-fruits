@@ -69,6 +69,7 @@ function ShoppingCartBill() {
                         const resOrder = await Order(data_order);
                         console.log(resOrder);
                         if (resOrder && resOrder.success === true) {
+                            clearCart();
                         }
                     } catch (error) {
                         console.log(error);

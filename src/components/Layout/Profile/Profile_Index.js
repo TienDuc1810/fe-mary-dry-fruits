@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faStore, faBell, faTag, faHeadset } from '@fortawesome/free-solid-svg-icons'; 
+import { faUser, faStore, faBell, faTag, faHeadset } from '@fortawesome/free-solid-svg-icons';
 import AccountInformation from './Account_Information';
 import OrderComponent from './History_Order/Order_Management';
 import DiscountCode from './Discount_Code';
@@ -10,12 +11,18 @@ import Notification from './Notification';
 import classNames from 'classnames/bind';
 import styles from './Profile.module.scss';
 
-
 const cx = classNames.bind(styles);
 
 const ProfileIndex = () => {
     const [activeTab, setActiveTab] = useState(0);
-    
+    const navigate = useNavigate();
+    const check = localStorage.getItem('login');
+
+    useEffect(() => {
+        if (!check) {
+            navigate('/account/login');
+        }
+    }, []);
 
     const handleCheckActive = (index) => {
         setActiveTab(index);
@@ -25,20 +32,20 @@ const ProfileIndex = () => {
 
     const renderComponent = () => {
         switch (activeTab) {
-          case 0:
-            return <AccountInformation />;
-          case 1:
-            return <OrderComponent/>;
-          case 2:
-            return <Notification/>;
-          case 3:
-            return <DiscountCode/>;
-          case 4:
-            return <CustomerSupport/>;
-          default:
-            return null; 
+            case 0:
+                return <AccountInformation />;
+            case 1:
+                return <OrderComponent />;
+            case 2:
+                return <Notification />;
+            case 3:
+                return <DiscountCode />;
+            case 4:
+                return <CustomerSupport />;
+            default:
+                return null;
         }
-      };
+    };
     return (
         <div className={cx('profile-container')}>
             <div className={cx('profile-wrapper')}>

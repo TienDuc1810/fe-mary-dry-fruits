@@ -113,6 +113,7 @@ export const ShoppingContextProvider = ({ children }) => {
 
     const check = localStorage.getItem('login')
     const [checkLogin, setCheckLogin] = useState(check);
+    const [dataName, setDataName] = useState('');
 
     return (
         <ShoppingContext.Provider
@@ -123,6 +124,8 @@ export const ShoppingContextProvider = ({ children }) => {
                 remove,
                 addQuantity,
                 checkLogin,
+                dataName,
+                setDataName,
                 setCheckLogin,
                 setCartQuantity,
                 increaseQuantity,
