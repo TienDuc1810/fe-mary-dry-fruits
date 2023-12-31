@@ -36,6 +36,7 @@ function ShoppingCartBill() {
         transaction: 100,
         subtotal: totalPrice,
         order_items: orderItems,
+        total: totalPrice,
     };
 
     useEffect(() => {
@@ -66,13 +67,14 @@ function ShoppingCartBill() {
                 if (cartItems.length > 0) {
                     try {
                         const resOrder = await Order(data_order);
+                        console.log(resOrder);
                         if (resOrder && resOrder.success === true) {
                         }
                     } catch (error) {
                         console.log(error);
                     }
                     window.location.href = redirectUrl;
-                } else{
+                } else {
                     setLoading(false);
                     toast.error('There are no products in your shopping cart', {
                         transition: Flip,

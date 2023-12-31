@@ -28,10 +28,12 @@ const ProductList = ({ categoryId }) => {
         try {
             let page = categoryId !== oldCategoryID ? 1 : currentPage;
             const res = await axios.post('api/product/allproduct', { category: categoryId, page });
-            const lastPage = res.data.last_page;
-            const data = res.data.data || res.data;
-            setProduct(data);
-            setLastPage(Array.from({ length: lastPage }, (_, index) => index + 1));
+            if (res && res.data) {
+                const data = res.data.data || res.data;
+                const lastPage = res.data.last_page;
+                setProduct(data);
+                setLastPage(Array.from({ length: lastPage }, (_, index) => index + 1));
+            }
         } catch (error) {
             console.log('error', error);
         }

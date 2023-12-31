@@ -35,7 +35,7 @@ const AccountInformation = () => {
         const fetchData = async () => {
             try {
                 let res = await dataUser();
-                if (res) {
+                if (res && res.response) {
                     let phone = res.response.phone || '';
                     let address = res.response.address || '';
                     let fullName = res.response.full_name || '';
@@ -43,6 +43,8 @@ const AccountInformation = () => {
                     setNewFullName(fullName);
                     setNewPhone(phone);
                     setNewAddress(address);
+                } else {
+                    getData([]);
                 }
             } catch (error) {
                 console.log('error', error);

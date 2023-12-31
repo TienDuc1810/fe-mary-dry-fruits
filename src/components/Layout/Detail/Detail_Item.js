@@ -36,7 +36,6 @@ const DetailItem = () => {
     const handleCheckPermission = async (id) => {
         try {
             let res = await axios.post('/api/review/check', { product_id: id });
-            console.log(res)
             let statusCode = parseInt(res.status_code);
             if (statusCode === 901 || statusCode === 902 || statusCode === 903 || statusCode === 904) {
                 setTextNotifi(res.message);
@@ -52,10 +51,12 @@ const DetailItem = () => {
     const fetchData = async () => {
         try {
             const res = await axios.post('api/product/product_details', { product_id: id });
-            if (res) {
+            if (res && res.data) {
                 let id = res.data[0].id;
                 setItem({ ...res.data[0], weight: 250 });
                 handleCheckPermission(id);
+            } else {
+                setItem({});
             }
         } catch (error) {
             console.error(error);
