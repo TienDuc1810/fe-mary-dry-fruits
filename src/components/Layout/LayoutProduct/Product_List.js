@@ -16,15 +16,25 @@ const ProductList = ({ categoryId }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [oldCategoryID, setOldCategoryID] = useState(0);
     const [loading, setLoading] = useState(false);
+    const [isTrue, setIsTrue] = useState(true);
 
     const handleDrop = () => {
         setDrop(!drop);
     };
 
     const changePage = (pageNumber) => {
-        setLoading(true);
+        if (pageNumber < 1) {
+            setCurrentPage(1);
+            setIsTrue(false);
+            return;
+        }
+        if (pageNumber > lastPage.length) {
+            setCurrentPage(lastPage.length);
+            setIsTrue(false);
+            return;
+        }
         setCurrentPage(pageNumber);
-        window.scroll(0, 0);
+        setIsTrue(true);
     };
 
     const fetchData = async (categoryId, currentPage) => {
@@ -45,13 +55,18 @@ const ProductList = ({ categoryId }) => {
     };
 
     useEffect(() => {
+        if (!isTrue) {
+            return;
+        }
         if (categoryId !== oldCategoryID) {
             fetchData(categoryId, 1);
             setCurrentPage(1);
             setOldCategoryID(categoryId);
-            return;
+        } else {
+            fetchData(categoryId, currentPage);
         }
-        fetchData(categoryId, currentPage);
+        setLoading(true);
+        window.scroll(0, 0);
     }, [categoryId, currentPage]);
 
     return (
@@ -79,19 +94,17 @@ const ProductList = ({ categoryId }) => {
                     <>
                         {product.map((item, index) => {
                             return (
-                                <>
-                                    <div className={cx('product-item')} key={index}>
-                                        <ProductItem
-                                            name={item.name}
-                                            price={item.price}
-                                            rating={item.star}
-                                            image={item.image}
-                                            id={item.id}
-                                            star={item.star}
-                                            link={'/product-detail/' + item.id}
-                                        />
-                                    </div>
-                                </>
+                                <div className={cx('product-item')} key={index}>
+                                    <ProductItem
+                                        name={item.name}
+                                        price={item.price}
+                                        rating={item.star}
+                                        image={item.image}
+                                        id={item.id}
+                                        star={item.star}
+                                        link={'/product-detail/' + item.id}
+                                    />
+                                </div>
                             );
                         })}
                         <div className={cx('page-change')}>
@@ -110,7 +123,7 @@ const ProductList = ({ categoryId }) => {
                                     </li>
                                 ))}
 
-                                <li className={cx('right')} onClick={() => changePage(currentPage + 1)}>
+                                <li className={cx('right')} onClick={() => changePage(currentPage + 1)} disabled={true}>
                                     &rsaquo;
                                 </li>
                             </ul>
