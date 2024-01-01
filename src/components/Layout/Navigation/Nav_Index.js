@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 
 function NavBarIndex() {
     const [show, setShow] = useState(false);
-    const { cartQuantity, remove, showPoper, dataName, setCheckLogin } =
+    const { cartQuantity, remove, showPoper, dataName } =
         useShoppingContext();
 
     const navigate = useNavigate();
@@ -86,6 +86,11 @@ function NavBarIndex() {
                         <li className={cx('nav-item-left')}>
                             <Link to="/contact" className={cx('nav-item-link')}>
                                 CONTACT
+                            </Link>
+                        </li>
+                        <li className={cx('nav-item-left')}>
+                            <Link to="/about" className={cx('nav-item-link')}>
+                                ABOUT US
                             </Link>
                         </li>
                         <li className={cx('nav-item-left')}>
