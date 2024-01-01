@@ -1,8 +1,9 @@
 import React from 'react';
-import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { Star, StarCheck } from '@/icons';
-import styles from './Store.module.scss';
+
+import classNames from 'classnames/bind';
+import styles from './Product.module.scss';
 
 const cx = classNames.bind(styles);
 

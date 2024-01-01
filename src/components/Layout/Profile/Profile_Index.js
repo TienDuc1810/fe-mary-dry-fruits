@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faStore, faBell, faTag, faHeadset } from '@fortawesome/free-solid-svg-icons';
 import AccountInformation from './Account_Information';
@@ -15,14 +15,6 @@ const cx = classNames.bind(styles);
 
 const ProfileIndex = () => {
     const [activeTab, setActiveTab] = useState(0);
-    const navigate = useNavigate();
-    const check = localStorage.getItem('login');
-
-    useEffect(() => {
-        if (!check) {
-            navigate('/account/login');
-        }
-    }, []);
 
     const handleCheckActive = (index) => {
         setActiveTab(index);

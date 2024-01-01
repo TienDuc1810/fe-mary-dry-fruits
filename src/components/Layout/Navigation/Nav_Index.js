@@ -16,32 +16,30 @@ const cx = classNames.bind(styles);
 
 function NavBarIndex() {
     const [show, setShow] = useState(false);
-    const { cartQuantity, remove, showPoper, checkLogin, dataName, setCheckLogin } =
+    const { cartQuantity, remove, showPoper, dataName, setCheckLogin } =
         useShoppingContext();
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const check = localStorage.getItem('login');
-        const check1 = localStorage.getItem('email');
-        const check2 = localStorage.getItem('pass');
+    const token = localStorage.getItem('jwt');
 
-        if (check === 'true') {
+    useEffect(() => {
+
+        if (!token) {
+           return     
+        } else{
             let loginAgain = async () => {
-                const res = await loginUser(check1, check2);
+                const res = await loginUser( );
 
                 if (res && res.success === true) {
                     localStorage.setItem('jwt', res.response.access_token);
-                    localStorage.setItem('login', true);
-                    setCheckLogin(true);
-                    navigate('/');
 
                     setInterval(async () => {
                         localStorage.removeItem('jwt');
                         localStorage.removeItem('login');
 
                         try {
-                            const res = await loginUser(check1, check2);
+                            const res = await loginUser();
                             if (res && res.success === true) {
                                 localStorage.setItem('jwt', res.response.access_token);
                                 localStorage.setItem('login', true);
@@ -54,7 +52,7 @@ function NavBarIndex() {
                         }
                     }, 55 * 10 * 1000);
                 } else {
-                    navigate('/account/login');
+                    navigate('/');
                 }
             };
             loginAgain();
@@ -125,7 +123,7 @@ function NavBarIndex() {
                             </li>
                         </Tippy>
                         <li className={cx('nav-item-right')}>
-                            {checkLogin ? (
+                            {token ? (
                                 <Tippy
                                     appendTo={() => document.body}
                                     interactive={true}

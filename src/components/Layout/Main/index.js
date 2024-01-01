@@ -59,19 +59,16 @@ const Main = () => {
 
     return (
         <div>
-            {loading === true ? (
-                <Loading />
-            ) : (
-                <div>
-                    <Slide banners={sliderBanners} />
-                    <BestProducts products={products} />
-                    <ParallaxBanner banners={parallaxBanner} />
-                    <CategoryProduct />
-                    <NormalBanner banners={normalBanner} />
-                    <PremiumProducts premiumProducts={preProducts} />
-                    <Benefit />
-                </div>
-            )}
+            {loading ? <Loading /> : null}
+            <div>
+                <Slide banners={sliderBanners} />
+                <BestProducts products={products} />
+                <ParallaxBanner banners={parallaxBanner} />
+                <CategoryProduct />
+                <NormalBanner banners={normalBanner} />
+                <PremiumProducts premiumProducts={preProducts} />
+                <Benefit />
+            </div>
         </div>
     );
 };

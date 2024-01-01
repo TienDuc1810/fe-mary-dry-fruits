@@ -16,7 +16,7 @@ const routes = [
     { path: '/sitemap', component: SiteMapPage },
     { path: '/product', component: ProductPage },
     { path: '/product-detail/:id', component: Detail },
-    { path: '/about-us', component: AboutUs },
+    { path: '/about', component: AboutUs },
     { path: '/account/login', component: LoginPage },
     { path: '/account/register', component: RegisterPage },
     { path: '/product/nutritional', component: Nutritional },

@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 const SiteMapPage = () => {
     return (
         <>
-            <Header title={'Site Map'}/>
+            <Header title={'Site Map'} />
             <div className={cx('sitemap-container')}>
                 <div class={cx('sitemap-wrapper')}>
                     <h1 className={cx('sitemap-heading')}>MY SITEMAP</h1>
@@ -24,10 +24,7 @@ const SiteMapPage = () => {
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="/product/list">List Product</a>
-                                            </li>
-                                            <li>
-                                                <a href="/product/search">Search Product</a>
+                                                <a href="/product-detail/{id}">Detail Product</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -76,25 +73,21 @@ const SiteMapPage = () => {
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="/account/login">User Login</a>
+                                                <a href="/account/login">Login</a>
                                             </li>
                                             <li>
-                                                <a href="/account/register">User Register</a>
+                                                <a href="/account/register">Register</a>
+                                            </li>
+                                            <li>
+                                                <a href="/account/profile">Profile User</a>
                                             </li>
                                         </ul>
                                     </li>
 
                                     <li>
-                                        <a href="/store">
-                                            <i className={cx('fa fa-rss')}></i> Contact <small>Contact Page</small>
+                                        <a href="/cart">
+                                            <i className={cx('fa fa-rss')}></i>Shopping Cart<small>Cart Checkout</small>
                                         </a>
-                                        <ul>
-                                            <li>
-                                                <a href="/store/details" className={cx('multi')}>
-                                                    Customer Shopping Cart
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                 </ul>
                             </li>
@@ -110,7 +103,7 @@ const SiteMapPage = () => {
                                 <a href="/Blog">Blog Page</a>
                             </li>
                             <li>
-                                <a href="/faqs">FAQs</a>
+                                <a href="/sitemap">Sitemap Page</a>
                             </li>
                             <li>
                                 <a href="/terms">Terms &amp; Conditions</a>

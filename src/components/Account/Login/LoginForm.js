@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { setCheckLogin, setDataName  } = useShoppingContext();
+    const { setDataName  } = useShoppingContext();
 
     const [errorHeightEmail, setErrorHeightEmail] = useState(false);
     const [errorHeightPassword, setErrorHeightPassword] = useState(false);
@@ -62,10 +62,6 @@ const LoginForm = () => {
 
                 if (res && res.success === true) {
                     localStorage.setItem('jwt', res.response.access_token);
-                    localStorage.setItem('login', true);
-                    localStorage.setItem('email', email);
-                    localStorage.setItem('pass', password);
-                    setCheckLogin(true);
                     
                     navigate('/');
                     let data = await dataUser()
@@ -78,14 +74,12 @@ const LoginForm = () => {
 
                     setInterval(async () => {
                         localStorage.removeItem('jwt');
-                        localStorage.removeItem('login');
 
                         try {
                             const res = await loginUser(email, password);
                             if (res && res.success === true) {
                                 localStorage.setItem('jwt', res.response.access_token);
-                                localStorage.setItem('login', true);
-                                setCheckLogin(true);
+                               
                             } else {
                                 navigate('/account/login');
                             }

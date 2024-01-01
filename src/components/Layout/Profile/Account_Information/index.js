@@ -8,6 +8,7 @@ import Button from '@/components/Button/ButtonIndex';
 import { editDataUser } from '@/service/User_Service';
 import images from '@/assets';
 import Loading from '../../Loading/Loading';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -31,28 +32,36 @@ const AccountInformation = () => {
     const [errorPhone, setErrorPhone] = useState(false);
     const [errorAddress, setErrorAddress] = useState(false);
 
+    const navigate = useNavigate();
+    const check = localStorage.getItem('jwt');
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                let res = await dataUser();
-                if (res && res.response) {
-                    let phone = res.response.phone || '';
-                    let address = res.response.address || '';
-                    let fullName = res.response.full_name || '';
-                    getData(res.response);
-                    setNewFullName(fullName);
-                    setNewPhone(phone);
-                    setNewAddress(address);
-                } else {
-                    getData([]);
+        if (!check) {
+            navigate('/account/login');
+        } else {
+            const fetchData = async () => {
+                try {
+                    let res = await dataUser();
+                    if (res && res.response) {
+                        let phone = res.response.phone || '';
+                        let address = res.response.address || '';
+                        let fullName = res.response.full_name || '';
+                        getData(res.response);
+                        setNewFullName(fullName);
+                        setNewPhone(phone);
+                        setNewAddress(address);
+                    } else {
+                        getData([]);
+                    }
+                } catch (error) {
+                    console.log('error', error);
+                    navigate('/account/login');
+                } finally {
+                    setLoading(false);
                 }
-            } catch (error) {
-                console.log('error', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchData();
+            };
+            fetchData();
+        }
     }, []);
 
     const handleAvatarChange = (e) => {

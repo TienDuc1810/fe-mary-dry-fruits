@@ -195,7 +195,6 @@ const DetailItem = () => {
                         ''
                     )}
                 </div>
-
                 <div className={cx('container-slider')}>
                     <BestProductsIndex />
                 </div>
