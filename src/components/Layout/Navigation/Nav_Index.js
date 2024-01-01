@@ -23,41 +23,41 @@ function NavBarIndex() {
 
     const token = localStorage.getItem('jwt');
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (!token) {
-           return     
-        } else{
-            let loginAgain = async () => {
-                const res = await loginUser( );
+    //     if (!token) {
+    //        return     
+    //     } else{
+    //         let loginAgain = async () => {
+    //             const res = await loginUser( );
 
-                if (res && res.success === true) {
-                    localStorage.setItem('jwt', res.response.access_token);
+    //             if (res && res.success === true) {
+    //                 localStorage.setItem('jwt', res.response.access_token);
 
-                    setInterval(async () => {
-                        localStorage.removeItem('jwt');
-                        localStorage.removeItem('login');
+    //                 setInterval(async () => {
+    //                     localStorage.removeItem('jwt');
+    //                     localStorage.removeItem('login');
 
-                        try {
-                            const res = await loginUser();
-                            if (res && res.success === true) {
-                                localStorage.setItem('jwt', res.response.access_token);
-                                localStorage.setItem('login', true);
-                                setCheckLogin(true);
-                            } else {
-                                navigate('/account/login');
-                            }
-                        } catch (error) {
-                            console.log(error);
-                        }
-                    }, 55 * 10 * 1000);
-                } else {
-                    navigate('/');
-                }
-            };
-            loginAgain();
-        }
-    }, []);
+    //                     try {
+    //                         const res = await loginUser();
+    //                         if (res && res.success === true) {
+    //                             localStorage.setItem('jwt', res.response.access_token);
+    //                             localStorage.setItem('login', true);
+    //                             setCheckLogin(true);
+    //                         } else {
+    //                             navigate('/account/login');
+    //                         }
+    //                     } catch (error) {
+    //                         console.log(error);
+    //                     }
+    //                 }, 55 * 10 * 1000);
+    //             } else {
+    //                 navigate('/');
+    //             }
+    //         };
+    //         loginAgain();
+    //     }
+    // }, []);
 
     const handleCart = () => {
         setShow(true);
