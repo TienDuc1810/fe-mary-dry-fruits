@@ -12,16 +12,27 @@ const OrderComponent = ({ index, time }) => {
     const [histotyStatus, setHistoryStatus] = useState(false);
     const [lastPage, setLastPage] = useState(Array.from({ length: 1 }, (_, index) => index + 1));
     const [currentPage, setCurrentPage] = useState(1);
+    const [isTrue, setIsTrue] = useState(true);
 
     const handleGetHistory = (order_id) => {
         let order = listOrders.find((item) => item.id == order_id);
-        console.log(order);
         setOrderDetail(order);
         setHistoryStatus(true);
     };
 
     const changePage = (pageNumber) => {
+        if (pageNumber < 1) {
+            setCurrentPage(1);
+            setIsTrue(false);
+            return;
+        }
+        if (pageNumber > lastPage.length) {
+            setCurrentPage(lastPage.length);
+            setIsTrue(false);
+            return;
+        }
         setCurrentPage(pageNumber);
+        setIsTrue(true);
     };
 
     const textStatus = (status) => {
@@ -42,7 +53,6 @@ const OrderComponent = ({ index, time }) => {
     const fetchData = async (currentPage) => {
         try {
             const res = await axios.post('/api/order/history_order', { page: currentPage });
-            console.log(lastPage);
             if (res && res.data) {
                 const data = res.data.data || res.data;
                 const lastPage = res.data.last_page;
@@ -57,6 +67,9 @@ const OrderComponent = ({ index, time }) => {
     };
 
     useEffect(() => {
+        if (!isTrue) {
+            return;
+        }
         fetchData(currentPage);
     }, [currentPage]);
 
@@ -98,7 +111,7 @@ const OrderComponent = ({ index, time }) => {
 
             <div className={cx('page-change')}>
                 <ul className={cx('page-practive')}>
-                    <li className={cx('left')} onClick={() => changePage(currentPage - 1 <= 0 ? 1 : currentPage - 1)}>
+                    <li className={cx('left')} onClick={() => changePage(currentPage - 1)}>
                         &lsaquo;
                     </li>
 
@@ -115,10 +128,7 @@ const OrderComponent = ({ index, time }) => {
                         );
                     })}
 
-                    <li
-                        className={cx('right')}
-                        onClick={() => changePage(currentPage + 1 > lastPage ? lastPage.length : currentPage + 1)}
-                    >
+                    <li className={cx('right')} onClick={() => changePage(currentPage + 1)}>
                         &rsaquo;
                     </li>
                 </ul>
