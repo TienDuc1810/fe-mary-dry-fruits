@@ -88,9 +88,9 @@ function ShoppingCartBill() {
             if (cartItems.length > 0) {
                 try {
                     setLoading(true);
-
                     const resOrder = await Order(data_order);
                     if (resOrder.orderResponse.status_code === '910') {
+                        setLoading(false);
                         toast.error(resOrder.orderResponse.message, {
                             transition: Flip,
                             autoClose: 2000,
@@ -124,6 +124,7 @@ function ShoppingCartBill() {
                 const res = await PayOrder(newTotal);
                 // handle errors
                 if (res.response.status_code === '910') {
+                    setLoading(false);
                     toast.error(res.response.message, {
                         transition: Flip,
                         autoClose: 2000,
@@ -138,9 +139,11 @@ function ShoppingCartBill() {
                             const resOrder = await Order(data_order);
                             console.log(resOrder);
                             if (resOrder && resOrder.success === true && resOrder.orderResponse.status_code !== '910') {
+                                setLoading(false);
                                 window.location.href = redirectUrl;
                             } else {
                                 if (resOrder.orderResponse.status_code === '910') {
+                                    setLoading(false);
                                     toast.error(resOrder.orderResponse.message, {
                                         transition: Flip,
                                         autoClose: 2000,
