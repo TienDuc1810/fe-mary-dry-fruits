@@ -20,7 +20,7 @@ function MenuUser() {
         if (res && res.success === true) {
             localStorage.removeItem('jwt');
             localStorage.removeItem('login');
-            setCheckLogin(false);
+            // setCheckLogin(false);
             navigate('/account/login');
 
             toast.success('Logout success', {
