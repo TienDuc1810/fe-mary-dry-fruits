@@ -33,7 +33,6 @@ function NavBarIndex() {
         handleResize();
         window.addEventListener('resize', handleResize);
 
-        
         //     if (!token) {
         //        return
         //     } else{
@@ -150,7 +149,7 @@ function NavBarIndex() {
                     <ul className={cx('nav-list-right')}>
                         <li className={cx('nav-item-right')}>
                             <Link to="/#" className={cx('nav-item-link')}>
-                                <input type="text" className={cx('nav-item-search')} value={'search'} placeholder="Search" />
+                                {/* <input type="text" className={cx('nav-item-search')} value={'search'} placeholder="Search" /> */}
                                 <div className={cx('nav-item-outner-icon')}>
                                     <Search className={cx('nav-item-icon')} />
                                 </div>

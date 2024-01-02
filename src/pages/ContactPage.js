@@ -1,11 +1,11 @@
 import Header from '@/components/Layout/Header/Header_Index';
-import Contact from '@/components/Layout/ContactUs/Contact_Form';
+import ContactIndex from '@/components/Layout/ContactUs/Contact_Index';
 
 const ContactPage = () => {
     return (
         <div>
             <Header title={'Contact Us'} />
-            <Contact />
+            <ContactIndex />
         </div>
     );
 };
