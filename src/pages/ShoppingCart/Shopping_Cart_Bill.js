@@ -196,14 +196,12 @@ function ShoppingCartBill() {
                 autoClose: 2000,
             });
             clearCart();
-            return;
         }
         if (params.status == 2) {
             toast.error('Payment errros', {
                 transition: Flip,
                 autoClose: 2000,
             });
-            return;
         }
         const timeoutId = setTimeout(() => {
             setLoading(false);
