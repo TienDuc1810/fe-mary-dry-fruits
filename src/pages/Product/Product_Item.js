@@ -8,7 +8,6 @@ import styles from './Product.module.scss';
 const cx = classNames.bind(styles);
 
 function ProductItem({ ...item }) {
-
     return (
         <div className={cx('product-main')} key={item.id}>
             <div className={cx('product-border-line-1')}></div>
@@ -26,11 +25,9 @@ function ProductItem({ ...item }) {
                         {item.name}
                     </Link>
                 </div>
+
                 <div className={cx('product-price')}>
-                    <span className={cx('product-size')}>Size: 100 gram</span>
-                </div>
-                <div className={cx('product-price')}>
-                    <span className={cx('product-money')}>${item.price}</span>
+                    <span className={cx('product-money')}>${item.price}/100gram</span>
                 </div>
                 <div className={cx('product-star')}>
                     <div className={cx('product-star-image')}>

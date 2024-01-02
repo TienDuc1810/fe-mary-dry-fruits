@@ -99,7 +99,7 @@ const DetailItem = () => {
 
                         <div className={cx('detail-info-price')}>
                             <h6 className={cx('detail-info-title')}>Price:</h6>
-                            <span className={cx('detail-info-price-amount')}>${item.price}</span>
+                            <span className={cx('detail-info-price-amount')}>${item.price}/100gram</span>
                         </div>
                         <div className={cx('detail-info-weight')}>
                             <h6 className={cx('detail-info-title')}>Weight:</h6>
