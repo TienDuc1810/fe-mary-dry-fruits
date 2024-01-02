@@ -15,7 +15,7 @@ const AboutOutstanding = () => {
                 />
                 <div className={cx('about-outstanding-main')}>
                     <div className={cx('about-outstanding-image')}>
-                        <img src={images.about_1} alt="img" className={cx('about-outstanding-img')} />
+                        <img src={images.about_outstanding_1} alt="img" className={cx('about-outstanding-img')} />
                     </div>
                     <div className={cx('about-outstanding-description')}>
                         <h4 className={cx('about-outstanding-title')}>Quality Care</h4>
@@ -38,7 +38,7 @@ const AboutOutstanding = () => {
                         </p>
                     </div>
                     <div className={cx('about-outstanding-image')}>
-                        <img src={images.about_2} alt="img" className={cx('about-outstanding-img')} />
+                        <img src={images.about_outstanding_2} alt="img" className={cx('about-outstanding-img')} />
                     </div>
                 </div>
             </div>

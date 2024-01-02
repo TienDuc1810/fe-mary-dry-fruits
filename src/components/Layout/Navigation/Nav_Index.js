@@ -94,6 +94,11 @@ function NavBarIndex() {
                             </Link>
                         </li>
                         <li className={cx('nav-item-left')}>
+                            <Link to="/terms" className={cx('nav-item-link')}>
+                                TERMS
+                            </Link>
+                        </li>
+                        <li className={cx('nav-item-left')}>
                             <Link to="/sitemap" className={cx('nav-item-link')}>
                                 SITEMAP
                             </Link>

@@ -1,13 +1,13 @@
-import Index from '@/components/Layout/AboutUs/About_Index';
+import About from '@/components/Layout/AboutUs/About_Index';
 import Header from '@/components/Layout/Header/Header_Index';
 
-const AboutUs = () => {
+const AboutUsPage = () => {
     return (
         <div>
             <Header title={'About Us'} />
-            <Index />
+            <About />
         </div>
     );
 };
 
-export default AboutUs;
+export default AboutUsPage;

@@ -15,7 +15,7 @@ const OrderComponent = ({ index, time }) => {
     const [isTrue, setIsTrue] = useState(true);
 
     const handleGetHistory = (order_id) => {
-        let order = listOrders.find((item) => item.id == order_id);
+        let order = listOrders.find((item) => item.id === order_id);
         setOrderDetail(order);
         setHistoryStatus(true);
     };
@@ -47,6 +47,8 @@ const OrderComponent = ({ index, time }) => {
                 return 'Complete';
             case 5:
                 return 'Cancel';
+            default:
+                return null;
         }
     };
 
@@ -96,7 +98,7 @@ const OrderComponent = ({ index, time }) => {
                                 <td>${item.total}</td>
                                 <td>{item.order_items.length}</td>
                                 <td>{textStatus(item.status)}</td>
-                                <td>{item.transaction_status == 1 ? 'Paid' : 'Unpaid'}</td>
+                                <td>{item.transaction_status === 1 ? 'Paid' : 'Unpaid'}</td>
                                 <td>{moment(item.created_at).format('MMMM Do YYYY, h:mm:ss a')}</td>
                                 <td>
                                     <span onClick={() => handleGetHistory(item.id)}>

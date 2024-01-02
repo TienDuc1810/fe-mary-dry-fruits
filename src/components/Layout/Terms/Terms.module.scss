@@ -1,0 +1,49 @@
+.terms-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+    .terms-wrapper {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 50px 0;
+        
+
+        .terms-heading {
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+            color: var(--primary-color);
+            padding-bottom: 20px;
+            text-align: center;
+            line-height: 3rem;
+            padding: 0 10% 30px;
+        }
+
+        .terms-title {
+            padding: 20px 20px 10px;
+        }
+
+        .terms-text {
+            padding: 0px 0px 20px 20px;
+            border-bottom: 1px solid var(--border-color);
+
+            .terms-email{
+                margin-left: 5px;
+                cursor: pointer;
+                color: var(--primary-color);
+            }
+        }
+
+        .terms-thank {
+            text-align: center;
+            font-family: var(--font-special);
+            color: var(--primary-color);
+            letter-spacing: 0.1rem;
+            font-size: 2rem;
+            padding-top: 30px;
+        }
+    }
+}

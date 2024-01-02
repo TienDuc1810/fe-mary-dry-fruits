@@ -9,7 +9,7 @@ import styles from './About.module.scss';
 
 const cx = classNames.bind(styles);
 
-const AboutIndex = () => {
+const About = () => {
     return (
         <>
             <AboutIntro />
@@ -55,4 +55,4 @@ const AboutIndex = () => {
     );
 };
 
-export default AboutIndex;
+export default About;
