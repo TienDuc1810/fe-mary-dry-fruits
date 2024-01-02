@@ -29,7 +29,7 @@ const SiteMapPage = () => {
                                         </ul>
                                     </li>
 
-                                    <li>
+                                    {/* <li>
                                         <a href="/store">
                                             <i className={cx('fa fa-search')}></i> Store <small>Shopping Cart</small>
                                         </a>
@@ -66,7 +66,7 @@ const SiteMapPage = () => {
                                                 </ul>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <a href="/account">
                                             <i className={cx('fa fa-building')}></i> Account <small>Account User</small>
@@ -89,6 +89,11 @@ const SiteMapPage = () => {
                                             <i className={cx('fa fa-rss')}></i>Shopping Cart<small>Cart Checkout</small>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="/contact">
+                                            <i className={cx('fa fa-rss')}></i>Contact us<small>Contact Page</small>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -99,17 +104,12 @@ const SiteMapPage = () => {
                             <li>
                                 <a href="/about">About Us</a>
                             </li>
-                            <li>
-                                <a href="/Blog">Blog Page</a>
-                            </li>
+
                             <li>
                                 <a href="/sitemap">Sitemap Page</a>
                             </li>
                             <li>
                                 <a href="/terms">Terms &amp; Conditions</a>
-                            </li>
-                            <li>
-                                <a href="/privacy">Privacy Policy</a>
                             </li>
                         </ul>
                     </nav>

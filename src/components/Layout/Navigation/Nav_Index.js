@@ -10,54 +10,67 @@ import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import Cart from '../Cart/Cart';
 import MenuUser from '../Menu/Menu_User';
+import MenuPage from '../Menu/Menu_Page';
+import MenuLaptop from '../Menu/Menu_Laptop';
 import { loginUser } from '@/service/User_Service';
 
 const cx = classNames.bind(styles);
 
 function NavBarIndex() {
     const [show, setShow] = useState(false);
-    const { cartQuantity, remove, showPoper, dataName } =
-        useShoppingContext();
+    const { cartQuantity, remove, showPoper, dataName } = useShoppingContext();
+    const [laptop, setLaptop] = useState(false);
 
     const navigate = useNavigate();
 
     const token = localStorage.getItem('jwt');
 
-    // useEffect(() => {
+    useEffect(() => {
+        const handleResize = () => {
+            setLaptop(window.innerWidth < 1300);
+        };
 
-    //     if (!token) {
-    //        return     
-    //     } else{
-    //         let loginAgain = async () => {
-    //             const res = await loginUser( );
+        handleResize();
+        window.addEventListener('resize', handleResize);
 
-    //             if (res && res.success === true) {
-    //                 localStorage.setItem('jwt', res.response.access_token);
+        
+        //     if (!token) {
+        //        return
+        //     } else{
+        //         let loginAgain = async () => {
+        //             const res = await loginUser( );
 
-    //                 setInterval(async () => {
-    //                     localStorage.removeItem('jwt');
-    //                     localStorage.removeItem('login');
+        //             if (res && res.success === true) {
+        //                 localStorage.setItem('jwt', res.response.access_token);
 
-    //                     try {
-    //                         const res = await loginUser();
-    //                         if (res && res.success === true) {
-    //                             localStorage.setItem('jwt', res.response.access_token);
-    //                             localStorage.setItem('login', true);
-    //                             setCheckLogin(true);
-    //                         } else {
-    //                             navigate('/account/login');
-    //                         }
-    //                     } catch (error) {
-    //                         console.log(error);
-    //                     }
-    //                 }, 55 * 10 * 1000);
-    //             } else {
-    //                 navigate('/');
-    //             }
-    //         };
-    //         loginAgain();
-    //     }
-    // }, []);
+        //                 setInterval(async () => {
+        //                     localStorage.removeItem('jwt');
+        //                     localStorage.removeItem('login');
+
+        //                     try {
+        //                         const res = await loginUser();
+        //                         if (res && res.success === true) {
+        //                             localStorage.setItem('jwt', res.response.access_token);
+        //                             localStorage.setItem('login', true);
+        //                             setCheckLogin(true);
+        //                         } else {
+        //                             navigate('/account/login');
+        //                         }
+        //                     } catch (error) {
+        //                         console.log(error);
+        //                     }
+        //                 }, 55 * 10 * 1000);
+        //             } else {
+        //                 navigate('/');
+        //             }
+        //         };
+        //         loginAgain();
+        //     }
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const handleCart = () => {
         setShow(true);
@@ -88,26 +101,56 @@ function NavBarIndex() {
                                 CONTACT
                             </Link>
                         </li>
-                        <li className={cx('nav-item-left')}>
-                            <Link to="/about" className={cx('nav-item-link')}>
-                                ABOUT US
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item-left')}>
-                            <Link to="/terms" className={cx('nav-item-link')}>
-                                TERMS
-                            </Link>
-                        </li>
-                        <li className={cx('nav-item-left')}>
-                            <Link to="/sitemap" className={cx('nav-item-link')}>
-                                SITEMAP
-                            </Link>
-                        </li>
+
+                        {laptop ? (
+                            <Tippy
+                                appendTo={() => document.body}
+                                interactive={true}
+                                delay={[0, 500]}
+                                offset={[5, 5]}
+                                render={(attrs) => (
+                                    <div className={cx('menu-page')} tabIndex="-1" {...attrs}>
+                                        <MenuLaptop />
+                                    </div>
+                                )}
+                            >
+                                <li className={cx('nav-item-left')}>
+                                    <Link to="#" className={cx('nav-item-link')}>
+                                        PAGES
+                                    </Link>
+                                </li>
+                            </Tippy>
+                        ) : (
+                            <>
+                                <li className={cx('nav-item-left')}>
+                                    <Link to="/about" className={cx('nav-item-link')}>
+                                        ABOUT US
+                                    </Link>
+                                </li>
+                                <Tippy
+                                    appendTo={() => document.body}
+                                    interactive={true}
+                                    delay={[0, 500]}
+                                    offset={[5, 5]}
+                                    render={(attrs) => (
+                                        <div className={cx('menu-page')} tabIndex="-1" {...attrs}>
+                                            <MenuPage />
+                                        </div>
+                                    )}
+                                >
+                                    <li className={cx('nav-item-left')}>
+                                        <Link to="#" className={cx('nav-item-link')}>
+                                            PAGES
+                                        </Link>
+                                    </li>
+                                </Tippy>
+                            </>
+                        )}
                     </ul>
                     <ul className={cx('nav-list-right')}>
                         <li className={cx('nav-item-right')}>
                             <Link to="/#" className={cx('nav-item-link')}>
-                                <input type="text" className={cx('nav-item-search')} placeholder="Search" />
+                                <input type="text" className={cx('nav-item-search')} value={'search'} placeholder="Search" />
                                 <div className={cx('nav-item-outner-icon')}>
                                     <Search className={cx('nav-item-icon')} />
                                 </div>
