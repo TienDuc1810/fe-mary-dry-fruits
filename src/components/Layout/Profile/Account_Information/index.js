@@ -9,6 +9,7 @@ import { editDataUser } from '@/service/User_Service';
 import images from '@/assets';
 import Loading from '../../Loading/Loading';
 import { useNavigate } from 'react-router-dom';
+import { toast, Flip } from 'react-toastify';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +20,6 @@ const AccountInformation = () => {
     const [isImageError, setIsImageError] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    const [fullName, setFullName] = useState(false);
     const [newFullName, setNewFullName] = useState('');
 
     const [phone, setPhone] = useState(false);
@@ -29,8 +29,8 @@ const AccountInformation = () => {
     const [newAddress, setNewAddress] = useState('');
 
     const [errorName, setErrorName] = useState(false);
-    const [errorPhone, setErrorPhone] = useState(false);
-    const [errorAddress, setErrorAddress] = useState(false);
+    const [errorPhone, setErrorPhone] = useState('');
+    const [errorAddress, setErrorAddress] = useState('');
 
     const navigate = useNavigate();
     const check = localStorage.getItem('jwt');
@@ -80,29 +80,61 @@ const AccountInformation = () => {
     };
 
     const handleEditUser = async () => {
+        setErrorAddress(false);
+        setErrorPhone(false);
+
         if (!newFullName) {
             setErrorName(true);
+            toast.error('Full Name cannot be empty', {
+                transition: Flip,
+                autoClose: 2000,
+            });
+            return setNewFullName(data.full_name);
         } else {
             setErrorName(false);
         }
 
-        if (!newAddress) {
-            setErrorAddress(true);
-        } else {
-            setErrorAddress(false);
-        }
-
-        if (!newPhone) {
-            setErrorPhone(true);
+        if (!newPhone || newPhone.length > 10 || newPhone.length < 10 || isNaN(newPhone) === true) {
+            setErrorPhone('Please do not leave blank and your phone number must be valid.');
+            toast.error('Update Profile Failed', {
+                transition: Flip,
+                autoClose: 2000,
+            });
+            return setNewPhone(data.phone);
         } else {
             setErrorPhone(false);
         }
 
-        if (!errorAddress && !errorName && !errorPhone) {
-            await editDataUser(newFullName, newPhone, newAddress);
-            setPhone(false);
-            setAddress(false);
-            setFullName(false);
+        if (!newAddress) {
+            setErrorAddress('Please do not leave blank');
+            toast.error('Update Profile Failed', {
+                transition: Flip,
+                autoClose: 2000,
+            });
+            return setNewAddress(data.address);
+        } else {
+            setErrorAddress(false);
+        }
+
+       
+        if (!errorAddress && !errorPhone && !errorName) {
+            try {
+                const res = await editDataUser(newFullName, newPhone, newAddress);
+                if (res && res.success === true) {
+                    setPhone(false);
+                    setAddress(false);
+                    toast.success('Update Profile Success', {
+                        transition: Flip,
+                        autoClose: 2000,
+                    });
+                }
+            } catch (error) {
+                console.log(error);
+                toast.error('Update Profile Failed', {
+                    transition: Flip,
+                    autoClose: 2000,
+                });
+            }
         }
         return;
     };
@@ -135,8 +167,8 @@ const AccountInformation = () => {
                                 <input
                                     type="text"
                                     className={cx('profile-detail-input')}
-                                    value={data.full_name}
-                                    // value={newFullName}
+                                    value={newFullName}
+                                    onChange={(e)=>setNewFullName(e.target.value)}
                                 />
                             </div>
 
@@ -176,31 +208,6 @@ const AccountInformation = () => {
                         <div className={cx('profile-detail-item')}>
                             <div className={cx('profile-detail-item-left')}>
                                 <FontAwesomeIcon
-                                    icon={icon({ name: 'user', style: 'solid' })}
-                                    className={cx('profile-detail-icon')}
-                                />
-                                <p className={cx('profile-detail-title')}>Name</p>
-                                <span className={cx('profile-detail-dots')}>:</span>
-                                {fullName ? (
-                                    <input
-                                        value={newFullName}
-                                        onChange={(e) => setNewFullName(e.target.value)}
-                                        className={cx('profile-detail-change')}
-                                    />
-                                ) : (
-                                    <span>{newFullName.length > 0 ? newFullName : data.full_name}</span>
-                                )}
-                            </div>
-                            <span onClick={() => setFullName(!fullName)}>
-                                <Button text={'Update'} blackText />
-                            </span>
-                        </div>
-
-                        {errorName ? <p>* Please do not leave blank </p> : ''}
-
-                        <div className={cx('profile-detail-item')}>
-                            <div className={cx('profile-detail-item-left')}>
-                                <FontAwesomeIcon
                                     icon={icon({ name: 'phone', style: 'solid' })}
                                     className={cx('profile-detail-icon')}
                                 />
@@ -213,15 +220,15 @@ const AccountInformation = () => {
                                         className={cx('profile-detail-change')}
                                     />
                                 ) : (
-                                    <span>{newPhone.length > 0 ? newPhone : data.phone}</span>
+                                    <span>{newPhone}</span>
                                 )}
                             </div>
-                            <span onClick={() => setPhone(!phone)}>
-                                <Button text={'Update'} blackText smal />
-                            </span>
+                            <div onClick={() => setPhone(!phone)}>
+                                <Button text={phone ? 'Save' : 'Update'} blackText smal />
+                            </div>
                         </div>
 
-                        {errorPhone ? <p>* Please do not leave blank and length is minimum 10 maximum 15 </p> : ''}
+                        {errorPhone ? <p className={cx('error-mess')}>{errorPhone}</p> : ''}
 
                         <div className={cx('profile-detail-item')}>
                             <div className={cx('profile-detail-item-left')}>
@@ -238,16 +245,16 @@ const AccountInformation = () => {
                                         className={cx('profile-detail-change')}
                                     />
                                 ) : (
-                                    <span>{newAddress.length > 0 ? newAddress : data.address}</span>
+                                    <span>{newAddress}</span>
                                 )}
                             </div>
 
                             <span onClick={() => setAddress(!address)}>
-                                <Button text={'Update'} blackText smal />
+                                <Button text={address ? 'Save' : 'Update'} blackText smal />
                             </span>
                         </div>
 
-                        {errorAddress ? <p>* Please do not leave blank </p> : ''}
+                        {errorAddress ? <p className={cx('error-mess')}>{errorAddress}</p> : ''}
 
                         <div className={cx('profile-detail-item')}>
                             <div className={cx('profile-detail-item-left')}>
@@ -265,11 +272,11 @@ const AccountInformation = () => {
                             <div className={cx('profile-detail-outner-pass')}>
                                 <div className={cx('profile-detail-pass')}>
                                     <label htmlFor="Fullname">New Password</label>
-                                    <input id="Fullname" type="text" className={cx('profile-detail-input')} />
+                                    <input id="Fullname"  type="text" className={cx('profile-detail-input')} />
                                 </div>
                                 <div className={cx('profile-detail-pass')}>
                                     <label htmlFor="Fullname">Confirm Password</label>
-                                    <input id="Fullname" type="text" className={cx('profile-detail-input')} />
+                                    <input id="Fullname"  type="text" className={cx('profile-detail-input')} />
                                 </div>
                                 <span onClick={() => setUpdatePass(false)}>
                                     <Button text={'Change'} blackText />

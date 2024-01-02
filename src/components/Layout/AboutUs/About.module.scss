@@ -1,0 +1,206 @@
+//CSS About Introduce
+.about-introduce-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white-color);
+
+    .about-introduce-wrapper {
+        padding: 40px 0;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+
+        .about-introduce {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            padding: 20px 0 80px;
+            gap: 60px;
+
+            .about-introduce-content {
+                width: 50%;
+                height: 100%;
+
+                .about-introduce-heading {
+                    color: var(--primary-color);
+                    font-family: var(--font-special);
+                    letter-spacing: 0.1rem;
+                    font-size: 3rem;
+                    padding-bottom: 20px;
+                }
+
+                .about-introduce-text {
+                    margin-bottom: 30px;
+                    line-height: 3rem;
+                }
+                .about-introduce-text-italic {
+                    padding-left: 20px;
+                    line-height: 3rem;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        border: 1px solid var(--black-color);
+                    }
+                }
+            }
+
+            .about-introduce-image {
+                width: 50%;
+                height: 100%;
+                text-align: center;
+
+                .about-introduce-img {
+                    width: 100%;
+                    min-height: 400px;
+                }
+            }
+        }
+    }
+}
+
+//CSS About Quanlity
+.about-quality-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    padding: 60px 0 20px;
+
+    .about-quality-wrapper {
+        padding: 20px 0;
+        width: 80%;
+        display: flex;
+        gap: 20px;
+
+        .about-item-container {
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            padding-bottom: 30px;
+            &:hover .about-item-icon {
+                background-color: var(--black-color);
+                color: var(--white-color);
+            }
+            &:hover .about-quanlity-icon {
+                color: var(--white-color);
+            }
+
+            .about-item-icon {
+                width: 60px;
+                height: 60px;
+                background-color: var(--second-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s linear;
+            }
+
+            .about-item-content {
+                width: 100%;
+                height: 100%;
+
+                .about-item-heading {
+                    font-family: var(--font-special);
+                    color: var(--primary-color);
+                    letter-spacing: 1.2px;
+                    font-size: 2.4rem;
+                    padding-bottom: 10px;
+                }
+                .about-item-text {
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+}
+
+//CSS About Outstanding
+.about-outstanding-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white-color);
+    padding: 80px 0;
+
+    .about-outstanding-wrapper{
+        width: 80%;
+
+        .about-outstanding-main{
+            display: flex;
+            width: 100%;
+            padding: 40px 0 20px;
+            gap: 50px;
+
+            .about-outstanding-image{
+                width: 50%;
+                height: 100%;
+                position: relative;
+                z-index: 1;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: -5%;
+                    left: -4%;
+                    background-color: var(--primary-color);
+                    z-index: -1;
+                }
+                &:last-child::before{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: -7%;
+                    left: 4%;
+                    background-color: var(--primary-color);
+                    z-index: -1;
+                }
+
+                .about-outstanding-img{
+                    width: 100%;
+                    max-height: 700px;
+                }
+            }
+
+            .about-outstanding-description{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .about-outstanding-title{
+                    font-family: var(--font-special);
+                    color: var(--primary-color);
+                    font-size: 2.4rem;
+                    letter-spacing: 0.2rem;
+                    padding-bottom: 20px;
+                }
+
+                .about-outstanding-text{
+                    line-height: 2.4rem;
+                    letter-spacing: 0.05rem;
+                }
+            }
+        }
+    }
+
+}
+

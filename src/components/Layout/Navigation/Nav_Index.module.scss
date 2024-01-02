@@ -15,7 +15,7 @@
     justify-content: center;
 
     .nav-outner {
-        width: 79%;
+        width: 80%;
         display: flex;
         justify-content: space-between;
 
@@ -29,13 +29,13 @@
             .nav-item-left {
                 display: inline-block;
                 color: var(--white-color);
-                margin-right: 15px;
+                margin-right: 10px;
                 padding: 15px;
             }
 
             .nav-item-right {
                 color: var(--white-color);
-                padding: 0 20px;
+                padding: 0 15px;
             }
 
             .nav-item-link-cart {
@@ -151,6 +151,14 @@
 //Tippy Menu User
 .menu-user{
     width: 170px;
+    height: 100%;
+    background-color: var(--white-color);
+    border-radius: 7px;
+}
+
+//Tippy Menu Page
+.menu-page{
+    width: 130px;
     height: 100%;
     background-color: var(--white-color);
     border-radius: 7px;

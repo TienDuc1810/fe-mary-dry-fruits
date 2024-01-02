@@ -131,29 +131,14 @@ export const Search = ({ width = '2.5rem', height = '2.5rem', className }) => (
         ></path>
     </svg>
 );
-export const Down = ({ width = '1.8rem', height = '1.6rem', className }) => (
-    <svg
-        height={height}
-        width={width}
-        className={className}
-        viewBox="0 0 20 20"
-        fill="#000000"
-        xmlns="http://www.w3.org/2000/svg"
-    >
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M10.103 12.778L16.81 6.08a.69.69 0 0 1 .99.012a.726.726 0 0 1-.012 1.012l-7.203 7.193a.69.69 0 0 1-.985-.006L2.205 6.72a.727.727 0 0 1 0-1.01a.69.69 0 0 1 .99 0z"
-        ></path>
-    </svg>
-);
-export const World = ({ width = '4rem', height = '4rem', className }) => (
+
+export const World = ({ width = '3rem', height = '3rem', className }) => (
     <svg
         height={height}
         width={width}
         className={className}
         viewBox="0 0 512 512"
-        fill="#000000"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
@@ -164,13 +149,13 @@ export const World = ({ width = '4rem', height = '4rem', className }) => (
     </svg>
 );
 
-export const User = ({ width = '4rem', height = '4rem', className }) => (
+export const User = ({ width = '3rem', height = '3rem', className }) => (
     <svg
         height={height}
         width={width}
         className={className}
         viewBox="0 0 448 512"
-        fill="#000000"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
@@ -181,13 +166,13 @@ export const User = ({ width = '4rem', height = '4rem', className }) => (
     </svg>
 );
 
-export const Coffee = ({ width = '4rem', height = '4rem', className }) => (
+export const Coffee = ({ width = '3rem', height = '3rem', className }) => (
     <svg
         height={height}
         width={width}
         className={className}
         viewBox="0 0 16 16"
-        fill="#000000"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
@@ -198,36 +183,19 @@ export const Coffee = ({ width = '4rem', height = '4rem', className }) => (
     </svg>
 );
 
-export const Eye = ({ width = '4rem', height = '4rem', className }) => (
+export const Eye = ({ width = '3rem', height = '3rem', className }) => (
     <svg
         height={height}
         width={width}
         className={className}
         viewBox="0 0 16 16"
-        fill="#000000"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
             fillRule="evenodd"
             clipRule="evenodd"
             d="M8 3.9C1.3 3.9 0 9 0 9s2.2 4.1 7.9 4.1s8.1-4 8.1-4s-1.3-5.2-8-5.2M5.3 5.4c.5-.3 1.3-.3 1.3-.3s-.5.9-.5 1.6c0 .7.2 1.1.2 1.1L5.2 8s-.3-.5-.3-1.2c0-.8.4-1.4.4-1.4m2.6 6.7c-4.1 0-6.2-2.3-6.8-3.2c.3-.7 1.1-2.2 3.1-3.2c-.1.4-.2.8-.2 1.3c0 2.2 1.8 4 4 4s4-1.8 4-4c0-.5-.1-.9-.2-1.3c2 .9 2.8 2.5 3.1 3.2c-.7.9-2.8 3.2-7 3.2"
-        ></path>
-    </svg>
-);
-
-export const StarYellow = ({ width = '1.6rem', height = '1.6rem', className }) => (
-    <svg
-        height={height}
-        width={width}
-        className={className}
-        viewBox="0 0 128 128"
-        fill="#FDD835"
-        xmlns="http://www.w3.org/2000/svg"
-    >
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="m68.05 7.23l13.46 30.7a7.047 7.047 0 0 0 5.82 4.19l32.79 2.94c3.71.54 5.19 5.09 2.5 7.71l-24.7 20.75c-2 1.68-2.91 4.32-2.36 6.87l7.18 33.61c.63 3.69-3.24 6.51-6.56 4.76L67.56 102a7.033 7.033 0 0 0-7.12 0l-28.62 16.75c-3.31 1.74-7.19-1.07-6.56-4.76l7.18-33.61c.54-2.55-.36-5.19-2.36-6.87L5.37 52.78c-2.68-2.61-1.2-7.17 2.5-7.71l32.79-2.94a7.047 7.047 0 0 0 5.82-4.19l13.46-30.7c1.67-3.36 6.45-3.36 8.11-.01"
         ></path>
     </svg>
 );

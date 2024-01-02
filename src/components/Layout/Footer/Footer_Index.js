@@ -38,22 +38,22 @@ function FooterIndex() {
 
                     <FooterItem
                         title={'Help'}
-                        item_1={{ name: 'Search', link: '/search' }}
-                        item_2={{ name: 'Help', link: '/help' }}
-                        item_3={{ name: 'Privacy Policy', link: '/contact' }}
+                        item_1={{ name: 'Search', link: '#' }}
+                        item_2={{ name: 'Help', link: '/contact' }}
+                        item_3={{ name: 'Privacy Policy', link: '/terms' }}
                         item_4={{ name: 'Shipping Details', link: '/contact' }}
                     />
                     <FooterItem
                         title={'Support'}
                         item_1={{ name: 'Contact us', link: '/contact' }}
-                        item_2={{ name: 'About us', link: '/about-us' }}
+                        item_2={{ name: 'About us', link: '/about' }}
                         item_3={{ name: 'Refunds', link: '/contact' }}
                         item_4={{ name: 'Deliveries', link: '/contact' }}
                     />
                     <FooterItem
                         title={'Information'}
                         item_1={{ name: 'Social Network', link: '/contact' }}
-                        item_2={{ name: 'Categoty Product', link: '/about-us' }}
+                        item_2={{ name: 'Categoty Product', link: '/about' }}
                         item_3={{ name: 'Store Location', link: '/contact' }}
                         item_4={{ name: 'Orders & Returns ', link: '/contact' }}
                     />

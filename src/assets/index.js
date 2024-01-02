@@ -5,17 +5,16 @@ const images = {
     category_2: require('@/assets/images/category_2.jpg'),
     category_3: require('@/assets/images/category_3.jpg'),
     logo: require('@/assets/images/logo.png'),
-    
     visa: require('@/assets/images/visa.png'),
     paypal: require('@/assets/images/money.png'),
     mastercard: require('@/assets/images/card.png'),
-    
-    
-    nutritional: require('@/assets/images/nutritional.webp'),
+    about: require('@/assets/images/about_intro.jpg'),
     avatar: require('@/assets/images/Avatar.jpg'),
     avatar_default: require('@/assets/images/avatar-default.png'),
     footer: require('@/assets/images/footer.jpg'),
     header: require('@/assets/images/header.jpg'),
+    about_outstanding_1: require('@/assets/images/about_outstanding_1.jpg'),
+    about_outstanding_2: require('@/assets/images/about_outstanding_2.jpg'),
 };
 
 export default images;
