@@ -21,10 +21,10 @@ const ParallaxBanner = ({ banners }) => {
                         </div>
                         <div className={cx('parallax-banner__outner')}>
                             <div className={cx('parallax-banner__wrapper')}>
-                                <div className={cx('parallax-banner__title')}>Healthy Herbs</div>
+                                <div className={cx('parallax-banner__title')}>Fresh Foods</div>
                                 <div className={cx('parallax-banner__detail')}>
                                     <span>{item.title}</span>
-                                    <span>On all Spicy & Herbs</span>
+                                    <span>On All Premium Product</span>
                                 </div>
                                 <div className={cx('parallax-banner__text')}><p>{item.description}</p></div>
                                 <div className={cx('parallax-banner__btn')}>

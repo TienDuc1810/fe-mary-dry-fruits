@@ -48,7 +48,7 @@ function SliderItem({ banners }) {
                                 <div className={cx('slider-text')}>{item.description}</div>
                                 <div className={cx('slider-discount')}>
                                     USE COUPON:
-                                    <span className={cx('slider-coupon')}>SPI18</span>
+                                    <span className={cx('slider-coupon')}>SPI1{index + 1}</span>
                                 </div>
                             </div>
                         </div>
