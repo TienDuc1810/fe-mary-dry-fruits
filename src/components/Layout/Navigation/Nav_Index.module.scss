@@ -85,16 +85,7 @@
                     color: var(--second-color);
                     border-color: var(--second-color);
                 }
-                .nav-item-search {
-                    color: var(--white-color);
-                    position: relative;
-                    border-radius: 15px;
-                    background-color: transparent;
-                    border: 2px solid var(--white-color);
-                    padding: 7px;
-                    position: relative;
-                    width: 200px;
-                }
+
                 .nav-item-outner-icon {
                     position: absolute;
                     top: -3px;
@@ -127,9 +118,9 @@
                 }
             }
 
-            .nav-item-name{
+            .nav-item-name {
                 color: var(--white-color);
-                &:hover{
+                &:hover {
                     color: var(--second-color);
                 }
             }
@@ -141,15 +132,14 @@
     }
 }
 
-//Tippy Cart 
+//Tippy Cart
 .add-cart {
     width: 700px;
     height: 100%;
-    
 }
 
 //Tippy Menu User
-.menu-user{
+.menu-user {
     width: 170px;
     height: 100%;
     background-color: var(--white-color);
@@ -157,7 +147,7 @@
 }
 
 //Tippy Menu Page
-.menu-page{
+.menu-page {
     width: 130px;
     height: 100%;
     background-color: var(--white-color);

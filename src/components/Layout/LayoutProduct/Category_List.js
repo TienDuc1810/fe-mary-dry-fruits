@@ -10,6 +10,7 @@ const cx = classNames.bind(styles);
 const CategoryList = ({ getIdCategory }) => {
     const [category, setCategory] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [active, setActive] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,11 +31,15 @@ const CategoryList = ({ getIdCategory }) => {
     }, []);
 
     const handleIdCategory = (msd) => {
+        if (msd == active) {
+            return;
+        }
         setLoading(true);
         getIdCategory(msd);
-        setTimeout(()=>{
+        setActive(msd);
+        setTimeout(() => {
             setLoading(false);
-        }, 100)
+        }, 100);
     };
 
     return (
@@ -47,7 +52,10 @@ const CategoryList = ({ getIdCategory }) => {
                         <h5 className={cx('category-heading')}>Category</h5>
                     </div>
                     <div className={cx('category-filter')}>
-                        <div className={cx('filter-link')} onClick={() => handleIdCategory(0)}>
+                        <div
+                            className={active == 0 ? cx('filter-link', 'active') : cx('filter-link')}
+                            onClick={() => handleIdCategory(0)}
+                        >
                             All
                         </div>
                         {loading === true ? (
@@ -57,7 +65,9 @@ const CategoryList = ({ getIdCategory }) => {
                                 {category.map((item, index) => {
                                     return (
                                         <div
-                                            className={cx('filter-link')}
+                                            className={
+                                                active == item.id ? cx('filter-link', 'active') : cx('filter-link')
+                                            }
                                             key={index}
                                             onClick={() => handleIdCategory(item.id)}
                                         >

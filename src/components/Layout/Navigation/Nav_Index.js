@@ -18,7 +18,7 @@ const cx = classNames.bind(styles);
 
 function NavBarIndex() {
     const [show, setShow] = useState(false);
-    const { cartQuantity, remove, showPoper, dataName,setDataName } = useShoppingContext();
+    const { cartQuantity, remove, showPoper, dataName, setDataName } = useShoppingContext();
     const [laptop, setLaptop] = useState(false);
     const [search, setSearch] = useState('');
 
@@ -128,12 +128,19 @@ function NavBarIndex() {
                     <ul className={cx('nav-list-right')}>
                         <li className={cx('nav-item-right')}>
                             <Link to="/#" className={cx('nav-item-link')}>
-                                <input type="text" className={cx('nav-item-search')} onChange={(e)=>setSearch(e.target.value)} value={search} placeholder="Search" />
+                                <input
+                                    type="text"
+                                    className={cx('nav-item-search')}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                    value={search}
+                                    placeholder="Search"
+                                />
                                 <div className={cx('nav-item-outner-icon')}>
                                     <Search className={cx('nav-item-icon')} />
                                 </div>
                             </Link>
                         </li>
+
                         <Tippy
                             appendTo={() => document.body}
                             interactive={true}

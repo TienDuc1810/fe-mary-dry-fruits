@@ -3,6 +3,7 @@ import axios from 'axios';
 //Base URL
 const instance = axios.create({
     baseURL: 'https://maru-dry-fruits-adminpage.up.railway.app',
+    // baseURL: 'http://localhost:8000',
 });
 
 //Setup add JWT on header request
