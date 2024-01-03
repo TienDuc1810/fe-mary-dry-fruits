@@ -26,7 +26,9 @@ const ParallaxBanner = ({ banners }) => {
                                     <span>{item.title}</span>
                                     <span>On all Spicy & Herbs</span>
                                 </div>
-                                <div className={cx('parallax-banner__text')}><p>{item.description}</p></div>
+                                <div className={cx('parallax-banner__text')}>
+                                    <p>{item.description}</p>
+                                </div>
                                 <div className={cx('parallax-banner__btn')}>
                                     <Button text={'View more'} link={'/product'} primary />
                                     <Button text={'Shop now'} link={'/product'} normal />
@@ -45,7 +47,7 @@ const NormalBanner = ({ banners }) => {
         <div>
             {banners.map((item, index) => {
                 const urlNormalBanner = {
-                    backgroundImage: `url(${item.image})`, 
+                    backgroundImage: `url(${item.image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 };

@@ -4,8 +4,7 @@ import SliderItem from './Slider_Item';
 
 const cx = classNames.bind(styles);
 
-const SlideIndex = ({banners}) => {
-    
+const SlideIndex = ({ banners }) => {
     return (
         <div className={cx('slider-container')}>
             <SliderItem banners={banners} />
