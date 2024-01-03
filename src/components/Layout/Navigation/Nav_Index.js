@@ -126,7 +126,7 @@ function NavBarIndex() {
                         )}
                     </ul>
                     <ul className={cx('nav-list-right')}>
-                        <li className={cx('nav-item-right')}>
+                        {/* <li className={cx('nav-item-right')}>
                             <Link to="/#" className={cx('nav-item-link')}>
                                 <input
                                     type="text"
@@ -139,7 +139,7 @@ function NavBarIndex() {
                                     <Search className={cx('nav-item-icon')} />
                                 </div>
                             </Link>
-                        </li>
+                        </li> */}
 
                         <Tippy
                             appendTo={() => document.body}
